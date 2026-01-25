@@ -22,3 +22,23 @@
 ## VPL Book Clubs
 - **What:** Various library-run book clubs
 - **Find it:** [vpl.bibliocommons.com](https://vpl.bibliocommons.com/v2/events)
+
+## Read Whatever You Want Book Club
+- **What:** Read any book you want, discuss at meetups
+- **Vibe:** No assigned reading, come as you are
+- **Find it:** [meetup.com/read-whatever-you-want-book-club](https://meetup.com/read-whatever-you-want-book-club)
+
+## Vancouver Women Who Read
+- **What:** Book club for women with curated selections
+- **Vibe:** Supportive community, monthly meetups
+- **Find it:** Meetup (search "Vancouver Women Who Read")
+
+## The Little Things Book and Movie Club
+- **What:** Books and their film adaptations
+- **Vibe:** Discussion of both mediums
+- **Find it:** Meetup
+
+## Vancouver Unconventional Books
+- **What:** Off-the-beaten-path book selections
+- **Vibe:** For readers who want something different
+- **Find it:** Meetup

@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -190,6 +190,22 @@ a:visited { color: #551a8b; }
 <h2 id="nature-vancouver">Nature Vancouver<a href="#nature-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Natural history club with various sections (birding, botany, etc.)</li>
 <li><strong>Find it:</strong> <a href="https://naturevancouver.ca/">naturevancouver.ca</a></li>
+<h2 id="deerholme-farm-forages">Deerholme Farm Forages<a href="#deerholme-farm-forages" class="anchor">#</a></h2>
+<li><strong>What:</strong> Wild food forages for mushrooms and plants</li>
+<li><strong>Vibe:</strong> Educational, hands-on, Vancouver Island day trips</li>
+<li><strong>Find it:</strong> <a href="https://www.deerholme.com/foraging/">deerholme.com/foraging</a></li>
+<h2 id="forest-for-dinner">Forest For Dinner<a href="#forest-for-dinner" class="anchor">#</a></h2>
+<li><strong>What:</strong> Spring and fall foraging tours on Vancouver Island</li>
+<li><strong>Vibe:</strong> Wild spring greens, mushroom hunting</li>
+<li><strong>Find it:</strong> <a href="https://forestfordinner.ca/foraging-tours/">forestfordinner.ca</a></li>
+<h2 id="breakaway-experiences-foraging-tour">Breakaway Experiences Foraging Tour<a href="#breakaway-experiences-foraging-tour" class="anchor">#</a></h2>
+<li><strong>What:</strong> 2-hour guided wild edibles identification tour</li>
+<li><strong>Vibe:</strong> Vancouver's rainforest, plants and mushrooms</li>
+<li><strong>Find it:</strong> <a href="https://breakawayexperiences.com/wild-plant-and-mushroom-foraging-rainforest-tour">breakawayexperiences.com</a></li>
+<h2 id="bc-mushrooms">BC Mushrooms<a href="#bc-mushrooms" class="anchor">#</a></h2>
+<li><strong>What:</strong> Mushroom identification, events, community</li>
+<li><strong>Vibe:</strong> Connect with local mycology enthusiasts</li>
+<li><strong>Find it:</strong> Facebook groups for BC mushroom hunting</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -197,13 +213,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -196,6 +196,22 @@ a:visited { color: #551a8b; }
 <h2 id="laughs-in-queer-comedy-social-and-open-mic">Laughs in Queer - Comedy Social and Open Mic<a href="#laughs-in-queer-comedy-social-and-open-mic" class="anchor">#</a></h2>
 <li><strong>What:</strong> LGBTQ+ comedy</li>
 <li><strong>Find it:</strong> Eventbrite</li>
+<h2 id="blind-tiger-comedy-long-form-studio">Blind Tiger Comedy Long Form Studio<a href="#blind-tiger-comedy-long-form-studio" class="anchor">#</a></h2>
+<li><strong>What:</strong> Long-form improv training program</li>
+<li><strong>Vibe:</strong> Advanced improv, scene work</li>
+<li><strong>Find it:</strong> <a href="https://blindtigercomedy.ca/classes">blindtigercomedy.ca/classes</a></li>
+<h2 id="vancouver-theatresports-league">Vancouver TheatreSports League<a href="#vancouver-theatresports-league" class="anchor">#</a></h2>
+<li><strong>What:</strong> World-famous improv format, founded here</li>
+<li><strong>Where:</strong> Granville Island</li>
+<li><strong>Find it:</strong> <a href="https://theimprovcentre.ca/">theimprovcentre.ca</a></li>
+<h2 id="comedy-drop-in-shows">Comedy Drop-In Shows<a href="#comedy-drop-in-shows" class="anchor">#</a></h2>
+<li><strong>What:</strong> Various comedy nights around the city</li>
+<li><strong>Vibe:</strong> Open mic to polished sets</li>
+<li><strong>Find it:</strong> Check Little Mountain Gallery, ANZA Club</li>
+<h2 id="rick-bronson-s-house-of-comedy">Rick Bronson's House of Comedy<a href="#rick-bronson-s-house-of-comedy" class="anchor">#</a></h2>
+<li><strong>What:</strong> Professional comedy club with touring acts</li>
+<li><strong>Where:</strong> New Westminster</li>
+<li><strong>Find it:</strong> <a href="https://houseofcomedy.ca/">houseofcomedy.ca</a></li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -203,13 +219,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

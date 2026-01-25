@@ -22,3 +22,23 @@
 ## BC Bird Trail
 - **What:** Trail and resources for birding across BC
 - **Find it:** [bcbirdtrail.ca](https://bcbirdtrail.ca/)
+
+## Delta Naturalists Casual Birders (DNCB)
+- **What:** Weekly bird walks, mostly weekday mornings
+- **Vibe:** Friendly, welcoming to newcomers
+- **Find it:** [dncb.wordpress.com](https://dncb.wordpress.com/)
+
+## BC Young Birders Program
+- **What:** Promotes birding among youth, founded 2014
+- **Vibe:** Educational, conservation-focused, healthy lifestyles
+- **Find it:** [naturevancouver.ca/birding](https://naturevancouver.ca/birding/)
+
+## Vancouver Birding Group (Facebook)
+- **What:** Active online community for local birders
+- **Vibe:** Share sightings, ask questions, connect with birders
+- **Find it:** [Facebook Group](https://www.facebook.com/groups/1566767990204738/)
+
+## Birding BC Website
+- **What:** Hub for BC birding info, rare bird alerts, forums
+- **Vibe:** Resource for all skill levels
+- **Find it:** [birding.bc.ca](https://birding.bc.ca/)

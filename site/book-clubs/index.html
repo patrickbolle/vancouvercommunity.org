@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -197,6 +197,22 @@ a:visited { color: #551a8b; }
 <h2 id="vpl-book-clubs">VPL Book Clubs<a href="#vpl-book-clubs" class="anchor">#</a></h2>
 <li><strong>What:</strong> Various library-run book clubs</li>
 <li><strong>Find it:</strong> <a href="https://vpl.bibliocommons.com/v2/events">vpl.bibliocommons.com</a></li>
+<h2 id="read-whatever-you-want-book-club">Read Whatever You Want Book Club<a href="#read-whatever-you-want-book-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Read any book you want, discuss at meetups</li>
+<li><strong>Vibe:</strong> No assigned reading, come as you are</li>
+<li><strong>Find it:</strong> <a href="https://meetup.com/read-whatever-you-want-book-club">meetup.com/read-whatever-you-want-book-club</a></li>
+<h2 id="vancouver-women-who-read">Vancouver Women Who Read<a href="#vancouver-women-who-read" class="anchor">#</a></h2>
+<li><strong>What:</strong> Book club for women with curated selections</li>
+<li><strong>Vibe:</strong> Supportive community, monthly meetups</li>
+<li><strong>Find it:</strong> Meetup (search "Vancouver Women Who Read")</li>
+<h2 id="the-little-things-book-and-movie-club">The Little Things Book and Movie Club<a href="#the-little-things-book-and-movie-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Books and their film adaptations</li>
+<li><strong>Vibe:</strong> Discussion of both mediums</li>
+<li><strong>Find it:</strong> Meetup</li>
+<h2 id="vancouver-unconventional-books">Vancouver Unconventional Books<a href="#vancouver-unconventional-books" class="anchor">#</a></h2>
+<li><strong>What:</strong> Off-the-beaten-path book selections</li>
+<li><strong>Vibe:</strong> For readers who want something different</li>
+<li><strong>Find it:</strong> Meetup</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -204,13 +220,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -207,6 +207,22 @@ a:visited { color: #551a8b; }
 <h2 id="north-van-hiking">North Van Hiking<a href="#north-van-hiking" class="anchor">#</a></h2>
 <li><strong>What:</strong> Transit-accessible hikes</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/north-van-hiking">meetup.com/north-van-hiking</a></li>
+<h2 id="the-vanhikers">The VanHikers<a href="#the-vanhikers" class="anchor">#</a></h2>
+<li><strong>What:</strong> Active hiking community with varied difficulty levels</li>
+<li><strong>Vibe:</strong> Responsible hiking, detailed trip info</li>
+<li><strong>Find it:</strong> <a href="https://meetup.com/VanHiking">meetup.com/VanHiking</a></li>
+<h2 id="the-hiking-club-for-beginners">The Hiking Club (for Beginners)<a href="#the-hiking-club-for-beginners" class="anchor">#</a></h2>
+<li><strong>What:</strong> Designed specifically for beginner hikers</li>
+<li><strong>Vibe:</strong> Low-pressure, supportive, easy trails</li>
+<li><strong>Find it:</strong> Meetup (search "Hiking Club Beginners Vancouver")</li>
+<h2 id="golden-age-hiking-club">Golden Age Hiking Club<a href="#golden-age-hiking-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Hiking for active seniors</li>
+<li><strong>Vibe:</strong> Social, moderate pace, scenic routes</li>
+<li><strong>Find it:</strong> <a href="https://www.outdoorvancouver.ca/resources/outdoor-clubs/">outdoorvancouver.ca</a></li>
+<h2 id="sfu-outdoors-club">SFU Outdoors Club<a href="#sfu-outdoors-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Student-run outdoor adventures</li>
+<li><strong>Vibe:</strong> Open to community, affordable trips</li>
+<li><strong>Find it:</strong> SFU clubs website</li>
 <hr>
 <h2 id="directory">📋 Directory<a href="#directory" class="anchor">#</a></h2>
 <li><a href="https://www.outdoorvancouver.ca/resources/outdoor-clubs/">outdoorvancouver.ca/resources/outdoor-clubs</a> — comprehensive list</li>
@@ -217,13 +233,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

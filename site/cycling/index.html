@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -206,6 +206,22 @@ a:visited { color: #551a8b; }
 <h2 id="gravel-buddies">Gravel Buddies<a href="#gravel-buddies" class="anchor">#</a></h2>
 <li><strong>What:</strong> Gravel riding social group</li>
 <li><strong>Find it:</strong> Search</li>
+<h2 id="gastown-cycling-club">Gastown Cycling Club<a href="#gastown-cycling-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Race team and long-distance group rides (75-120km)</li>
+<li><strong>Vibe:</strong> March to October, varied locations</li>
+<li><strong>Find it:</strong> Instagram / search</li>
+<h2 id="coffeeoutside-yvr">CoffeeOutside YVR<a href="#coffeeoutside-yvr" class="anchor">#</a></h2>
+<li><strong>What:</strong> Inclusive Friday morning bike group</li>
+<li><strong>Vibe:</strong> Community-focused, bring your coffee</li>
+<li><strong>Find it:</strong> Instagram @coffeeoutsideyvr</li>
+<h2 id="kits-social-run-club-also-cycling">Kits Social Run Club (also cycling)<a href="#kits-social-run-club-also-cycling" class="anchor">#</a></h2>
+<li><strong>What:</strong> Social rides in Kitsilano, started 2024</li>
+<li><strong>Vibe:</strong> Up-and-coming, friendly community</li>
+<li><strong>Find it:</strong> Instagram</li>
+<h2 id="runvan-club">RUNVAN Club<a href="#runvan-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Running and cycling community crews</li>
+<li><strong>Vibe:</strong> Inclusive, social media connected</li>
+<li><strong>Find it:</strong> <a href="https://runvan.org/crews/">runvan.org/crews</a></li>
 <hr>
 <h2 id="directory">📋 Directory<a href="#directory" class="anchor">#</a></h2>
 <li><a href="https://bikehub.ca/resources/local-cycling-groups">bikehub.ca/resources/local-cycling-groups</a></li>
@@ -216,13 +232,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

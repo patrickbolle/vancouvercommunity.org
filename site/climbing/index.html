@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -204,6 +204,22 @@ a:visited { color: #551a8b; }
 <h2 id="ubc-aviary">UBC Aviary<a href="#ubc-aviary" class="anchor">#</a></h2>
 <li><strong>What:</strong> UBC climbing club</li>
 <li><strong>Find it:</strong> <a href="https://ubc-aviary.com/">ubc-aviary.com</a></li>
+<h2 id="alpine-club-of-canada-vancouver-section">Alpine Club of Canada - Vancouver Section<a href="#alpine-club-of-canada-vancouver-section" class="anchor">#</a></h2>
+<li><strong>What:</strong> 1500+ members, mountaineering, rock climbing, backcountry skiing</li>
+<li><strong>Vibe:</strong> Experienced community, trips and courses</li>
+<li><strong>Find it:</strong> <a href="https://accvancouver.ca/">accvancouver.ca</a></li>
+<h2 id="vancouver-rock-climbing-group-facebook">Vancouver Rock Climbing Group (Facebook)<a href="#vancouver-rock-climbing-group-facebook" class="anchor">#</a></h2>
+<li><strong>What:</strong> Connect with local climbers, find partners</li>
+<li><strong>Vibe:</strong> Active community for indoor and outdoor climbing</li>
+<li><strong>Find it:</strong> <a href="https://www.facebook.com/groups/vrcg.ca/">Facebook Group</a></li>
+<h2 id="project-climbing">Project Climbing<a href="#project-climbing" class="anchor">#</a></h2>
+<li><strong>What:</strong> Bouldering gym with community focus</li>
+<li><strong>Where:</strong> North Vancouver</li>
+<li><strong>Find it:</strong> <a href="https://www.projectclimbing.ca/">projectclimbing.ca</a></li>
+<h2 id="sfu-climbing-wall">SFU Climbing Wall<a href="#sfu-climbing-wall" class="anchor">#</a></h2>
+<li><strong>What:</strong> University climbing wall open to public</li>
+<li><strong>Vibe:</strong> Affordable, beginner-friendly</li>
+<li><strong>Find it:</strong> SFU Recreation</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -211,13 +227,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

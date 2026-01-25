@@ -19,3 +19,23 @@
 - **What:** Shared workspace, private offices, event space
 - **Where:** 1965 West 4th Ave (Kits!)
 - **Find it:** [suite-genius.com/kitsilano](https://suite-genius.com/kitsilano)
+
+## WeWork Vancouver
+- **What:** Flexible workspace, multiple locations
+- **Vibe:** Professional, networking events
+- **Find it:** [wework.com/l/coworking-space/vancouver](https://www.wework.com/l/coworking-space/vancouver)
+
+## Vancubers
+- **What:** Coworking space with meeting rooms and virtual office
+- **Vibe:** Equipped for creativity and collaboration
+- **Find it:** [vancubers.com](https://www.vancubers.com/)
+
+## Coworking Vancouver (Design & Construction)
+- **What:** Workspace near breweries and creative businesses
+- **Where:** East Vancouver
+- **Find it:** [coworkingvancouver.ca](https://coworkingvancouver.ca/)
+
+## Spacekraft
+- **What:** Creative coworking space
+- **Vibe:** Design-focused, community events
+- **Find it:** Search "Spacekraft Vancouver"

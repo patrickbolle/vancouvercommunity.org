@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -199,6 +199,22 @@ a:visited { color: #551a8b; }
 <li><strong>What:</strong> French wine bar inspired dinners</li>
 <li><strong>Vibe:</strong> "Between strangers and soon-to-be friends"</li>
 <li><strong>Find it:</strong> Eventbrite</li>
+<h2 id="50-dinner-club">$50 Dinner Club<a href="#50-dinner-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Home-cooked dinners with strangers</li>
+<li><strong>Vibe:</strong> Host provides space/cooking, you pay $50</li>
+<li><strong>Find it:</strong> Search "$50 Dinner Club Vancouver"</li>
+<h2 id="well-fed-by-mix-mingle">Well Fed by Mix & Mingle<a href="#well-fed-by-mix-mingle" class="anchor">#</a></h2>
+<li><strong>What:</strong> Curated social dinners at secret restaurants</li>
+<li><strong>Vibe:</strong> 6 like-minded strangers, carefully matched</li>
+<li><strong>Find it:</strong> <a href="https://www.mixandmingle.ca/events/well-fed-social-dinner">mixandmingle.ca</a></li>
+<h2 id="pass-the-peas">Pass the Peas<a href="#pass-the-peas" class="anchor">#</a></h2>
+<li><strong>What:</strong> Food-focused social club by husband-wife duo</li>
+<li><strong>Vibe:</strong> Community dinners, food-centric gatherings</li>
+<li><strong>Find it:</strong> Instagram / search</li>
+<h2 id="secret-suppers-vancouver">Secret Suppers Vancouver<a href="#secret-suppers-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Hidden dining experiences in private homes</li>
+<li><strong>Vibe:</strong> Communal table, 10+ seats, top-secret chef</li>
+<li><strong>Find it:</strong> Various — check BC Living's list</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -206,13 +222,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

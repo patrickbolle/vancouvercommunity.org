@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -183,7 +183,7 @@ a:visited { color: #551a8b; }
 <li><strong>What:</strong> Seasonal community market, 50+ vendors</li>
 <li><strong>Vibe:</strong> Vintage clothing, collectibles, plants, handmade</li>
 <li><strong>Where:</strong> 1739 Venables St</li>
-<li><strong>Find it:</strong> <a href="http://www.eastsideflea.com/">eastsideflea.com</a></li>
+<li><strong>Find it:</strong> <a href="https://www.facebook.com/eastsideflea/">Facebook/eastsideflea</a> or <a href="https://instagram.com/eastsideflea">@eastsideflea</a></li>
 <h2 id="the-granville-flea">The Granville Flea<a href="#the-granville-flea" class="anchor">#</a></h2>
 <li><strong>What:</strong> Pop-up vintage expo</li>
 <li><strong>Where:</strong> Various locations (Beaumont Studios, etc.)</li>
@@ -191,6 +191,23 @@ a:visited { color: #551a8b; }
 <h2 id="vancouver-flea-market">Vancouver Flea Market<a href="#vancouver-flea-market" class="anchor">#</a></h2>
 <li><strong>What:</strong> Running since 1983</li>
 <li><strong>Find it:</strong> <a href="https://www.facebook.com/vancouverfleamarket/">Facebook</a></li>
+<h2 id="chinatown-flea-market">Chinatown Flea Market<a href="#chinatown-flea-market" class="anchor">#</a></h2>
+<li><strong>What:</strong> Eclectic finds in historic Chinatown</li>
+<li><strong>Vibe:</strong> Unique treasures, cultural atmosphere</li>
+<li><strong>Find it:</strong> Chinatown area</li>
+<h2 id="value-vintage-marketplace">Value Vintage Marketplace<a href="#value-vintage-marketplace" class="anchor">#</a></h2>
+<li><strong>What:</strong> Curated vintage clothing and collectibles</li>
+<li><strong>Vibe:</strong> Quality picks from multiple vendors</li>
+<li><strong>Find it:</strong> Yelp reviews</li>
+<h2 id="mintage-vintage">Mintage Vintage<a href="#mintage-vintage" class="anchor">#</a></h2>
+<li><strong>What:</strong> Vintage mall with multiple vendors</li>
+<li><strong>Vibe:</strong> Retro fashion, collectibles, furniture</li>
+<li><strong>Where:</strong> Main Street</li>
+<li><strong>Find it:</strong> <a href="https://mintage.ca/">mintage.ca</a></li>
+<h2 id="fall-for-local-markets">Fall for Local Markets<a href="#fall-for-local-markets" class="anchor">#</a></h2>
+<li><strong>What:</strong> Seasonal pop-up markets featuring local makers</li>
+<li><strong>Vibe:</strong> Handmade, artisan, local focus</li>
+<li><strong>Find it:</strong> Various locations, check socials</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -198,13 +215,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

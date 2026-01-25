@@ -233,7 +233,7 @@ generate_sidebar() {
   echo '  <div class="sidebar-footer">'
   echo "    <a href=\"${base_path}submit/\">+ Submit a group</a><br>"
   echo "    <a href=\"#\" onclick=\"goRandom()\">🎲 Random</a><br>"
-  echo '    <span class="counter"></span><br>'
+  echo '    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>'
   echo "    Updated ${BUILD_DATE_HUMAN}<br>"
   echo '    Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>'
   echo '  </div>'
@@ -344,13 +344,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>'
 
@@ -396,6 +391,8 @@ $(generate_sidebar "" "/")
     <p>Vancouver can feel like a hard city to make friends and find community.</p>
     <p>This directory collects social groups, clubs, meetups, and events in one place.</p>
     <p style="margin-top: 15px; color: #666;">← Pick a category to explore</p>
+    <hr style="margin: 25px 0;">
+    <p style="font-size: 0.9em; color: #666;">Created by <a href="https://bolle.co">Patrick Bolle</a> for the Vancouver community.</p>
   </div>
 </main>
 ${SCRIPTS}

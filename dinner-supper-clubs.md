@@ -24,3 +24,23 @@
 - **What:** French wine bar inspired dinners
 - **Vibe:** "Between strangers and soon-to-be friends"
 - **Find it:** Eventbrite
+
+## $50 Dinner Club
+- **What:** Home-cooked dinners with strangers
+- **Vibe:** Host provides space/cooking, you pay $50
+- **Find it:** Search "$50 Dinner Club Vancouver"
+
+## Well Fed by Mix & Mingle
+- **What:** Curated social dinners at secret restaurants
+- **Vibe:** 6 like-minded strangers, carefully matched
+- **Find it:** [mixandmingle.ca](https://www.mixandmingle.ca/events/well-fed-social-dinner)
+
+## Pass the Peas
+- **What:** Food-focused social club by husband-wife duo
+- **Vibe:** Community dinners, food-centric gatherings
+- **Find it:** Instagram / search
+
+## Secret Suppers Vancouver
+- **What:** Hidden dining experiences in private homes
+- **Vibe:** Communal table, 10+ seats, top-secret chef
+- **Find it:** Various — check BC Living's list

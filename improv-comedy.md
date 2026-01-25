@@ -21,3 +21,23 @@
 ## Laughs in Queer - Comedy Social and Open Mic
 - **What:** LGBTQ+ comedy
 - **Find it:** Eventbrite
+
+## Blind Tiger Comedy Long Form Studio
+- **What:** Long-form improv training program
+- **Vibe:** Advanced improv, scene work
+- **Find it:** [blindtigercomedy.ca/classes](https://blindtigercomedy.ca/classes)
+
+## Vancouver TheatreSports League
+- **What:** World-famous improv format, founded here
+- **Where:** Granville Island
+- **Find it:** [theimprovcentre.ca](https://theimprovcentre.ca/)
+
+## Comedy Drop-In Shows
+- **What:** Various comedy nights around the city
+- **Vibe:** Open mic to polished sets
+- **Find it:** Check Little Mountain Gallery, ANZA Club
+
+## Rick Bronson's House of Comedy
+- **What:** Professional comedy club with touring acts
+- **Where:** New Westminster
+- **Find it:** [houseofcomedy.ca](https://houseofcomedy.ca/)

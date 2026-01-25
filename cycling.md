@@ -35,6 +35,26 @@
 - **What:** Gravel riding social group
 - **Find it:** Search
 
+## Gastown Cycling Club
+- **What:** Race team and long-distance group rides (75-120km)
+- **Vibe:** March to October, varied locations
+- **Find it:** Instagram / search
+
+## CoffeeOutside YVR
+- **What:** Inclusive Friday morning bike group
+- **Vibe:** Community-focused, bring your coffee
+- **Find it:** Instagram @coffeeoutsideyvr
+
+## Kits Social Run Club (also cycling)
+- **What:** Social rides in Kitsilano, started 2024
+- **Vibe:** Up-and-coming, friendly community
+- **Find it:** Instagram
+
+## RUNVAN Club
+- **What:** Running and cycling community crews
+- **Vibe:** Inclusive, social media connected
+- **Find it:** [runvan.org/crews](https://runvan.org/crews/)
+
 ---
 
 ## 📋 Directory

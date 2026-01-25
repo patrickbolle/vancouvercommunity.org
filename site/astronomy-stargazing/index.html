@@ -172,7 +172,7 @@ a:visited { color: #551a8b; }
   <div class="sidebar-footer">
     <a href="/submit/">+ Submit a group</a><br>
     <a href="#" onclick="goRandom()">🎲 Random</a><br>
-    <span class="counter"></span><br>
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23666666&title_bg=%23555555&icon=&title=visits&edge_flat=true" alt="visitor count" style="height: 16px; vertical-align: middle;"><br>
     Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
@@ -193,6 +193,22 @@ a:visited { color: #551a8b; }
 <h2 id="whistler-astronomy-club">Whistler Astronomy Club<a href="#whistler-astronomy-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Dark sky stargazing near Whistler</li>
 <li><strong>Find it:</strong> Facebook group</li>
+<h2 id="nahatlatch-valley-star-party">Nahatlatch Valley Star Party<a href="#nahatlatch-valley-star-party" class="anchor">#</a></h2>
+<li><strong>What:</strong> Annual multi-day stargazing event organized by RASC Vancouver</li>
+<li><strong>Vibe:</strong> Dark sky site, camping, community astronomy</li>
+<li><strong>Find it:</strong> <a href="https://rasc-vancouver.com/">rasc-vancouver.com</a></li>
+<h2 id="sfu-trottier-observatory">SFU Trottier Observatory<a href="#sfu-trottier-observatory" class="anchor">#</a></h2>
+<li><strong>What:</strong> Public observing nights with high-powered telescopes</li>
+<li><strong>Vibe:</strong> Educational, open to the public on clear nights</li>
+<li><strong>Find it:</strong> <a href="https://www.sfu.ca/science/trottier-observatory.html">sfu.ca/science/trottier-observatory</a></li>
+<h2 id="h-r-macmillan-space-centre">H.R. MacMillan Space Centre<a href="#h-r-macmillan-space-centre" class="anchor">#</a></h2>
+<li><strong>What:</strong> Planetarium shows and special astronomy events</li>
+<li><strong>Vibe:</strong> Family-friendly, educational programs</li>
+<li><strong>Find it:</strong> <a href="https://www.spacecentre.ca/">spacecentre.ca</a></li>
+<h2 id="gordon-southam-observatory">Gordon Southam Observatory<a href="#gordon-southam-observatory" class="anchor">#</a></h2>
+<li><strong>What:</strong> Free public observing at Vanier Park (weather permitting)</li>
+<li><strong>Vibe:</strong> Casual drop-in stargazing, run by RASC volunteers</li>
+<li><strong>Find it:</strong> Vanier Park, check RASC schedule</li>
 </main>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
@@ -200,13 +216,8 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
-// Visitor counter
-fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
-  .then(r => r.json())
-  .then(d => {
-    const el = document.querySelector(".counter");
-    if (el) el.textContent = d.value.toLocaleString() + " visitors";
-  })
+// Visitor counter (using hits.seeyoufarm.com badge API)
+fetch("https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fvancouver-communities.pages.dev&count_bg=%23555555&title_bg=%23555555&title=visitors&edge_flat=true", {mode: "no-cors"})
   .catch(() => {});
 </script>
 </body>

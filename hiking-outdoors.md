@@ -36,6 +36,26 @@
 - **What:** Transit-accessible hikes
 - **Find it:** [meetup.com/north-van-hiking](https://meetup.com/north-van-hiking)
 
+## The VanHikers
+- **What:** Active hiking community with varied difficulty levels
+- **Vibe:** Responsible hiking, detailed trip info
+- **Find it:** [meetup.com/VanHiking](https://meetup.com/VanHiking)
+
+## The Hiking Club (for Beginners)
+- **What:** Designed specifically for beginner hikers
+- **Vibe:** Low-pressure, supportive, easy trails
+- **Find it:** Meetup (search "Hiking Club Beginners Vancouver")
+
+## Golden Age Hiking Club
+- **What:** Hiking for active seniors
+- **Vibe:** Social, moderate pace, scenic routes
+- **Find it:** [outdoorvancouver.ca](https://www.outdoorvancouver.ca/resources/outdoor-clubs/)
+
+## SFU Outdoors Club
+- **What:** Student-run outdoor adventures
+- **Vibe:** Open to community, affordable trips
+- **Find it:** SFU clubs website
+
 ---
 
 ## 📋 Directory

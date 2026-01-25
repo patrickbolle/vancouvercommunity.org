@@ -47,3 +47,23 @@
 ## Vancouver Creatives
 - **What:** Discussion group for creative projects
 - **Find it:** [meetup.com/meaningfuldiscussions-vancouver](https://meetup.com/meaningfuldiscussions-vancouver)
+
+## Urban Sketchers Vancouver
+- **What:** Outdoor sketching meetups around the city
+- **Vibe:** "We show the world, one drawing at a time"
+- **Find it:** [meetup.com/Vancouver-Urban-Sketchers](https://meetup.com/Vancouver-Urban-Sketchers)
+
+## Cozy Art Meetup
+- **What:** Relaxed sketching/drawing in cafes downtown
+- **Vibe:** No pressure, chitchat, make friends
+- **Find it:** Eventbrite (search "Cozy Art Meetup Vancouver")
+
+## Vancouver Outsider Arts Festival
+- **What:** Festival for artists facing social exclusion
+- **Vibe:** 40+ visual artists, performances, workshops
+- **Find it:** Organized by CACV
+
+## The Sketchup (East Van Brewing)
+- **What:** Bi-weekly drink & draw
+- **When:** Every other Monday, 5pm
+- **Find it:** East Van Brewing Co.

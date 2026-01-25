@@ -31,3 +31,23 @@
 ## UBC Aviary
 - **What:** UBC climbing club
 - **Find it:** [ubc-aviary.com](https://ubc-aviary.com/)
+
+## Alpine Club of Canada - Vancouver Section
+- **What:** 1500+ members, mountaineering, rock climbing, backcountry skiing
+- **Vibe:** Experienced community, trips and courses
+- **Find it:** [accvancouver.ca](https://accvancouver.ca/)
+
+## Vancouver Rock Climbing Group (Facebook)
+- **What:** Connect with local climbers, find partners
+- **Vibe:** Active community for indoor and outdoor climbing
+- **Find it:** [Facebook Group](https://www.facebook.com/groups/vrcg.ca/)
+
+## Project Climbing
+- **What:** Bouldering gym with community focus
+- **Where:** North Vancouver
+- **Find it:** [projectclimbing.ca](https://www.projectclimbing.ca/)
+
+## SFU Climbing Wall
+- **What:** University climbing wall open to public
+- **Vibe:** Affordable, beginner-friendly
+- **Find it:** SFU Recreation
