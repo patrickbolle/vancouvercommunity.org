@@ -15,15 +15,6 @@
 - **Where:** Robson Street
 - **Find it:** Just show up
 
-## BC Chess Federation Clubs
-- **What:** Directory of formal chess clubs
-- **Find it:** [chess.bc.ca/clubs](https://www.chess.bc.ca/clubs.php)
-
-## Vancouver Chess School
-- **What:** Chess classes, tournaments, community programs
-- **Vibe:** Educational, youth and adult programs
-- **Find it:** [vanchess.ca](https://www.vanchess.ca/)
-
 ## Langley Chess Club
 - **What:** CFC rated games most Monday nights, blitz tournaments
 - **Vibe:** Mix of competitive and casual play
@@ -38,3 +29,16 @@
 - **What:** Weekly chess meetups on the North Shore
 - **Vibe:** Welcoming to all skill levels
 - **Find it:** [chess.bc.ca/clubs](https://www.chess.bc.ca/clubs.php)
+
+---
+
+## Venues & Resources
+
+### BC Chess Federation Clubs
+- **What:** Directory of formal chess clubs
+- **Find it:** [chess.bc.ca/clubs](https://www.chess.bc.ca/clubs.php)
+
+### Vancouver Chess School
+- **What:** Chess classes, tournaments, community programs
+- **Vibe:** Educational, youth and adult programs
+- **Find it:** [vanchess.ca](https://www.vanchess.ca/)

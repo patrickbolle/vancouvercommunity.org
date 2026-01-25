@@ -41,7 +41,11 @@
 - **Vibe:** Low-pressure, social
 - **Find it:** Meetup
 
-## My Language Exchange Vancouver
+---
+
+## Venues & Resources
+
+### My Language Exchange Vancouver
 - **What:** Online platform to find language partners
 - **Vibe:** One-on-one conversation meetups
 - **Find it:** [mylanguageexchange.com/city/Vancouver](https://www.mylanguageexchange.com/city/Vancouver__Canada.asp)

@@ -19,10 +19,6 @@
 - **Events:** Workshops, walks, talks, exhibitions (free!)
 - **Find it:** [destinationvancouver.com](https://www.destinationvancouver.com/inspirations/bird-watching)
 
-## BC Bird Trail
-- **What:** Trail and resources for birding across BC
-- **Find it:** [bcbirdtrail.ca](https://bcbirdtrail.ca/)
-
 ## Delta Naturalists Casual Birders (DNCB)
 - **What:** Weekly bird walks, mostly weekday mornings
 - **Vibe:** Friendly, welcoming to newcomers
@@ -38,7 +34,15 @@
 - **Vibe:** Share sightings, ask questions, connect with birders
 - **Find it:** [Facebook Group](https://www.facebook.com/groups/1566767990204738/)
 
-## Birding BC Website
+---
+
+## Venues & Resources
+
+### BC Bird Trail
+- **What:** Trail and resources for birding across BC
+- **Find it:** [bcbirdtrail.ca](https://bcbirdtrail.ca/)
+
+### Birding BC Website
 - **What:** Hub for BC birding info, rare bird alerts, forums
 - **Vibe:** Resource for all skill levels
 - **Find it:** [birding.bc.ca](https://birding.bc.ca/)

@@ -57,5 +57,8 @@
 
 ---
 
-## 📋 Directory
-- [bikehub.ca/resources/local-cycling-groups](https://bikehub.ca/resources/local-cycling-groups)
+## Venues & Resources
+
+### bikehub.ca Directory
+- **What:** List of local cycling groups across Metro Vancouver
+- **Find it:** [bikehub.ca/resources/local-cycling-groups](https://bikehub.ca/resources/local-cycling-groups)

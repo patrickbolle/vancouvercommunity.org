@@ -18,18 +18,22 @@
 - **Vibe:** Meditation and spiritual development classes
 - **Find it:** [meetup.com/SpiRitual-Artistry](https://www.meetup.com/SpiRitual-Artistry/)
 
-## Aperture Coffee Bar Tarot Meetups
-- **What:** Regular tarot practice sessions
-- **Where:** 4124 Main St
-- **Vibe:** Cozy café setting, learn and practice
-- **Find it:** Vancouver Tarot Readers' Meetup
-
-## Banyen Books & Sound
-- **What:** Spiritual bookstore with workshops and events
-- **Vibe:** Hub for Vancouver's spiritual community
-- **Find it:** [banyen.com](https://www.banyen.com/)
-
 ## Moon Circles Vancouver
 - **What:** Full moon and new moon gatherings
 - **Vibe:** Women's circles, intention setting
 - **Find it:** Various facilitators — search Instagram/Eventbrite
+
+---
+
+## Venues & Resources
+
+### Banyen Books & Sound
+- **What:** Spiritual bookstore with workshops and events
+- **Vibe:** Hub for Vancouver's spiritual community
+- **Find it:** [banyen.com](https://www.banyen.com/)
+
+### Aperture Coffee Bar Tarot Meetups
+- **What:** Regular venue for tarot practice sessions
+- **Where:** 4124 Main St
+- **Vibe:** Cozy café setting, learn and practice
+- **Find it:** Vancouver Tarot Readers' Meetup

@@ -45,7 +45,11 @@
 - **Vibe:** Stellar networking, partners with other tech groups
 - **Find it:** [boast.ai](https://boast.ai/)
 
-## Launch Academy
+---
+
+## Venues & Resources
+
+### Launch Academy
 - **What:** Startup accelerator with events and resources
 - **Vibe:** Educational, supportive of early-stage founders
 - **Find it:** [launchacademy.ca](https://www.launchacademy.ca/)

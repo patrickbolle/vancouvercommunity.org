@@ -44,3 +44,9 @@
 - **What:** Hidden dining experiences in private homes
 - **Vibe:** Communal table, 10+ seats, top-secret chef
 - **Find it:** Various — check BC Living's list
+
+---
+
+## Venues & Resources
+
+*This category is all community groups! Supper clubs are by definition social dining communities that bring strangers together around food.*

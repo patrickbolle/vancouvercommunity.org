@@ -17,10 +17,6 @@
 - **What:** 2-hour photography sessions based on themes/techniques
 - **Find it:** [vancouverphotography.group](https://vancouverphotography.group/)
 
-## Gallery George
-- **What:** Gallery that hosts photography events
-- **Find it:** Search "Gallery George Vancouver"
-
 ## Street16
 - **What:** Street photography workshops and photo walks
 - **Find it:** Instagram / search
@@ -35,12 +31,16 @@
 - **Vibe:** Capture the city's stories
 - **Find it:** Meetup
 
-## Gallery George Photography Events
-- **What:** Gallery hosting photography meetups and exhibitions
+---
+
+## Venues & Resources
+
+### Gallery George
+- **What:** Gallery that hosts photography events and exhibitions
 - **Vibe:** Community hub for street photographers
 - **Find it:** Search "Gallery George Vancouver"
 
-## Capture Photography Festival
+### Capture Photography Festival
 - **What:** Annual photography festival with exhibitions and events
 - **Vibe:** International photographers, local venues
 - **Find it:** [capturephotofest.com](https://www.capturephotofest.com/)

@@ -42,3 +42,9 @@
 - **What:** Off-the-beaten-path book selections
 - **Vibe:** For readers who want something different
 - **Find it:** Meetup
+
+---
+
+## Venues & Resources
+
+*This category is all community groups! Book clubs by nature are communities that meet to discuss books together.*

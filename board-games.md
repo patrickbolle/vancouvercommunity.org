@@ -17,32 +17,36 @@
 - **What:** Mafia-style games and more
 - **Find it:** Meetup
 
-## Hideout Cafe
+---
+
+## Venues & Spaces
+
+### Hideout Cafe
 - **What:** Biweekly board game meetups
 - **Note:** Spend $10 on food/drink
 - **Find it:** New West area
 
-## Mench Café
+### Mench Café
 - **What:** Board gaming & cyber café
 - **Where:** North Vancouver
 - **Find it:** [menchcafe.com](https://menchcafe.com/)
 
-## Pizzeria Ludica
+### Pizzeria Ludica
 - **What:** Board game café with no play fee
 - **Vibe:** Order food/drinks, play from huge game library
 - **Find it:** [pizzerialudica.com](https://pizzerialudica.com/)
 
-## The Raving Gamer
+### The Raving Gamer
 - **What:** Curated game selection with strategic and family titles
 - **Vibe:** Cozy spot for game nights with friends
 - **Find it:** Search "The Raving Gamer Vancouver"
 
-## Storm Crow Alehouse
+### Storm Crow Alehouse
 - **What:** Geek-themed pub with board games available
 - **Vibe:** Nerdy atmosphere, good food and beer
 - **Find it:** [stormcrowalehouse.com](https://www.stormcrowalehouse.com/)
 
-## Boardwalk Cafe and Games (Abbotsford)
+### Boardwalk Cafe and Games (Abbotsford)
 - **What:** 600+ tabletop games, worth the drive
 - **Vibe:** Massive selection, friendly staff
 - **Find it:** Abbotsford, ~1 hour from Vancouver

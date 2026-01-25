@@ -39,11 +39,6 @@
 - **Hosted by:** Community Arts Council of Vancouver
 - **Find it:** [cacv.ca/nac](https://cacv.ca/nac)
 
-## The Arts Factory Society
-- **What:** Multidisciplinary arts facility — workshops, studio spaces, offices
-- **Where:** 281 Industrial Avenue
-- **Find it:** [artsfactorysociety.ca](https://artsfactorysociety.ca)
-
 ## Vancouver Creatives
 - **What:** Discussion group for creative projects
 - **Find it:** [meetup.com/meaningfuldiscussions-vancouver](https://meetup.com/meaningfuldiscussions-vancouver)
@@ -63,7 +58,11 @@
 - **Vibe:** 40+ visual artists, performances, workshops
 - **Find it:** Organized by CACV
 
-## The Sketchup (East Van Brewing)
-- **What:** Bi-weekly drink & draw
-- **When:** Every other Monday, 5pm
-- **Find it:** East Van Brewing Co.
+---
+
+## Venues & Spaces
+
+### The Arts Factory Society
+- **What:** Multidisciplinary arts facility — workshops, studio spaces, offices
+- **Where:** 281 Industrial Avenue
+- **Find it:** [artsfactorysociety.ca](https://artsfactorysociety.ca)

@@ -19,8 +19,9 @@
 - **Find it:** Meetup
 
 ## Vancouver Discussions Meetup
-- **What:** General intellectual discussions
-- **Find it:** Meetup
+- **What:** General intellectual discussions on varied topics
+- **Vibe:** Open-minded, curious participants
+- **Find it:** [meetup.com](https://www.meetup.com/find/ca--vancouver/philosophy/)
 
 ## The Apeiron Society for the Practice of Philosophy
 - **What:** Philosophy practice
@@ -32,11 +33,6 @@
 - **Vibe:** Unique intersection of pop culture and deep thinking
 - **Find it:** Meetup
 
-## Vancouver Discussions Meetup
-- **What:** General intellectual discussions on varied topics
-- **Vibe:** Open-minded, curious participants
-- **Find it:** [meetup.com](https://www.meetup.com/find/ca--vancouver/philosophy/)
-
 ## SFU Philosophy Café
 - **What:** Public philosophy discussions
 - **Vibe:** Academic but accessible
@@ -46,3 +42,9 @@
 - **What:** Open philosophical inquiry for everyone
 - **Vibe:** Socratic method, no expertise required
 - **Find it:** Check local listings
+
+---
+
+## Venues & Resources
+
+*This category is all community groups! Philosophy clubs by nature are communities that gather to discuss ideas together.*

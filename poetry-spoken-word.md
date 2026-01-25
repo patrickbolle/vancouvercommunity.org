@@ -9,12 +9,8 @@
 - **Vibe:** "Rooted in tenderness, community, and shared language"
 - **Find it:** Culture Days / Eventbrite
 
-## Enabling Arts Poetry Open Mic
-- **What:** Poetry night in supportive environment
-- **Where:** 343 Railway St (#104), Gastown
-- **Find it:** [readlocalbc.ca](https://www.readlocalbc.ca/)
-
 ## Vancouver Poetry Slam
+- **What:** Competitive spoken word community
 - **Find it:** [@vancouverpoetryslam](https://instagram.com/vancouverpoetryslam)
 
 ## Death Rides a Unicorn
@@ -32,12 +28,21 @@
 - **Vibe:** Schools and communities across BC
 - **Find it:** Vancouver Poetry House
 
-## Rio Theatre Poetry Events
-- **What:** Occasional poetry and spoken word nights
-- **Vibe:** Unique venue, community atmosphere
-- **Find it:** [riotheatre.ca](https://riotheatre.ca/)
-
 ## Carnegie Centre Poetry
 - **What:** Downtown Eastside community poetry events
 - **Vibe:** Inclusive, community-focused
 - **Find it:** Carnegie Centre
+
+---
+
+## Venues & Spaces
+
+### Enabling Arts Poetry Open Mic
+- **What:** Poetry night in supportive environment
+- **Where:** 343 Railway St (#104), Gastown
+- **Find it:** [readlocalbc.ca](https://www.readlocalbc.ca/)
+
+### Rio Theatre Poetry Events
+- **What:** Occasional poetry and spoken word nights
+- **Vibe:** Unique venue, community atmosphere
+- **Find it:** [riotheatre.ca](https://riotheatre.ca/)

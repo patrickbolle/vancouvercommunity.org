@@ -40,12 +40,16 @@
 - **Vibe:** 45-minute writing blocks with chat breaks
 - **Find it:** Meetup
 
-## Federation of BC Writers
+---
+
+## Venues & Resources
+
+### Federation of BC Writers
 - **What:** Directory of writing groups across BC
 - **Vibe:** Resource hub for all writers
 - **Find it:** [bcwriters.ca](https://bcwriters.ca/)
 
-## VPL Writing Resources
+### VPL Writing Resources
 - **What:** Library resources for writers including group listings
 - **Vibe:** Free, accessible, comprehensive
 - **Find it:** [vpl.ca/guide/resources-writers](https://www.vpl.ca/guide/resources-writers/writing-community)

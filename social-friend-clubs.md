@@ -64,3 +64,9 @@
 - **What:** Food-focused social meetups
 - **Vibe:** Explore Vancouver's food scene together
 - **Find it:** Meetup
+
+---
+
+## Venues & Resources
+
+*This category is all community groups! Social clubs by definition are communities focused on bringing people together.*

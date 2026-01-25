@@ -58,5 +58,8 @@
 
 ---
 
-## 📋 Directory
-- [outdoorvancouver.ca/resources/outdoor-clubs](https://www.outdoorvancouver.ca/resources/outdoor-clubs/) — comprehensive list
+## Venues & Resources
+
+### outdoorvancouver.ca Directory
+- **What:** Comprehensive list of outdoor clubs in the region
+- **Find it:** [outdoorvancouver.ca/resources/outdoor-clubs](https://www.outdoorvancouver.ca/resources/outdoor-clubs/)

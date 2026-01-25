@@ -14,19 +14,10 @@
 - **What:** Supportive men's talking circles
 - **Find it:** [bc.canada.mkp.org/find-a-mens-group](https://bc.canada.mkp.org/find-a-mens-group/)
 
-## Mender
-- **What:** Men's groups directory
-- **Find it:** [mender.ca/groups](https://mender.ca/groups/)
-
 ## Pathways Men's Talking Circle
 - **What:** Participant-led community for men's health and wellness
 - **Vibe:** Brotherhood, support circles
 - **Find it:** [vancouver.pathwaysbc.ca](https://vancouver.pathwaysbc.ca/programs/3391)
-
-## Vancouver Men's Therapy Group
-- **What:** Professional facilitated group therapy
-- **Vibe:** Mental health focused, structured sessions
-- **Find it:** Various therapists offer these
 
 ## Dads in Parks
 - **What:** Meetups for fathers with young kids
@@ -37,3 +28,16 @@
 - **What:** Fitness, mindfulness, social events for men
 - **Vibe:** Holistic wellness approach
 - **Find it:** Meetup
+
+---
+
+## Venues & Resources
+
+### Mender
+- **What:** Men's groups directory
+- **Find it:** [mender.ca/groups](https://mender.ca/groups/)
+
+### Vancouver Men's Therapy Group
+- **What:** Professional facilitated group therapy
+- **Vibe:** Mental health focused, structured sessions
+- **Find it:** Various therapists offer these
