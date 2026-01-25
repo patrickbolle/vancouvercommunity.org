@@ -18,12 +18,12 @@
 ## NEOS Run Club
 - **What:** Saturday morning runs
 - **Vibe:** "More than just a run club — a community"
-- **Find it:** Meetup / Instagram
+- **Find it:** [runclubs.ca/vancouver](https://runclubs.ca/vancouver) (search for NEOS)
 
 ## Vancouver Frontrunners
 - **What:** Inclusive running/walking group
 - **Vibe:** No-drop policy, LGBTQ+ friendly
-- **Find it:** Search "Vancouver Frontrunners"
+- **Find it:** [vancouverfrontrunners.org](https://vancouverfrontrunners.org/)
 
 ## Wanderung
 - **What:** Mailing list for outdoor adventures
@@ -43,17 +43,17 @@
 ## A Very Good Run Club
 - **What:** Smaller, intimate run club with solid community
 - **Vibe:** Regular runs, friendly atmosphere
-- **Find it:** Instagram
+- **Find it:** [Instagram](https://instagram.com/averygoodrunclub)
 
 ## Kits Social Run Club
 - **What:** Social runs based in Kitsilano, started summer 2024
 - **Vibe:** Up-and-coming, community-focused
-- **Find it:** Instagram
+- **Find it:** [Instagram](https://instagram.com/kitssocialrunclub)
 
 ## M2M Running (Miles to Marathon)
 - **What:** Wednesday runs at 6:30pm, two locations
 - **Where:** Point Grey and Empire Track (PNE/Burnaby)
-- **Find it:** Instagram / running forums
+- **Find it:** [mile2marathon.com](https://mile2marathon.com/) | [Instagram](https://instagram.com/mile2marathon)
 
 ## November Project Vancouver
 - **What:** Free outdoor fitness community, includes running

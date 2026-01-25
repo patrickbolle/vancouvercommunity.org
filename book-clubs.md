@@ -29,19 +29,19 @@
 - **Find it:** [meetup.com/read-whatever-you-want-book-club](https://meetup.com/read-whatever-you-want-book-club)
 
 ## Vancouver Women Who Read
-- **What:** Book club for women with curated selections
+- **What:** Anti-book club where members read their own thought-provoking choices
 - **Vibe:** Supportive community, monthly meetups
-- **Find it:** Meetup (search "Vancouver Women Who Read")
+- **Find it:** [meetup.com/vancouver-women-who-read](https://meetup.com/vancouver-women-who-read)
 
 ## The Little Things Book and Movie Club
 - **What:** Books and their film adaptations
-- **Vibe:** Discussion of both mediums
-- **Find it:** Meetup
+- **Vibe:** Appreciating special moments in books/movies
+- **Find it:** [meetup.com/the-little-things-book-and-movie-club](https://meetup.com/the-little-things-book-and-movie-club)
 
 ## Vancouver Unconventional Books
 - **What:** Off-the-beaten-path book selections
-- **Vibe:** For readers who want something different
-- **Find it:** Meetup
+- **Vibe:** Literary, iconoclastic reads
+- **Find it:** [meetup.com/vanunconventionalbooks](https://meetup.com/vanunconventionalbooks)
 
 ---
 

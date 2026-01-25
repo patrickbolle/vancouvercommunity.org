@@ -37,8 +37,8 @@
 
 ## TiE Vancouver
 - **What:** Chapter of global entrepreneur network from Silicon Valley
-- **Vibe:** Angels, VCs, private equity, service providers
-- **Find it:** Search "TiE Vancouver"
+- **Vibe:** Angels, VCs, private equity, service providers, mentorship
+- **Find it:** [vancouver.tie.org](https://vancouver.tie.org/)
 
 ## Boast Capital Events
 - **What:** Brew & Bites networking events

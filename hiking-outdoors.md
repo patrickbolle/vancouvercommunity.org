@@ -3,7 +3,7 @@
 ## Vancouver Hiking Meetup Group
 - **What:** Hikes, camping, canoe, rock climbing, socials
 - **Size:** 5,000+ members
-- **Find it:** Meetup
+- **Find it:** [meetup.com/hiking-176](https://meetup.com/hiking-176)
 
 ## Vancouver Hiking and Outdoor Day Trips
 - **What:** Hiking, snowshoeing, white-water rafting, sight-seeing
@@ -25,12 +25,14 @@
 - **Find it:** [oavancouver.org](https://oavancouver.org/)
 
 ## BC Mountaineering Club
-- **What:** Serious outdoor activities
-- **Find it:** Search
+- **What:** Serious outdoor activities since 1907
+- **Vibe:** Experienced community, challenging hikes and climbs
+- **Find it:** [bcmc.ca](https://bcmc.ca/)
 
 ## Alpine Club of Canada - Vancouver
-- **What:** Climbing, mountaineering
-- **Find it:** Search
+- **What:** Climbing, mountaineering, 1500+ members
+- **Vibe:** Trips, courses, hut access
+- **Find it:** [accvancouver.ca](https://accvancouver.ca/)
 
 ## North Van Hiking
 - **What:** Transit-accessible hikes
@@ -44,7 +46,7 @@
 ## The Hiking Club (for Beginners)
 - **What:** Designed specifically for beginner hikers
 - **Vibe:** Low-pressure, supportive, easy trails
-- **Find it:** Meetup (search "Hiking Club Beginners Vancouver")
+- **Find it:** [meetup.com/find/ca--vancouver/hiking](https://meetup.com/find/ca--vancouver/hiking/) (search for beginner-focused groups)
 
 ## Golden Age Hiking Club
 - **What:** Hiking for active seniors
@@ -54,7 +56,7 @@
 ## SFU Outdoors Club
 - **What:** Student-run outdoor adventures
 - **Vibe:** Open to community, affordable trips
-- **Find it:** SFU clubs website
+- **Find it:** [go.sfss.ca/clubs/38/info](https://go.sfss.ca/clubs/38/info)
 
 ---
 

@@ -23,12 +23,12 @@
 ## A Moveable Feast Supper Club
 - **What:** French wine bar inspired dinners
 - **Vibe:** "Between strangers and soon-to-be friends"
-- **Find it:** Eventbrite
+- **Find it:** Search Eventbrite for "Moveable Feast Vancouver"
 
 ## $50 Dinner Club
 - **What:** Home-cooked dinners with strangers
-- **Vibe:** Host provides space/cooking, you pay $50
-- **Find it:** Search "$50 Dinner Club Vancouver"
+- **Vibe:** Host provides space/cooking, you pay $50, sells out fast
+- **Find it:** Search on Instagram for hosts posting dinners
 
 ## Well Fed by Mix & Mingle
 - **What:** Curated social dinners at secret restaurants
@@ -38,7 +38,7 @@
 ## Pass the Peas
 - **What:** Food-focused social club by husband-wife duo
 - **Vibe:** Community dinners, food-centric gatherings
-- **Find it:** Instagram / search
+- **Find it:** [passthepeas.co](https://passthepeas.co/) | [Instagram](https://instagram.com/pass_thepeas)
 
 ## Secret Suppers Vancouver
 - **What:** Hidden dining experiences in private homes

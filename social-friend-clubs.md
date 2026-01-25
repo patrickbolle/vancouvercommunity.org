@@ -11,7 +11,7 @@
 - **Vibe:** "Wine as the medium, community as the message"
 - **Size:** ~35 people per event
 - **Where:** Mount Pleasant, Kits venues
-- **Find it:** Instagram (search Maude Sips)
+- **Find it:** [maudesips.com](https://maudesips.com/) | [Instagram](https://instagram.com/maude.sips)
 
 ## Vancouver Social Club
 - **What:** General social events for expanding your circle
@@ -25,15 +25,17 @@
 
 ## Weird & Wonderful: A Neurodiverse Social Club
 - **What:** Social events for neurodivergent folks
-- **Find it:** Meetup
+- **Vibe:** Positive, friendly space for magical and interesting people
+- **Find it:** [meetup.com/aspies-and-other-neurodivergents](https://meetup.com/aspies-and-other-neurodivergents)
 
 ## Black Women Connect Vancouver
 - **What:** Community events for Black women
-- **Find it:** Instagram/Eventbrite
+- **Vibe:** Inspire, empower, embrace diverse experiences
+- **Find it:** [blackwomenconnectvancouver.com](https://blackwomenconnectvancouver.com/) | [Instagram](https://instagram.com/blackwomenconnectvancouver)
 
 ## The Witching Hour
 - **What:** Baby-friendly happy hour for parents
-- **Find it:** Instagram
+- **Find it:** Search Instagram for "Witching Hour Vancouver parents"
 
 ## Shindigs & Board Games with Friendly Folks
 - **What:** Games and socializing
@@ -47,23 +49,23 @@
 
 ## Make Friends Over Brunch Vancouver
 - **What:** Brunch meetups to make new friends
-- **Vibe:** Low-pressure, delicious food
-- **Find it:** Meetup
+- **Vibe:** Low-pressure, delicious food, small groups of 4-6 people
+- **Find it:** [groupvibe.com](https://groupvibe.com/) (tickets) or search Meetup
 
 ## Meatless Meetup
 - **What:** Social events for vegetarians/vegans
-- **Vibe:** Plant-based dining and socializing
-- **Find it:** Meetup
+- **Vibe:** Plant-based dining and socializing, 5400+ members
+- **Find it:** [meetup.com/MeatlessMeetup](https://meetup.com/MeatlessMeetup)
 
 ## Kits Beach Evening Social
-- **What:** Casual beach hangouts
-- **Vibe:** Summer vibes, sunset views
-- **Find it:** Meetup
+- **What:** Casual beach/downtown hangouts
+- **Vibe:** Summer vibes, making new social connections
+- **Find it:** [meetup.com/kits-beach-social-group](https://meetup.com/kits-beach-social-group)
 
 ## Foodees on Board
 - **What:** Food-focused social meetups
 - **Vibe:** Explore Vancouver's food scene together
-- **Find it:** Meetup
+- **Find it:** [meetup.com/foodees-on-board](https://meetup.com/foodees-on-board)
 
 ---
 

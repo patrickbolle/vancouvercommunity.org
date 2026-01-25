@@ -38,7 +38,7 @@
 ## Power of the Pen Friday Writing Group
 - **What:** Online writing sessions 12:30-3:30pm
 - **Vibe:** 45-minute writing blocks with chat breaks
-- **Find it:** Meetup
+- **Note:** The Meetup version is Vancouver, WA — check local VPL resources for Vancouver, BC alternatives
 
 ---
 

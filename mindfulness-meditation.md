@@ -13,8 +13,8 @@
 ## Mountain Rain Zen Centre
 - **What:** Weekly silent sitting and walking meditation + Buddhist teaching
 - **When:** Every Wednesday
-- **Where:** East Vancouver
-- **Find it:** Search "Mountain Rain Zen"
+- **Where:** 2016 Wall St, Vancouver
+- **Find it:** [mountainrainzen.org](http://mountainrainzen.org/)
 
 ## Kadampa Meditation Centre Vancouver
 - **What:** Meditation community for all levels

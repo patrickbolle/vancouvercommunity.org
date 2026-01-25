@@ -11,7 +11,7 @@
 
 ## Vancouver Self Awareness Meetup Group
 - **What:** Astrology, self-development
-- **Find it:** Meetup
+- **Find it:** [meetup.com/find/ca--vancouver/astrology](https://meetup.com/find/ca--vancouver/astrology/) (search group listing)
 
 ## Spiritual Development, Meditation & Mysticism Events
 - **What:** Spirit rituals, unique spiritual expression, mystical paths

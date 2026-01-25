@@ -27,7 +27,7 @@
 ## Men's Wellness Vancouver (Meetup)
 - **What:** Fitness, mindfulness, social events for men
 - **Vibe:** Holistic wellness approach
-- **Find it:** Meetup
+- **Find it:** [meetup.com/find/ca--vancouver](https://meetup.com/find/ca--vancouver/) (search "men's wellness")
 
 ---
 

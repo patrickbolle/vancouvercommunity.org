@@ -16,7 +16,7 @@
 ## Death Rides a Unicorn
 - **What:** Literary and spoken word nonprofit
 - **Events:** Famous Last Words, Liars of Orpheus, The 17 Syllable Slam
-- **Find it:** Search
+- **Find it:** [deathridesaunicorn.com](https://deathridesaunicorn.com/)
 
 ## Verses Festival of Words
 - **What:** Canada's largest annual spoken word festival

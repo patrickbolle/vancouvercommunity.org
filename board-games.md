@@ -15,7 +15,7 @@
 
 ## Vancouver Social Deduction Gamers
 - **What:** Mafia-style games and more
-- **Find it:** Meetup
+- **Find it:** [meetup.com/vancouver-mafia-werewolf-group](https://meetup.com/vancouver-mafia-werewolf-group)
 
 ---
 
@@ -23,8 +23,9 @@
 
 ## Hideout Cafe
 - **What:** Biweekly board game meetups
+- **Where:** 716 Carnarvon Street, New Westminster
 - **Note:** Spend $10 on food/drink
-- **Find it:** New West area
+- **Find it:** [thehideoutcafe.com](https://thehideoutcafe.com/)
 
 ## Mench Café
 - **What:** Board gaming & cyber café
@@ -36,10 +37,10 @@
 - **Vibe:** Order food/drinks, play from huge game library
 - **Find it:** [pizzerialudica.com](https://pizzerialudica.com/)
 
-## The Raving Gamer
-- **What:** Curated game selection with strategic and family titles
-- **Vibe:** Cozy spot for game nights with friends
-- **Find it:** Search "The Raving Gamer Vancouver"
+## The Raving Gamer ⚠️ CLOSED
+- **What:** Was a curated game selection with strategic and family titles
+- **Status:** Unfortunately ceased operations (previously in Langley)
+- **Find it:** ~~[theravinggamer.ca](https://theravinggamer.ca/)~~ (no longer operating)
 
 ## Storm Crow Alehouse
 - **What:** Geek-themed pub with board games available
@@ -49,4 +50,5 @@
 ## Boardwalk Cafe and Games (Abbotsford)
 - **What:** 600+ tabletop games, worth the drive
 - **Vibe:** Massive selection, friendly staff
-- **Find it:** Abbotsford, ~1 hour from Vancouver
+- **Where:** Abbotsford, ~1 hour from Vancouver
+- **Find it:** [abbyboardwalk.com](https://abbyboardwalk.com/)

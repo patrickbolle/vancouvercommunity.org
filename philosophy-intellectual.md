@@ -11,12 +11,14 @@
 - **Find it:** [meetup.com/shyphilosophers](https://meetup.com/shyphilosophers)
 
 ## Practical Philosophy Club
-- **What:** Philosophy discussions
-- **Find it:** Meetup
+- **What:** Philosophy discussions, no expertise required
+- **When:** Weekly in-person meetups
+- **Find it:** [meetup.com/practical-philosophy](https://meetup.com/practical-philosophy) | [practicalphilosophy.club](https://practicalphilosophy.club/)
 
 ## Mind Matters: A Book Club for Big Ideas
-- **What:** Books about big ideas
-- **Find it:** Meetup
+- **What:** Books about big ideas (philosophy, sociology, science)
+- **Vibe:** Audiobooks available via VPL, welcoming to all
+- **Find it:** [meetup.com/mind-matters-a-book-club-for-big-ideas](https://meetup.com/mind-matters-a-book-club-for-big-ideas)
 
 ## Vancouver Discussions Meetup
 - **What:** General intellectual discussions on varied topics
@@ -31,17 +33,17 @@
 ## Anime Philosophy Meetup Vancouver
 - **What:** Explore philosophical themes through anime
 - **Vibe:** Unique intersection of pop culture and deep thinking
-- **Find it:** Meetup
+- **Find it:** [meetup.com/find/ca--vancouver/philosophy](https://meetup.com/find/ca--vancouver/philosophy/) (search for "Anime Philosophy")
 
 ## SFU Philosophy Café
 - **What:** Public philosophy discussions
 - **Vibe:** Academic but accessible
-- **Find it:** SFU events calendar
+- **Find it:** [sfu.ca/philosophy/events](https://www.sfu.ca/philosophy/events.html)
 
 ## Socrates Café Vancouver
 - **What:** Open philosophical inquiry for everyone
 - **Vibe:** Socratic method, no expertise required
-- **Find it:** Check local listings
+- **Find it:** Check [meetup.com/find/ca--vancouver/philosophy](https://meetup.com/find/ca--vancouver/philosophy/) for current listings
 
 ---
 

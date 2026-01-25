@@ -6,9 +6,9 @@
 - **Find it:** [meetup.com/vancouver-open-mic-meetup-group](https://meetup.com/vancouver-open-mic-meetup-group)
 
 ## Amajammer Vancouver
-- **What:** Amateur music jams
-- **Vibe:** Safe space for amateur musicians to improve
-- **Find it:** Meetup
+- **What:** Amateur music jams (face-to-face and online)
+- **Vibe:** Safe space for amateur musicians to improve, gain confidence
+- **Find it:** [meetup.com/amajammer-vancouver-canada](https://meetup.com/amajammer-vancouver-canada)
 
 ## VWAM (Vancouver Women's Ambient Music Collective)
 - **What:** 5-woman ambient electronic collective
@@ -24,8 +24,9 @@
 - **Find it:** [treescoffee.com/open-mic](https://treescoffee.com/open-mic/)
 
 ## Lam Jam Open Mic
-- **What:** Regular open mic nights
-- **Find it:** Eventbrite
+- **What:** Regular open mic nights at Pleasant Mountain Music
+- **Host:** Eddie Lam
+- **Find it:** [Eventbrite](https://eventbrite.com/o/eddie-lam-73855990373) (search "Lam Jam")
 
 ## Vancouver New Music
 - **What:** Experimental and new music events

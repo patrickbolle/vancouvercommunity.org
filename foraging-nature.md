@@ -20,8 +20,8 @@
 - **Find it:** [swallowtail.ca](https://swallowtail.ca/)
 
 ## A Taste of Nature
-- **What:** Daily eco-tours through Stanley Park
-- **Find it:** Search
+- **What:** Daily eco-tours through Stanley Park, "Forest to Table Cuisine"
+- **Find it:** [destinationvancouver.com/listings/a-taste-of-nature](https://www.destinationvancouver.com/listings/a-taste-of-nature/56116/)
 
 ## Deerholme Farm Forages
 - **What:** Wild food forages for mushrooms and plants

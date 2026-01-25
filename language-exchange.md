@@ -24,7 +24,7 @@
 
 ## Korean English Language Exchange
 - **What:** Korean/English practice
-- **Find it:** Meetup (search 밴쿠버 한영)
+- **Find it:** [meetup.com/enkor-엔콜](https://meetup.com/enkor-%EC%97%94%EC%BD%9C/) (Enkor)
 
 ## Vancouver French Language Meetup
 - **What:** Practice French in a social setting
@@ -34,12 +34,12 @@
 ## YATTA! Canada Japanese Exchange
 - **What:** Japanese language and cultural exchange
 - **Vibe:** Friendly, regular meetups
-- **Find it:** Meetup (search "YATTA Canada")
+- **Find it:** [meetup.com/yatta-canada](https://meetup.com/yatta-canada)
 
 ## An Effective Chit-chat Meeting
-- **What:** Casual conversation practice, multiple languages
-- **Vibe:** Low-pressure, social
-- **Find it:** Meetup
+- **What:** Casual conversation practice, English/Japanese focus
+- **Vibe:** Low-pressure, social, run by software engineer
+- **Find it:** [meetup.com/an-effective-language-practice-english-japanese](https://meetup.com/an-effective-language-practice-english-japanese)
 
 ---
 

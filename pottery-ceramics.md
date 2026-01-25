@@ -42,8 +42,9 @@
 
 ## Studio Fundamentals
 - **What:** Pottery classes and studio access
-- **Vibe:** Highly recommended by locals
-- **Find it:** Search "Studio Fundamentals Vancouver"
+- **Where:** East Vancouver
+- **Vibe:** Highly recommended by locals, beginner-friendly
+- **Find it:** [studiofundamentals.com](https://studiofundamentals.com/)
 
 ## Trout Lake Community Centre Pottery
 - **What:** Community centre pottery classes

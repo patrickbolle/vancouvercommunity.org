@@ -22,8 +22,9 @@
 
 ## UBC Chess Club
 - **What:** University club open to students and community
+- **When:** Mondays 5pm-8pm at LIFE2212
 - **Vibe:** Casual and competitive play
-- **Find it:** UBC clubs website
+- **Find it:** [ubcchessclub.com](https://ubcchessclub.com/)
 
 ## North Shore Chess Club
 - **What:** Weekly chess meetups on the North Shore

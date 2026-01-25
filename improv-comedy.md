@@ -2,8 +2,8 @@
 
 ## Laughs in Queer - Comedy Social and Open Mic
 - **What:** LGBTQ+ comedy community and open mic nights
-- **Vibe:** Supportive, inclusive comedy scene
-- **Find it:** Eventbrite
+- **Vibe:** Supportive, inclusive comedy scene, monthly at Slice of Life Gallery
+- **Find it:** [Eventbrite: Transgender Expressions Haven](https://eventbrite.com/o/transgender-expressions-haven-thehavenlgbt-50892095753) (search "Laughs in Queer")
 
 ---
 

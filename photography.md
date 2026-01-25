@@ -19,7 +19,8 @@
 
 ## Street16
 - **What:** Street photography workshops and photo walks
-- **Find it:** Instagram / search
+- **Vibe:** Night, abstract, film photography skills
+- **Find it:** [street16photography.com](https://street16photography.com/)
 
 ## Metro Vancouver Photography, Travel & Connections
 - **What:** Photography outings plus travel discussions
@@ -29,7 +30,7 @@
 ## Metro Vancouver Street Photography
 - **What:** Urban photography walks and exhibitions
 - **Vibe:** Capture the city's stories
-- **Find it:** Meetup
+- **Find it:** [meetup.com/metro-vancouver-street-photography](https://meetup.com/metro-vancouver-street-photography)
 
 ---
 
@@ -37,8 +38,9 @@
 
 ## Gallery George
 - **What:** Gallery that hosts photography events and exhibitions
-- **Vibe:** Community hub for street photographers
-- **Find it:** Search "Gallery George Vancouver"
+- **Where:** 140 West Hastings Street, Vancouver
+- **Vibe:** Community hub for street photographers and local artists
+- **Find it:** [thegallerygeorge.com](https://thegallerygeorge.com/) | [Instagram](https://instagram.com/thegallerygeorge)
 
 ## Capture Photography Festival
 - **What:** Annual photography festival with exhibitions and events

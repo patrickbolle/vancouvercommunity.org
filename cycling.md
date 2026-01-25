@@ -3,7 +3,7 @@
 ## Gradient Cycling Club
 - **What:** Social rides Wednesdays 6:30pm, Saturdays 8:30am
 - **Where:** Meet at Pure Bread (5 E. 5th Ave)
-- **Find it:** Instagram / search
+- **Find it:** [Instagram](https://instagram.com/gradient_cycle)
 
 ## Lotus Cycling Club
 - **What:** Road cycling, group rides, training, workshops
@@ -33,22 +33,23 @@
 
 ## Gravel Buddies
 - **What:** Gravel riding social group
-- **Find it:** Search
+- **Vibe:** Women, gender-diverse and 2SLGBTQIA+ focused
+- **Find it:** [gravelbuddies.ca](https://gravelbuddies.ca/)
 
 ## Gastown Cycling Club
 - **What:** Race team and long-distance group rides (75-120km)
 - **Vibe:** March to October, varied locations
-- **Find it:** Instagram / search
+- **Find it:** [gastowncycling.com](https://gastowncycling.com/) | [Instagram](https://instagram.com/gastowncycling)
 
 ## CoffeeOutside YVR
 - **What:** Inclusive Friday morning bike group
 - **Vibe:** Community-focused, bring your coffee
-- **Find it:** Instagram @coffeeoutsideyvr
+- **Find it:** [Instagram](https://instagram.com/coffeeoutsideyvr)
 
 ## Kits Social Run Club (also cycling)
 - **What:** Social rides in Kitsilano, started 2024
 - **Vibe:** Up-and-coming, friendly community
-- **Find it:** Instagram
+- **Find it:** [Instagram](https://instagram.com/kitssocialrunclub)
 
 ## RUNVAN Club
 - **What:** Running and cycling community crews

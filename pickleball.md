@@ -7,8 +7,8 @@
 
 ## North Shore Pickleball Club
 - **What:** Active pickleball community on the North Shore
-- **Vibe:** All skill levels, regular play sessions
-- **Find it:** Search "North Shore Pickleball Club"
+- **Vibe:** All skill levels, regular play sessions, non-profit society
+- **Find it:** [northshorepickleballclub.com](https://northshorepickleballclub.com/)
 
 ## Pickleball Leagues Vancouver
 - **What:** Organized league play through Vancouver Pickleball Association

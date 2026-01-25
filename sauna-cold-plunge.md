@@ -43,9 +43,9 @@
 - **Find it:** [gatherwell.ca](https://www.gatherwell.ca)
 
 ## Circle Wellness Wellpod
-- **What:** Mobile sauna and cold plunge experiences
-- **Vibe:** Pop-up wellness, unique locations
-- **Find it:** Search "Circle Wellness Vancouver"
+- **What:** Private thermal spa with cedar tub, WellPod sauna, cold plunge
+- **Vibe:** Self-guided, intimate experience
+- **Find it:** [circlewellnessspas.com](https://circlewellnessspas.com/)
 
 ## Scandinave Spa Whistler
 - **What:** Nordic-inspired spa with saunas and cold plunges
