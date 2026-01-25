@@ -217,7 +217,14 @@ generate_sidebar() {
   
   echo '<nav class="sidebar">'
   echo '  <div class="sidebar-header">'
-  echo "    <h1><a href=\"${base_path}\">📍 Vancouver Community</a></h1>"
+  echo "    <a href=\"${base_path}\" class=\"logo\">"
+  echo '      <span class="logo-icon">📍</span>'
+  echo '      <span class="logo-text">'
+  echo '        <strong>Vancouver</strong>'
+  echo '        <span>Community</span>'
+  echo '      </span>'
+  echo '    </a>'
+  echo '    <p class="tagline">Find your people</p>'
   echo '  </div>'
   echo '  <ul>'
   
@@ -275,8 +282,40 @@ a:visited { color: #551a8b; }
 .sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 
 .sidebar-header {
-  padding: 0 15px 12px;
+  padding: 15px 15px 12px;
   border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.logo:hover { text-decoration: none; }
+.logo-icon {
+  font-size: 1.8em;
+  line-height: 1;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-size: 1.1em;
+}
+.logo-text strong {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.logo-text span {
+  font-weight: 400;
+  color: #555;
+}
+.tagline {
+  margin-top: 6px;
+  font-size: 0.8em;
+  color: #888;
+  font-style: italic;
   margin-bottom: 8px;
 }
 .sidebar-header h1 { font-size: 1.1em; font-weight: normal; }

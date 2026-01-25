@@ -47,8 +47,40 @@ a:visited { color: #551a8b; }
 .sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
 
 .sidebar-header {
-  padding: 0 15px 12px;
+  padding: 15px 15px 12px;
   border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+.logo:hover { text-decoration: none; }
+.logo-icon {
+  font-size: 1.8em;
+  line-height: 1;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-size: 1.1em;
+}
+.logo-text strong {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.logo-text span {
+  font-weight: 400;
+  color: #555;
+}
+.tagline {
+  margin-top: 6px;
+  font-size: 0.8em;
+  color: #888;
+  font-style: italic;
   margin-bottom: 8px;
 }
 .sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
@@ -126,7 +158,14 @@ a:visited { color: #551a8b; }
 <body>
 <nav class="sidebar">
   <div class="sidebar-header">
-    <h1><a href="/">📍 Vancouver Community</a></h1>
+    <a href="/" class="logo">
+      <span class="logo-icon">📍</span>
+      <span class="logo-text">
+        <strong>Vancouver</strong>
+        <span>Community</span>
+      </span>
+    </a>
+    <p class="tagline">Find your people</p>
   </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
