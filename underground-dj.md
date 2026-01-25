@@ -1,4 +1,4 @@
-# 🎧 Underground / Pop-Up DJ Events
+# 🎧 Underground / Pop-Up DJ Events!
 
 ## Vancouver Renegade Underground DJs
 - **What:** Free pop-up events around town
