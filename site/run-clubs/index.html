@@ -7,7 +7,11 @@
   <meta name="description" content="Vancouver running clubs and social runs. Find free group runs and running communities for all levels.">
   <meta property="og:title" content="Run Clubs in Vancouver">
   <meta property="og:description" content="Vancouver running clubs and social runs. Find free group runs and running communities for all levels.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/run-clubs/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/run-clubs/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Run Clubs in Vancouver",
+    "description": "Vancouver running clubs and social runs. Find free group runs and running communities for all levels.",
+    "url": "https://vancouver-communities.pages.dev/run-clubs/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,46 +170,65 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>🏃 Run Clubs</h1>
-<h2>Social Run Club</h2>
+<h2 id="social-run-club">Social Run Club<a href="#social-run-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Social runs for beginner to intermediate runners</li>
 <li><strong>Vibe:</strong> Fun runs, not competitive</li>
 <li><strong>Find it:</strong> <a href="https://www.socialrunclub.com/">socialrunclub.com</a></li>
-<h2>Striderz Run Club</h2>
+<h2 id="striderz-run-club">Striderz Run Club<a href="#striderz-run-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Free social runs and walks, track nights, outdoor adventures</li>
 <li><strong>Vibe:</strong> Community-first, optional training programs</li>
 <li><strong>Find it:</strong> <a href="https://striderz.com/">striderz.com</a></li>
-<h2>Flight Crew (Vancouver Running Company)</h2>
+<h2 id="flight-crew-vancouver-running-company">Flight Crew (Vancouver Running Company)<a href="#flight-crew-vancouver-running-company" class="anchor">#</a></h2>
 <li><strong>What:</strong> Free group and community runs</li>
 <li><strong>Where:</strong> Kits</li>
 <li><strong>Find it:</strong> <a href="https://vanrunco.com/pages/flight-crew">vanrunco.com/pages/flight-crew</a></li>
-<h2>NEOS Run Club</h2>
+<h2 id="neos-run-club">NEOS Run Club<a href="#neos-run-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Saturday morning runs</li>
 <li><strong>Vibe:</strong> "More than just a run club — a community"</li>
 <li><strong>Find it:</strong> Meetup / Instagram</li>
-<h2>Vancouver Frontrunners</h2>
+<h2 id="vancouver-frontrunners">Vancouver Frontrunners<a href="#vancouver-frontrunners" class="anchor">#</a></h2>
 <li><strong>What:</strong> Inclusive running/walking group</li>
 <li><strong>Vibe:</strong> No-drop policy, LGBTQ+ friendly</li>
 <li><strong>Find it:</strong> Search "Vancouver Frontrunners"</li>
-<h2>Wanderung</h2>
+<h2 id="wanderung">Wanderung<a href="#wanderung" class="anchor">#</a></h2>
 <li><strong>What:</strong> Mailing list for outdoor adventures</li>
 <li><strong>Size:</strong> 3,600+ subscribers, 200+ adventures/year</li>
 <li><strong>Find it:</strong> <a href="https://wanderung.ca/">wanderung.ca</a></li>
-<h2>Common Ground Run Club</h2>
+<h2 id="common-ground-run-club">Common Ground Run Club<a href="#common-ground-run-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Weekly social runs</li>
 <li><strong>Find it:</strong> <a href="https://joincommonground.com/">joincommonground.com</a></li>
-<h2>Lululemon Run Club</h2>
+<h2 id="lululemon-run-club">Lululemon Run Club<a href="#lululemon-run-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Free weekly runs from Lululemon stores</li>
 <li><strong>Where:</strong> Various locations (Robson, Kits, etc.)</li>
 <li><strong>Vibe:</strong> All paces welcome, often includes post-run stretching</li>
 <li><strong>Find it:</strong> Check local Lululemon store schedules</li>
 <hr>
-<h2>📋 Directory</h2>
+<h2 id="directory">📋 Directory<a href="#directory" class="anchor">#</a></h2>
 <li><strong>runclubs.ca</strong> — 24+ Vancouver run clubs compiled in one site: <a href="https://runclubs.ca/vancouver">runclubs.ca/vancouver</a></li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

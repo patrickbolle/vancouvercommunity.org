@@ -7,7 +7,11 @@
   <meta name="description" content="Vancouver social clubs and friend-making groups. Connect through organized meetups and community events.">
   <meta property="og:title" content="Social & Friend Clubs in Vancouver">
   <meta property="og:description" content="Vancouver social clubs and friend-making groups. Connect through organized meetups and community events.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/social-friend-clubs/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/social-friend-clubs/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Social & Friend Clubs in Vancouver",
+    "description": "Vancouver social clubs and friend-making groups. Connect through organized meetups and community events.",
+    "url": "https://vancouver-communities.pages.dev/social-friend-clubs/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,43 +170,62 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>🤝 Social & Friend Clubs</h1>
-<h2>We Should Be Friends</h2>
+<h2 id="we-should-be-friends">We Should Be Friends<a href="#we-should-be-friends" class="anchor">#</a></h2>
 <li><strong>What:</strong> Park hangs, pottery nights, spin classes, neighbourhood book clubs</li>
 <li><strong>Vibe:</strong> Explicitly focused on *lasting* friendships, not one-night connections</li>
 <li><strong>Founded by:</strong> Katrina Martin (started with viral 300-person Kits Beach hangout)</li>
 <li><strong>Find it:</strong> <a href="https://instagram.com/weshouldbefriendsvancouver">@weshouldbefriendsvancouver</a></li>
-<h2>Maude Sips</h2>
+<h2 id="maude-sips">Maude Sips<a href="#maude-sips" class="anchor">#</a></h2>
 <li><strong>What:</strong> Wine + community events, mostly femme-focused</li>
 <li><strong>Vibe:</strong> "Wine as the medium, community as the message"</li>
 <li><strong>Size:</strong> ~35 people per event</li>
 <li><strong>Where:</strong> Mount Pleasant, Kits venues</li>
 <li><strong>Find it:</strong> Instagram (search Maude Sips)</li>
-<h2>Vancouver Social Club</h2>
+<h2 id="vancouver-social-club">Vancouver Social Club<a href="#vancouver-social-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> General social events for expanding your circle</li>
 <li><strong>Size:</strong> 4,600+ members</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-social-club">meetup.com/vancouver-social-club</a></li>
-<h2>Stellar Socials</h2>
+<h2 id="stellar-socials">Stellar Socials<a href="#stellar-socials" class="anchor">#</a></h2>
 <li><strong>What:</strong> Networking events, social activities</li>
 <li><strong>Vibe:</strong> Learning and exploring new interests together</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/stellar-socials-vancouver-meetup-group">meetup.com/stellar-socials-vancouver-meetup-group</a></li>
-<h2>Weird & Wonderful: A Neurodiverse Social Club</h2>
+<h2 id="weird-wonderful-a-neurodiverse-social-club">Weird & Wonderful: A Neurodiverse Social Club<a href="#weird-wonderful-a-neurodiverse-social-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> Social events for neurodivergent folks</li>
 <li><strong>Find it:</strong> Meetup</li>
-<h2>Black Women Connect Vancouver</h2>
+<h2 id="black-women-connect-vancouver">Black Women Connect Vancouver<a href="#black-women-connect-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Community events for Black women</li>
 <li><strong>Find it:</strong> Instagram/Eventbrite</li>
-<h2>The Witching Hour</h2>
+<h2 id="the-witching-hour">The Witching Hour<a href="#the-witching-hour" class="anchor">#</a></h2>
 <li><strong>What:</strong> Baby-friendly happy hour for parents</li>
 <li><strong>Find it:</strong> Instagram</li>
-<h2>Shindigs & Board Games with Friendly Folks</h2>
+<h2 id="shindigs-board-games-with-friendly-folks">Shindigs & Board Games with Friendly Folks<a href="#shindigs-board-games-with-friendly-folks" class="anchor">#</a></h2>
 <li><strong>What:</strong> Games and socializing</li>
 <li><strong>Vibe:</strong> "Safe, comfortable space... not a dating meetup"</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/game-of-boards-with-friendly-folks">meetup.com/game-of-boards-with-friendly-folks</a></li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

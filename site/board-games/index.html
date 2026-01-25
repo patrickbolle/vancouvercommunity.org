@@ -7,7 +7,11 @@
   <meta name="description" content="Board game cafes and game nights in Vancouver. Weekly meetups, gaming cafes, and tabletop communities.">
   <meta property="og:title" content="Board Games in Vancouver">
   <meta property="og:description" content="Board game cafes and game nights in Vancouver. Weekly meetups, gaming cafes, and tabletop communities.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/board-games/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/board-games/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Board Games in Vancouver",
+    "description": "Board game cafes and game nights in Vancouver. Weekly meetups, gaming cafes, and tabletop communities.",
+    "url": "https://vancouver-communities.pages.dev/board-games/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,32 +170,51 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>🎲 Board Games</h1>
-<h2>Vancouver Board Games</h2>
+<h2 id="vancouver-board-games">Vancouver Board Games<a href="#vancouver-board-games" class="anchor">#</a></h2>
 <li><strong>What:</strong> Largest regularly meeting board game group downtown</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouverbg">meetup.com/vancouverbg</a></li>
-<h2>Board Games Social - WestEnd</h2>
+<h2 id="board-games-social-westend">Board Games Social - WestEnd<a href="#board-games-social-westend" class="anchor">#</a></h2>
 <li><strong>What:</strong> Relaxed social gaming</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/board-games-social-westend-vancouver">meetup.com/board-games-social-westend-vancouver</a></li>
-<h2>Good Game - North Vancouver</h2>
+<h2 id="good-game-north-vancouver">Good Game - North Vancouver<a href="#good-game-north-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Board gaming meetup with modern games provided</li>
 <li><strong>Vibe:</strong> Inclusive, fun</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/good-game-north-vancouver">meetup.com/good-game-north-vancouver</a></li>
-<h2>Vancouver Social Deduction Gamers</h2>
+<h2 id="vancouver-social-deduction-gamers">Vancouver Social Deduction Gamers<a href="#vancouver-social-deduction-gamers" class="anchor">#</a></h2>
 <li><strong>What:</strong> Mafia-style games and more</li>
 <li><strong>Find it:</strong> Meetup</li>
-<h2>Hideout Cafe</h2>
+<h2 id="hideout-cafe">Hideout Cafe<a href="#hideout-cafe" class="anchor">#</a></h2>
 <li><strong>What:</strong> Biweekly board game meetups</li>
 <li><strong>Note:</strong> Spend $10 on food/drink</li>
 <li><strong>Find it:</strong> New West area</li>
-<h2>Mench Café</h2>
+<h2 id="mench-café">Mench Café<a href="#mench-café" class="anchor">#</a></h2>
 <li><strong>What:</strong> Board gaming & cyber café</li>
 <li><strong>Where:</strong> North Vancouver</li>
 <li><strong>Find it:</strong> <a href="https://menchcafe.com/">menchcafe.com</a></li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

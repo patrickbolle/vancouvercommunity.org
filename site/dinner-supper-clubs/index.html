@@ -7,7 +7,11 @@
   <meta name="description" content="Find dinner clubs and supper clubs in Vancouver. Meet new people over curated meals and social dining.">
   <meta property="og:title" content="Dinner & Supper Clubs in Vancouver">
   <meta property="og:description" content="Find dinner clubs and supper clubs in Vancouver. Meet new people over curated meals and social dining.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/dinner-supper-clubs/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/dinner-supper-clubs/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Dinner & Supper Clubs in Vancouver",
+    "description": "Find dinner clubs and supper clubs in Vancouver. Meet new people over curated meals and social dining.",
+    "url": "https://vancouver-communities.pages.dev/dinner-supper-clubs/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,31 +170,50 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>🍽️ Dinner & Supper Clubs</h1>
-<h2>DayOfUs - Dinner with Strangers</h2>
+<h2 id="dayofus-dinner-with-strangers">DayOfUs - Dinner with Strangers<a href="#dayofus-dinner-with-strangers" class="anchor">#</a></h2>
 <li><strong>What:</strong> Weekly curated dinners — you + 5 strangers at a surprise restaurant</li>
 <li><strong>Vibe:</strong> Algorithm-matched based on interests, casual, low-pressure</li>
 <li><strong>Find it:</strong> <a href="https://www.eventbrite.com/e/dinner-with-strangers-curated-dinner-meetup-in-vancouver-registration-1709285481889">Eventbrite</a></li>
-<h2>Dinners with 5 Like Minded Strangers</h2>
+<h2 id="dinners-with-5-like-minded-strangers">Dinners with 5 Like Minded Strangers<a href="#dinners-with-5-like-minded-strangers" class="anchor">#</a></h2>
 <li><strong>What:</strong> Questionnaire-matched dinner groups at trendy restaurants</li>
 <li><strong>Vibe:</strong> Curated, similar age ranges, complementary personalities</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/dinners-with-5-like-minded-strangers">meetup.com/dinners-with-5-like-minded-strangers</a></li>
-<h2>Timeleft</h2>
+<h2 id="timeleft">Timeleft<a href="#timeleft" class="anchor">#</a></h2>
 <li><strong>What:</strong> International app, weekly dinners with strangers</li>
 <li><strong>Vibe:</strong> Algorithm-matched, launched in Vancouver May 2024</li>
 <li><strong>Find it:</strong> timeleft.com (app)</li>
-<h2>Swallow Tail Pop-Up Dining</h2>
+<h2 id="swallow-tail-pop-up-dining">Swallow Tail Pop-Up Dining<a href="#swallow-tail-pop-up-dining" class="anchor">#</a></h2>
 <li><strong>What:</strong> Underground dining events, secret supper clubs, long table dinners</li>
 <li><strong>Vibe:</strong> Creative, immersive, "weird wonderful brains"</li>
 <li><strong>Find it:</strong> <a href="https://swallowtail.ca/pop-dining">swallowtail.ca/pop-dining</a></li>
-<h2>A Moveable Feast Supper Club</h2>
+<h2 id="a-moveable-feast-supper-club">A Moveable Feast Supper Club<a href="#a-moveable-feast-supper-club" class="anchor">#</a></h2>
 <li><strong>What:</strong> French wine bar inspired dinners</li>
 <li><strong>Vibe:</strong> "Between strangers and soon-to-be friends"</li>
 <li><strong>Find it:</strong> Eventbrite</li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

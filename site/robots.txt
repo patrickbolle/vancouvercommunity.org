@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vancouver-communities.pages.dev/sitemap.xml

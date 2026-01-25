@@ -7,7 +7,11 @@
   <meta name="description" content="Volunteer opportunities in Vancouver. Give back through community service.">
   <meta property="og:title" content="Volunteer in Vancouver">
   <meta property="og:description" content="Volunteer opportunities in Vancouver. Give back through community service.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/volunteer/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/volunteer/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Volunteer in Vancouver",
+    "description": "Volunteer opportunities in Vancouver. Give back through community service.",
+    "url": "https://vancouver-communities.pages.dev/volunteer/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,23 +170,42 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>🌿 Volunteer</h1>
-<h2>Volunteer Vancouver</h2>
+<h2 id="volunteer-vancouver">Volunteer Vancouver<a href="#volunteer-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Connect with local nonprofits</li>
 <li><strong>Find it:</strong> <a href="https://volunteeringvancouver.ca/">volunteeringvancouver.ca</a></li>
-<h2>City of Vancouver Volunteering</h2>
+<h2 id="city-of-vancouver-volunteering">City of Vancouver Volunteering<a href="#city-of-vancouver-volunteering" class="anchor">#</a></h2>
 <li><strong>What:</strong> Stewardship, emergency support, community policing</li>
 <li><strong>Find it:</strong> <a href="https://vancouver.ca/people-programs/volunteering.aspx">vancouver.ca/people-programs/volunteering</a></li>
-<h2>YWCA Volunteer</h2>
+<h2 id="ywca-volunteer">YWCA Volunteer<a href="#ywca-volunteer" class="anchor">#</a></h2>
 <li><strong>What:</strong> Teaching yoga, mentoring youth, fundraising</li>
 <li><strong>Find it:</strong> <a href="https://ywcavan.org/help/volunteer">ywcavan.org/help/volunteer</a></li>
-<h2>VolunteerMatch</h2>
+<h2 id="volunteermatch">VolunteerMatch<a href="#volunteermatch" class="anchor">#</a></h2>
 <li><strong>What:</strong> Search nonprofits and opportunities</li>
 <li><strong>Find it:</strong> <a href="https://www.volunteermatch.org/">volunteermatch.org</a></li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

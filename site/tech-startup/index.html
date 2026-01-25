@@ -7,7 +7,11 @@
   <meta name="description" content="Vancouver tech meetups and startup community. Founders and developers connecting.">
   <meta property="og:title" content="Tech & Startup in Vancouver">
   <meta property="og:description" content="Vancouver tech meetups and startup community. Founders and developers connecting.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vancouver-communities.pages.dev/tech-startup/">
   <link rel="canonical" href="https://vancouver-communities.pages.dev/tech-startup/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -65,10 +69,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -77,7 +83,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -99,6 +107,20 @@ a:visited { color: #551a8b; }
   .content { padding: 20px; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Tech & Startup in Vancouver",
+    "description": "Vancouver tech meetups and startup community. Founders and developers connecting.",
+    "url": "https://vancouver-communities.pages.dev/tech-startup/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "https://vancouver-communities.pages.dev"
+    }
+  }
+  </script>
 </head>
 <body>
 <nav class="sidebar">
@@ -148,34 +170,53 @@ a:visited { color: #551a8b; }
     <li><a href="/resources/"><span class="emoji">🔗</span> Resources</a></li>
   </ul>
   <div class="sidebar-footer">
+    <a href="/submit/">+ Submit a group</a><br>
+    <a href="#" onclick="goRandom()">🎲 Random</a><br>
+    <span class="counter"></span><br>
+    Updated January 2026<br>
     Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>
   </div>
 </nav>
 <main class="content">
   <h1>💼 Tech & Startup</h1>
-<h2>TechVancouver</h2>
+<h2 id="techvancouver">TechVancouver<a href="#techvancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Tech community events</li>
 <li><strong>Size:</strong> 13,000+ members</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/techvancouverorg">meetup.com/techvancouverorg</a></li>
-<h2>Vancouver Founders</h2>
+<h2 id="vancouver-founders">Vancouver Founders<a href="#vancouver-founders" class="anchor">#</a></h2>
 <li><strong>What:</strong> Startup community networking</li>
 <li><strong>Vibe:</strong> Collaboration, building relationships</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vantechfounders">meetup.com/vantechfounders</a></li>
-<h2>Vancouver Entrepreneurs & Startup Network</h2>
+<h2 id="vancouver-entrepreneurs-startup-network">Vancouver Entrepreneurs & Startup Network<a href="#vancouver-entrepreneurs-startup-network" class="anchor">#</a></h2>
 <li><strong>What:</strong> Help entrepreneurs meet potential partners</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-entrepreneurs-network">meetup.com/vancouver-entrepreneurs-network</a></li>
-<h2>Startup Founder 101</h2>
+<h2 id="startup-founder-101">Startup Founder 101<a href="#startup-founder-101" class="anchor">#</a></h2>
 <li><strong>What:</strong> Aspiring and experienced tech entrepreneurs</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-startup-founder-101">meetup.com/vancouver-startup-founder-101</a></li>
-<h2>Startup Grind Vancouver</h2>
+<h2 id="startup-grind-vancouver">Startup Grind Vancouver<a href="#startup-grind-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Monthly startup events to teach, inspire, connect</li>
 <li><strong>Find it:</strong> <a href="https://www.startupgrind.com/vancouver/">startupgrind.com/vancouver</a></li>
-<h2>YVR Startups</h2>
+<h2 id="yvr-startups">YVR Startups<a href="#yvr-startups" class="anchor">#</a></h2>
 <li><strong>What:</strong> Inspire, inform, involve in startup scene</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/yvr-startups">meetup.com/yvr-startups</a></li>
-<h2>9CAT - Vancouver Tech Talents Networking</h2>
+<h2 id="9cat-vancouver-tech-talents-networking">9CAT - Vancouver Tech Talents Networking<a href="#9cat-vancouver-tech-talents-networking" class="anchor">#</a></h2>
 <li><strong>What:</strong> Developers, designers, engineers, entrepreneurs</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-internet-technology-talents-networking-9cat-net">meetup.com/vancouver-internet-technology-talents-networking-9cat-net</a></li>
 </main>
+<script>
+const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>
 </body>
 </html>

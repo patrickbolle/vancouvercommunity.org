@@ -4,6 +4,9 @@
 set -e
 
 SITE_DIR="site"
+SITE_URL="https://vancouver-communities.pages.dev"
+BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+BUILD_DATE_HUMAN=$(date -u +"%B %Y")
 
 # Category metadata
 declare -A titles=(
@@ -179,17 +182,32 @@ categories_ordered=(
   "resources"
 )
 
-# Convert markdown to HTML
+# Convert group name to anchor slug
+slugify() {
+  echo "$1" | tr '[:upper:]' '[:lower:]' | sed 's/[^a-z0-9]/-/g' | sed 's/--*/-/g' | sed 's/^-//' | sed 's/-$//'
+}
+
+# Convert markdown to HTML with anchor links on h2
 md_to_html() {
   cat "$1" | \
     sed 's/^# \(.*\)//' | \
-    sed 's/^## \(.*\)/<h2>\1<\/h2>/' | \
+    sed 's/^## \(.*\)/<h2 id="__ANCHOR__">\1<a href="#__ANCHOR__" class="anchor">#<\/a><\/h2>/' | \
     sed 's/^### \(.*\)/<h3>\1<\/h3>/' | \
     sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g' | \
     sed 's/\[\([^]]*\)\](\([^)]*\))/<a href="\2">\1<\/a>/g' | \
     sed 's/^- \(.*\)/<li>\1<\/li>/' | \
     sed 's/^---$/<hr>/' | \
-    grep -v '^$'
+    grep -v '^$' | \
+    while IFS= read -r line; do
+      if [[ "$line" == *"__ANCHOR__"* ]]; then
+        # Extract the h2 text and create anchor
+        h2_text=$(echo "$line" | sed 's/.*<h2 id="__ANCHOR__">\([^<]*\)<a.*/\1/')
+        anchor=$(slugify "$h2_text")
+        echo "$line" | sed "s/__ANCHOR__/$anchor/g"
+      else
+        echo "$line"
+      fi
+    done
 }
 
 # Generate sidebar HTML
@@ -213,6 +231,10 @@ generate_sidebar() {
   
   echo '  </ul>'
   echo '  <div class="sidebar-footer">'
+  echo "    <a href=\"${base_path}submit/\">+ Submit a group</a><br>"
+  echo "    <a href=\"#\" onclick=\"goRandom()\">🎲 Random</a><br>"
+  echo '    <span class="counter"></span><br>'
+  echo "    Updated ${BUILD_DATE_HUMAN}<br>"
   echo '    Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>'
   echo '  </div>'
   echo '</nav>'
@@ -276,10 +298,12 @@ a:visited { color: #551a8b; }
 .sidebar-footer {
   padding: 12px 15px;
   border-top: 1px solid #ddd;
-  font-size: 0.8em;
+  font-size: 0.75em;
   color: #666;
+  line-height: 1.8;
 }
 .sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
 
 .content {
   flex: 1;
@@ -288,7 +312,9 @@ a:visited { color: #551a8b; }
   overflow-y: auto;
 }
 .content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
 .content li { margin: 5px 0; list-style: none; }
 .content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
 .content a { color: #0066cc; }
@@ -311,6 +337,23 @@ a:visited { color: #551a8b; }
 }
 </style>'
 
+# Random redirect and counter scripts
+SCRIPTS='<script>
+const categories = ['"$(printf '"%s",' "${categories_ordered[@]}" | sed 's/,$//')"'];
+function goRandom() {
+  const cat = categories[Math.floor(Math.random() * categories.length)];
+  window.location.href = "/" + cat + "/";
+}
+// Visitor counter
+fetch("https://api.countapi.xyz/hit/vancouver-communities/visits")
+  .then(r => r.json())
+  .then(d => {
+    const el = document.querySelector(".counter");
+    if (el) el.textContent = d.value.toLocaleString() + " visitors";
+  })
+  .catch(() => {});
+</script>'
+
 echo "Building site..."
 
 # Build index (home page)
@@ -324,8 +367,26 @@ cat > "$SITE_DIR/index.html" << HTMLEOF
   <meta name="description" content="A comprehensive guide to groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
   <meta property="og:title" content="Vancouver Community Directory">
   <meta property="og:description" content="Find groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
-  <link rel="canonical" href="https://vancouver-communities.pages.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${SITE_URL}/">
+  <link rel="canonical" href="${SITE_URL}/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   ${STYLES}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Vancouver Community Directory",
+    "url": "${SITE_URL}",
+    "description": "A comprehensive guide to groups, clubs, meetups, and events for connection and community in Vancouver, BC.",
+    "publisher": {
+      "@type": "Person",
+      "name": "Patrick Bolle",
+      "url": "https://bolle.co"
+    }
+  }
+  </script>
 </head>
 <body>
 $(generate_sidebar "" "/")
@@ -337,10 +398,48 @@ $(generate_sidebar "" "/")
     <p style="margin-top: 15px; color: #666;">← Pick a category to explore</p>
   </div>
 </main>
+${SCRIPTS}
 </body>
 </html>
 HTMLEOF
 echo "  Built: index"
+
+# Build submit page
+mkdir -p "$SITE_DIR/submit"
+cat > "$SITE_DIR/submit/index.html" << HTMLEOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a Group | Vancouver Community Directory</title>
+  <meta name="description" content="Submit a community group, club, or meetup to be added to the Vancouver Community Directory.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  ${STYLES}
+</head>
+<body>
+$(generate_sidebar "submit" "/")
+<main class="content">
+  <h1>Submit a Group</h1>
+  <p>Know a community, club, or meetup that should be listed? Submit it below!</p>
+  <p style="margin: 20px 0;">
+    <a href="https://github.com/patrickbolle/vancouver-communities/issues/new?template=submit-group.md&title=New+Group:+[Name]" target="_blank" style="background: #f0f0e8; padding: 10px 15px; border: 1px solid #ddd;">
+      Submit via GitHub →
+    </a>
+  </p>
+  <p style="color: #666; font-size: 0.9em;">
+    You'll need a GitHub account. Just fill in the template with the group name, description, and link.
+  </p>
+  <hr>
+  <p style="color: #666; font-size: 0.9em;">
+    Or email: <a href="mailto:hello@bolle.co?subject=Vancouver%20Community%20Submission">hello@bolle.co</a>
+  </p>
+</main>
+${SCRIPTS}
+</body>
+</html>
+HTMLEOF
+echo "  Built: submit"
 
 # Build each category page
 for mdfile in *.md; do
@@ -366,8 +465,26 @@ for mdfile in *.md; do
   <meta name="description" content="${desc}">
   <meta property="og:title" content="${title} in Vancouver">
   <meta property="og:description" content="${desc}">
-  <link rel="canonical" href="https://vancouver-communities.pages.dev/${slug}/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${SITE_URL}/${slug}/">
+  <link rel="canonical" href="${SITE_URL}/${slug}/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   ${STYLES}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "${title} in Vancouver",
+    "description": "${desc}",
+    "url": "${SITE_URL}/${slug}/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Vancouver Community Directory",
+      "url": "${SITE_URL}"
+    }
+  }
+  </script>
 </head>
 <body>
 $(generate_sidebar "$slug" "/")
@@ -375,11 +492,78 @@ $(generate_sidebar "$slug" "/")
   <h1>${emoji} ${title}</h1>
 ${content}
 </main>
+${SCRIPTS}
 </body>
 </html>
 HTMLEOF
 
   echo "  Built: $slug"
 done
+
+# Generate sitemap.xml
+cat > "$SITE_DIR/sitemap.xml" << XMLEOF
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${SITE_URL}/</loc>
+    <lastmod>${BUILD_DATE}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+XMLEOF
+
+for slug in "${categories_ordered[@]}"; do
+  cat >> "$SITE_DIR/sitemap.xml" << XMLEOF
+  <url>
+    <loc>${SITE_URL}/${slug}/</loc>
+    <lastmod>${BUILD_DATE}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+XMLEOF
+done
+
+echo "</urlset>" >> "$SITE_DIR/sitemap.xml"
+echo "  Built: sitemap.xml"
+
+# Generate robots.txt
+cat > "$SITE_DIR/robots.txt" << TXTEOF
+User-agent: *
+Allow: /
+
+Sitemap: ${SITE_URL}/sitemap.xml
+TXTEOF
+echo "  Built: robots.txt"
+
+# Generate RSS feed
+cat > "$SITE_DIR/feed.xml" << RSSEOF
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Vancouver Community Directory</title>
+  <description>A comprehensive guide to groups, clubs, meetups, and events in Vancouver, BC.</description>
+  <link>${SITE_URL}</link>
+  <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>$(date -R)</lastBuildDate>
+RSSEOF
+
+for slug in "${categories_ordered[@]}"; do
+  title="${titles[$slug]}"
+  desc="${descriptions[$slug]}"
+  cat >> "$SITE_DIR/feed.xml" << RSSEOF
+  <item>
+    <title>${title}</title>
+    <description>${desc}</description>
+    <link>${SITE_URL}/${slug}/</link>
+    <guid>${SITE_URL}/${slug}/</guid>
+  </item>
+RSSEOF
+done
+
+cat >> "$SITE_DIR/feed.xml" << RSSEOF
+</channel>
+</rss>
+RSSEOF
+echo "  Built: feed.xml"
 
 echo "Done! Site built in $SITE_DIR/"
