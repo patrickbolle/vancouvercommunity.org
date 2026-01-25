@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vancouver Community Directory</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #fffef8;
+      color: #222;
+      display: flex;
+      height: 100vh;
+    }
+    
+    /* Sidebar */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+      padding: 20px 0;
+      background: #fafaf5;
+    }
+    
+    .sidebar h1 {
+      font-size: 1.1em;
+      padding: 0 15px 15px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    
+    .sidebar ul {
+      list-style: none;
+    }
+    
+    .sidebar li a {
+      display: block;
+      padding: 8px 15px;
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 0.95em;
+      border-left: 3px solid transparent;
+    }
+    
+    .sidebar li a:hover {
+      background: #f0f0e8;
+      border-left-color: #0066cc;
+    }
+    
+    .sidebar li a:visited {
+      color: #551a8b;
+    }
+    
+    .emoji {
+      display: inline-block;
+      width: 24px;
+    }
+    
+    /* Content area */
+    .content {
+      flex: 1;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    .content iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    .welcome {
+      padding: 40px;
+      max-width: 600px;
+    }
+    
+    .welcome h2 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+    
+    .welcome p {
+      line-height: 1.6;
+      color: #444;
+    }
+    
+    /* Mobile */
+    @media (max-width: 700px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        min-width: 100%;
+        height: auto;
+        max-height: 50vh;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+      }
+      .content {
+        height: 50vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <h1>📍 Vancouver Community</h1>
+    <ul>
+      <li><a href="dinner-supper-clubs.html" target="content"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
+      <li><a href="social-friend-clubs.html" target="content"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
+      <li><a href="run-clubs.html" target="content"><span class="emoji">🏃</span> Run Clubs</a></li>
+      <li><a href="board-games.html" target="content"><span class="emoji">🎲</span> Board Games</a></li>
+      <li><a href="creative-art.html" target="content"><span class="emoji">🎨</span> Creative & Art</a></li>
+      <li><a href="photography.html" target="content"><span class="emoji">📷</span> Photography</a></li>
+      <li><a href="film-cinema.html" target="content"><span class="emoji">🎬</span> Film & Cinema</a></li>
+      <li><a href="writing.html" target="content"><span class="emoji">✍️</span> Writing</a></li>
+      <li><a href="language-exchange.html" target="content"><span class="emoji">🗣️</span> Language Exchange</a></li>
+      <li><a href="hiking-outdoors.html" target="content"><span class="emoji">🥾</span> Hiking & Outdoors</a></li>
+      <li><a href="cycling.html" target="content"><span class="emoji">🚴</span> Cycling</a></li>
+      <li><a href="dance.html" target="content"><span class="emoji">💃</span> Dance</a></li>
+      <li><a href="improv-comedy.html" target="content"><span class="emoji">🎭</span> Improv & Comedy</a></li>
+      <li><a href="music-open-mic.html" target="content"><span class="emoji">🎵</span> Music & Open Mic</a></li>
+      <li><a href="climbing.html" target="content"><span class="emoji">🧗</span> Climbing</a></li>
+      <li><a href="pickleball.html" target="content"><span class="emoji">🏓</span> Pickleball</a></li>
+      <li><a href="pottery-ceramics.html" target="content"><span class="emoji">🏺</span> Pottery & Ceramics</a></li>
+      <li><a href="yoga-wellness.html" target="content"><span class="emoji">🧘</span> Yoga & Wellness</a></li>
+      <li><a href="sauna-cold-plunge.html" target="content"><span class="emoji">🧊</span> Sauna & Cold Plunge</a></li>
+      <li><a href="mindfulness-meditation.html" target="content"><span class="emoji">🧘</span> Mindfulness & Meditation</a></li>
+      <li><a href="mens-groups.html" target="content"><span class="emoji">👔</span> Men's Groups</a></li>
+      <li><a href="maker-spaces.html" target="content"><span class="emoji">🔧</span> Maker Spaces</a></li>
+      <li><a href="philosophy-intellectual.html" target="content"><span class="emoji">🤔</span> Philosophy & Intellectual</a></li>
+      <li><a href="book-clubs.html" target="content"><span class="emoji">📚</span> Book Clubs</a></li>
+      <li><a href="tech-startup.html" target="content"><span class="emoji">💼</span> Tech & Startup</a></li>
+      <li><a href="coworking.html" target="content"><span class="emoji">💻</span> Coworking</a></li>
+      <li><a href="volunteer.html" target="content"><span class="emoji">🌿</span> Volunteer</a></li>
+      <li><a href="vinyl-listening-bars.html" target="content"><span class="emoji">🎵</span> Vinyl & Listening Bars</a></li>
+      <li><a href="chess.html" target="content"><span class="emoji">♟️</span> Chess</a></li>
+      <li><a href="underground-dj.html" target="content"><span class="emoji">🎧</span> Underground DJ</a></li>
+      <li><a href="poetry-spoken-word.html" target="content"><span class="emoji">🎤</span> Poetry & Spoken Word</a></li>
+      <li><a href="tarot-astrology.html" target="content"><span class="emoji">🔮</span> Tarot & Astrology</a></li>
+      <li><a href="flea-markets-vintage.html" target="content"><span class="emoji">🛍️</span> Flea Markets & Vintage</a></li>
+      <li><a href="pub-trivia.html" target="content"><span class="emoji">🧠</span> Pub Trivia</a></li>
+      <li><a href="zine-risograph.html" target="content"><span class="emoji">📖</span> Zine & Risograph</a></li>
+      <li><a href="astronomy-stargazing.html" target="content"><span class="emoji">🔭</span> Astronomy & Stargazing</a></li>
+      <li><a href="foraging-nature.html" target="content"><span class="emoji">🍄</span> Foraging & Nature</a></li>
+      <li><a href="birdwatching.html" target="content"><span class="emoji">🐦</span> Birdwatching</a></li>
+      <li><a href="karaoke.html" target="content"><span class="emoji">🎤</span> Karaoke</a></li>
+      <li><a href="resources.html" target="content"><span class="emoji">🔗</span> Resources</a></li>
+    </ul>
+  </nav>
+  
+  <main class="content">
+    <iframe name="content" src="about:blank"></iframe>
+  </main>
+  
+  <script>
+    // Show welcome message if no content loaded
+    const iframe = document.querySelector('iframe');
+    iframe.srcdoc = `
+      <div style="padding: 40px; font-family: Georgia, serif; max-width: 500px;">
+        <h2 style="margin-bottom: 15px;">Welcome 👋</h2>
+        <p style="line-height: 1.6; color: #444;">
+          Vancouver can feel like a hard city to make friends and find community. 
+          This directory collects social groups, clubs, meetups, and community events in one place.
+        </p>
+        <p style="line-height: 1.6; color: #444; margin-top: 15px;">
+          ← Pick a category from the sidebar to explore.
+        </p>
+      </div>
+    `;
+  </script>
+</body>
+</html>
