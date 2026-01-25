@@ -1,0 +1,181 @@
+/* 90s Web Aesthetic */
+
+body {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.layout {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 2px solid #666;
+    background-color: #fff;
+    border-collapse: collapse;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #e8e8e8;
+    border-right: 2px solid #666;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.sidebar h2 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 4px 0;
+}
+
+.sidebar a {
+    color: #0000cc;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.sidebar a:visited {
+    color: #551a8b;
+}
+
+.content {
+    padding: 15px 20px;
+    vertical-align: top;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 20px 0 10px 0;
+    padding: 5px;
+    background-color: #e8e8e8;
+    border-left: 4px solid #666;
+}
+
+h3 {
+    font-size: 14px;
+    color: #000;
+    margin: 15px 0 5px 0;
+    font-weight: bold;
+}
+
+a {
+    color: #0000cc;
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+a:hover {
+    color: #cc0000;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #999;
+    margin: 10px 0;
+}
+
+ul {
+    margin: 5px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin: 3px 0;
+}
+
+.category {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.group {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+}
+
+.group h3 {
+    margin: 0 0 5px 0;
+    font-size: 14px;
+}
+
+.group ul {
+    margin: 0;
+    padding-left: 15px;
+}
+
+.group li {
+    margin: 2px 0;
+    font-size: 13px;
+}
+
+strong {
+    color: #333;
+}
+
+em {
+    color: #666;
+}
+
+small {
+    color: #666;
+}
+
+/* Back to top link */
+.back-to-top {
+    font-size: 11px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .layout {
+        display: block;
+    }
+    
+    .sidebar {
+        display: block;
+        width: 100%;
+        border-right: none;
+        border-bottom: 2px solid #666;
+    }
+    
+    .sidebar ul {
+        columns: 2;
+    }
+    
+    .content {
+        display: block;
+    }
+}
