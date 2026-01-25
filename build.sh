@@ -1,5 +1,5 @@
 #!/bin/bash
-# Build script: converts markdown files to HTML
+# Build script: converts markdown files to HTML with full sidebar on every page
 
 set -e
 
@@ -135,22 +135,214 @@ declare -A emojis=(
   ["resources"]="🔗"
 )
 
-# Convert markdown to HTML (simple conversion)
+# Ordered list for sidebar
+categories_ordered=(
+  "dinner-supper-clubs"
+  "social-friend-clubs"
+  "run-clubs"
+  "board-games"
+  "creative-art"
+  "photography"
+  "film-cinema"
+  "writing"
+  "language-exchange"
+  "hiking-outdoors"
+  "cycling"
+  "dance"
+  "improv-comedy"
+  "music-open-mic"
+  "climbing"
+  "pickleball"
+  "pottery-ceramics"
+  "yoga-wellness"
+  "sauna-cold-plunge"
+  "mindfulness-meditation"
+  "mens-groups"
+  "maker-spaces"
+  "philosophy-intellectual"
+  "book-clubs"
+  "tech-startup"
+  "coworking"
+  "volunteer"
+  "vinyl-listening-bars"
+  "chess"
+  "underground-dj"
+  "poetry-spoken-word"
+  "tarot-astrology"
+  "flea-markets-vintage"
+  "pub-trivia"
+  "zine-risograph"
+  "astronomy-stargazing"
+  "foraging-nature"
+  "birdwatching"
+  "karaoke"
+  "resources"
+)
+
+# Convert markdown to HTML
 md_to_html() {
   cat "$1" | \
-    sed 's/^# \(.*\)/<h1>\1<\/h1>/' | \
+    sed 's/^# \(.*\)//' | \
     sed 's/^## \(.*\)/<h2>\1<\/h2>/' | \
     sed 's/^### \(.*\)/<h3>\1<\/h3>/' | \
     sed 's/\*\*\([^*]*\)\*\*/<strong>\1<\/strong>/g' | \
     sed 's/\[\([^]]*\)\](\([^)]*\))/<a href="\2">\1<\/a>/g' | \
     sed 's/^- \(.*\)/<li>\1<\/li>/' | \
     sed 's/^---$/<hr>/' | \
-    sed '/^$/d'
+    grep -v '^$'
 }
+
+# Generate sidebar HTML
+generate_sidebar() {
+  local current_slug="$1"
+  local base_path="$2"
+  
+  echo '<nav class="sidebar">'
+  echo '  <div class="sidebar-header">'
+  echo "    <h1><a href=\"${base_path}\">📍 Vancouver Community</a></h1>"
+  echo '  </div>'
+  echo '  <ul>'
+  
+  for slug in "${categories_ordered[@]}"; do
+    local title="${titles[$slug]}"
+    local emoji="${emojis[$slug]}"
+    local active=""
+    [ "$slug" = "$current_slug" ] && active=' class="active"'
+    echo "    <li><a href=\"${base_path}${slug}/\"${active}><span class=\"emoji\">${emoji}</span> ${title}</a></li>"
+  done
+  
+  echo '  </ul>'
+  echo '  <div class="sidebar-footer">'
+  echo '    Created by <a href="https://bolle.co" target="_blank">Patrick Bolle</a>'
+  echo '  </div>'
+  echo '</nav>'
+}
+
+# Common styles
+STYLES='<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 0 15px 12px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.8em;
+  color: #666;
+}
+.sidebar-footer a { color: #666; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>'
 
 echo "Building site..."
 
-# Process each markdown file (skip README)
+# Build index (home page)
+cat > "$SITE_DIR/index.html" << HTMLEOF
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vancouver Community Directory - Find Your People</title>
+  <meta name="description" content="A comprehensive guide to groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
+  <meta property="og:title" content="Vancouver Community Directory">
+  <meta property="og:description" content="Find groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
+  <link rel="canonical" href="https://vancouver-communities.pages.dev/">
+  ${STYLES}
+</head>
+<body>
+$(generate_sidebar "" "/")
+<main class="content">
+  <h1>Welcome 👋</h1>
+  <div class="welcome">
+    <p>Vancouver can feel like a hard city to make friends and find community.</p>
+    <p>This directory collects social groups, clubs, meetups, and events in one place.</p>
+    <p style="margin-top: 15px; color: #666;">← Pick a category to explore</p>
+  </div>
+</main>
+</body>
+</html>
+HTMLEOF
+echo "  Built: index"
+
+# Build each category page
 for mdfile in *.md; do
   [ "$mdfile" = "README.md" ] && continue
   [ ! -f "$mdfile" ] && continue
@@ -162,8 +354,7 @@ for mdfile in *.md; do
   
   mkdir -p "$SITE_DIR/$slug"
   
-  # Convert markdown content (skip first h1 line)
-  content=$(md_to_html "$mdfile" | tail -n +2)
+  content=$(md_to_html "$mdfile")
   
   cat > "$SITE_DIR/$slug/index.html" << HTMLEOF
 <!DOCTYPE html>
@@ -175,28 +366,15 @@ for mdfile in *.md; do
   <meta name="description" content="${desc}">
   <meta property="og:title" content="${title} in Vancouver">
   <meta property="og:description" content="${desc}">
-  <base target="_blank">
-  <style>
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      max-width: 600px;
-      padding: 20px;
-      background: #fffef8;
-      color: #222;
-      line-height: 1.5;
-    }
-    h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
-    h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; }
-    a { color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    a:visited { color: #551a8b; }
-    li { margin: 5px 0; list-style: none; }
-    hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
-  </style>
+  <link rel="canonical" href="https://vancouver-communities.pages.dev/${slug}/">
+  ${STYLES}
 </head>
 <body>
-<h1>${emoji} ${title}</h1>
+$(generate_sidebar "$slug" "/")
+<main class="content">
+  <h1>${emoji} ${title}</h1>
 ${content}
+</main>
 </body>
 </html>
 HTMLEOF
