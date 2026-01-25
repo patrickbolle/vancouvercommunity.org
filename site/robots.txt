@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://vancouver-communities.pages.dev/sitemap.xml
+Sitemap: https://vancouvercommunity.org/sitemap.xml

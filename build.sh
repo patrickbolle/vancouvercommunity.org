@@ -4,7 +4,7 @@
 set -e
 
 SITE_DIR="site"
-SITE_URL="https://vancouver-communities.pages.dev"
+SITE_URL="https://vancouvercommunity.org"
 BUILD_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 BUILD_DATE_HUMAN=$(date -u +"%B %Y")
 

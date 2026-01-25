@@ -2,7 +2,7 @@
 
 A comprehensive guide to groups, clubs, and events for connection, creativity, and community in Vancouver, BC.
 
-🌐 **[View the Website](https://patrickbolle.github.io/vancouver-community-directory/)**
+## 🌐 [vancouvercommunity.org](https://vancouvercommunity.org)
 
 ---
 
@@ -11,6 +11,13 @@ A comprehensive guide to groups, clubs, and events for connection, creativity, a
 Vancouver can feel like a hard city to make friends and find community. This directory aims to change that by collecting all the social groups, clubs, meetups, and community events in one place.
 
 Whether you're looking for a dinner club with strangers, a chess night at a café, a vinyl listening bar, or a mushroom foraging tour — it's probably here.
+
+## Features
+
+- **40+ categories** of community groups and venues
+- **SEO-optimized** with clean URLs for each category
+- **Mobile-friendly** minimal design
+- **Open source** — contribute via GitHub
 
 ## Categories
 
@@ -61,14 +68,24 @@ Whether you're looking for a dinner club with strangers, a chess night at a caf�
 
 Know a group that should be listed? Found outdated info?
 
-1. **Open an issue** describing the group
-2. **Submit a PR** editing the relevant category file
+1. **[Submit via GitHub Issue](../../issues/new?template=submit-group.md)** 
+2. Or **submit a PR** editing the relevant category file
 
 Please include:
 - Group/event name
 - What it is
 - Where to find it (website, Instagram, Meetup, etc.)
 - Any relevant details (cost, schedule, vibe)
+
+## Development
+
+```bash
+# Edit markdown files in root
+# Rebuild HTML
+./build.sh
+
+# Site outputs to site/
+```
 
 ## License
 
@@ -78,4 +95,4 @@ This is a community resource. Use it, share it, improve it.
 
 ---
 
-*Made with ❤️ for Vancouver*
+Created by [Patrick Bolle](https://bolle.co) • Made with ❤️ for Vancouver
