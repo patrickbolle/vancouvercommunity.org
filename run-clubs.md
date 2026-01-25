@@ -1,4 +1,4 @@
-# 🏃 Run Clubs
+# ð Run Clubs
 
 ## Social Run Club
 - **What:** Social runs for beginner to intermediate runners
@@ -17,7 +17,7 @@
 
 ## NEOS Run Club
 - **What:** Saturday morning runs
-- **Vibe:** "More than just a run club — a community"
+- **Vibe:** "More than just a run club â a community"
 - **Find it:** Meetup / Instagram
 
 ## Vancouver Frontrunners
@@ -67,3 +67,8 @@
 ## runclubs.ca
 - **What:** Directory of 60+ Vancouver run clubs compiled in one site
 - **Find it:** [runclubs.ca/vancouver](https://runclubs.ca/vancouver)
+
+## Test Run Club
+- **What:** A test submission
+- **Vibe:** Friendly test vibes
+- **Find it:** [example.com](https://example.com)
