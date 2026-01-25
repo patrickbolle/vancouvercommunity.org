@@ -3,7 +3,7 @@
 ## Vancouver Renegade Underground DJs
 - **What:** Free pop-up events around town
 - **Vibe:** "Help less wealthy ravers experience festival vibes"
-- **Find it:** Facebook
+- **Find it:** [Facebook](https://www.facebook.com/vruDJs/)
 
 ## Vancouver Rave Community (Instagram)
 - **What:** Community page for local rave scene

@@ -10,10 +10,10 @@
 - **Vibe:** Combines fitness with thermal recovery
 - **Find it:** [talitywellness.ca](https://www.talitywellness.ca/)
 
-## Cold Plunge Vancouver (Facebook/Meetup)
+## Cold Plunge Vancouver
 - **What:** Groups organizing ocean and lake cold plunges
 - **Vibe:** Free, outdoor, community-led
-- **Find it:** Facebook groups, Meetup
+- **Find it:** [Cold Plunge Crew (Facebook)](https://www.facebook.com/p/Cold-Plunge-Crew-100067058136726/) | Kits Beach women's dips
 
 ---
 

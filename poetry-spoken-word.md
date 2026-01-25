@@ -7,7 +7,7 @@
 ## ROLL (Read Out Loud Love)
 - **What:** Monthly open mic poetry night
 - **Vibe:** "Rooted in tenderness, community, and shared language"
-- **Find it:** Culture Days / Eventbrite
+- **Find it:** [Culture Days](https://culturedays.ca/en/events/405de6f5-fa63-4537-8da2-de6d7a10581c)
 
 ## Vancouver Poetry Slam
 - **What:** Competitive spoken word community
@@ -26,12 +26,12 @@
 ## WordPlay Poets
 - **What:** Outreach program with workshops and performances
 - **Vibe:** Schools and communities across BC
-- **Find it:** Vancouver Poetry House
+- **Find it:** [vancouverpoetryhouse.com](https://www.vancouverpoetryhouse.com/) (VPH program)
 
 ## Carnegie Centre Poetry
 - **What:** Downtown Eastside community poetry events
 - **Vibe:** Inclusive, community-focused
-- **Find it:** Carnegie Centre
+- **Find it:** [vancouver.ca/carnegie-community-centre](https://vancouver.ca/parks-recreation-culture/carnegie-community-centre.aspx)
 
 ---
 

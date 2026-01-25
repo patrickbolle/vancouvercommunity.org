@@ -7,7 +7,7 @@
 ## BC Mushrooms
 - **What:** Mushroom identification, events, community
 - **Vibe:** Connect with local mycology enthusiasts
-- **Find it:** Facebook groups for BC mushroom hunting
+- **Find it:** [mushroomsofbc.com](https://mushroomsofbc.com/) | Facebook: "Vancouver Mycological Society"
 
 ---
 

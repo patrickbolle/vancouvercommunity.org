@@ -13,7 +13,7 @@
 ## Timeleft
 - **What:** International app, weekly dinners with strangers
 - **Vibe:** Algorithm-matched, launched in Vancouver May 2024
-- **Find it:** timeleft.com (app)
+- **Find it:** [timeleft.com](https://timeleft.com/)
 
 ## Swallow Tail Pop-Up Dining
 - **What:** Underground dining events, secret supper clubs, long table dinners
@@ -23,12 +23,12 @@
 ## A Moveable Feast Supper Club
 - **What:** French wine bar inspired dinners
 - **Vibe:** "Between strangers and soon-to-be friends"
-- **Find it:** Search Eventbrite for "Moveable Feast Vancouver"
+- **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859) | [Facebook](https://www.facebook.com/MoveableFeastVancouver/)
 
 ## $50 Dinner Club
 - **What:** Home-cooked dinners with strangers
 - **Vibe:** Host provides space/cooking, you pay $50, sells out fast
-- **Find it:** Search on Instagram for hosts posting dinners
+- **Find it:** [Instagram @good_finds_club](https://instagram.com/good_finds_club)
 
 ## Well Fed by Mix & Mingle
 - **What:** Curated social dinners at secret restaurants
@@ -43,7 +43,7 @@
 ## Secret Suppers Vancouver
 - **What:** Hidden dining experiences in private homes
 - **Vibe:** Communal table, 10+ seats, top-secret chef
-- **Find it:** Various — check BC Living's list
+- **Find it:** [BC Living's Secret Suppers Guide](https://bcliving.ca/food-drink/local-food/8-secret-suppers-for-vancouver-foodies/)
 
 ---
 

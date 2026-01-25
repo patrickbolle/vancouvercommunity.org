@@ -43,15 +43,15 @@
 - **Vibe:** Responsible hiking, detailed trip info
 - **Find it:** [meetup.com/VanHiking](https://meetup.com/VanHiking)
 
-## The Hiking Club (for Beginners)
-- **What:** Designed specifically for beginner hikers
+## Beginner Hiking Groups
+- **What:** Various groups designed for beginner hikers
 - **Vibe:** Low-pressure, supportive, easy trails
-- **Find it:** [meetup.com/find/ca--vancouver/hiking](https://meetup.com/find/ca--vancouver/hiking/) (search for beginner-focused groups)
+- **Find it:** [meetup.com/find/ca--vancouver/hiking](https://meetup.com/find/ca--vancouver/hiking/) | [hikesnearvancouver.ca/group-hikes](https://hikesnearvancouver.ca/group-hikes-near-vancouver/)
 
 ## Golden Age Hiking Club
-- **What:** Hiking for active seniors
+- **What:** Hiking for active seniors (55+)
 - **Vibe:** Social, moderate pace, scenic routes
-- **Find it:** [outdoorvancouver.ca](https://www.outdoorvancouver.ca/resources/outdoor-clubs/)
+- **Find it:** [gahc.ca](https://gahc.ca/)
 
 ## SFU Outdoors Club
 - **What:** Student-run outdoor adventures

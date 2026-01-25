@@ -16,9 +16,9 @@
 - **Find it:** [vanrunco.com/pages/flight-crew](https://vanrunco.com/pages/flight-crew)
 
 ## NEOS Run Club
-- **What:** Saturday morning runs
+- **What:** Saturday morning runs at David Lam Park
 - **Vibe:** "More than just a run club — a community"
-- **Find it:** [runclubs.ca/vancouver](https://runclubs.ca/vancouver) (search for NEOS)
+- **Find it:** [runclubs.ca/vancouver/neos-run-club](https://runclubs.ca/vancouver/neos-run-club)
 
 ## Vancouver Frontrunners
 - **What:** Inclusive running/walking group
@@ -38,7 +38,7 @@
 - **What:** Free weekly runs from Lululemon stores
 - **Where:** Various locations (Robson, Kits, etc.)
 - **Vibe:** All paces welcome, often includes post-run stretching
-- **Find it:** Check local Lululemon store schedules
+- **Find it:** [Lululemon Robson Store](https://shop.lululemon.com/stores/ca/vancouver/robson) (Wednesdays 6pm)
 
 ## A Very Good Run Club
 - **What:** Smaller, intimate run club with solid community

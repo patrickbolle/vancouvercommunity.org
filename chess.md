@@ -5,10 +5,10 @@
 - **Vibe:** "We play chess and get to know people who like chess"
 - **Find it:** [meetup.com/vancouver-beer-chess](https://meetup.com/vancouver-beer-chess) / [@vancouverbeerchess](https://instagram.com/vancouverbeerchess)
 
-## Main Street Café Chess (Kerry R.'s group)
-- **What:** Saturday chess meetups at a café
+## Main Street Café Chess
+- **What:** Saturday chess meetups at Bean Around the World (Main & 10th)
 - **Vibe:** Casual, "18 players squeezed into the café"
-- **Find it:** Daily Hive article / local Facebook
+- **Find it:** [Daily Hive article](https://dailyhive.com/vancouver/vancouver_chess-meetups-main-street-cafe)
 
 ## Coco Rico Cafe Chess
 - **What:** Informal chess Friday/Saturday nights

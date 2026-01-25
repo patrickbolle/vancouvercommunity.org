@@ -49,7 +49,7 @@
 ## Trout Lake Community Centre Pottery
 - **What:** Community centre pottery classes
 - **Vibe:** Affordable, neighbourhood-based
-- **Find it:** Trout Lake Community Centre
+- **Find it:** [troutlakecc.com](https://troutlakecc.com/) | [City of Vancouver](https://vancouver.ca/parks-recreation-culture/trout-lake-community-centre.aspx)
 
 ## City of Vancouver Pottery Programs
 - **What:** Various venues for drop-in pottery and classes

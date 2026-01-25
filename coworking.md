@@ -14,7 +14,7 @@
 ## The HiVE
 - **What:** Coworking for social impact sector
 - **Vibe:** 150+ people, cafe-like studio culture
-- **Find it:** Search "HiVE Vancouver coworking"
+- **Find it:** [hivevancouver.com](https://www.hivevancouver.com/)
 
 ## L'Atelier Vancouver
 - **What:** Boutique coworking in Gastown
@@ -42,6 +42,6 @@
 - **Find it:** [coworkingvancouver.ca](https://coworkingvancouver.ca/)
 
 ## Spacekraft
-- **What:** Creative coworking space
+- **What:** Creative coworking space in Burnaby
 - **Vibe:** Design-focused, community events
-- **Find it:** Search "Spacekraft Vancouver"
+- **Find it:** [spacekraft.co](http://old.spacekraft.co/) | 4501 Kingsway, Burnaby

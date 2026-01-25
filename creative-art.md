@@ -14,6 +14,7 @@
 - **What:** Casual drink & draw
 - **When:** Every other Monday, 5pm
 - **Where:** East Van Brewing Co.
+- **Find it:** [meetup.com/the-sketchup](https://www.meetup.com/the-sketchup/)
 
 ## Vancouver Creative Collective
 - **What:** Space for artists and creatives from all mediums to meet and collaborate
@@ -56,7 +57,7 @@
 ## Vancouver Outsider Arts Festival
 - **What:** Festival for artists facing social exclusion
 - **Vibe:** 40+ visual artists, performances, workshops
-- **Find it:** Organized by CACV
+- **Find it:** [voaf.ca](https://voaf.ca/) | [CACV page](https://www.cacv.ca/programs/vancouver-outsider-arts-festival/)
 
 ---
 

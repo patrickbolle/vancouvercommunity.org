@@ -11,7 +11,7 @@
 
 ## Vancouver Self Awareness Meetup Group
 - **What:** Astrology, self-development
-- **Find it:** [meetup.com/find/ca--vancouver/astrology](https://meetup.com/find/ca--vancouver/astrology/) (search group listing)
+- **Find it:** [meetup.com/find/ca--vancouver/astrology](https://www.meetup.com/find/ca--vancouver/astrology/)
 
 ## Spiritual Development, Meditation & Mysticism Events
 - **What:** Spirit rituals, unique spiritual expression, mystical paths
@@ -21,7 +21,7 @@
 ## Moon Circles Vancouver
 - **What:** Full moon and new moon gatherings
 - **Vibe:** Women's circles, intention setting
-- **Find it:** Various facilitators — search Instagram/Eventbrite
+- **Find it:** [Eventbrite moon circle Vancouver](https://www.eventbrite.ca/d/canada--vancouver/moon-circle/) (various facilitators)
 
 ---
 

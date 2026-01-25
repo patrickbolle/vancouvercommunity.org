@@ -19,15 +19,15 @@
 - **Vibe:** Brotherhood, support circles
 - **Find it:** [vancouver.pathwaysbc.ca](https://vancouver.pathwaysbc.ca/programs/3391)
 
-## Dads in Parks
+## Metro Vancouver Dads
 - **What:** Meetups for fathers with young kids
 - **Vibe:** Casual playground hangouts, parenting support
-- **Find it:** Facebook groups
+- **Find it:** [meetup.com/Vancouver-Dads](https://www.meetup.com/Vancouver-Dads/)
 
-## Men's Wellness Vancouver (Meetup)
+## Men's Wellness Groups (Meetup)
 - **What:** Fitness, mindfulness, social events for men
 - **Vibe:** Holistic wellness approach
-- **Find it:** [meetup.com/find/ca--vancouver](https://meetup.com/find/ca--vancouver/) (search "men's wellness")
+- **Find it:** [meetup.com/topics/mens-health](https://www.meetup.com/topics/mens-health/ca/bc/vancouver/)
 
 ---
 

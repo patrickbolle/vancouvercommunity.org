@@ -35,7 +35,7 @@
 
 ## The Witching Hour
 - **What:** Baby-friendly happy hour for parents
-- **Find it:** Search Instagram for "Witching Hour Vancouver parents"
+- **Find it:** [Instagram @witchinghouryvr](https://instagram.com/witchinghouryvr)
 
 ## Shindigs & Board Games with Friendly Folks
 - **What:** Games and socializing

@@ -23,17 +23,17 @@
 ## Vancouver Discussions Meetup
 - **What:** General intellectual discussions on varied topics
 - **Vibe:** Open-minded, curious participants
-- **Find it:** [meetup.com](https://www.meetup.com/find/ca--vancouver/philosophy/)
+- **Find it:** [meetup.com/vancouver-discussions-meetup-group](https://www.meetup.com/vancouver-discussions-meetup-group/)
 
 ## The Apeiron Society for the Practice of Philosophy
 - **What:** Philosophy practice
 - **When:** Every 2nd Tuesday (Fall & Winter)
-- **Find it:** Philosophy Now events page
+- **Find it:** [apeironsociety.ca](https://www.apeironsociety.ca/)
 
 ## Anime Philosophy Meetup Vancouver
 - **What:** Explore philosophical themes through anime
 - **Vibe:** Unique intersection of pop culture and deep thinking
-- **Find it:** [meetup.com/find/ca--vancouver/philosophy](https://meetup.com/find/ca--vancouver/philosophy/) (search for "Anime Philosophy")
+- **Find it:** [meetup.com/anime-philosophy-meetup-vancouver](https://www.meetup.com/anime-philosophy-meetup-vancouver/)
 
 ## SFU Philosophy Café
 - **What:** Public philosophy discussions
@@ -43,7 +43,7 @@
 ## Socrates Café Vancouver
 - **What:** Open philosophical inquiry for everyone
 - **Vibe:** Socratic method, no expertise required
-- **Find it:** Check [meetup.com/find/ca--vancouver/philosophy](https://meetup.com/find/ca--vancouver/philosophy/) for current listings
+- **Find it:** [meetup.com/topics/socratescafe](https://www.meetup.com/topics/socratescafe/) (check for Vancouver events)
 
 ---
 

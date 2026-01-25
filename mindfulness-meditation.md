@@ -38,7 +38,7 @@
 ## Free Outdoor Meditation (Summer)
 - **What:** Drop-in meditation sessions in parks
 - **Vibe:** Accessible, beginner-friendly
-- **Find it:** Various — check community centre schedules
+- **Find it:** [vancouver.ca/parks-recreation](https://vancouver.ca/parks-recreation-culture.aspx) | Community centre schedules
 
 ---
 

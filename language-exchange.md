@@ -6,8 +6,8 @@
 - **Find it:** [meetup.com/vancouver-chinese-english-language-exchange](https://meetup.com/vancouver-chinese-english-language-exchange)
 
 ## Se Habla (English & Spanish)
-- **What:** Language and cultural exchanges
-- **Find it:** [meetup.com/vancouver](https://meetup.com/vancouver)
+- **What:** Language and cultural exchanges (part of global network)
+- **Find it:** [meetup.com/vancouver](https://meetup.com/vancouver) | [se-habla.com](https://se-habla.com/)
 
 ## Conversational English
 - **What:** ESL conversation practice
