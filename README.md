@@ -1,8 +1,10 @@
 # Vancouver Community Directory
 
-A guide to groups, clubs, meetups, and events in Vancouver, BC.
+A guide to finding **real community** in Vancouver, BC — not just things to do, but people to belong with.
 
 🌐 **Website:** [vancouvercommunity.org](https://vancouvercommunity.org)
+
+**The test:** *"If I'm interested in X, can I go here and find my people?"*
 
 ---
 
@@ -171,17 +173,6 @@ A guide to groups, clubs, meetups, and events in Vancouver, BC.
 - Film Club at The Cinematheque
 - VIFF Live
 - Rio Theatre
-
-## 🛍️ Flea Markets / Vintage
-
-- Venues & Spaces
-- The Eastside Flea
-- The Granville Flea
-- Vancouver Flea Market
-- Chinatown Flea Market
-- Value Vintage Marketplace
-- Mintage Vintage
-- Fall for Local Markets
 
 ## 🍄 Foraging / Nature
 
@@ -542,7 +533,7 @@ A guide to groups, clubs, meetups, and events in Vancouver, BC.
 
 ---
 
-**Add a community:** [Submit here](https://vancouvercommunity.org/submit/) or open a PR.
+**Add a community:** [Submit here](https://vancouvercommunity.org/submit/) or open a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 **Site code:** See `site/_build/` for the static site generator and Cloudflare Workers.
 
