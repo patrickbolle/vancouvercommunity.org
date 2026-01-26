@@ -77,6 +77,32 @@
 - **Vibe:** Safe space for beginners, networking with like-minded people
 - **Find it:** [lu.ma/ascent](https://lu.ma/ascent)
 
+## Events & Adventures
+- **What:** Invitation-only singles social club with curated activities
+- **Vibe:** Meet people through fun group outings, pressure-free
+- **Find it:** [eventsandadventures.com](https://eventsandadventures.com)
+
+## Vancouver Widowed Social Group
+- **What:** Social group for widows and widowers in Greater Vancouver
+- **Vibe:** Friendly, welcoming, supportive community
+- **Find it:** [heylo.com/g/vancouver-widowed](https://www.heylo.com/g/9e18daaa-3500-46ab-b754-195038213729)
+
+## Vancouver Dodgeball League
+- **What:** Largest non-profit dodgeball organization in the world
+- **Size:** 260+ teams, 2,000+ players
+- **Vibe:** Sport + social, post-game pub nights
+- **Find it:** [vdldodgeball.ca](https://vdldodgeball.ca)
+
+## Double Rainbow Dodgeball
+- **What:** Inclusive community dodgeball league
+- **Vibe:** 19+, LGBTQ+ friendly, drug & alcohol free
+- **Find it:** [doublerainbowdodgeball.ca](https://doublerainbowdodgeball.ca)
+
+## English Bay Swim Club
+- **What:** LGBTQ+ swimming club
+- **Vibe:** Positive, inclusive space, especially trans-friendly
+- **Find it:** Search "English Bay Swim Club Vancouver"
+
 ---
 
 ## Venues & Resources

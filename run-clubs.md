@@ -72,6 +72,11 @@
 - **Vibe:** Fun-first, social running
 - **Find it:** [meetup.com/vancouver-run-grub-and-chug-club](https://meetup.com/vancouver-run-grub-and-chug-club)
 
+## One Run Club
+- **What:** Weekly runs with 2,000+ check-ins
+- **Vibe:** Active community, regular Wednesday runs
+- **Find it:** [heylo.com/g/one-run-club](https://www.heylo.com/g/9e4c8397-7474-47f7-a3a5-63617206c5d2)
+
 ## M2M Running (Miles to Marathon)
 - **What:** Wednesday runs at 6:30pm, two locations
 - **Where:** Point Grey and Empire Track (PNE/Burnaby)
