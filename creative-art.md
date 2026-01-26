@@ -59,11 +59,6 @@
 - **Vibe:** 40+ visual artists, performances, workshops
 - **Find it:** [voaf.ca](https://voaf.ca/) | [CACV page](https://www.cacv.ca/programs/vancouver-outsider-arts-festival/)
 
-## Vancouver Design Community
-- **What:** Social events for designers (UX, product, visual, etc.)
-- **Vibe:** Seasonal socials, networking at local venues
-- **Find it:** Events on [lu.ma/vancouver](https://lu.ma/vancouver)
-
 ## Atelier
 - **What:** Community for working on side projects together
 - **Vibe:** Embroidery, coding, music, building — anything goes

@@ -75,7 +75,7 @@
 ## Ascent
 - **What:** Private social club for learning and playing poker
 - **Vibe:** Safe space for beginners, networking with like-minded people
-- **Find it:** Events on [lu.ma/vancouver](https://lu.ma/vancouver)
+- **Find it:** [lu.ma/ascent](https://lu.ma/ascent)
 
 ---
 
