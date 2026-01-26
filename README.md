@@ -533,8 +533,49 @@ A guide to finding **real community** in Vancouver, BC — not just things to do
 
 ---
 
+## Contributing
+
 **Add a community:** [Submit here](https://vancouvercommunity.org/submit/) or open a PR. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-**Site code:** See `site/_build/` for the static site generator and Cloudflare Workers.
+## Development
+
+### File Structure
+
+```
+├── *.md                    # Category content files (edit these!)
+├── CONTRIBUTING.md         # Site vision and contribution guidelines
+├── README.md               # This file
+└── site/
+    ├── _build/
+    │   ├── build.sh        # Static site generator
+    │   ├── style.css       # External stylesheet (DO NOT inline)
+    │   └── main.js         # JavaScript
+    ├── */index.html        # Generated category pages
+    └── index.html          # Generated homepage
+```
+
+### Building the Site
+
+```bash
+cd site/_build && bash build.sh
+```
+
+This converts the markdown files to HTML pages.
+
+### ⚠️ Important Rules
+
+1. **Only edit the `.md` files** — don't manually edit HTML in `site/`
+2. **External CSS only** — the build script uses `/_build/style.css`, never inline styles
+3. **HTML structure must match CSS** — the CSS expects:
+   - `<header class="site-header">` with `.logo` and `.page-title`
+   - `<div class="main-container">` wrapping sidebar and content
+   - `<nav class="sidebar">` with `<ul>` directly inside (no wrapper div)
+4. **Run build after MD changes** — changes to `.md` files require rebuild to update site
+
+### Deployment
+
+Site deploys to Cloudflare Pages from the `site/` directory.
+
+---
 
 Created by [Patrick Bollenbach](https://bollenbach.ca)
