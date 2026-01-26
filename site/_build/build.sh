@@ -241,8 +241,110 @@ generate_sidebar() {
   echo '</nav>'
 }
 
-# External stylesheet reference
-STYLES='<link rel="stylesheet" href="/_build/style.css">'
+# Common styles
+STYLES='<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>'
 
 # Random redirect and counter scripts
 SCRIPTS='<script>

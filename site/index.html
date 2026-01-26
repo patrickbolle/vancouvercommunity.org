@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vancouver Community Directory - Find Your People</title>
+  <title>Vancouver Community Directory - Local Groups, Clubs & Meetups</title>
   <meta name="description" content="A comprehensive guide to groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
   <meta property="og:title" content="Vancouver Community Directory">
   <meta property="og:description" content="Find groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vancouvercommunity.org/">
+  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vancouver Community Directory">
+  <meta name="twitter:description" content="Find groups, clubs, meetups, and events for connection and community in Vancouver, BC.">
+  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
   <link rel="canonical" href="https://vancouvercommunity.org/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
@@ -21,6 +26,15 @@
     "name": "Vancouver Community Directory",
     "url": "https://vancouvercommunity.org",
     "description": "A comprehensive guide to groups, clubs, meetups, and events for connection and community in Vancouver, BC.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Vancouver",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
     "publisher": {
       "@type": "Person",
       "name": "Patrick Bollenbach",
@@ -30,10 +44,12 @@
   </script>
 </head>
 <body>
+<header class="site-header">
+  <a href="/" class="logo">Vancouver Community</a>
+  <h1 class="page-title">Find your community in Vancouver</h1>
+</header>
+<div class="main-container">
 <nav class="sidebar">
-  <div class="sidebar-header">
-    <a href="/" class="logo">Vancouver Community</a>
-  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -85,16 +101,19 @@
   </div>
 </nav>
 <main class="content">
-  <h1>Welcome 👋</h1>
   <div class="welcome">
-    <p>Vancouver can feel like a hard city to make friends and find community.</p>
-    <p>This directory collects social groups, clubs, meetups, and events in one place.</p>
-    <p style="margin-top: 15px; color: #666;">← Pick a category to explore</p>
+    <p>Vancouver can feel like a hard city to make friends. I built this directory to help.</p>
+    <p>It's a collection of social groups, clubs, meetups, and events across 40+ categories — <a href="/run-clubs/">run clubs</a>, <a href="/hiking-outdoors/">hiking groups</a>, <a href="/book-clubs/">book clubs</a>, <a href="/board-games/">board game nights</a>, <a href="/creative-art/">art communities</a>, and more.</p>
+    <p>This is a community project. If you know a group that should be listed, <a href="/submit/">add it</a>. If something's outdated, every page has a "suggest edit" link.</p>
+    <p style="margin-top: 20px;">
+      <a href="/submit/" style="margin-right: 15px;">+ Submit a group</a>
+      <a href="#" onclick="goRandom(); return false;">🎲 Random category</a>
+    </p>
     <hr style="margin: 25px 0;">
-    <p style="font-size: 0.9em; color: #666;">Created by <a href="https://bollenbach.ca">Patrick Bollenbach</a> for the Vancouver community.</p>
-    <p style="margin-top: 15px; color: #666; font-size: 0.9em;" id="page-views"></p>
+    <p style="font-size: 0.9em; color: #666;">Made by <a href="https://bollenbach.ca">Patrick Bollenbach</a> in Vancouver. <span id="homepage-total-views"></span></p>
   </div>
 </main>
+</div>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
 function goRandom() {
@@ -116,8 +135,13 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
     // Update total counter in sidebar
     const totalCounter = document.getElementById("total-views");
     if (totalCounter) totalCounter.textContent = totalViews.toLocaleString() + " total views";
+
+    // Update total counter on homepage
+    const homepageTotal = document.getElementById("homepage-total-views");
+    if (homepageTotal) homepageTotal.textContent = totalViews.toLocaleString() + " views";
   })
   .catch(() => {});
 </script>
+<script src="/_build/main.js"></script>
 </body>
 </html>
