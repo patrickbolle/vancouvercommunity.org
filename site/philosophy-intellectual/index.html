@@ -3,33 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philosophy & Discussion Groups in Vancouver | Vancouver Community Directory</title>
+  <title>Philosophy & Intellectual in Vancouver | Vancouver Community Directory</title>
   <meta name="description" content="Philosophy meetups and discussion groups in Vancouver. Deep conversations.">
-  <meta property="og:title" content="Philosophy & Discussion Groups in Vancouver">
+  <meta property="og:title" content="Philosophy & Intellectual in Vancouver">
   <meta property="og:description" content="Philosophy meetups and discussion groups in Vancouver. Deep conversations.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vancouvercommunity.org/philosophy-intellectual/">
-  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Philosophy & Discussion Groups in Vancouver">
-  <meta name="twitter:description" content="Philosophy meetups and discussion groups in Vancouver. Deep conversations.">
-  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
   <link rel="canonical" href="https://vancouvercommunity.org/philosophy-intellectual/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <script defer src="https://data.kwconcerts.ca/script.js" data-website-id="ce0a9531-1032-4e43-a3a6-5c93cf9513f6"></script>
-  <link rel="stylesheet" href="/_build/style.css">
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Philosophy & Discussion Groups in Vancouver",
+    "name": "Philosophy & Intellectual in Vancouver",
     "description": "Philosophy meetups and discussion groups in Vancouver. Deep conversations.",
     "url": "https://vancouvercommunity.org/philosophy-intellectual/",
-    "about": {
-      "@type": "Thing",
-      "name": "Philosophy & Discussion Groups"
-    },
     "isPartOf": {
       "@type": "WebSite",
       "name": "Vancouver Community Directory",
@@ -39,12 +132,10 @@
   </script>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <h1 class="page-title">🤔 Philosophy & Discussion Groups in Vancouver</h1>
-</header>
-<div class="main-container">
 <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="logo">Vancouver Community</a>
+  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -96,58 +187,43 @@
   </div>
 </nav>
 <main class="content">
-  <h2 id="vancouver-philosophy-salon">Vancouver Philosophy Salon<a href="#vancouver-philosophy-salon" class="anchor">#</a></h2>
-<ul>
+  <h1>🤔 Philosophy & Intellectual</h1>
+<h2 id="vancouver-philosophy-salon">Vancouver Philosophy Salon<a href="#vancouver-philosophy-salon" class="anchor">#</a></h2>
 <li><strong>What:</strong> Philosophical dialogue and friendly debate</li>
 <li><strong>Vibe:</strong> Wide variety of topics, Plato to Buddha</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-philosophy-salon">meetup.com/vancouver-philosophy-salon</a></li>
-</ul>
 <h2 id="shy-philosophers">Shy Philosophers<a href="#shy-philosophers" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Safe space to discuss philosophy</li>
 <li><strong>Vibe:</strong> "Feel safe and converse philosophy with new people freely"</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/shyphilosophers">meetup.com/shyphilosophers</a></li>
-</ul>
 <h2 id="practical-philosophy-club">Practical Philosophy Club<a href="#practical-philosophy-club" class="anchor">#</a></h2>
-<ul>
-<li><strong>What:</strong> Philosophy discussions</li>
-<li><strong>Find it:</strong> Meetup</li>
-</ul>
+<li><strong>What:</strong> Philosophy discussions, no expertise required</li>
+<li><strong>When:</strong> Weekly in-person meetups</li>
+<li><strong>Find it:</strong> <a href="https://meetup.com/practical-philosophy">meetup.com/practical-philosophy</a> | <a href="https://practicalphilosophy.club/">practicalphilosophy.club</a></li>
 <h2 id="mind-matters-a-book-club-for-big-ideas">Mind Matters: A Book Club for Big Ideas<a href="#mind-matters-a-book-club-for-big-ideas" class="anchor">#</a></h2>
-<ul>
-<li><strong>What:</strong> Books about big ideas</li>
-<li><strong>Find it:</strong> Meetup</li>
-</ul>
+<li><strong>What:</strong> Books about big ideas (philosophy, sociology, science)</li>
+<li><strong>Vibe:</strong> Audiobooks available via VPL, welcoming to all</li>
+<li><strong>Find it:</strong> <a href="https://meetup.com/mind-matters-a-book-club-for-big-ideas">meetup.com/mind-matters-a-book-club-for-big-ideas</a></li>
 <h2 id="vancouver-discussions-meetup">Vancouver Discussions Meetup<a href="#vancouver-discussions-meetup" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> General intellectual discussions on varied topics</li>
 <li><strong>Vibe:</strong> Open-minded, curious participants</li>
-<li><strong>Find it:</strong> <a href="https://www.meetup.com/find/ca--vancouver/philosophy/">meetup.com</a></li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.meetup.com/vancouver-discussions-meetup-group/">meetup.com/vancouver-discussions-meetup-group</a></li>
 <h2 id="the-apeiron-society-for-the-practice-of-philosophy">The Apeiron Society for the Practice of Philosophy<a href="#the-apeiron-society-for-the-practice-of-philosophy" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Philosophy practice</li>
 <li><strong>When:</strong> Every 2nd Tuesday (Fall & Winter)</li>
-<li><strong>Find it:</strong> Philosophy Now events page</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.apeironsociety.ca/">apeironsociety.ca</a></li>
 <h2 id="anime-philosophy-meetup-vancouver">Anime Philosophy Meetup Vancouver<a href="#anime-philosophy-meetup-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Explore philosophical themes through anime</li>
 <li><strong>Vibe:</strong> Unique intersection of pop culture and deep thinking</li>
-<li><strong>Find it:</strong> Meetup</li>
-</ul>
-<h2 id="sfu-philosophy-caf">SFU Philosophy Café<a href="#sfu-philosophy-caf" class="anchor">#</a></h2>
-<ul>
+<li><strong>Find it:</strong> <a href="https://www.meetup.com/anime-philosophy-meetup-vancouver/">meetup.com/anime-philosophy-meetup-vancouver</a></li>
+<h2 id="sfu-philosophy-café">SFU Philosophy Café<a href="#sfu-philosophy-café" class="anchor">#</a></h2>
 <li><strong>What:</strong> Public philosophy discussions</li>
 <li><strong>Vibe:</strong> Academic but accessible</li>
-<li><strong>Find it:</strong> SFU events calendar</li>
-</ul>
-<h2 id="socrates-caf-vancouver">Socrates Café Vancouver<a href="#socrates-caf-vancouver" class="anchor">#</a></h2>
-<ul>
+<li><strong>Find it:</strong> <a href="https://www.sfu.ca/philosophy/events.html">sfu.ca/philosophy/events</a></li>
+<h2 id="socrates-café-vancouver">Socrates Café Vancouver<a href="#socrates-café-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Open philosophical inquiry for everyone</li>
 <li><strong>Vibe:</strong> Socratic method, no expertise required</li>
-<li><strong>Find it:</strong> Check local listings</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.meetup.com/topics/socratescafe/">meetup.com/topics/socratescafe</a> (check for Vancouver events)</li>
 <hr>
 <h2 id="venues-resources">Venues & Resources<a href="#venues-resources" class="anchor">#</a></h2>
 *This category is all community groups! Philosophy clubs by nature are communities that gather to discuss ideas together.*
@@ -158,13 +234,12 @@
     <a href="#" onclick="openEditModal('philosophy-intellectual'); return false;" style="margin-left: 10px;">✏️ Suggest Edit</a>
   </p>
 </main>
-</div>
 
 <!-- Edit Modal -->
-<div id="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
+<div id="edit-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
   <div style="background: #fff; max-width: 800px; margin: 40px auto; padding: 25px; border-radius: 8px; position: relative;">
-    <button onclick="closeEditModal()" aria-label="Close modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-    <h2 id="edit-modal-title" style="margin-bottom: 15px;">Suggest Edit</h2>
+    <button onclick="closeEditModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+    <h2 style="margin-bottom: 15px;">Suggest Edit</h2>
     <p style="margin-bottom: 15px; color: #666;">Edit the content below. Your changes will be reviewed and potentially approved by the maintainer.</p>
     <form id="edit-form">
       <div style="margin-bottom: 15px;">
@@ -218,31 +293,6 @@ function closeEditModal() {
 document.getElementById('edit-modal').addEventListener('click', (e) => {
   if (e.target.id === 'edit-modal') closeEditModal();
 });
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') {
-    closeEditModal();
-  }
-});
-
-// Focus trap for modal
-let previouslyFocused = null;
-const originalOpen = openEditModal;
-openEditModal = async function(category) {
-  previouslyFocused = document.activeElement;
-  await originalOpen(category);
-  // Focus first input after modal opens
-  setTimeout(() => {
-    const firstInput = document.querySelector('#edit-modal input, #edit-modal textarea');
-    if (firstInput) firstInput.focus();
-  }, 100);
-};
-const originalClose = closeEditModal;
-closeEditModal = function() {
-  originalClose();
-  if (previouslyFocused) previouslyFocused.focus();
-};
 
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -306,6 +356,5 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   })
   .catch(() => {});
 </script>
-<script src="/_build/main.js"></script>
 </body>
 </html>

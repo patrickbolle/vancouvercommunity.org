@@ -3,33 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech & Startup Communities in Vancouver | Vancouver Community Directory</title>
+  <title>Tech & Startup in Vancouver | Vancouver Community Directory</title>
   <meta name="description" content="Vancouver tech meetups and startup community. Founders and developers connecting.">
-  <meta property="og:title" content="Tech & Startup Communities in Vancouver">
+  <meta property="og:title" content="Tech & Startup in Vancouver">
   <meta property="og:description" content="Vancouver tech meetups and startup community. Founders and developers connecting.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vancouvercommunity.org/tech-startup/">
-  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tech & Startup Communities in Vancouver">
-  <meta name="twitter:description" content="Vancouver tech meetups and startup community. Founders and developers connecting.">
-  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
   <link rel="canonical" href="https://vancouvercommunity.org/tech-startup/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <script defer src="https://data.kwconcerts.ca/script.js" data-website-id="ce0a9531-1032-4e43-a3a6-5c93cf9513f6"></script>
-  <link rel="stylesheet" href="/_build/style.css">
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Tech & Startup Communities in Vancouver",
+    "name": "Tech & Startup in Vancouver",
     "description": "Vancouver tech meetups and startup community. Founders and developers connecting.",
     "url": "https://vancouvercommunity.org/tech-startup/",
-    "about": {
-      "@type": "Thing",
-      "name": "Tech & Startup Communities"
-    },
     "isPartOf": {
       "@type": "WebSite",
       "name": "Vancouver Community Directory",
@@ -39,12 +132,10 @@
   </script>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <h1 class="page-title">💼 Tech & Startup Communities in Vancouver</h1>
-</header>
-<div class="main-container">
 <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="logo">Vancouver Community</a>
+  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -96,69 +187,164 @@
   </div>
 </nav>
 <main class="content">
-  <h2 id="techvancouver">TechVancouver<a href="#techvancouver" class="anchor">#</a></h2>
-<ul>
+  <h1>💼 Tech & Startup</h1>
+<h2 id="techvancouver">TechVancouver<a href="#techvancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Tech community events</li>
 <li><strong>Size:</strong> 13,000+ members</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/techvancouverorg">meetup.com/techvancouverorg</a></li>
-</ul>
 <h2 id="vancouver-founders">Vancouver Founders<a href="#vancouver-founders" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Startup community networking</li>
 <li><strong>Vibe:</strong> Collaboration, building relationships</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vantechfounders">meetup.com/vantechfounders</a></li>
-</ul>
 <h2 id="vancouver-entrepreneurs-startup-network">Vancouver Entrepreneurs & Startup Network<a href="#vancouver-entrepreneurs-startup-network" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Help entrepreneurs meet potential partners</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-entrepreneurs-network">meetup.com/vancouver-entrepreneurs-network</a></li>
-</ul>
 <h2 id="startup-founder-101">Startup Founder 101<a href="#startup-founder-101" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Aspiring and experienced tech entrepreneurs</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-startup-founder-101">meetup.com/vancouver-startup-founder-101</a></li>
-</ul>
 <h2 id="startup-grind-vancouver">Startup Grind Vancouver<a href="#startup-grind-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Monthly startup events to teach, inspire, connect</li>
 <li><strong>Find it:</strong> <a href="https://www.startupgrind.com/vancouver/">startupgrind.com/vancouver</a></li>
-</ul>
 <h2 id="yvr-startups">YVR Startups<a href="#yvr-startups" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Inspire, inform, involve in startup scene</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/yvr-startups">meetup.com/yvr-startups</a></li>
-</ul>
 <h2 id="9cat-vancouver-tech-talents-networking">9CAT - Vancouver Tech Talents Networking<a href="#9cat-vancouver-tech-talents-networking" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Developers, designers, engineers, entrepreneurs</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vancouver-internet-technology-talents-networking-9cat-net">meetup.com/vancouver-internet-technology-talents-networking-9cat-net</a></li>
-</ul>
 <h2 id="van-tech-meetup">Van Tech Meetup<a href="#van-tech-meetup" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Career advice, networking with tech professionals</li>
 <li><strong>Vibe:</strong> Learn from recruiters, job board execs</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/tech-talent-meetup">meetup.com/tech-talent-meetup</a></li>
-</ul>
 <h2 id="tie-vancouver">TiE Vancouver<a href="#tie-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Chapter of global entrepreneur network from Silicon Valley</li>
-<li><strong>Vibe:</strong> Angels, VCs, private equity, service providers</li>
-<li><strong>Find it:</strong> Search "TiE Vancouver"</li>
-</ul>
+<li><strong>Vibe:</strong> Angels, VCs, private equity, service providers, mentorship</li>
+<li><strong>Find it:</strong> <a href="https://vancouver.tie.org/">vancouver.tie.org</a></li>
 <h2 id="boast-capital-events">Boast Capital Events<a href="#boast-capital-events" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Brew & Bites networking events</li>
 <li><strong>Vibe:</strong> Stellar networking, partners with other tech groups</li>
 <li><strong>Find it:</strong> <a href="https://boast.ai/">boast.ai</a></li>
-</ul>
+<h2 id="bc-ai-events">BC + AI Events<a href="#bc-ai-events" class="anchor">#</a></h2>
+<li><strong>What:</strong> Vancouver AI gatherings and BC-wide AI community</li>
+<li><strong>Vibe:</strong> Multi-modal, multi-cultural, radically local, future-facing</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouver-ai">lu.ma/vancouver-ai</a></li>
+<h2 id="vancouver-tech-events-luma">Vancouver Tech Events (Luma)<a href="#vancouver-tech-events-luma" class="anchor">#</a></h2>
+<li><strong>What:</strong> Aggregator of IRL tech events in Vancouver</li>
+<li><strong>Vibe:</strong> Weekly email digest, submit your own events</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouvertech">lu.ma/vancouvertech</a></li>
+<h2 id="vancouver-developers">Vancouver Developers<a href="#vancouver-developers" class="anchor">#</a></h2>
+<li><strong>What:</strong> Weekly developer meetups for coding and networking</li>
+<li><strong>Vibe:</strong> Collaborative, skill-building, connect with talented people</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouver-developers">lu.ma/vancouver-developers</a></li>
+<h2 id="google-developer-community-vancouver">Google Developer Community Vancouver<a href="#google-developer-community-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> GDG Vancouver - official Google developer chapter</li>
+<li><strong>Vibe:</strong> Learning, innovating, uniting the tech community</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/GDGvancouver">lu.ma/GDGvancouver</a></li>
+<h2 id="cloud-native-vancouver">Cloud Native Vancouver<a href="#cloud-native-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Official CNCF chapter for Kubernetes, containers, cloud-native tech</li>
+<li><strong>Vibe:</strong> Technical deep-dives, passionate community</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/cloudnativevan">lu.ma/cloudnativevan</a></li>
+<h2 id="vancouver-cloud-events">Vancouver Cloud Events<a href="#vancouver-cloud-events" class="anchor">#</a></h2>
+<li><strong>What:</strong> AWS, Azure, and GCP events aggregated in one place</li>
+<li><strong>Vibe:</strong> Cloud Summit, meetups across all major cloud platforms</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/VancouverCloud">lu.ma/VancouverCloud</a></li>
+<h2 id="novus">Novus<a href="#novus" class="anchor">#</a></h2>
+<li><strong>What:</strong> Community of founders and builders working on impactful projects</li>
+<li><strong>Vibe:</strong> High-caliber, impact-focused, scale-minded</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/novus">lu.ma/novus</a></li>
+<h2 id="isaca-vancouver">ISACA Vancouver<a href="#isaca-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> IT security, governance, risk management professionals</li>
+<li><strong>Vibe:</strong> Professional development, certification-focused</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/ISACA">lu.ma/ISACA</a></li>
+<h2 id="vanjs">VanJS<a href="#vanjs" class="anchor">#</a></h2>
+<li><strong>What:</strong> Monthly JavaScript meetups with talks and networking</li>
+<li><strong>Vibe:</strong> Technical talks, friendly community, front-end focused</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vanjs">lu.ma/vanjs</a></li>
+<h2 id="vancouver-linux-users-group-vanlug">Vancouver Linux Users Group (VanLUG)<a href="#vancouver-linux-users-group-vanlug" class="anchor">#</a></h2>
+<li><strong>What:</strong> Linux professionals, hobbyists, and fans across Greater Vancouver</li>
+<li><strong>Vibe:</strong> Non-profit, library-hosted sessions in Richmond, Burnaby, Surrey</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vanlug">lu.ma/vanlug</a></li>
+<h2 id="vam-vancouver-ai-meetup">VAM! (Vancouver AI Meetup)<a href="#vam-vancouver-ai-meetup" class="anchor">#</a></h2>
+<li><strong>What:</strong> AI reading groups, crash courses, show & tell demos</li>
+<li><strong>Vibe:</strong> Academic yet accessible, hands-on learning</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vam">lu.ma/vam</a></li>
+<h2 id="vancouver-tech-journal-events">Vancouver Tech Journal Events<a href="#vancouver-tech-journal-events" class="anchor">#</a></h2>
+<li><strong>What:</strong> #VTJTalks, industry socials, co-working sessions</li>
+<li><strong>Vibe:</strong> Premium networking, thought leadership, local tech journalism</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vantechjournal">lu.ma/vantechjournal</a></li>
+<h2 id="vancouver-dev">Vancouver.dev<a href="#vancouver-dev" class="anchor">#</a></h2>
+<li><strong>What:</strong> Developer community events and coffee chats</li>
+<li><strong>Vibe:</strong> Leading dev community in Vancouver</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouver.dev">lu.ma/vancouver.dev</a></li>
+<h2 id="cs-dojo-vancouver">CS Dojo Vancouver<a href="#cs-dojo-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Tech & AI community events, conferences</li>
+<li><strong>Vibe:</strong> Premier tech community, YK Sugi's local chapter</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/csdojo">lu.ma/csdojo</a></li>
+<h2 id="white-hat-security-community">White-Hat Security Community<a href="#white-hat-security-community" class="anchor">#</a></h2>
+<li><strong>What:</strong> Monthly coffee chats for cybersecurity professionals</li>
+<li><strong>Vibe:</strong> New security community, casual networking</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/WhiteHatSecurityCommunityVancouver">lu.ma/WhiteHatSecurityCommunityVancouver</a></li>
+<h2 id="web-summit-2026-vancouver-side-events">Web Summit 2026 Vancouver Side Events<a href="#web-summit-2026-vancouver-side-events" class="anchor">#</a></h2>
+<li><strong>What:</strong> Community-run side events during Web Summit Vancouver</li>
+<li><strong>Vibe:</strong> Afterparties, networking, fringe events</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/web-summit-vancouver-2026">lu.ma/web-summit-vancouver-2026</a></li>
+<h2 id="women-in-tech-canada-bc">Women in Tech Canada | BC<a href="#women-in-tech-canada-bc" class="anchor">#</a></h2>
+<li><strong>What:</strong> Events for women at all stages of their tech careers</li>
+<li><strong>Vibe:</strong> Inspiration, connection, career growth</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/witcanada">lu.ma/witcanada</a></li>
+<h2 id="vancouver-bitcoin">Vancouver Bitcoin<a href="#vancouver-bitcoin" class="anchor">#</a></h2>
+<li><strong>What:</strong> Bitcoin meetups, seminars, and builder sessions</li>
+<li><strong>Vibe:</strong> Education-focused, welcoming to newcomers</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vanbitcoin">lu.ma/vanbitcoin</a></li>
+<h2 id="dc604-defcon-group-vancouver">DC604 (DEFCON Group Vancouver)<a href="#dc604-defcon-group-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Monthly security/hacker meetups</li>
+<li><strong>Vibe:</strong> InfoSec community, DEF CON vibes, sells out fast</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/dc604">lu.ma/dc604</a></li>
+<h2 id="dweb-vancouver">DWeb Vancouver<a href="#dweb-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Decentralized web community — local-first, IPFS, protocols</li>
+<li><strong>Vibe:</strong> Internet Archive Canada connection, builders exploring ownership</li>
+<li><strong>Find it:</strong> <a href="https://dwebyvr.org">dwebyvr.org</a> | <a href="https://lu.ma/LOCALHOST_vancouver">lu.ma/LOCALHOST_vancouver</a></li>
+<h2 id="fission">Fission<a href="#fission" class="anchor">#</a></h2>
+<li><strong>What:</strong> DWeb, IPFS, local-first, decentralized compute events</li>
+<li><strong>Vibe:</strong> Vancouver-based company, in-person and virtual events</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/fission">lu.ma/fission</a></li>
+<h2 id="offchain-vancouver">OffChain Vancouver<a href="#offchain-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Web3/blockchain meetups, part of global OffChain network</li>
+<li><strong>Vibe:</strong> Free events, welcomes beginners and experts alike</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="internet-archive-canada">Internet Archive Canada<a href="#internet-archive-canada" class="anchor">#</a></h2>
+<li><strong>What:</strong> Monthly community gatherings at The Permanent</li>
+<li><strong>Vibe:</strong> Tech, preservation, open knowledge</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="learn-data-science-ml-ds-reading-group">Learn Data Science (ML/DS Reading Group)<a href="#learn-data-science-ml-ds-reading-group" class="anchor">#</a></h2>
+<li><strong>What:</strong> Weekly paper reading group at Northeastern Vancouver</li>
+<li><strong>Vibe:</strong> Academic yet accessible, hybrid online/in-person</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="vancouver-low-key-data-happy-hour">Vancouver Low Key Data Happy Hour<a href="#vancouver-low-key-data-happy-hour" class="anchor">#</a></h2>
+<li><strong>What:</strong> Casual monthly gathering for data practitioners</li>
+<li><strong>Vibe:</strong> Low-key networking, no presentations</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="adplist-vancouver">ADPList Vancouver<a href="#adplist-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> UX, product, and design community events</li>
+<li><strong>Vibe:</strong> Career growth, mentorship, AI discussions</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="web-summit-vancouver-side-events">Web Summit Vancouver Side Events<a href="#web-summit-vancouver-side-events" class="anchor">#</a></h2>
+<li><strong>What:</strong> Community-run events during Web Summit Vancouver</li>
+<li><strong>Vibe:</strong> Founder/investor networking outside the main conference</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/websummitvan">lu.ma/websummitvan</a> (when active)</li>
+<h2 id="careerin-tech-society">Careerin Tech Society<a href="#careerin-tech-society" class="anchor">#</a></h2>
+<li><strong>What:</strong> Startup ecosystem panels, demo days, networking</li>
+<li><strong>Vibe:</strong> Vancouver tech community building, diverse programming</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="new-ventures-bc">New Ventures BC<a href="#new-ventures-bc" class="anchor">#</a></h2>
+<li><strong>What:</strong> Build in Public nights and startup support events</li>
+<li><strong>Vibe:</strong> Early-stage founders, accountability, community</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
 <hr>
 <h2 id="venues-resources">Venues & Resources<a href="#venues-resources" class="anchor">#</a></h2>
 <h2 id="launch-academy">Launch Academy<a href="#launch-academy" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Startup accelerator with events and resources</li>
 <li><strong>Vibe:</strong> Educational, supportive of early-stage founders</li>
 <li><strong>Find it:</strong> <a href="https://www.launchacademy.ca/">launchacademy.ca</a></li>
-</ul>
   <hr style="margin: 25px 0;">
   <p style="color: #666; font-size: 0.9em;">
     <span id="page-views"></span>
@@ -166,13 +352,12 @@
     <a href="#" onclick="openEditModal('tech-startup'); return false;" style="margin-left: 10px;">✏️ Suggest Edit</a>
   </p>
 </main>
-</div>
 
 <!-- Edit Modal -->
-<div id="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
+<div id="edit-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
   <div style="background: #fff; max-width: 800px; margin: 40px auto; padding: 25px; border-radius: 8px; position: relative;">
-    <button onclick="closeEditModal()" aria-label="Close modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-    <h2 id="edit-modal-title" style="margin-bottom: 15px;">Suggest Edit</h2>
+    <button onclick="closeEditModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+    <h2 style="margin-bottom: 15px;">Suggest Edit</h2>
     <p style="margin-bottom: 15px; color: #666;">Edit the content below. Your changes will be reviewed and potentially approved by the maintainer.</p>
     <form id="edit-form">
       <div style="margin-bottom: 15px;">
@@ -226,31 +411,6 @@ function closeEditModal() {
 document.getElementById('edit-modal').addEventListener('click', (e) => {
   if (e.target.id === 'edit-modal') closeEditModal();
 });
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') {
-    closeEditModal();
-  }
-});
-
-// Focus trap for modal
-let previouslyFocused = null;
-const originalOpen = openEditModal;
-openEditModal = async function(category) {
-  previouslyFocused = document.activeElement;
-  await originalOpen(category);
-  // Focus first input after modal opens
-  setTimeout(() => {
-    const firstInput = document.querySelector('#edit-modal input, #edit-modal textarea');
-    if (firstInput) firstInput.focus();
-  }, 100);
-};
-const originalClose = closeEditModal;
-closeEditModal = function() {
-  originalClose();
-  if (previouslyFocused) previouslyFocused.focus();
-};
 
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -314,6 +474,5 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   })
   .catch(() => {});
 </script>
-<script src="/_build/main.js"></script>
 </body>
 </html>

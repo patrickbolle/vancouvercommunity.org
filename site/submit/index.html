@@ -5,27 +5,117 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Submit a Group | Vancouver Community Directory</title>
   <meta name="description" content="Submit a community group, club, or meetup to be added to the Vancouver Community Directory.">
-  <meta property="og:title" content="Submit a Group | Vancouver Community Directory">
-  <meta property="og:description" content="Submit a community group, club, or meetup to be added to the Vancouver Community Directory.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://vancouvercommunity.org/submit/">
-  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Submit a Group | Vancouver Community Directory">
-  <meta name="twitter:description" content="Submit a community group, club, or meetup to be added to the Vancouver Community Directory.">
-  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
-  <link rel="canonical" href="https://vancouvercommunity.org/submit/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script defer src="https://data.kwconcerts.ca/script.js" data-website-id="ce0a9531-1032-4e43-a3a6-5c93cf9513f6"></script>
-  <link rel="stylesheet" href="/_build/style.css">
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <h1 class="page-title">Submit a Group</h1>
-</header>
-<div class="main-container">
 <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="logo">Vancouver Community</a>
+  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -77,6 +167,7 @@
   </div>
 </nav>
 <main class="content">
+  <h1>Submit a Group</h1>
   <p>Know a community, club, or meetup that should be listed? Fill out the form below.</p>
   
   <form id="submit-form" style="margin-top: 20px;">
@@ -181,7 +272,6 @@
   });
   </script>
 </main>
-</div>
 <script>
 const categories = ["dinner-supper-clubs","social-friend-clubs","run-clubs","board-games","creative-art","photography","film-cinema","writing","language-exchange","hiking-outdoors","cycling","dance","improv-comedy","music-open-mic","climbing","pickleball","pottery-ceramics","yoga-wellness","sauna-cold-plunge","mindfulness-meditation","mens-groups","maker-spaces","philosophy-intellectual","book-clubs","tech-startup","coworking","volunteer","vinyl-listening-bars","chess","underground-dj","poetry-spoken-word","tarot-astrology","flea-markets-vintage","pub-trivia","zine-risograph","astronomy-stargazing","foraging-nature","birdwatching","karaoke","resources"];
 function goRandom() {
@@ -206,6 +296,5 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   })
   .catch(() => {});
 </script>
-<script src="/_build/main.js"></script>
 </body>
 </html>

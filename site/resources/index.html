@@ -3,33 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Community Resources in Vancouver | Vancouver Community Directory</title>
+  <title>Resources in Vancouver | Vancouver Community Directory</title>
   <meta name="description" content="Vancouver community resources and directories.">
-  <meta property="og:title" content="Community Resources in Vancouver">
+  <meta property="og:title" content="Resources in Vancouver">
   <meta property="og:description" content="Vancouver community resources and directories.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vancouvercommunity.org/resources/">
-  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Community Resources in Vancouver">
-  <meta name="twitter:description" content="Vancouver community resources and directories.">
-  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
   <link rel="canonical" href="https://vancouvercommunity.org/resources/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <script defer src="https://data.kwconcerts.ca/script.js" data-website-id="ce0a9531-1032-4e43-a3a6-5c93cf9513f6"></script>
-  <link rel="stylesheet" href="/_build/style.css">
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Community Resources in Vancouver",
+    "name": "Resources in Vancouver",
     "description": "Vancouver community resources and directories.",
     "url": "https://vancouvercommunity.org/resources/",
-    "about": {
-      "@type": "Thing",
-      "name": "Community Resources"
-    },
     "isPartOf": {
       "@type": "WebSite",
       "name": "Vancouver Community Directory",
@@ -39,12 +132,10 @@
   </script>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <h1 class="page-title">🔗 Community Resources in Vancouver</h1>
-</header>
-<div class="main-container">
 <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="logo">Vancouver Community</a>
+  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -96,53 +187,45 @@
   </div>
 </nav>
 <main class="content">
-  *These are meta-resources — directories and aggregators to help you find communities and events across all categories.*
+  <h1>🔗 Resources</h1>
+*These are meta-resources — directories and aggregators to help you find communities and events across all categories.*
 <hr>
 <h2 id="community-finders">Community Finders<a href="#community-finders" class="anchor">#</a></h2>
 <h2 id="r-vancouver4friends">r/Vancouver4Friends<a href="#r-vancouver4friends" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Reddit community for Vancouver friend-making</li>
-<li><strong>Find it:</strong> reddit.com/r/Vancouver4Friends</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.reddit.com/r/Vancouver4Friends/">reddit.com/r/Vancouver4Friends</a></li>
 <h2 id="mix-mingle-vancouver">Mix & Mingle Vancouver<a href="#mix-mingle-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Blog/guide to Vancouver social clubs</li>
 <li><strong>Find it:</strong> <a href="https://www.mixandmingle.ca/">mixandmingle.ca</a></li>
-</ul>
 <h2 id="meetup-vancouver">Meetup Vancouver<a href="#meetup-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Aggregator for all kinds of social groups</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/cities/ca/bc/vancouver">meetup.com/cities/ca/bc/vancouver</a></li>
-</ul>
 <hr>
 <h2 id="event-calendars">Event Calendars<a href="#event-calendars" class="anchor">#</a></h2>
+<h2 id="lu-ma-vancouver">Lu.ma Vancouver<a href="#lu-ma-vancouver" class="anchor">#</a></h2>
+<li><strong>What:</strong> Tech, startup, and creative community events aggregator</li>
+<li><strong>Vibe:</strong> Where Vancouver's builder community lives — subscribe for notifications</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="vancouver-tech-events-lu-ma">Vancouver Tech Events (Lu.ma)<a href="#vancouver-tech-events-lu-ma" class="anchor">#</a></h2>
+<li><strong>What:</strong> Curated IRL tech events with weekly email digest</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/vancouvertech">lu.ma/vancouvertech</a></li>
 <h2 id="georgia-straight-events">Georgia Straight Events<a href="#georgia-straight-events" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Local arts, culture, events coverage</li>
 <li><strong>Find it:</strong> <a href="https://www.straight.com/">straight.com</a></li>
-</ul>
 <h2 id="do604">do604<a href="#do604" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Vancouver events calendar</li>
 <li><strong>Find it:</strong> <a href="https://do604.com/">do604.com</a></li>
-</ul>
 <h2 id="eventbrite-vancouver">Eventbrite Vancouver<a href="#eventbrite-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Event ticketing platform</li>
 <li><strong>Find it:</strong> <a href="https://www.eventbrite.ca/d/canada--vancouver/events/">eventbrite.ca/d/canada--vancouver</a></li>
-</ul>
 <hr>
 <h2 id="specialty-directories">Specialty Directories<a href="#specialty-directories" class="anchor">#</a></h2>
 <h2 id="19hz-info">19hz.info<a href="#19hz-info" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Electronic music event listing for BC</li>
 <li><strong>Find it:</strong> <a href="https://19hz.info/eventlisting_BC.php">19hz.info/eventlisting_BC.php</a></li>
-</ul>
 <h2 id="runclubs-ca">runclubs.ca<a href="#runclubs-ca" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> 24+ Vancouver run clubs in one directory</li>
 <li><strong>Find it:</strong> <a href="https://runclubs.ca/vancouver">runclubs.ca/vancouver</a></li>
-</ul>
   <hr style="margin: 25px 0;">
   <p style="color: #666; font-size: 0.9em;">
     <span id="page-views"></span>
@@ -150,13 +233,12 @@
     <a href="#" onclick="openEditModal('resources'); return false;" style="margin-left: 10px;">✏️ Suggest Edit</a>
   </p>
 </main>
-</div>
 
 <!-- Edit Modal -->
-<div id="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
+<div id="edit-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
   <div style="background: #fff; max-width: 800px; margin: 40px auto; padding: 25px; border-radius: 8px; position: relative;">
-    <button onclick="closeEditModal()" aria-label="Close modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-    <h2 id="edit-modal-title" style="margin-bottom: 15px;">Suggest Edit</h2>
+    <button onclick="closeEditModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+    <h2 style="margin-bottom: 15px;">Suggest Edit</h2>
     <p style="margin-bottom: 15px; color: #666;">Edit the content below. Your changes will be reviewed and potentially approved by the maintainer.</p>
     <form id="edit-form">
       <div style="margin-bottom: 15px;">
@@ -210,31 +292,6 @@ function closeEditModal() {
 document.getElementById('edit-modal').addEventListener('click', (e) => {
   if (e.target.id === 'edit-modal') closeEditModal();
 });
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') {
-    closeEditModal();
-  }
-});
-
-// Focus trap for modal
-let previouslyFocused = null;
-const originalOpen = openEditModal;
-openEditModal = async function(category) {
-  previouslyFocused = document.activeElement;
-  await originalOpen(category);
-  // Focus first input after modal opens
-  setTimeout(() => {
-    const firstInput = document.querySelector('#edit-modal input, #edit-modal textarea');
-    if (firstInput) firstInput.focus();
-  }, 100);
-};
-const originalClose = closeEditModal;
-closeEditModal = function() {
-  originalClose();
-  if (previouslyFocused) previouslyFocused.focus();
-};
 
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -298,6 +355,5 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   })
   .catch(() => {});
 </script>
-<script src="/_build/main.js"></script>
 </body>
 </html>

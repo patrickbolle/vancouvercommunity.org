@@ -3,33 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Creative & Art Communities in Vancouver | Vancouver Community Directory</title>
+  <title>Creative & Art in Vancouver | Vancouver Community Directory</title>
   <meta name="description" content="Vancouver art collectives and creative communities. Studios, workshops, and groups for artists.">
-  <meta property="og:title" content="Creative & Art Communities in Vancouver">
+  <meta property="og:title" content="Creative & Art in Vancouver">
   <meta property="og:description" content="Vancouver art collectives and creative communities. Studios, workshops, and groups for artists.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vancouvercommunity.org/creative-art/">
-  <meta property="og:image" content="https://vancouvercommunity.org/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Creative & Art Communities in Vancouver">
-  <meta name="twitter:description" content="Vancouver art collectives and creative communities. Studios, workshops, and groups for artists.">
-  <meta name="twitter:image" content="https://vancouvercommunity.org/og-image.png">
   <link rel="canonical" href="https://vancouvercommunity.org/creative-art/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="Vancouver Community Directory" href="/feed.xml">
   <script defer src="https://data.kwconcerts.ca/script.js" data-website-id="ce0a9531-1032-4e43-a3a6-5c93cf9513f6"></script>
-  <link rel="stylesheet" href="/_build/style.css">
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #fffef8;
+  color: #222;
+  line-height: 1.5;
+  display: flex;
+  min-height: 100vh;
+}
+a { color: #0066cc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+a:visited { color: #551a8b; }
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+  border-right: 1px solid #ddd;
+  padding: 15px 0;
+  background: #fafaf5;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+.sidebar::-webkit-scrollbar { width: 6px; }
+.sidebar::-webkit-scrollbar-track { background: transparent; }
+.sidebar::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.sidebar-header {
+  padding: 8px 15px 10px;
+  border-bottom: 1px solid #ddd;
+}
+.logo {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05em;
+  font-weight: normal;
+}
+.logo:hover { text-decoration: none; color: #000; }
+.sidebar-header h1 { font-size: 1.1em; font-weight: normal; }
+.sidebar-header h1 a { color: inherit; }
+.sidebar-header h1 a:hover { color: #0066cc; text-decoration: none; }
+
+.sidebar ul { list-style: none; flex: 1; }
+.sidebar li a {
+  display: block;
+  padding: 6px 15px;
+  font-size: 0.9em;
+  border-left: 3px solid transparent;
+  color: #222;
+}
+.sidebar li a:visited { color: #222; }
+.sidebar li a:hover { background: #f0f0e8; border-left-color: #0066cc; text-decoration: none; }
+.sidebar li a.active { background: #f0f0e8; border-left-color: #0066cc; }
+.emoji { display: inline-block; width: 22px; }
+.sidebar-footer {
+  padding: 12px 15px;
+  border-top: 1px solid #ddd;
+  font-size: 0.75em;
+  color: #666;
+  line-height: 1.8;
+}
+.sidebar-footer a { color: #666; }
+.counter { font-size: 0.9em; }
+
+.content {
+  flex: 1;
+  padding: 20px 30px;
+  max-width: 700px;
+  overflow-y: auto;
+}
+.content h1 { font-size: 1.4em; font-weight: normal; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-bottom: 15px; }
+.content h2 { font-size: 1.1em; font-weight: normal; margin-top: 20px; margin-bottom: 8px; color: #333; position: relative; }
+.content h2 .anchor { color: #ccc; font-size: 0.8em; margin-left: 5px; }
+.content h2 .anchor:hover { color: #0066cc; }
+.content li { margin: 5px 0; list-style: none; }
+.content hr { border: none; border-top: 1px solid #ddd; margin: 20px 0; }
+.content a { color: #0066cc; }
+.content a:visited { color: #551a8b; }
+
+.welcome p { margin-bottom: 10px; color: #444; }
+
+@media (max-width: 700px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    max-height: 40vh;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+  .content { padding: 20px; }
+}
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "Creative & Art Communities in Vancouver",
+    "name": "Creative & Art in Vancouver",
     "description": "Vancouver art collectives and creative communities. Studios, workshops, and groups for artists.",
     "url": "https://vancouvercommunity.org/creative-art/",
-    "about": {
-      "@type": "Thing",
-      "name": "Creative & Art Communities"
-    },
     "isPartOf": {
       "@type": "WebSite",
       "name": "Vancouver Community Directory",
@@ -39,12 +132,10 @@
   </script>
 </head>
 <body>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <h1 class="page-title">🎨 Creative & Art Communities in Vancouver</h1>
-</header>
-<div class="main-container">
 <nav class="sidebar">
+  <div class="sidebar-header">
+    <a href="/" class="logo">Vancouver Community</a>
+  </div>
   <ul>
     <li><a href="/dinner-supper-clubs/"><span class="emoji">🍽️</span> Dinner & Supper Clubs</a></li>
     <li><a href="/social-friend-clubs/"><span class="emoji">🤝</span> Social & Friend Clubs</a></li>
@@ -96,84 +187,73 @@
   </div>
 </nav>
 <main class="content">
-  <h2 id="draw-around-vancouver">Draw Around Vancouver<a href="#draw-around-vancouver" class="anchor">#</a></h2>
-<ul>
+  <h1>🎨 Creative & Art</h1>
+<h2 id="draw-around-vancouver">Draw Around Vancouver<a href="#draw-around-vancouver" class="anchor">#</a></h2>
 <li><strong>What:</strong> Drawing circles, creative flow workshops, still life sessions, art therapy</li>
 <li><strong>Vibe:</strong> Slow, tea + community, alcohol-free options</li>
 <li><strong>Where:</strong> Beaumont Studios</li>
 <li><strong>Find it:</strong> <a href="https://drawaroundvancouver.com">drawaroundvancouver.com</a></li>
-</ul>
 <h2 id="van-sketch-club">Van Sketch Club<a href="#van-sketch-club" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Saturday afternoon social sketching</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/vansketchclub">meetup.com/vansketchclub</a></li>
-</ul>
 <h2 id="sketchup-east-van-brewing">Sketchup (East Van Brewing)<a href="#sketchup-east-van-brewing" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Casual drink & draw</li>
 <li><strong>When:</strong> Every other Monday, 5pm</li>
 <li><strong>Where:</strong> East Van Brewing Co.</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.meetup.com/the-sketchup/">meetup.com/the-sketchup</a></li>
 <h2 id="vancouver-creative-collective">Vancouver Creative Collective<a href="#vancouver-creative-collective" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Space for artists and creatives from all mediums to meet and collaborate</li>
 <li><strong>Find it:</strong> <a href="https://vancouvercreativecollective.com">vancouvercreativecollective.com</a></li>
-</ul>
 <h2 id="creative-pulse">Creative Pulse<a href="#creative-pulse" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Volunteer-run org for Vancouver creatives</li>
 <li><strong>Vibe:</strong> Summer socials, industry events</li>
 <li><strong>Find it:</strong> <a href="https://creativepulse.co">creativepulse.co</a></li>
-</ul>
 <h2 id="creativemornings-vancouver">CreativeMornings Vancouver<a href="#creativemornings-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Monthly morning talks</li>
 <li><strong>Where:</strong> Vancouver Art Gallery</li>
 <li><strong>Cost:</strong> Free</li>
 <li><strong>Find it:</strong> <a href="https://creativemornings.com/cities/van">creativemornings.com/cities/van</a></li>
-</ul>
 <h2 id="community-arts-council-of-vancouver">Community Arts Council of Vancouver<a href="#community-arts-council-of-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Connecting Vancouver artists to each other</li>
 <li><strong>Find it:</strong> <a href="https://cacv.ca">cacv.ca</a></li>
-</ul>
 <h2 id="neurodivergent-artist-collective">Neurodivergent Artist Collective<a href="#neurodivergent-artist-collective" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> For neurodivergent artists</li>
 <li><strong>Hosted by:</strong> Community Arts Council of Vancouver</li>
 <li><strong>Find it:</strong> <a href="https://cacv.ca/nac">cacv.ca/nac</a></li>
-</ul>
 <h2 id="vancouver-creatives">Vancouver Creatives<a href="#vancouver-creatives" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Discussion group for creative projects</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/meaningfuldiscussions-vancouver">meetup.com/meaningfuldiscussions-vancouver</a></li>
-</ul>
 <h2 id="urban-sketchers-vancouver">Urban Sketchers Vancouver<a href="#urban-sketchers-vancouver" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Outdoor sketching meetups around the city</li>
 <li><strong>Vibe:</strong> "We show the world, one drawing at a time"</li>
 <li><strong>Find it:</strong> <a href="https://meetup.com/Vancouver-Urban-Sketchers">meetup.com/Vancouver-Urban-Sketchers</a></li>
-</ul>
 <h2 id="cozy-art-meetup">Cozy Art Meetup<a href="#cozy-art-meetup" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Relaxed sketching/drawing in cafes downtown</li>
 <li><strong>Vibe:</strong> No pressure, chitchat, make friends</li>
-<li><strong>Find it:</strong> Eventbrite (search "Cozy Art Meetup Vancouver")</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://www.aniasalmina.com/">aniasalmina.com</a> | <a href="https://www.eventbrite.ca/o/ania-salmina-70459154583">Eventbrite</a></li>
 <h2 id="vancouver-outsider-arts-festival">Vancouver Outsider Arts Festival<a href="#vancouver-outsider-arts-festival" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Festival for artists facing social exclusion</li>
 <li><strong>Vibe:</strong> 40+ visual artists, performances, workshops</li>
-<li><strong>Find it:</strong> Organized by CACV</li>
-</ul>
+<li><strong>Find it:</strong> <a href="https://voaf.ca/">voaf.ca</a> | <a href="https://www.cacv.ca/programs/vancouver-outsider-arts-festival/">CACV page</a></li>
+<h2 id="vancouver-design-community">Vancouver Design Community<a href="#vancouver-design-community" class="anchor">#</a></h2>
+<li><strong>What:</strong> Social events for designers (UX, product, visual, etc.)</li>
+<li><strong>Vibe:</strong> Seasonal socials, networking at local venues</li>
+<li><strong>Find it:</strong> Events on <a href="https://lu.ma/vancouver">lu.ma/vancouver</a></li>
+<h2 id="atelier">Atelier<a href="#atelier" class="anchor">#</a></h2>
+<li><strong>What:</strong> Community for working on side projects together</li>
+<li><strong>Vibe:</strong> Embroidery, coding, music, building — anything goes</li>
+<li><strong>When:</strong> Sundays 12-3pm at UBC, Tuesdays 6-9pm in Vancouver</li>
+<li><strong>Find it:</strong> <a href="https://lu.ma/atelier.place">lu.ma/atelier.place</a></li>
+<h2 id="ai-film-club">AI Film Club<a href="#ai-film-club" class="anchor">#</a></h2>
+<li><strong>What:</strong> Monthly screenings exploring AI in film and VFX</li>
+<li><strong>Vibe:</strong> Creative tech intersection, community-driven</li>
+<li><strong>Find it:</strong> Events via <a href="https://lu.ma/vancouver-ai">lu.ma/vancouver-ai</a></li>
 <hr>
 <h2 id="venues-spaces">Venues & Spaces<a href="#venues-spaces" class="anchor">#</a></h2>
 <h2 id="the-arts-factory-society">The Arts Factory Society<a href="#the-arts-factory-society" class="anchor">#</a></h2>
-<ul>
 <li><strong>What:</strong> Multidisciplinary arts facility — workshops, studio spaces, offices</li>
 <li><strong>Where:</strong> 281 Industrial Avenue</li>
 <li><strong>Find it:</strong> <a href="https://artsfactorysociety.ca">artsfactorysociety.ca</a></li>
-</ul>
   <hr style="margin: 25px 0;">
   <p style="color: #666; font-size: 0.9em;">
     <span id="page-views"></span>
@@ -181,13 +261,12 @@
     <a href="#" onclick="openEditModal('creative-art'); return false;" style="margin-left: 10px;">✏️ Suggest Edit</a>
   </p>
 </main>
-</div>
 
 <!-- Edit Modal -->
-<div id="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
+<div id="edit-modal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow: auto;">
   <div style="background: #fff; max-width: 800px; margin: 40px auto; padding: 25px; border-radius: 8px; position: relative;">
-    <button onclick="closeEditModal()" aria-label="Close modal" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
-    <h2 id="edit-modal-title" style="margin-bottom: 15px;">Suggest Edit</h2>
+    <button onclick="closeEditModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">&times;</button>
+    <h2 style="margin-bottom: 15px;">Suggest Edit</h2>
     <p style="margin-bottom: 15px; color: #666;">Edit the content below. Your changes will be reviewed and potentially approved by the maintainer.</p>
     <form id="edit-form">
       <div style="margin-bottom: 15px;">
@@ -241,31 +320,6 @@ function closeEditModal() {
 document.getElementById('edit-modal').addEventListener('click', (e) => {
   if (e.target.id === 'edit-modal') closeEditModal();
 });
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') {
-    closeEditModal();
-  }
-});
-
-// Focus trap for modal
-let previouslyFocused = null;
-const originalOpen = openEditModal;
-openEditModal = async function(category) {
-  previouslyFocused = document.activeElement;
-  await originalOpen(category);
-  // Focus first input after modal opens
-  setTimeout(() => {
-    const firstInput = document.querySelector('#edit-modal input, #edit-modal textarea');
-    if (firstInput) firstInput.focus();
-  }, 100);
-};
-const originalClose = closeEditModal;
-closeEditModal = function() {
-  originalClose();
-  if (previouslyFocused) previouslyFocused.focus();
-};
 
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -329,6 +383,5 @@ fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   })
   .catch(() => {});
 </script>
-<script src="/_build/main.js"></script>
 </body>
 </html>
