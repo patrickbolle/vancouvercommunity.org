@@ -89,3 +89,7 @@
 - **What:** Multidisciplinary arts facility — workshops, studio spaces, offices
 - **Where:** 281 Industrial Avenue
 - **Find it:** [artsfactorysociety.ca](https://artsfactorysociety.ca)
+
+## Step Out!
+- **What:** Applied Improvisation and Improvisational theatre classes and workshops, Improv Camps, Improv Comedy shows, Teambuilding workshops and In school programs. 
+- **Find it:** [www.stepoutbc.com/](https://www.stepoutbc.com/)
