@@ -5,42 +5,12 @@
   <description>A community-built directory of 260+ groups, clubs, meetups, and social events in Vancouver, BC. Find your people.</description>
   <link>https://vancouvercommunity.org</link>
   <atom:link href="https://vancouvercommunity.org/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>2026-03-18T17:27:25.574Z</lastBuildDate>
-  <item>
-    <title>Book Clubs</title>
-    <description>9 book clubs — silent reading sessions, spirited debates, genre-specific picks, and read-whatever-you-want meetups.</description>
-    <link>https://vancouvercommunity.org/book-clubs/</link>
-    <guid>https://vancouvercommunity.org/book-clubs/</guid>
-  </item>
+  <lastBuildDate>2026-03-18T17:38:14.099Z</lastBuildDate>
   <item>
     <title>Creative &amp; Art</title>
     <description>16 art groups and collectives — sketch meetups, drink-and-draws, neurodivergent spaces, and community studios.</description>
     <link>https://vancouvercommunity.org/creative-art/</link>
     <guid>https://vancouvercommunity.org/creative-art/</guid>
-  </item>
-  <item>
-    <title>Dinner &amp; Supper Clubs</title>
-    <description>9 supper clubs pairing strangers over curated meals — home-cooked dinners, secret locations, and wine-paired pop-ups.</description>
-    <link>https://vancouvercommunity.org/dinner-supper-clubs/</link>
-    <guid>https://vancouvercommunity.org/dinner-supper-clubs/</guid>
-  </item>
-  <item>
-    <title>Men&#39;s Groups</title>
-    <description>6 men&#39;s groups — talking circles, dad meetups, wellness groups, and brotherhood communities.</description>
-    <link>https://vancouvercommunity.org/mens-groups/</link>
-    <guid>https://vancouvercommunity.org/mens-groups/</guid>
-  </item>
-  <item>
-    <title>Run Clubs</title>
-    <description>17 running groups from chill social jogs to marathon training. Most are free — just show up.</description>
-    <link>https://vancouvercommunity.org/run-clubs/</link>
-    <guid>https://vancouvercommunity.org/run-clubs/</guid>
-  </item>
-  <item>
-    <title>Tech &amp; Startup</title>
-    <description>39 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver&#39;s largest category.</description>
-    <link>https://vancouvercommunity.org/tech-startup/</link>
-    <guid>https://vancouvercommunity.org/tech-startup/</guid>
   </item>
   <item>
     <title>Yoga &amp; Wellness</title>
@@ -49,16 +19,34 @@
     <guid>https://vancouvercommunity.org/yoga-wellness/</guid>
   </item>
   <item>
-    <title>Coworking</title>
-    <description>Coworking spaces across Vancouver — from boutique living-room vibes to social-impact hubs and creative studios.</description>
-    <link>https://vancouvercommunity.org/coworking/</link>
-    <guid>https://vancouvercommunity.org/coworking/</guid>
+    <title>Tech &amp; Startup</title>
+    <description>39 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver&#39;s largest category.</description>
+    <link>https://vancouvercommunity.org/tech-startup/</link>
+    <guid>https://vancouvercommunity.org/tech-startup/</guid>
   </item>
   <item>
-    <title>Hiking &amp; Outdoors</title>
-    <description>18 hiking groups for every pace — gentle nature walks to serious mountaineering. Several are transit-accessible.</description>
-    <link>https://vancouvercommunity.org/hiking-outdoors/</link>
-    <guid>https://vancouvercommunity.org/hiking-outdoors/</guid>
+    <title>Men&#39;s Groups</title>
+    <description>6 men&#39;s groups — talking circles, dad meetups, wellness groups, and brotherhood communities.</description>
+    <link>https://vancouvercommunity.org/mens-groups/</link>
+    <guid>https://vancouvercommunity.org/mens-groups/</guid>
+  </item>
+  <item>
+    <title>Dinner &amp; Supper Clubs</title>
+    <description>9 supper clubs pairing strangers over curated meals — home-cooked dinners, secret locations, and wine-paired pop-ups.</description>
+    <link>https://vancouvercommunity.org/dinner-supper-clubs/</link>
+    <guid>https://vancouvercommunity.org/dinner-supper-clubs/</guid>
+  </item>
+  <item>
+    <title>Book Clubs</title>
+    <description>9 book clubs — silent reading sessions, spirited debates, genre-specific picks, and read-whatever-you-want meetups.</description>
+    <link>https://vancouvercommunity.org/book-clubs/</link>
+    <guid>https://vancouvercommunity.org/book-clubs/</guid>
+  </item>
+  <item>
+    <title>Run Clubs</title>
+    <description>17 running groups from chill social jogs to marathon training. Most are free — just show up.</description>
+    <link>https://vancouvercommunity.org/run-clubs/</link>
+    <guid>https://vancouvercommunity.org/run-clubs/</guid>
   </item>
   <item>
     <title>Mindfulness &amp; Meditation</title>
@@ -67,10 +55,10 @@
     <guid>https://vancouvercommunity.org/mindfulness-meditation/</guid>
   </item>
   <item>
-    <title>Philosophy &amp; Intellectual</title>
-    <description>9 discussion groups — philosophy circles, Socratic cafes, and deep-conversation meetups for the genuinely curious.</description>
-    <link>https://vancouvercommunity.org/philosophy-intellectual/</link>
-    <guid>https://vancouvercommunity.org/philosophy-intellectual/</guid>
+    <title>Hiking &amp; Outdoors</title>
+    <description>18 hiking groups for every pace — gentle nature walks to serious mountaineering. Several are transit-accessible.</description>
+    <link>https://vancouvercommunity.org/hiking-outdoors/</link>
+    <guid>https://vancouvercommunity.org/hiking-outdoors/</guid>
   </item>
   <item>
     <title>Photography</title>
@@ -79,16 +67,28 @@
     <guid>https://vancouvercommunity.org/photography/</guid>
   </item>
   <item>
+    <title>Vinyl &amp; Listening Bars</title>
+    <description>Listening bars, iconic record shops, and album-release parties. Vancouver&#39;s vinyl community in one place.</description>
+    <link>https://vancouvercommunity.org/vinyl-listening-bars/</link>
+    <guid>https://vancouvercommunity.org/vinyl-listening-bars/</guid>
+  </item>
+  <item>
+    <title>Coworking</title>
+    <description>Coworking spaces across Vancouver — from boutique living-room vibes to social-impact hubs and creative studios.</description>
+    <link>https://vancouvercommunity.org/coworking/</link>
+    <guid>https://vancouvercommunity.org/coworking/</guid>
+  </item>
+  <item>
     <title>Social &amp; Friend Clubs</title>
     <description>20 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more.</description>
     <link>https://vancouvercommunity.org/social-friend-clubs/</link>
     <guid>https://vancouvercommunity.org/social-friend-clubs/</guid>
   </item>
   <item>
-    <title>Vinyl &amp; Listening Bars</title>
-    <description>Listening bars, iconic record shops, and album-release parties. Vancouver&#39;s vinyl community in one place.</description>
-    <link>https://vancouvercommunity.org/vinyl-listening-bars/</link>
-    <guid>https://vancouvercommunity.org/vinyl-listening-bars/</guid>
+    <title>Philosophy &amp; Intellectual</title>
+    <description>9 discussion groups — philosophy circles, Socratic cafes, and deep-conversation meetups for the genuinely curious.</description>
+    <link>https://vancouvercommunity.org/philosophy-intellectual/</link>
+    <guid>https://vancouvercommunity.org/philosophy-intellectual/</guid>
   </item>
   <item>
     <title>Chess</title>
@@ -103,6 +103,12 @@
     <guid>https://vancouvercommunity.org/cycling/</guid>
   </item>
   <item>
+    <title>Language Exchange</title>
+    <description>9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, and ESL conversation clubs.</description>
+    <link>https://vancouvercommunity.org/language-exchange/</link>
+    <guid>https://vancouvercommunity.org/language-exchange/</guid>
+  </item>
+  <item>
     <title>Film &amp; Cinema</title>
     <description>4 film clubs and indie cinemas — social movie nights, art house screenings, and Asia&#39;s longest-running film festival.</description>
     <link>https://vancouvercommunity.org/film-cinema/</link>
@@ -113,12 +119,6 @@
     <description>2 nature communities plus guided foraging tours and mushroom walks. Learn what&#39;s edible in BC.</description>
     <link>https://vancouvercommunity.org/foraging-nature/</link>
     <guid>https://vancouvercommunity.org/foraging-nature/</guid>
-  </item>
-  <item>
-    <title>Language Exchange</title>
-    <description>9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, and ESL conversation clubs.</description>
-    <link>https://vancouvercommunity.org/language-exchange/</link>
-    <guid>https://vancouvercommunity.org/language-exchange/</guid>
   </item>
   <item>
     <title>Maker Spaces</title>
@@ -133,12 +133,6 @@
     <guid>https://vancouvercommunity.org/resources/</guid>
   </item>
   <item>
-    <title>Board Games</title>
-    <description>4 game night groups plus board game cafes with 600+ game libraries. Drop in, no experience needed.</description>
-    <link>https://vancouvercommunity.org/board-games/</link>
-    <guid>https://vancouvercommunity.org/board-games/</guid>
-  </item>
-  <item>
     <title>Climbing</title>
     <description>5 climbing communities and gyms — bouldering meetups, partner-finding groups, and mountaineering clubs.</description>
     <link>https://vancouvercommunity.org/climbing/</link>
@@ -151,10 +145,16 @@
     <guid>https://vancouvercommunity.org/karaoke/</guid>
   </item>
   <item>
-    <title>Pottery &amp; Ceramics</title>
-    <description>Pottery studios and ceramics classes across Vancouver — drop-in sessions, date nights, and beginner-friendly wheels.</description>
-    <link>https://vancouvercommunity.org/pottery-ceramics/</link>
-    <guid>https://vancouvercommunity.org/pottery-ceramics/</guid>
+    <title>Writing</title>
+    <description>8 writing groups — quiet library sessions, genre circles, critique groups, and heritage-house workshops.</description>
+    <link>https://vancouvercommunity.org/writing/</link>
+    <guid>https://vancouvercommunity.org/writing/</guid>
+  </item>
+  <item>
+    <title>Board Games</title>
+    <description>4 game night groups plus board game cafes with 600+ game libraries. Drop in, no experience needed.</description>
+    <link>https://vancouvercommunity.org/board-games/</link>
+    <guid>https://vancouvercommunity.org/board-games/</guid>
   </item>
   <item>
     <title>Volunteer</title>
@@ -163,22 +163,10 @@
     <guid>https://vancouvercommunity.org/volunteer/</guid>
   </item>
   <item>
-    <title>Writing</title>
-    <description>8 writing groups — quiet library sessions, genre circles, critique groups, and heritage-house workshops.</description>
-    <link>https://vancouvercommunity.org/writing/</link>
-    <guid>https://vancouvercommunity.org/writing/</guid>
-  </item>
-  <item>
-    <title>Dance</title>
-    <description>3 free social dance groups — salsa at Robson Square, bachata at Sun Hop Park, and West Coast Swing nights.</description>
-    <link>https://vancouvercommunity.org/dance/</link>
-    <guid>https://vancouvercommunity.org/dance/</guid>
-  </item>
-  <item>
-    <title>Improv &amp; Comedy</title>
-    <description>Improv classes, comedy shows, and open mics — including the birthplace of TheatreSports.</description>
-    <link>https://vancouvercommunity.org/improv-comedy/</link>
-    <guid>https://vancouvercommunity.org/improv-comedy/</guid>
+    <title>Pottery &amp; Ceramics</title>
+    <description>Pottery studios and ceramics classes across Vancouver — drop-in sessions, date nights, and beginner-friendly wheels.</description>
+    <link>https://vancouvercommunity.org/pottery-ceramics/</link>
+    <guid>https://vancouvercommunity.org/pottery-ceramics/</guid>
   </item>
   <item>
     <title>Pickleball</title>
@@ -193,16 +181,22 @@
     <guid>https://vancouvercommunity.org/poetry-spoken-word/</guid>
   </item>
   <item>
+    <title>Dance</title>
+    <description>3 free social dance groups — salsa at Robson Square, bachata at Sun Hop Park, and West Coast Swing nights.</description>
+    <link>https://vancouvercommunity.org/dance/</link>
+    <guid>https://vancouvercommunity.org/dance/</guid>
+  </item>
+  <item>
+    <title>Improv &amp; Comedy</title>
+    <description>Improv classes, comedy shows, and open mics — including the birthplace of TheatreSports.</description>
+    <link>https://vancouvercommunity.org/improv-comedy/</link>
+    <guid>https://vancouvercommunity.org/improv-comedy/</guid>
+  </item>
+  <item>
     <title>Pub Trivia</title>
     <description>Weekly pub trivia nights across Vancouver — themed rounds, free entry, and geek-friendly venues.</description>
     <link>https://vancouvercommunity.org/pub-trivia/</link>
     <guid>https://vancouvercommunity.org/pub-trivia/</guid>
-  </item>
-  <item>
-    <title>Birdwatching</title>
-    <description>7 birding groups — guided walks, expert-led field trips, youth programs, and a free two-week festival in May.</description>
-    <link>https://vancouvercommunity.org/birdwatching/</link>
-    <guid>https://vancouvercommunity.org/birdwatching/</guid>
   </item>
   <item>
     <title>Sauna &amp; Cold Plunge</title>
@@ -223,16 +217,22 @@
     <guid>https://vancouvercommunity.org/zine-risograph/</guid>
   </item>
   <item>
-    <title>Astronomy &amp; Stargazing</title>
-    <description>5 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips.</description>
-    <link>https://vancouvercommunity.org/astronomy-stargazing/</link>
-    <guid>https://vancouvercommunity.org/astronomy-stargazing/</guid>
+    <title>Birdwatching</title>
+    <description>7 birding groups — guided walks, expert-led field trips, youth programs, and a free two-week festival in May.</description>
+    <link>https://vancouvercommunity.org/birdwatching/</link>
+    <guid>https://vancouvercommunity.org/birdwatching/</guid>
   </item>
   <item>
     <title>Music &amp; Open Mic</title>
     <description>3 music communities plus weekly open mics and jam nights across Vancouver&#39;s cafes, pubs, and halls.</description>
     <link>https://vancouvercommunity.org/music-open-mic/</link>
     <guid>https://vancouvercommunity.org/music-open-mic/</guid>
+  </item>
+  <item>
+    <title>Astronomy &amp; Stargazing</title>
+    <description>5 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips.</description>
+    <link>https://vancouvercommunity.org/astronomy-stargazing/</link>
+    <guid>https://vancouvercommunity.org/astronomy-stargazing/</guid>
   </item>
   <item>
     <title>Tarot &amp; Astrology</title>

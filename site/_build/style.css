@@ -448,10 +448,14 @@ h1.homepage-lede,
 }
 .builder-card strong a { color: var(--text); }
 .builder-card strong a:hover { color: var(--accent); }
-.builder-subtitle {
+.builder-label {
   display: block;
-  font-size: 0.78em;
+  font-size: 0.72em;
   color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 1px;
 }
 .builder-bio {
   font-size: 0.9em;

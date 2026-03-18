@@ -1,7 +1,9 @@
 // Cloudflare Worker for Vancouver Community stats (proxies Umami analytics)
+// Uses Cloudflare Cache API to avoid hitting Umami on every request
 
 const UMAMI_URL = "https://data.kwconcerts.ca";
 const WEBSITE_ID = "ce0a9531-1032-4e43-a3a6-5c93cf9513f6";
+const CACHE_TTL = 300; // 5 minutes
 
 let cachedToken = null;
 let tokenExpiry = 0;
@@ -93,6 +95,24 @@ async function getTotalStats(token, rid) {
   return response.json();
 }
 
+// --- Fetch fresh data from Umami ---
+
+async function fetchFreshStats(env, rid) {
+  const token = await getToken(env, rid);
+
+  const [stats, pages] = await Promise.all([
+    getTotalStats(token, rid),
+    getPageStats(token, rid)
+  ]);
+
+  const pageMap = {};
+  for (const p of pages) {
+    pageMap[p.x] = p.y;
+  }
+
+  return { total: stats, pages: pageMap };
+}
+
 // --- Main handler ---
 
 export default {
@@ -105,8 +125,7 @@ export default {
       "Access-Control-Allow-Origin": "*",
       "Access-Control-Allow-Methods": "GET, OPTIONS",
       "Access-Control-Allow-Headers": "Content-Type",
-      "Content-Type": "application/json",
-      "Cache-Control": "public, max-age=300"
+      "Content-Type": "application/json"
     };
 
     log(rid, "info", `${request.method} ${url.pathname}`, {
@@ -118,40 +137,35 @@ export default {
     }
 
     try {
-      const token = await getToken(env, rid);
+      // Use Cloudflare Cache API — cache keyed by URL
+      const cache = caches.default;
+      const cacheKey = new Request(url.toString(), { method: "GET" });
 
-      if (url.pathname === "/stats") {
-        const stats = await getTotalStats(token, rid);
-        log(rid, "info", "Response", { status: 200, route: "/stats", duration_ms: Date.now() - start });
-        return new Response(JSON.stringify(stats), { headers: corsHeaders });
+      const cached = await cache.match(cacheKey);
+      if (cached) {
+        log(rid, "info", "Cache hit", { duration_ms: Date.now() - start });
+        // Clone and add CORS headers (cached response may not have them)
+        const body = await cached.text();
+        return new Response(body, {
+          headers: { ...corsHeaders, "Cache-Control": `public, max-age=${CACHE_TTL}`, "X-Cache": "HIT" }
+        });
       }
 
-      if (url.pathname === "/pages") {
-        const pages = await getPageStats(token, rid);
-        const pageMap = {};
-        for (const p of pages) {
-          pageMap[p.x] = p.y;
-        }
-        log(rid, "info", "Response", { status: 200, route: "/pages", duration_ms: Date.now() - start });
-        return new Response(JSON.stringify(pageMap), { headers: corsHeaders });
-      }
+      log(rid, "info", "Cache miss, fetching from Umami");
+      const data = await fetchFreshStats(env, rid);
 
-      // Default: return both
-      const [stats, pages] = await Promise.all([
-        getTotalStats(token, rid),
-        getPageStats(token, rid)
-      ]);
+      const response = new Response(JSON.stringify(data), {
+        headers: { ...corsHeaders, "Cache-Control": `public, max-age=${CACHE_TTL}`, "X-Cache": "MISS" }
+      });
 
-      const pageMap = {};
-      for (const p of pages) {
-        pageMap[p.x] = p.y;
-      }
+      // Store in edge cache (waitUntil so it doesn't block the response)
+      const cacheResponse = new Response(JSON.stringify(data), {
+        headers: { "Cache-Control": `public, max-age=${CACHE_TTL}`, "Content-Type": "application/json" }
+      });
+      await cache.put(cacheKey, cacheResponse);
 
-      log(rid, "info", "Response", { status: 200, route: "/", page_count: Object.keys(pageMap).length, duration_ms: Date.now() - start });
-      return new Response(JSON.stringify({
-        total: stats,
-        pages: pageMap
-      }), { headers: corsHeaders });
+      log(rid, "info", "Response", { status: 200, cache: "MISS", page_count: Object.keys(data.pages).length, duration_ms: Date.now() - start });
+      return response;
 
     } catch (error) {
       log(rid, "error", "Unhandled error", {

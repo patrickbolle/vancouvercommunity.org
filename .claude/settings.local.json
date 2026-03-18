@@ -20,7 +20,8 @@
       "mcp__chrome-devtools__list_pages",
       "WebFetch(domain:cuento.app)",
       "Bash(curl -s http://localhost:8082)",
-      "WebFetch(domain:bollenbach.ca)"
+      "WebFetch(domain:bollenbach.ca)",
+      "Bash(git rebase:*)"
     ]
   },
   "enableAllProjectMcpServers": true,

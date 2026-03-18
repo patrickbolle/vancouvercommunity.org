@@ -95,4 +95,17 @@ document.addEventListener('DOMContentLoaded', function() {
     prefetchLink.href = href;
     document.head.appendChild(prefetchLink);
   }, true);
+
+  // Also prefetch on pointerdown as safety net (~100ms before click)
+  document.addEventListener('pointerdown', function(e) {
+    var link = e.target.closest('a[href^="/"]');
+    if (!link) return;
+    var href = link.getAttribute('href');
+    if (prefetched[href] || href === window.location.pathname) return;
+    prefetched[href] = true;
+    var prefetchLink = document.createElement('link');
+    prefetchLink.rel = 'prefetch';
+    prefetchLink.href = href;
+    document.head.appendChild(prefetchLink);
+  }, true);
 });
