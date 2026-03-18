@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Philosophy & Intellectual"
-description: "Philosophy meetups and discussion groups in Vancouver. Deep conversations."
+description: "9 discussion groups — philosophy circles, Socratic cafes, and deep-conversation meetups for the genuinely curious."
 emoji: "🤔"
 group: intellectual
 order: 2
@@ -48,8 +48,3 @@ order: 2
 - **What:** Open philosophical inquiry for everyone. Socratic method, no expertise required
 - **Find it:** [meetup.com/topics/socratescafe](https://www.meetup.com/topics/socratescafe/) (check for Vancouver events)
 
----
-
-## Venues & Resources
-
-*This category is all community groups! Philosophy clubs by nature are communities that gather to discuss ideas together.*

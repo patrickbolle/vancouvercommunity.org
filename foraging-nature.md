@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Foraging & Nature"
-description: "Foraging tours and nature walks in Vancouver. Learn wild foods."
+description: "2 nature communities plus guided foraging tours and mushroom walks. Learn what's edible in BC."
 emoji: "🍄"
 group: mind-body
 order: 3

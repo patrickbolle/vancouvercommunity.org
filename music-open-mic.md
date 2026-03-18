@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Music & Open Mic"
-description: "Open mics and jam sessions in Vancouver. Find stages and musicians to collaborate with."
+description: "3 music communities plus weekly open mics and jam nights across Vancouver's cafes, pubs, and halls."
 emoji: "🎵"
 group: creative
 order: 7

@@ -3,9 +3,9 @@
 <head>
   {% include "partials/head.njk" %}
   <title>{% if groupCount %}{{ groupCount }} {% endif %}{{ title }} in Vancouver (2026) | {{ site.title }}</title>
-  <meta name="description" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title | lower }} in Vancouver. {{ description }} Updated March 2026.">
+  <meta name="description" content="{{ title }} in Vancouver — {{ description }} Updated March 2026.">
   <meta property="og:title" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title }} in Vancouver">
-  <meta property="og:description" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title | lower }} in Vancouver. {{ description }}">
+  <meta property="og:description" content="{{ title }} in Vancouver — {{ description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}/{{ page.fileSlug }}/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">

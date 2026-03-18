@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Karaoke"
-description: "Karaoke bars and nights in Vancouver. Sing your heart out."
+description: "Karaoke nights across Vancouver — private suites, coffee-shop sing-alongs, and bars with a stage."
 emoji: "🎙️"
 group: social
 order: 4

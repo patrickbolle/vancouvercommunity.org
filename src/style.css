@@ -118,8 +118,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
    SIDEBAR
    ======================================== */
 .sidebar {
-  width: 260px;
-  min-width: 260px;
+  width: 240px;
+  min-width: 240px;
   height: 100vh;
   position: sticky;
   top: 0;
@@ -131,20 +131,35 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Logo */
 .sidebar-logo {
-  display: block;
-  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 28px 22px 24px;
   color: #fff;
-  font-family: var(--font-display);
-  font-size: 1.15em;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
   text-decoration: none;
   border-bottom: 1px solid var(--sidebar-border);
-  border-left: 3px solid var(--accent);
 }
-.sidebar-logo:hover { color: rgba(255,255,255,0.8); text-decoration: none; }
+.sidebar-logo:hover { opacity: 0.85; text-decoration: none; }
 .sidebar-logo:visited { color: #fff; }
+
+.logo-city {
+  font-family: var(--font-display);
+  font-size: 1.6em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: #fff;
+}
+.logo-type {
+  font-family: var(--font-body);
+  font-size: 0.75em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-top: 4px;
+}
 
 /* Nav list */
 .sidebar ul {
@@ -309,14 +324,15 @@ h1.homepage-lede,
   text-underline-offset: 3px;
   text-decoration-color: rgba(168,90,70,0.3);
 }
-.homepage-meta a + a {
-  color: var(--text-secondary);
-  font-weight: 400;
-}
 .homepage-meta a:visited { color: var(--accent); }
-.homepage-meta a + a:visited { color: var(--text-secondary); }
 .homepage-meta a:hover { text-decoration-color: var(--accent); }
-.homepage-meta a + a:hover { color: var(--accent); }
+.meta-sep { color: var(--text-muted); margin: 0 2px; }
+.meta-secondary {
+  color: var(--text-secondary) !important;
+  font-weight: 400 !important;
+  text-decoration-color: rgba(82,77,72,0.3) !important;
+}
+.meta-secondary:hover { color: var(--accent) !important; }
 
 /* Stats line */
 .homepage-stats {
@@ -380,16 +396,25 @@ h1.homepage-lede,
 .builder-card a:visited { color: var(--accent); }
 .builder-card a:hover { text-decoration: underline; }
 .builder-links {
-  margin-top: 12px;
-  padding-top: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
   border-top: 1px solid var(--border-light);
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 4px;
+}
+.builder-links-label {
+  font-size: 0.72em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
 }
 .builder-links a {
   font-weight: 500;
-  font-size: 0.9em;
+  font-size: 0.88em;
+  line-height: 1.3;
 }
 
 /* Search */

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Photography"
-description: "Vancouver photography clubs and photo walks. Community shoots and photography meetups."
+description: "7 photography groups — street photography collectives, city photowalks, and night/film shooting crews."
 emoji: "📷"
 group: creative
 order: 2

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Yoga & Wellness"
-description: "Free yoga and wellness events in Vancouver. Community classes and outdoor yoga."
+description: "3 free yoga communities plus outdoor summer sessions, inclusive studios, and community wellness classes."
 emoji: "🧘"
 group: mind-body
 order: 1

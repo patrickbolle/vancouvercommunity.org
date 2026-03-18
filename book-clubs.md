@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Book Clubs"
-description: "Vancouver book clubs and reading groups. Find your literary community."
+description: "9 book clubs — silent reading sessions, spirited debates, genre-specific picks, and read-whatever-you-want meetups."
 emoji: "📚"
 group: intellectual
 order: 1
@@ -47,8 +47,3 @@ order: 1
 - **What:** Off-the-beaten-path book selections. Literary, iconoclastic reads
 - **Find it:** [meetup.com/vanunconventionalbooks](https://meetup.com/vanunconventionalbooks)
 
----
-
-## Venues & Resources
-
-*This category is all community groups! Book clubs by nature are communities that meet to discuss books together.*

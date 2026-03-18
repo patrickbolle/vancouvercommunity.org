@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Chess"
-description: "Chess clubs and cafe meetups in Vancouver. Find games and tournaments."
+description: "6 places to play chess in Vancouver — cozy cafe drop-ins, park games, and rated tournaments."
 emoji: "♟️"
 group: intellectual
 order: 3

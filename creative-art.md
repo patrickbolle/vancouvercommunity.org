@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Creative & Art"
-description: "Vancouver art collectives and creative communities. Studios, workshops, and groups for artists."
+description: "16 art groups and collectives — sketch meetups, drink-and-draws, neurodivergent spaces, and community studios."
 emoji: "🎨"
 group: creative
 order: 1

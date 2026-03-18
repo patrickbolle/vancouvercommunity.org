@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Underground DJ"
-description: "Underground parties and DJ events in Vancouver. Warehouse raves and electronic music."
+description: "Vancouver's underground electronic scene — warehouse parties, free pop-ups, and community-run raves."
 emoji: "🎧"
 group: social
 order: 6

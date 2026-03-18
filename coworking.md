@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Coworking"
-description: "Coworking spaces in Vancouver. Find your workspace community."
+description: "Coworking spaces across Vancouver — from boutique living-room vibes to social-impact hubs and creative studios."
 emoji: "💻"
 group: work-tech
 order: 2
@@ -10,7 +10,7 @@ order: 2
 
 # 💻 Coworking / Creative Spaces
 
-*Note: This category is mostly venues/spaces rather than community groups. The social aspect comes from working alongside others.*
+*This category is mostly spaces rather than groups. Know a coworking community we should list? [Submit it here.](/submit/)*
 
 ---
 

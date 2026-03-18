@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Hiking & Outdoors"
-description: "Vancouver hiking groups and outdoor clubs. Find trail buddies and adventure communities."
+description: "18 hiking groups for every pace — gentle nature walks to serious mountaineering. Several are transit-accessible."
 emoji: "🥾"
 group: outdoor
 order: 2

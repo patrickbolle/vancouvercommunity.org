@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Run Clubs"
-description: "Vancouver running clubs and social runs. Find free group runs and running communities for all levels."
+description: "17 running groups from chill social jogs to marathon training. Most are free — just show up."
 emoji: "🏃"
 group: outdoor
 order: 1

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Dinner & Supper Clubs"
-description: "Find dinner clubs and supper clubs in Vancouver. Meet new people over curated meals and social dining."
+description: "9 supper clubs pairing strangers over curated meals — home-cooked dinners, secret locations, and wine-paired pop-ups."
 emoji: "🍽️"
 group: social
 order: 1
@@ -46,8 +46,3 @@ order: 1
 - **What:** Hidden dining experiences in private homes. Communal table, 10+ seats, top-secret chef
 - **Find it:** [BC Living's Secret Suppers Guide](https://bcliving.ca/food-drink/local-food/8-secret-suppers-for-vancouver-foodies/)
 
----
-
-## Venues & Resources
-
-*This category is all community groups! Supper clubs are by definition social dining communities that bring strangers together around food.*

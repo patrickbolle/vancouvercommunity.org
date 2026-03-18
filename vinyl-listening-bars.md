@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Vinyl & Listening Bars"
-description: "Vinyl bars and listening rooms in Vancouver. Record shops and audiophile community."
+description: "Listening bars, iconic record shops, and album-release parties. Vancouver's vinyl community in one place."
 emoji: "💿"
 group: community
 order: 2

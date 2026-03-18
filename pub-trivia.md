@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Pub Trivia"
-description: "Pub trivia nights in Vancouver. Test your knowledge and find your team."
+description: "Weekly pub trivia nights across Vancouver — themed rounds, free entry, and geek-friendly venues."
 emoji: "🧠"
 group: social
 order: 5
@@ -10,7 +10,7 @@ order: 5
 
 # 🧠 Pub Trivia
 
-*Note: This category is mostly venues and trivia hosts rather than community groups. The community forms around regular trivia teams at specific venues.*
+*This category is mostly venues and trivia hosts rather than groups. Know a trivia community we should list? [Submit it here.](/submit/)*
 
 ---
 

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Improv & Comedy"
-description: "Vancouver improv classes and comedy shows. Learn improv and join funny communities."
+description: "Improv classes, comedy shows, and open mics — including the birthplace of TheatreSports."
 emoji: "🎭"
 group: intellectual
 order: 5

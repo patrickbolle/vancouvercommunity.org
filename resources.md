@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Resources"
-description: "Vancouver community resources and directories."
+description: "Aggregators, newsletters, Instagram accounts, and other directories for finding community in Vancouver."
 emoji: "🔗"
 group: community
 order: 3

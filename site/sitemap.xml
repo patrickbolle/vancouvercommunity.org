@@ -6,11 +6,6 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/dinner-supper-clubs/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://vancouvercommunity.org/run-clubs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -26,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vancouvercommunity.org/tech-startup/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vancouvercommunity.org/mens-groups/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -36,22 +36,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/tech-startup/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/social-friend-clubs/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/photography/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/hiking-outdoors/</loc>
+    <loc>https://vancouvercommunity.org/dinner-supper-clubs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -61,12 +46,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/philosophy-intellectual/</loc>
+    <loc>https://vancouvercommunity.org/hiking-outdoors/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/coworking/</loc>
+    <loc>https://vancouvercommunity.org/photography/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -76,22 +61,17 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/film-cinema/</loc>
+    <loc>https://vancouvercommunity.org/coworking/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/language-exchange/</loc>
+    <loc>https://vancouvercommunity.org/social-friend-clubs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/cycling/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/maker-spaces/</loc>
+    <loc>https://vancouvercommunity.org/philosophy-intellectual/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -101,7 +81,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://vancouvercommunity.org/cycling/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/language-exchange/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/film-cinema/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://vancouvercommunity.org/foraging-nature/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/maker-spaces/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,27 +111,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/board-games/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/writing/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://vancouvercommunity.org/climbing/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/pottery-ceramics/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://vancouvercommunity.org/volunteer/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -141,12 +121,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/dance/</loc>
+    <loc>https://vancouvercommunity.org/writing/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/improv-comedy/</loc>
+    <loc>https://vancouvercommunity.org/board-games/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/volunteer/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/pottery-ceramics/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -157,6 +147,16 @@
   </url>
   <url>
     <loc>https://vancouvercommunity.org/poetry-spoken-word/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/dance/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vancouvercommunity.org/improv-comedy/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

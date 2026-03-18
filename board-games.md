@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Board Games"
-description: "Board game cafes and game nights in Vancouver. Weekly meetups, gaming cafes, and tabletop communities."
+description: "4 game night groups plus board game cafes with 600+ game libraries. Drop in, no experience needed."
 emoji: "🎲"
 group: intellectual
 order: 4

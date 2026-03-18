@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Zine & Risograph"
-description: "Zine making and risograph printing in Vancouver. DIY publishing community."
+description: "Zine fairs, riso studios, and DIY publishing workshops. Vancouver's small-press scene in one place."
 emoji: "📖"
 group: creative
 order: 6

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Maker Spaces"
-description: "Vancouver maker spaces and workshops. Access tools and join the maker community."
+description: "3 maker communities plus shared workshops — 3D printing, laser cutting, woodworking, and a tool lending library."
 emoji: "🔧"
 group: work-tech
 order: 3

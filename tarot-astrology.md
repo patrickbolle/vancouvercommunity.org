@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Tarot & Astrology"
-description: "Tarot and astrology communities in Vancouver. Spiritual groups and readings."
+description: "5 tarot and astrology groups — practice meetups, moon circles, and spiritual exploration communities."
 emoji: "🔮"
 group: mind-body
 order: 8

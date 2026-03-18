@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Writing"
-description: "Vancouver writing groups and workshops. Critique circles and literary communities."
+description: "8 writing groups — quiet library sessions, genre circles, critique groups, and heritage-house workshops."
 emoji: "✍️"
 group: creative
 order: 4

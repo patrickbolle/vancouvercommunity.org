@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Climbing"
-description: "Vancouver climbing gyms and communities. Find climbing partners and bouldering meetups."
+description: "5 climbing communities and gyms — bouldering meetups, partner-finding groups, and mountaineering clubs."
 emoji: "🧗"
 group: outdoor
 order: 4

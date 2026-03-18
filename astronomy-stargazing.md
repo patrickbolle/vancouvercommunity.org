@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Astronomy & Stargazing"
-description: "Astronomy clubs and stargazing in Vancouver. Star parties and telescope nights."
+description: "5 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips."
 emoji: "🔭"
 group: mind-body
 order: 7

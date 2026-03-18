@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Cycling"
-description: "Vancouver cycling clubs and group rides. Social rides and cycling communities."
+description: "12 cycling clubs — social coffee rides, gravel groups, women-and-queer crews, and serious road racing."
 emoji: "🚴"
 group: outdoor
 order: 3

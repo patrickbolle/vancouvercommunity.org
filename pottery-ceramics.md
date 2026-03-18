@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Pottery & Ceramics"
-description: "Pottery studios and ceramics classes in Vancouver. Wheel throwing and clay communities."
+description: "Pottery studios and ceramics classes across Vancouver — drop-in sessions, date nights, and beginner-friendly wheels."
 emoji: "🏺"
 group: mind-body
 order: 4
@@ -10,7 +10,7 @@ order: 4
 
 # 🏺 Pottery / Ceramics
 
-*Note: This category is mostly venues/studios rather than community groups. The community forms around the classes and shared studio experiences.*
+*This category is mostly studios rather than groups. Know a pottery community we should list? [Submit it here.](/submit/)*
 
 ---
 

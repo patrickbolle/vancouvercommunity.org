@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Mindfulness & Meditation"
-description: "Meditation groups in Vancouver. Sitting groups and mindfulness meetups."
+description: "11 sitting groups across Buddhist, secular, and wellness traditions. Most welcome beginners and meet weekly."
 emoji: "🪷"
 group: mind-body
 order: 2

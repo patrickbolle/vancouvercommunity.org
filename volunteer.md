@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Volunteer"
-description: "Volunteer opportunities in Vancouver. Give back through community service."
+description: "Volunteer opportunities in Vancouver — park restoration, food banks, animal shelters, and community stewardship."
 emoji: "🌿"
 group: work-tech
 order: 4

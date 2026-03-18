@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Tech & Startup"
-description: "Vancouver tech meetups and startup community. Founders and developers connecting."
+description: "39 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver's largest category."
 emoji: "💼"
 group: work-tech
 order: 1

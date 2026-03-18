@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Poetry & Spoken Word"
-description: "Poetry slams and spoken word in Vancouver. Open mics and poetry nights."
+description: "7 poetry and spoken word communities — slams, tender open mics, and Canada's largest spoken word festival."
 emoji: "🎤"
 group: creative
 order: 5

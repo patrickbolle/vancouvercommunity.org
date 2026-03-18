@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Birdwatching"
-description: "Birdwatching groups in Vancouver. Birding walks and nature community."
+description: "7 birding groups — guided walks, expert-led field trips, youth programs, and a free two-week festival in May."
 emoji: "🐦"
 group: mind-body
 order: 6

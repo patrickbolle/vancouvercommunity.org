@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Dance"
-description: "Dance classes and social dancing in Vancouver. Salsa, bachata, swing, and more."
+description: "3 free social dance groups — salsa at Robson Square, bachata at Sun Hop Park, and West Coast Swing nights."
 emoji: "💃"
 group: mind-body
 order: 5

@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Social & Friend Clubs"
-description: "Vancouver social clubs and friend-making groups. Connect through organized meetups and community events."
+description: "20 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more."
 emoji: "🤝"
 group: social
 order: 2
@@ -94,8 +94,3 @@ order: 2
 - **What:** LGBTQ+ swimming club. Positive, inclusive space, especially trans-friendly
 - **Find it:** Search "English Bay Swim Club Vancouver"
 
----
-
-## Venues & Resources
-
-*This category is all community groups! Social clubs by definition are communities focused on bringing people together.*

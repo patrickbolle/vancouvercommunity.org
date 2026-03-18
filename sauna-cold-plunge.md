@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Sauna & Cold Plunge"
-description: "Sauna clubs and cold plunge spots in Vancouver. Contrast therapy and recovery communities."
+description: "3 community groups plus Nordic spas, wood-fired saunas, and free ocean dips at Kits Beach."
 emoji: "🧊"
 group: outdoor
 order: 6

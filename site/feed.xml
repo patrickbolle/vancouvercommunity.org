@@ -5,238 +5,238 @@
   <description>A community-built directory of 260+ groups, clubs, meetups, and social events in Vancouver, BC. Find your people.</description>
   <link>https://vancouvercommunity.org</link>
   <atom:link href="https://vancouvercommunity.org/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>2026-03-18T00:51:06.155Z</lastBuildDate>
-  <item>
-    <title>Dinner &amp; Supper Clubs</title>
-    <description>Find dinner clubs and supper clubs in Vancouver. Meet new people over curated meals and social dining.</description>
-    <link>https://vancouvercommunity.org/dinner-supper-clubs/</link>
-    <guid>https://vancouvercommunity.org/dinner-supper-clubs/</guid>
-  </item>
+  <lastBuildDate>2026-03-18T00:57:01.722Z</lastBuildDate>
   <item>
     <title>Run Clubs</title>
-    <description>Vancouver running clubs and social runs. Find free group runs and running communities for all levels.</description>
+    <description>17 running groups from chill social jogs to marathon training. Most are free — just show up.</description>
     <link>https://vancouvercommunity.org/run-clubs/</link>
     <guid>https://vancouvercommunity.org/run-clubs/</guid>
   </item>
   <item>
     <title>Creative &amp; Art</title>
-    <description>Vancouver art collectives and creative communities. Studios, workshops, and groups for artists.</description>
+    <description>16 art groups and collectives — sketch meetups, drink-and-draws, neurodivergent spaces, and community studios.</description>
     <link>https://vancouvercommunity.org/creative-art/</link>
     <guid>https://vancouvercommunity.org/creative-art/</guid>
   </item>
   <item>
     <title>Yoga &amp; Wellness</title>
-    <description>Free yoga and wellness events in Vancouver. Community classes and outdoor yoga.</description>
+    <description>3 free yoga communities plus outdoor summer sessions, inclusive studios, and community wellness classes.</description>
     <link>https://vancouvercommunity.org/yoga-wellness/</link>
     <guid>https://vancouvercommunity.org/yoga-wellness/</guid>
   </item>
   <item>
+    <title>Tech &amp; Startup</title>
+    <description>39 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver&#39;s largest category.</description>
+    <link>https://vancouvercommunity.org/tech-startup/</link>
+    <guid>https://vancouvercommunity.org/tech-startup/</guid>
+  </item>
+  <item>
     <title>Men&#39;s Groups</title>
-    <description>Men&#39;s circles and support groups in Vancouver. Brotherhood and personal growth.</description>
+    <description>6 men&#39;s groups — talking circles, dad meetups, wellness groups, and brotherhood communities.</description>
     <link>https://vancouvercommunity.org/mens-groups/</link>
     <guid>https://vancouvercommunity.org/mens-groups/</guid>
   </item>
   <item>
     <title>Book Clubs</title>
-    <description>Vancouver book clubs and reading groups. Find your literary community.</description>
+    <description>9 book clubs — silent reading sessions, spirited debates, genre-specific picks, and read-whatever-you-want meetups.</description>
     <link>https://vancouvercommunity.org/book-clubs/</link>
     <guid>https://vancouvercommunity.org/book-clubs/</guid>
   </item>
   <item>
-    <title>Tech &amp; Startup</title>
-    <description>Vancouver tech meetups and startup community. Founders and developers connecting.</description>
-    <link>https://vancouvercommunity.org/tech-startup/</link>
-    <guid>https://vancouvercommunity.org/tech-startup/</guid>
-  </item>
-  <item>
-    <title>Social &amp; Friend Clubs</title>
-    <description>Vancouver social clubs and friend-making groups. Connect through organized meetups and community events.</description>
-    <link>https://vancouvercommunity.org/social-friend-clubs/</link>
-    <guid>https://vancouvercommunity.org/social-friend-clubs/</guid>
-  </item>
-  <item>
-    <title>Photography</title>
-    <description>Vancouver photography clubs and photo walks. Community shoots and photography meetups.</description>
-    <link>https://vancouvercommunity.org/photography/</link>
-    <guid>https://vancouvercommunity.org/photography/</guid>
-  </item>
-  <item>
-    <title>Hiking &amp; Outdoors</title>
-    <description>Vancouver hiking groups and outdoor clubs. Find trail buddies and adventure communities.</description>
-    <link>https://vancouvercommunity.org/hiking-outdoors/</link>
-    <guid>https://vancouvercommunity.org/hiking-outdoors/</guid>
+    <title>Dinner &amp; Supper Clubs</title>
+    <description>9 supper clubs pairing strangers over curated meals — home-cooked dinners, secret locations, and wine-paired pop-ups.</description>
+    <link>https://vancouvercommunity.org/dinner-supper-clubs/</link>
+    <guid>https://vancouvercommunity.org/dinner-supper-clubs/</guid>
   </item>
   <item>
     <title>Mindfulness &amp; Meditation</title>
-    <description>Meditation groups in Vancouver. Sitting groups and mindfulness meetups.</description>
+    <description>11 sitting groups across Buddhist, secular, and wellness traditions. Most welcome beginners and meet weekly.</description>
     <link>https://vancouvercommunity.org/mindfulness-meditation/</link>
     <guid>https://vancouvercommunity.org/mindfulness-meditation/</guid>
   </item>
   <item>
-    <title>Philosophy &amp; Intellectual</title>
-    <description>Philosophy meetups and discussion groups in Vancouver. Deep conversations.</description>
-    <link>https://vancouvercommunity.org/philosophy-intellectual/</link>
-    <guid>https://vancouvercommunity.org/philosophy-intellectual/</guid>
+    <title>Hiking &amp; Outdoors</title>
+    <description>18 hiking groups for every pace — gentle nature walks to serious mountaineering. Several are transit-accessible.</description>
+    <link>https://vancouvercommunity.org/hiking-outdoors/</link>
+    <guid>https://vancouvercommunity.org/hiking-outdoors/</guid>
   </item>
   <item>
-    <title>Coworking</title>
-    <description>Coworking spaces in Vancouver. Find your workspace community.</description>
-    <link>https://vancouvercommunity.org/coworking/</link>
-    <guid>https://vancouvercommunity.org/coworking/</guid>
+    <title>Photography</title>
+    <description>7 photography groups — street photography collectives, city photowalks, and night/film shooting crews.</description>
+    <link>https://vancouvercommunity.org/photography/</link>
+    <guid>https://vancouvercommunity.org/photography/</guid>
   </item>
   <item>
     <title>Vinyl &amp; Listening Bars</title>
-    <description>Vinyl bars and listening rooms in Vancouver. Record shops and audiophile community.</description>
+    <description>Listening bars, iconic record shops, and album-release parties. Vancouver&#39;s vinyl community in one place.</description>
     <link>https://vancouvercommunity.org/vinyl-listening-bars/</link>
     <guid>https://vancouvercommunity.org/vinyl-listening-bars/</guid>
   </item>
   <item>
-    <title>Film &amp; Cinema</title>
-    <description>Vancouver film clubs and cinema events. Independent screenings and film societies.</description>
-    <link>https://vancouvercommunity.org/film-cinema/</link>
-    <guid>https://vancouvercommunity.org/film-cinema/</guid>
+    <title>Coworking</title>
+    <description>Coworking spaces across Vancouver — from boutique living-room vibes to social-impact hubs and creative studios.</description>
+    <link>https://vancouvercommunity.org/coworking/</link>
+    <guid>https://vancouvercommunity.org/coworking/</guid>
   </item>
   <item>
-    <title>Language Exchange</title>
-    <description>Language exchange meetups in Vancouver. Practice languages with native speakers.</description>
-    <link>https://vancouvercommunity.org/language-exchange/</link>
-    <guid>https://vancouvercommunity.org/language-exchange/</guid>
+    <title>Social &amp; Friend Clubs</title>
+    <description>20 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more.</description>
+    <link>https://vancouvercommunity.org/social-friend-clubs/</link>
+    <guid>https://vancouvercommunity.org/social-friend-clubs/</guid>
   </item>
   <item>
-    <title>Cycling</title>
-    <description>Vancouver cycling clubs and group rides. Social rides and cycling communities.</description>
-    <link>https://vancouvercommunity.org/cycling/</link>
-    <guid>https://vancouvercommunity.org/cycling/</guid>
-  </item>
-  <item>
-    <title>Maker Spaces</title>
-    <description>Vancouver maker spaces and workshops. Access tools and join the maker community.</description>
-    <link>https://vancouvercommunity.org/maker-spaces/</link>
-    <guid>https://vancouvercommunity.org/maker-spaces/</guid>
+    <title>Philosophy &amp; Intellectual</title>
+    <description>9 discussion groups — philosophy circles, Socratic cafes, and deep-conversation meetups for the genuinely curious.</description>
+    <link>https://vancouvercommunity.org/philosophy-intellectual/</link>
+    <guid>https://vancouvercommunity.org/philosophy-intellectual/</guid>
   </item>
   <item>
     <title>Chess</title>
-    <description>Chess clubs and cafe meetups in Vancouver. Find games and tournaments.</description>
+    <description>6 places to play chess in Vancouver — cozy cafe drop-ins, park games, and rated tournaments.</description>
     <link>https://vancouvercommunity.org/chess/</link>
     <guid>https://vancouvercommunity.org/chess/</guid>
   </item>
   <item>
+    <title>Cycling</title>
+    <description>12 cycling clubs — social coffee rides, gravel groups, women-and-queer crews, and serious road racing.</description>
+    <link>https://vancouvercommunity.org/cycling/</link>
+    <guid>https://vancouvercommunity.org/cycling/</guid>
+  </item>
+  <item>
+    <title>Language Exchange</title>
+    <description>9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, and ESL conversation clubs.</description>
+    <link>https://vancouvercommunity.org/language-exchange/</link>
+    <guid>https://vancouvercommunity.org/language-exchange/</guid>
+  </item>
+  <item>
+    <title>Film &amp; Cinema</title>
+    <description>4 film clubs and indie cinemas — social movie nights, art house screenings, and Asia&#39;s longest-running film festival.</description>
+    <link>https://vancouvercommunity.org/film-cinema/</link>
+    <guid>https://vancouvercommunity.org/film-cinema/</guid>
+  </item>
+  <item>
     <title>Foraging &amp; Nature</title>
-    <description>Foraging tours and nature walks in Vancouver. Learn wild foods.</description>
+    <description>2 nature communities plus guided foraging tours and mushroom walks. Learn what&#39;s edible in BC.</description>
     <link>https://vancouvercommunity.org/foraging-nature/</link>
     <guid>https://vancouvercommunity.org/foraging-nature/</guid>
   </item>
   <item>
+    <title>Maker Spaces</title>
+    <description>3 maker communities plus shared workshops — 3D printing, laser cutting, woodworking, and a tool lending library.</description>
+    <link>https://vancouvercommunity.org/maker-spaces/</link>
+    <guid>https://vancouvercommunity.org/maker-spaces/</guid>
+  </item>
+  <item>
     <title>Resources</title>
-    <description>Vancouver community resources and directories.</description>
+    <description>Aggregators, newsletters, Instagram accounts, and other directories for finding community in Vancouver.</description>
     <link>https://vancouvercommunity.org/resources/</link>
     <guid>https://vancouvercommunity.org/resources/</guid>
   </item>
   <item>
-    <title>Board Games</title>
-    <description>Board game cafes and game nights in Vancouver. Weekly meetups, gaming cafes, and tabletop communities.</description>
-    <link>https://vancouvercommunity.org/board-games/</link>
-    <guid>https://vancouvercommunity.org/board-games/</guid>
-  </item>
-  <item>
-    <title>Writing</title>
-    <description>Vancouver writing groups and workshops. Critique circles and literary communities.</description>
-    <link>https://vancouvercommunity.org/writing/</link>
-    <guid>https://vancouvercommunity.org/writing/</guid>
-  </item>
-  <item>
     <title>Climbing</title>
-    <description>Vancouver climbing gyms and communities. Find climbing partners and bouldering meetups.</description>
+    <description>5 climbing communities and gyms — bouldering meetups, partner-finding groups, and mountaineering clubs.</description>
     <link>https://vancouvercommunity.org/climbing/</link>
     <guid>https://vancouvercommunity.org/climbing/</guid>
   </item>
   <item>
-    <title>Pottery &amp; Ceramics</title>
-    <description>Pottery studios and ceramics classes in Vancouver. Wheel throwing and clay communities.</description>
-    <link>https://vancouvercommunity.org/pottery-ceramics/</link>
-    <guid>https://vancouvercommunity.org/pottery-ceramics/</guid>
-  </item>
-  <item>
-    <title>Volunteer</title>
-    <description>Volunteer opportunities in Vancouver. Give back through community service.</description>
-    <link>https://vancouvercommunity.org/volunteer/</link>
-    <guid>https://vancouvercommunity.org/volunteer/</guid>
-  </item>
-  <item>
     <title>Karaoke</title>
-    <description>Karaoke bars and nights in Vancouver. Sing your heart out.</description>
+    <description>Karaoke nights across Vancouver — private suites, coffee-shop sing-alongs, and bars with a stage.</description>
     <link>https://vancouvercommunity.org/karaoke/</link>
     <guid>https://vancouvercommunity.org/karaoke/</guid>
   </item>
   <item>
-    <title>Dance</title>
-    <description>Dance classes and social dancing in Vancouver. Salsa, bachata, swing, and more.</description>
-    <link>https://vancouvercommunity.org/dance/</link>
-    <guid>https://vancouvercommunity.org/dance/</guid>
+    <title>Writing</title>
+    <description>8 writing groups — quiet library sessions, genre circles, critique groups, and heritage-house workshops.</description>
+    <link>https://vancouvercommunity.org/writing/</link>
+    <guid>https://vancouvercommunity.org/writing/</guid>
   </item>
   <item>
-    <title>Improv &amp; Comedy</title>
-    <description>Vancouver improv classes and comedy shows. Learn improv and join funny communities.</description>
-    <link>https://vancouvercommunity.org/improv-comedy/</link>
-    <guid>https://vancouvercommunity.org/improv-comedy/</guid>
+    <title>Board Games</title>
+    <description>4 game night groups plus board game cafes with 600+ game libraries. Drop in, no experience needed.</description>
+    <link>https://vancouvercommunity.org/board-games/</link>
+    <guid>https://vancouvercommunity.org/board-games/</guid>
+  </item>
+  <item>
+    <title>Volunteer</title>
+    <description>Volunteer opportunities in Vancouver — park restoration, food banks, animal shelters, and community stewardship.</description>
+    <link>https://vancouvercommunity.org/volunteer/</link>
+    <guid>https://vancouvercommunity.org/volunteer/</guid>
+  </item>
+  <item>
+    <title>Pottery &amp; Ceramics</title>
+    <description>Pottery studios and ceramics classes across Vancouver — drop-in sessions, date nights, and beginner-friendly wheels.</description>
+    <link>https://vancouvercommunity.org/pottery-ceramics/</link>
+    <guid>https://vancouvercommunity.org/pottery-ceramics/</guid>
   </item>
   <item>
     <title>Pickleball</title>
-    <description>Pickleball courts and clubs in Vancouver. Drop-in games and leagues.</description>
+    <description>3 pickleball clubs with drop-in games, clinics, and leagues. Membership starts at $10/year.</description>
     <link>https://vancouvercommunity.org/pickleball/</link>
     <guid>https://vancouvercommunity.org/pickleball/</guid>
   </item>
   <item>
     <title>Poetry &amp; Spoken Word</title>
-    <description>Poetry slams and spoken word in Vancouver. Open mics and poetry nights.</description>
+    <description>7 poetry and spoken word communities — slams, tender open mics, and Canada&#39;s largest spoken word festival.</description>
     <link>https://vancouvercommunity.org/poetry-spoken-word/</link>
     <guid>https://vancouvercommunity.org/poetry-spoken-word/</guid>
   </item>
   <item>
+    <title>Dance</title>
+    <description>3 free social dance groups — salsa at Robson Square, bachata at Sun Hop Park, and West Coast Swing nights.</description>
+    <link>https://vancouvercommunity.org/dance/</link>
+    <guid>https://vancouvercommunity.org/dance/</guid>
+  </item>
+  <item>
+    <title>Improv &amp; Comedy</title>
+    <description>Improv classes, comedy shows, and open mics — including the birthplace of TheatreSports.</description>
+    <link>https://vancouvercommunity.org/improv-comedy/</link>
+    <guid>https://vancouvercommunity.org/improv-comedy/</guid>
+  </item>
+  <item>
     <title>Pub Trivia</title>
-    <description>Pub trivia nights in Vancouver. Test your knowledge and find your team.</description>
+    <description>Weekly pub trivia nights across Vancouver — themed rounds, free entry, and geek-friendly venues.</description>
     <link>https://vancouvercommunity.org/pub-trivia/</link>
     <guid>https://vancouvercommunity.org/pub-trivia/</guid>
   </item>
   <item>
     <title>Sauna &amp; Cold Plunge</title>
-    <description>Sauna clubs and cold plunge spots in Vancouver. Contrast therapy and recovery communities.</description>
+    <description>3 community groups plus Nordic spas, wood-fired saunas, and free ocean dips at Kits Beach.</description>
     <link>https://vancouvercommunity.org/sauna-cold-plunge/</link>
     <guid>https://vancouvercommunity.org/sauna-cold-plunge/</guid>
   </item>
   <item>
     <title>Underground DJ</title>
-    <description>Underground parties and DJ events in Vancouver. Warehouse raves and electronic music.</description>
+    <description>Vancouver&#39;s underground electronic scene — warehouse parties, free pop-ups, and community-run raves.</description>
     <link>https://vancouvercommunity.org/underground-dj/</link>
     <guid>https://vancouvercommunity.org/underground-dj/</guid>
   </item>
   <item>
     <title>Zine &amp; Risograph</title>
-    <description>Zine making and risograph printing in Vancouver. DIY publishing community.</description>
+    <description>Zine fairs, riso studios, and DIY publishing workshops. Vancouver&#39;s small-press scene in one place.</description>
     <link>https://vancouvercommunity.org/zine-risograph/</link>
     <guid>https://vancouvercommunity.org/zine-risograph/</guid>
   </item>
   <item>
     <title>Birdwatching</title>
-    <description>Birdwatching groups in Vancouver. Birding walks and nature community.</description>
+    <description>7 birding groups — guided walks, expert-led field trips, youth programs, and a free two-week festival in May.</description>
     <link>https://vancouvercommunity.org/birdwatching/</link>
     <guid>https://vancouvercommunity.org/birdwatching/</guid>
   </item>
   <item>
     <title>Music &amp; Open Mic</title>
-    <description>Open mics and jam sessions in Vancouver. Find stages and musicians to collaborate with.</description>
+    <description>3 music communities plus weekly open mics and jam nights across Vancouver&#39;s cafes, pubs, and halls.</description>
     <link>https://vancouvercommunity.org/music-open-mic/</link>
     <guid>https://vancouvercommunity.org/music-open-mic/</guid>
   </item>
   <item>
     <title>Astronomy &amp; Stargazing</title>
-    <description>Astronomy clubs and stargazing in Vancouver. Star parties and telescope nights.</description>
+    <description>5 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips.</description>
     <link>https://vancouvercommunity.org/astronomy-stargazing/</link>
     <guid>https://vancouvercommunity.org/astronomy-stargazing/</guid>
   </item>
   <item>
     <title>Tarot &amp; Astrology</title>
-    <description>Tarot and astrology communities in Vancouver. Spiritual groups and readings.</description>
+    <description>5 tarot and astrology groups — practice meetups, moon circles, and spiritual exploration communities.</description>
     <link>https://vancouvercommunity.org/tarot-astrology/</link>
     <guid>https://vancouvercommunity.org/tarot-astrology/</guid>
   </item>

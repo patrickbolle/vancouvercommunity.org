@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Film & Cinema"
-description: "Vancouver film clubs and cinema events. Independent screenings and film societies."
+description: "4 film clubs and indie cinemas — social movie nights, art house screenings, and Asia's longest-running film festival."
 emoji: "🎬"
 group: creative
 order: 3

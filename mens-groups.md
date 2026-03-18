@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Men's Groups"
-description: "Men's circles and support groups in Vancouver. Brotherhood and personal growth."
+description: "6 men's groups — talking circles, dad meetups, wellness groups, and brotherhood communities."
 emoji: "👔"
 group: community
 order: 1

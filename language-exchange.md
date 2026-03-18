@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Language Exchange"
-description: "Language exchange meetups in Vancouver. Practice languages with native speakers."
+description: "9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, and ESL conversation clubs."
 emoji: "🗣️"
 group: social
 order: 3

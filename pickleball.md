@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Pickleball"
-description: "Pickleball courts and clubs in Vancouver. Drop-in games and leagues."
+description: "3 pickleball clubs with drop-in games, clinics, and leagues. Membership starts at $10/year."
 emoji: "🏓"
 group: outdoor
 order: 5
