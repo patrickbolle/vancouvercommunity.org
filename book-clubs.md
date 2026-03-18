@@ -10,6 +10,10 @@ order: 1
 
 # 📚 Book Clubs & Reading
 
+<div class="category-banner">
+📖 Looking for a small book club in your neighbourhood? <a href="https://cuento.app" target="_blank" rel="noopener" data-umami-event="click-cuento-banner">Cuento</a> matches you with 5–6 local readers based on your taste — meet at a nearby café, no big groups.
+</div>
+
 ## Silent Book Club
 - **What:** People gather to read silently together, then chat. Introverts unite, low-pressure social
 - **Find it:** [silentbook.club](https://silentbook.club) (check for Vancouver chapter)

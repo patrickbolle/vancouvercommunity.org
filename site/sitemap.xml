@@ -31,12 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/book-clubs/</loc>
+    <loc>https://vancouvercommunity.org/dinner-supper-clubs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://vancouvercommunity.org/dinner-supper-clubs/</loc>
+    <loc>https://vancouvercommunity.org/book-clubs/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
