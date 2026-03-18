@@ -147,7 +147,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 .logo-city {
   font-family: var(--font-display);
-  font-size: 1.6em;
+  font-size: 1.8em;
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -155,7 +155,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .logo-type {
   font-family: var(--font-body);
-  font-size: 0.75em;
+  font-size: 0.82em;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -365,7 +365,7 @@ h1.homepage-lede,
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  font-size: 0.85em;
+  font-size: 0.9em;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -386,7 +386,7 @@ h1.homepage-lede,
   display: block;
   color: var(--text);
   font-weight: 600;
-  font-size: 0.95em;
+  font-size: 1em;
   line-height: 1.2;
 }
 .builder-card strong a { color: var(--text); }
@@ -397,7 +397,7 @@ h1.homepage-lede,
   color: var(--text-muted);
 }
 .builder-bio {
-  font-size: 0.85em;
+  font-size: 0.9em;
   color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 0;
