@@ -174,3 +174,6 @@ order: 1
 ## Launch Academy
 - **What:** Startup accelerator with events and resources. Educational, supportive of early-stage founders
 - **Find it:** [launchacademy.ca](https://www.launchacademy.ca/)
+
+## test
+- **What:** testasd
