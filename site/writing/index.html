@@ -379,7 +379,7 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
 </script>
 
 <script>
-const categories = ["book-clubs","creative-art","dinner-supper-clubs","mens-groups","run-clubs","tech-startup","yoga-wellness","coworking","hiking-outdoors","mindfulness-meditation","philosophy-intellectual","photography","social-friend-clubs","vinyl-listening-bars","chess","cycling","film-cinema","foraging-nature","language-exchange","maker-spaces","resources","board-games","climbing","karaoke","pottery-ceramics","volunteer","writing","dance","improv-comedy","pickleball","poetry-spoken-word","pub-trivia","birdwatching","sauna-cold-plunge","underground-dj","zine-risograph","astronomy-stargazing","music-open-mic","tarot-astrology"];
+const categories = ["creative-art","yoga-wellness","tech-startup","mens-groups","dinner-supper-clubs","book-clubs","run-clubs","mindfulness-meditation","hiking-outdoors","photography","vinyl-listening-bars","coworking","social-friend-clubs","philosophy-intellectual","chess","cycling","language-exchange","film-cinema","foraging-nature","maker-spaces","resources","climbing","karaoke","writing","board-games","volunteer","pottery-ceramics","pickleball","poetry-spoken-word","dance","improv-comedy","pub-trivia","sauna-cold-plunge","underground-dj","zine-risograph","birdwatching","music-open-mic","astronomy-stargazing","tarot-astrology"];
 function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
@@ -387,6 +387,7 @@ function goRandom() {
 fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   .then(r => r.json())
   .then(data => {
+    window._statsData = data;
     const path = window.location.pathname;
     const pageViews = data.pages[path] || 0;
     const totalViews = data.total.pageviews || 0;
