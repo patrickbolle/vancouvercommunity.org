@@ -47,6 +47,23 @@ permalink: /submit/
       <label class="form-label" for="submit-link">Website or Social Link</label>
       <input class="form-input" type="url" id="submit-link" name="link" placeholder="https://...">
     </div>
+    <div class="form-field">
+      <label class="form-label" for="submit-cost">Cost</label>
+      <select class="form-input" id="submit-cost" name="cost">
+        <option value="">Not sure</option>
+        <option value="Free">Free</option>
+        <option value="By Donation">By Donation</option>
+        <option value="Paid">Paid</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label class="form-label" for="submit-availability">Who can join?</label>
+      <select class="form-input" id="submit-availability" name="availability">
+        <option value="">Not sure</option>
+        <option value="Open to All">Open to All</option>
+        <option value="Membership Required">Membership Required</option>
+      </select>
+    </div>
     <button class="form-submit" type="submit">Submit</button>
     <p class="form-status" id="form-status"></p>
   </form>
