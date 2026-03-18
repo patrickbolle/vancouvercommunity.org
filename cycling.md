@@ -66,3 +66,9 @@ order: 3
 ## bikehub.ca Directory
 - **What:** List of local cycling groups across Metro Vancouver
 - **Find it:** [bikehub.ca/resources/local-cycling-groups](https://bikehub.ca/resources/local-cycling-groups)
+
+## Gruppetto 
+- **What:** Gruppetto is an inclusive community for road and gravel cyclists around Vancouver. We’re not a club—no fees, kits, or pressure. Join us whether you’re chasing goals or riding for fun. Our rides vary in style, pace, and personality, and no single member represents the group.
+
+We complement local clubs. Many members belong to structured groups but enjoy connecting with a broader community. Participation is informal and at your own risk. Ride predictably, signal clearly, avoid reckless
+- **Find it:** [strava.app.link/2TwjQIUkC1b](https://strava.app.link/2TwjQIUkC1b)
