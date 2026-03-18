@@ -1,6 +1,6 @@
 <nav class="sidebar" id="sidebar">
   <ul>
-    <li class="sidebar-logo-item"><a href="/" class="sidebar-logo"><span class="logo-city">Vancouver</span><span class="logo-type">Community</span></a></li>
+    <li class="sidebar-logo-item"><a href="/" class="sidebar-logo"><span class="logo-city">Vancouver<span class="logo-accent">.</span></span><span class="logo-type">Community Directory</span></a></li>
     {%- for group in groups %}
     <li class="sidebar-group-label">{{ group.label | ampEscape | safe }}</li>
     {%- for cat in collections.categories %}
