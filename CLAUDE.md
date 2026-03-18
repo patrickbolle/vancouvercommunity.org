@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A community directory for Vancouver, BC — a static site listing 35+ categories of local groups, clubs, and meetups. Content lives in markdown files at the repo root; Eleventy (11ty) converts them to HTML pages served from `site/`.
+A community directory for Vancouver, BC — a static site listing 35+ categories of local groups, clubs, and meetups. Content lives in markdown files in `content/`; Eleventy (11ty) converts them to HTML pages in `site/` (gitignored).
 
 ## Build & Dev
 
@@ -17,9 +17,9 @@ The dev server watches all files (markdown, CSS, templates, JS) and auto-rebuild
 
 ## Architecture
 
-**Content flow:** `*.md` (root) → Eleventy → `site/*/index.html`
+**Content flow:** `content/*.md` → Eleventy → `site/*/index.html`
 
-- Root `.md` files are the source of truth for category content (e.g., `run-clubs.md`, `hiking-outdoors.md`)
+- `content/` has all category `.md` files and page `.njk` templates
 - Each `.md` file has YAML frontmatter with `title`, `description`, `emoji`, `group`, and `order`
 - `eleventy.config.js` is the build configuration
 - `_includes/` contains Nunjucks layout templates
@@ -27,13 +27,13 @@ The dev server watches all files (markdown, CSS, templates, JS) and auto-rebuild
 - `src/style.css` is the external stylesheet → served at `/_build/style.css`
 - `src/main.js` is shared JavaScript → served at `/_build/main.js`
 - `static/` contains static assets (favicon, etc.) → copied to site root
-- `site/` is the deploy directory (Cloudflare Pages via `wrangler.toml`)
+- `site/` is the deploy directory (gitignored, built by Cloudflare Pages)
 
 ## Critical Rules
 
-1. **Never manually edit HTML in `site/`** — always edit `.md` files, templates, or CSS and rebuild
+1. **Never manually edit HTML in `site/`** — always edit `content/*.md` files, templates, or CSS and rebuild
 2. **External CSS only** — `src/style.css`, never inline `<style>` blocks
-3. **Adding a new category** = create a `.md` file with frontmatter. That's it. Example:
+3. **Adding a new category** = create a `.md` file in `content/` with frontmatter. That's it. Example:
    ```yaml
    ---
    layout: category
@@ -76,7 +76,7 @@ order: 1
 
 ## Deployment
 
-Cloudflare Pages deploys from the `site/` directory. The GitHub Action in `.github/workflows/build.yml` auto-rebuilds on push to main.
+Cloudflare Pages builds the site on push (`npm run build`) and deploys from `site/`. The `site/` directory is gitignored — never commit built output. The GitHub Action in `.github/workflows/build.yml` runs the build as a CI check only.
 
 ## External Services
 

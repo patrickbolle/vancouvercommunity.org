@@ -4,17 +4,13 @@ on:
   push:
     branches: [main]
     paths:
-      - '*.md'
-      - '*.njk'
+      - 'content/**'
       - '_includes/**'
       - '_data/**'
       - 'src/**'
       - 'static/**'
       - 'eleventy.config.js'
       - 'package.json'
-
-permissions:
-  contents: write
 
 jobs:
   build:
@@ -32,11 +28,3 @@ jobs:
 
       - name: Build site
         run: npx @11ty/eleventy
-
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add site/
-          git diff --staged --quiet || git commit -m "Rebuild site from markdown"
-          git push
