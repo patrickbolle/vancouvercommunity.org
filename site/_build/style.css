@@ -1,5 +1,5 @@
 /* Vancouver Community Directory */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap');
+/* Fonts loaded via <link> in head.njk to avoid render-blocking @import chain */
 
 :root {
   --bg: #FAF8F5;
