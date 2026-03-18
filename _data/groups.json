@@ -1,6 +1,6 @@
 [
-  { "key": "outdoor", "label": "Outdoor & Active" },
   { "key": "social", "label": "Social" },
+  { "key": "outdoor", "label": "Outdoor & Active" },
   { "key": "creative", "label": "Creative" },
   { "key": "mind-body", "label": "Mind & Body" },
   { "key": "intellectual", "label": "Intellectual" },

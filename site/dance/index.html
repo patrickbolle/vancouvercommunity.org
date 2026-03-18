@@ -129,13 +129,6 @@
 <nav class="sidebar" id="sidebar">
   <ul>
     <li class="sidebar-logo-item"><a href="/" class="sidebar-logo"><span class="logo-city">Vancouver</span><span class="logo-type">Community</span></a></li>
-    <li class="sidebar-group-label">Outdoor &amp; Active</li>
-    <li><a href="/run-clubs/" data-umami-event="click-sidebar" data-umami-event-category="run-clubs"><span class="emoji">🏃</span> Run Clubs<span class="count">17</span></a></li>
-    <li><a href="/hiking-outdoors/" data-umami-event="click-sidebar" data-umami-event-category="hiking-outdoors"><span class="emoji">🥾</span> Hiking &amp; Outdoors<span class="count">18</span></a></li>
-    <li><a href="/cycling/" data-umami-event="click-sidebar" data-umami-event-category="cycling"><span class="emoji">🚴</span> Cycling<span class="count">12</span></a></li>
-    <li><a href="/climbing/" data-umami-event="click-sidebar" data-umami-event-category="climbing"><span class="emoji">🧗</span> Climbing<span class="count">5</span></a></li>
-    <li><a href="/pickleball/" data-umami-event="click-sidebar" data-umami-event-category="pickleball"><span class="emoji">🏓</span> Pickleball<span class="count">3</span></a></li>
-    <li><a href="/sauna-cold-plunge/" data-umami-event="click-sidebar" data-umami-event-category="sauna-cold-plunge"><span class="emoji">🧊</span> Sauna &amp; Cold Plunge<span class="count">3</span></a></li>
     <li class="sidebar-group-label">Social</li>
     <li><a href="/dinner-supper-clubs/" data-umami-event="click-sidebar" data-umami-event-category="dinner-supper-clubs"><span class="emoji">🍽️</span> Dinner &amp; Supper Clubs<span class="count">9</span></a></li>
     <li><a href="/social-friend-clubs/" data-umami-event="click-sidebar" data-umami-event-category="social-friend-clubs"><span class="emoji">🤝</span> Social &amp; Friend Clubs<span class="count">20</span></a></li>
@@ -143,6 +136,13 @@
     <li><a href="/karaoke/" data-umami-event="click-sidebar" data-umami-event-category="karaoke"><span class="emoji">🎙️</span> Karaoke<span class="count">2</span></a></li>
     <li><a href="/pub-trivia/" data-umami-event="click-sidebar" data-umami-event-category="pub-trivia"><span class="emoji">🧠</span> Pub Trivia</a></li>
     <li><a href="/underground-dj/" data-umami-event="click-sidebar" data-umami-event-category="underground-dj"><span class="emoji">🎧</span> Underground DJ<span class="count">2</span></a></li>
+    <li class="sidebar-group-label">Outdoor &amp; Active</li>
+    <li><a href="/run-clubs/" data-umami-event="click-sidebar" data-umami-event-category="run-clubs"><span class="emoji">🏃</span> Run Clubs<span class="count">17</span></a></li>
+    <li><a href="/hiking-outdoors/" data-umami-event="click-sidebar" data-umami-event-category="hiking-outdoors"><span class="emoji">🥾</span> Hiking &amp; Outdoors<span class="count">18</span></a></li>
+    <li><a href="/cycling/" data-umami-event="click-sidebar" data-umami-event-category="cycling"><span class="emoji">🚴</span> Cycling<span class="count">12</span></a></li>
+    <li><a href="/climbing/" data-umami-event="click-sidebar" data-umami-event-category="climbing"><span class="emoji">🧗</span> Climbing<span class="count">5</span></a></li>
+    <li><a href="/pickleball/" data-umami-event="click-sidebar" data-umami-event-category="pickleball"><span class="emoji">🏓</span> Pickleball<span class="count">3</span></a></li>
+    <li><a href="/sauna-cold-plunge/" data-umami-event="click-sidebar" data-umami-event-category="sauna-cold-plunge"><span class="emoji">🧊</span> Sauna &amp; Cold Plunge<span class="count">3</span></a></li>
     <li class="sidebar-group-label">Creative</li>
     <li><a href="/creative-art/" data-umami-event="click-sidebar" data-umami-event-category="creative-art"><span class="emoji">🎨</span> Creative &amp; Art<span class="count">16</span></a></li>
     <li><a href="/photography/" data-umami-event="click-sidebar" data-umami-event-category="photography"><span class="emoji">📷</span> Photography<span class="count">7</span></a></li>
@@ -181,7 +181,7 @@
   </div>
   <div class="sidebar-footer">
     <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="sidebar">Submit a group</a>
-    <a href="#" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="sidebar">Surprise me</a>
+    <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="sidebar"><span class="surprise-dice">&#x1F3B2;</span> Surprise me</a>
     <span id="total-views"></span>
     <div class="sidebar-footer-meta">
       Updated March 2026

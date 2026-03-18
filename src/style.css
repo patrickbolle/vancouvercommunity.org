@@ -336,6 +336,63 @@ h1.homepage-lede,
 }
 .meta-secondary:hover { color: var(--accent) !important; }
 
+/* Surprise me button */
+.surprise-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px 5px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.88em;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.surprise-btn:visited { color: var(--text-secondary) !important; }
+.surprise-btn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(168, 90, 70, 0.12);
+  transform: translateY(-1px);
+}
+.surprise-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+.surprise-dice {
+  display: inline-block;
+  font-size: 1.1em;
+  transition: transform 0.3s ease;
+}
+.surprise-btn:hover .surprise-dice {
+  animation: diceRoll 0.4s ease;
+}
+@keyframes diceRoll {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg) scale(1.1); }
+  50% { transform: rotate(10deg) scale(1.15); }
+  75% { transform: rotate(-5deg) scale(1.05); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+/* Sidebar version */
+.sidebar-footer .surprise-btn {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.58) !important;
+  font-size: 1em;
+  padding: 5px 14px 5px 10px;
+}
+.sidebar-footer .surprise-btn:visited { color: rgba(255,255,255,0.58) !important; }
+.sidebar-footer .surprise-btn:hover {
+  color: var(--accent) !important;
+  border-color: var(--accent);
+  box-shadow: 0 2px 8px rgba(168, 90, 70, 0.2);
+}
+
 /* Stats line */
 .homepage-stats {
   display: flex;
