@@ -856,6 +856,118 @@ textarea.form-input { resize: vertical; }
 .edit-modal-desc { margin-bottom: 24px; color: var(--text-muted); font-size: 0.9em; line-height: 1.6; }
 
 /* ========================================
+   VERIFY TOAST
+   ======================================== */
+.verify-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.verify-toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.verify-toast-inner {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  max-width: 340px;
+  font-size: 0.88em;
+  line-height: 1.5;
+}
+.verify-toast-question {
+  color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+.verify-toast-question strong {
+  color: var(--text);
+}
+.verify-toast-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.verify-btn {
+  padding: 5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  font-family: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: border-color 0.15s, color 0.15s;
+}
+.verify-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.verify-btn-yes {
+  background: var(--accent-light);
+  border-color: transparent;
+  color: var(--accent);
+  font-weight: 500;
+}
+.verify-btn-yes:hover {
+  background: var(--accent);
+  color: #fff;
+}
+.verify-btn-dismiss {
+  margin-left: auto;
+  border: none;
+  background: none;
+  font-size: 1.1em;
+  padding: 2px 6px;
+  color: var(--text-muted);
+}
+.verify-btn-dismiss:hover {
+  color: var(--text);
+}
+.verify-toast-detail {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.verify-detail-input {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1em;
+  color: var(--text);
+  background: var(--bg);
+}
+.verify-detail-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+.verify-btn-send {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  padding: 7px 14px;
+}
+.verify-btn-send:hover {
+  background: var(--accent-hover);
+  color: #fff;
+}
+.verify-toast-thanks {
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 @keyframes fadeInUp {
@@ -971,4 +1083,8 @@ textarea.form-input { resize: vertical; }
 
   /* Search input full width on mobile */
   .search-input { max-width: 100%; }
+
+  /* Verify toast full-width on mobile */
+  .verify-toast { left: 12px; right: 12px; bottom: 12px; }
+  .verify-toast-inner { max-width: 100%; }
 }

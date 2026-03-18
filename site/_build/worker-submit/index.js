@@ -333,6 +333,53 @@ ${data.name ? `**Submitted by:** ${data.name}` : ''}
   }), { headers: corsHeaders });
 }
 
+// POST /verify - Link verification feedback from users
+async function handleVerify(data, env, rid) {
+  if (!data.group || !data.category || !data.status) {
+    log(rid, "warn", `Missing verify fields`, { fields: { group: !!data.group, category: !!data.category, status: !!data.status } });
+    return new Response(JSON.stringify({
+      error: "Missing required fields"
+    }), { status: 400, headers: corsHeaders });
+  }
+
+  // "active" status is just a positive signal — log it but don't create an issue
+  if (data.status === "active") {
+    log(rid, "info", `Positive verification`, { group: data.group, category: data.category });
+    return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+  }
+
+  // "issue" status — create a GitHub issue
+  log(rid, "info", `Issue verification`, { group: data.group, category: data.category });
+
+  const categoryKey = normalizeCategoryKey(data.category);
+
+  const issueBody = `## Link Verification Report
+
+**Group:** ${data.group}
+**Category:** [${categoryKey}](https://vancouvercommunity.org/${categoryKey}/)
+**URL:** ${data.url || 'N/A'}
+
+### Issue reported
+${data.detail || 'No details provided'}
+
+---
+*Reported by a visitor via link verification*
+`;
+
+  const issue = await githubApi(`/repos/${GITHUB_REPO}/issues`, env, {
+    method: "POST",
+    body: JSON.stringify({
+      title: `Link issue: ${data.group}`,
+      body: issueBody,
+      labels: ["link-verification"]
+    })
+  }, rid);
+
+  log(rid, "info", `Verification issue created`, { issue: issue.number, group: data.group });
+
+  return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+}
+
 // --- Main handler ---
 
 export default {
@@ -367,6 +414,8 @@ export default {
           response = await handleSubmit(data, env, rid);
         } else if (path === "/edit") {
           response = await handleEdit(data, env, rid);
+        } else if (path === "/verify") {
+          response = await handleVerify(data, env, rid);
         }
       }
 
