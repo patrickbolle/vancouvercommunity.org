@@ -74,6 +74,66 @@ order: 1
 - entries...
 ```
 
+## Content Operations
+
+Standard procedures for modifying community entries. Follow these exactly.
+
+### Removing a group
+
+1. Find the `## Group Name` heading in the category's `content/*.md` file
+2. Delete from the `##` heading through all its bullet points (everything up to the next `##`, `---`, or end of file)
+3. Clean up: no triple+ blank lines left behind. One blank line between entries is correct
+4. Branch name: `claude/remove-{group-slug}`
+5. Commit message: `Remove {Group Name} from {category}`
+6. PR title: `Remove {Group Name} (broken link)` or `Remove {Group Name} (closed)`
+
+### Updating a link or detail
+
+1. Find the group's `## heading` in the category file
+2. Replace the specific line (e.g. the `**Find it:**` line for URL changes)
+3. Keep the existing format — don't rewrite surrounding content
+4. Branch name: `claude/update-{group-slug}`
+5. Commit message: `Update {Group Name} in {category}`
+6. PR title: `Update {Group Name} — {what changed}`
+
+### Adding a group
+
+New entries go **above** the `---` / `## Venues` divider if one exists, otherwise at the end of the file. Format:
+
+```markdown
+## Group Name
+- **What:** Description of what the group does. Community feel
+- **Vibe:** Atmosphere description (optional, only if provided)
+- **Where:** Location (optional, only if provided)
+- **Find it:** [domain.com/path](https://domain.com/path)
+- **Notes:** Additional info (optional, only if provided)
+```
+
+Omit optional fields entirely if not provided — don't leave blanks.
+
+### Verifying a link
+
+Check with: `curl -sL -o /dev/null -w "%{http_code}" "URL"` — run twice if first attempt times out.
+- 200, 301, 302 to a valid page = **working**
+- 404, 410, connection refused, timeout on both attempts = **broken**
+- Meetup.com 404 pages or "this group is no longer active" = **broken**
+
+### What belongs in this directory
+
+Apply this test: *"If I'm interested in X, can I go here and find my people?"*
+
+**Yes:** clubs, groups, meetups, studios with communities, venues hosting niche community events, classes where you'd meet like-minded people
+
+**No:** generic event listings (concerts, festivals), transactional businesses, resource directories without community, broad city-life stuff (jobs, housing, food reviews)
+
+### PR and branch conventions
+
+- Always create PRs — never push directly to main
+- Branch prefix: `claude/` for automated changes
+- One change per PR (one group removed, one link updated, etc.)
+- PR descriptions should be 1-3 sentences explaining what and why
+- Link to the triggering issue in the PR body when applicable: `Resolves #123`
+
 ## Deployment
 
 Cloudflare Pages builds the site on push (`npm run build`) and deploys from `site/`. The `site/` directory is gitignored — never commit built output. The GitHub Action in `.github/workflows/build.yml` runs the build as a CI check only.

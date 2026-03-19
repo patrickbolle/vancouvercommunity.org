@@ -30,18 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
     var link = e.target.closest('a[href^="/"]');
     if (!link || e.ctrlKey || e.metaKey || e.shiftKey) return;
     var href = link.getAttribute('href');
-    if (!href || href === window.location.pathname || href.indexOf('#') === 0) return;
+    if (!href || href.indexOf('#') === 0) return;
+    // Extract path and hash separately
+    var hashIdx = href.indexOf('#');
+    var path = hashIdx >= 0 ? href.substring(0, hashIdx) : href;
+    var hash = hashIdx >= 0 ? href.substring(hashIdx) : '';
+    if ((!path || path === window.location.pathname) && hash) return; // same-page anchor, let browser handle
+    if (!path || path === window.location.pathname) return;
     if (link.onclick || link.closest('form')) return;
 
     e.preventDefault();
     if (navigating) return;
     navigating = true;
 
-    var promise = pageCache[href] || fetch(href).then(function(r) { return r.text(); });
-    pageCache[href] = promise;
+    var promise = pageCache[path] || fetch(path).then(function(r) { return r.text(); });
+    pageCache[path] = promise;
 
     promise.then(function(html) {
-      swap(html, href);
+      swap(html, path, hash);
       history.pushState(null, '', href);
       if (typeof umami !== 'undefined' && umami.track) {
         umami.track(function(props) { return { ...props, url: href }; });
@@ -59,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     promise.then(function(html) { swap(html, href); });
   });
 
-  function swap(html, href) {
+  function swap(html, href, hash) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
 
     // Swap main content
@@ -109,8 +115,13 @@ document.addEventListener('DOMContentLoaded', function() {
       sidebarList.scrollTop = Math.max(0, activeLink.offsetTop - sidebarList.clientHeight / 3);
     }
 
-    // Scroll to top
-    window.scrollTo(0, 0);
+    // Scroll to hash target or top
+    var scrollTarget = hash && document.getElementById(hash.slice(1));
+    if (scrollTarget) {
+      scrollTarget.scrollIntoView();
+    } else {
+      window.scrollTo(0, 0);
+    }
 
     // Re-init page behaviors
     initPage();

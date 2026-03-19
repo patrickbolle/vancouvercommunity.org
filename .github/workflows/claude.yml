@@ -9,8 +9,11 @@ on:
     types: [opened, assigned]
   pull_request_review:
     types: [submitted]
+  pull_request:
+    types: [opened]
 
 jobs:
+  # ── Manual @claude mentions ──
   claude:
     if: |
       (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
@@ -19,11 +22,11 @@ jobs:
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pull-requests: read
-      issues: read
+      contents: write
+      pull-requests: write
+      issues: write
       id-token: write
-      actions: read # Required for Claude to read CI results on PRs
+      actions: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,20 +34,138 @@ jobs:
           fetch-depth: 1
 
       - name: Run Claude Code
-        id: claude
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-
-          # This is an optional setting that allows Claude to read CI results on PRs
           additional_permissions: |
             actions: read
 
-          # Optional: Give a custom prompt to Claude. If this is not specified, Claude will perform the instructions specified in the comment that tagged it.
-          # prompt: 'Update the pull request description to include a summary of changes.'
+  # ── Auto-resolve link verification issues ──
+  link-verification:
+    if: |
+      github.event_name == 'issues' &&
+      github.event.action == 'opened' &&
+      contains(toJSON(github.event.issue.labels.*.name), 'link-verification')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
 
-          # Optional: Add claude_args to customize behavior and configuration
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://code.claude.com/docs/en/cli-reference for available options
-          # claude_args: '--allowed-tools Bash(gh pr:*)'
+      - name: Auto-resolve link issue
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            A visitor reported a broken link via the site. Handle it automatically:
 
+            1. Extract the group name and URL from the issue body.
+            2. Verify the link using the procedure in CLAUDE.md ("Verifying a link").
+            3. If WORKING: comment on the issue that the link appears fine, and close the issue.
+            4. If BROKEN: remove the group following CLAUDE.md ("Removing a group") and create a PR. Link the PR to this issue with "Resolves #<number>".
+
+  # ── Auto-resolve edit suggestion issues ──
+  edit-suggestion:
+    if: |
+      github.event_name == 'issues' &&
+      github.event.action == 'opened' &&
+      contains(toJSON(github.event.issue.labels.*.name), 'edit-suggestion')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Auto-resolve edit suggestion
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            A visitor submitted an edit suggestion via the site. Handle it automatically:
+
+            1. Read the issue body to understand the requested change and which category file it affects.
+            2. Apply the edit following the relevant procedure in CLAUDE.md (update, remove, or add).
+            3. If the suggestion is clear: create a PR with the change. Link it to this issue with "Resolves #<number>".
+            4. If ambiguous: comment on the issue asking for clarification. Don't create a PR.
+
+  # ── Auto-review community submission PRs ──
+  review-submission:
+    if: |
+      github.event_name == 'pull_request' &&
+      github.event.action == 'opened' &&
+      startsWith(github.event.pull_request.head.ref, 'submission/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+      actions: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Auto-review submission
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          additional_permissions: |
+            actions: read
+          prompt: |
+            A new community group was submitted via the website. Review it:
+
+            1. **Link check:** Verify the submitted URL using CLAUDE.md ("Verifying a link"). Report status.
+            2. **Fit check:** Apply the "What belongs" test from CLAUDE.md. Flag if it doesn't fit.
+            3. **Duplicate check:** Search the category file for similar group names or URLs.
+            4. **Format check:** Verify the entry follows the format in CLAUDE.md ("Adding a group").
+
+            Leave a PR review:
+            - All good → APPROVE with a short summary of what you checked
+            - Issues found → COMMENT explaining what's wrong
+
+            Be concise and welcoming in tone.
+
+  # ── Auto-triage uncategorized submissions ──
+  submission-triage:
+    if: |
+      github.event_name == 'issues' &&
+      github.event.action == 'opened' &&
+      contains(toJSON(github.event.issue.labels.*.name), 'submission-triage')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Auto-triage submission
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            A community group was submitted but didn't match any existing category. Your job:
+
+            1. Read the issue body to understand the group.
+            2. Check if it fits the directory using the "What belongs" test in CLAUDE.md.
+            3. If it fits: find the best existing category file in content/*.md for it. Add the group following CLAUDE.md ("Adding a group") and create a PR. Link to the issue with "Resolves #<number>".
+            4. If it doesn't fit: comment on the issue explaining why, and close it.
+            5. If it fits but no existing category works: comment suggesting a new category could be created, and leave the issue open for the maintainer.

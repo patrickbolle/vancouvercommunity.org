@@ -186,11 +186,10 @@ async function handleSubmit(data, env, rid) {
   const categoryKey = normalizeCategoryKey(data.category);
   const fileName = CATEGORY_FILES[categoryKey];
 
+  // "Other" or unknown category — create a triage issue instead of a PR
   if (!fileName) {
-    log(rid, "warn", `Unknown category on submit`, { category: data.category, categoryKey });
-    return new Response(JSON.stringify({
-      error: `Unknown category: ${data.category}. Try selecting a different category or choose "Other".`
-    }), { status: 400, headers: corsHeaders });
+    log(rid, "info", `Unknown category, creating triage issue`, { category: data.category, categoryKey });
+    return handleUncategorizedSubmission(data, env, rid);
   }
 
   log(rid, "info", `Processing submission`, { name: data.name, category: categoryKey });
@@ -219,6 +218,22 @@ async function handleSubmit(data, env, rid) {
     fileSha = fileData.sha;
   } catch (e) {
     log(rid, "warn", `File not found, will create`, { fileName });
+  }
+
+  // Check for duplicates — match group name (case-insensitive) or URL
+  if (currentContent) {
+    const contentLower = currentContent.toLowerCase();
+    const nameLower = data.name.toLowerCase();
+    const isDuplicateName = contentLower.includes(`## ${nameLower}`);
+    const isDuplicateLink = data.link && currentContent.includes(data.link.replace(/\/$/, ''));
+
+    if (isDuplicateName || isDuplicateLink) {
+      const match = isDuplicateName ? "name" : "link";
+      log(rid, "info", `Duplicate detected`, { name: data.name, match });
+      return new Response(JSON.stringify({
+        error: `It looks like "${data.name}" might already be listed in this category. If this is a different group, try changing the name slightly.`
+      }), { status: 409, headers: corsHeaders });
+    }
   }
 
   // Create branch
@@ -380,6 +395,43 @@ ${data.detail || 'No details provided'}
   log(rid, "info", `Verification issue created`, { issue: issue.number, group: data.group });
 
   return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+}
+
+// POST /submit with unknown category — create a triage issue
+async function handleUncategorizedSubmission(data, env, rid) {
+  const issueBody = `## New Submission — Needs Category
+
+**Name:** ${data.name}
+**Submitted category:** ${data.category}
+
+**Description:**
+${data.description}
+
+${data.link ? `**Website/Link:** ${data.link}` : ''}
+${data.location ? `**Location:** ${data.location}` : ''}
+${data.vibe ? `**Vibe:** ${data.vibe}` : ''}
+${data.cost ? `**Cost:** ${data.cost}` : ''}
+${data.availability ? `**Who can join:** ${data.availability}` : ''}
+
+---
+*Submitted via vancouvercommunity.org — category not matched, needs triage*
+`;
+
+  const issue = await githubApi(`/repos/${GITHUB_REPO}/issues`, env, {
+    method: "POST",
+    body: JSON.stringify({
+      title: `New submission: ${data.name} (needs category)`,
+      body: issueBody,
+      labels: ["submission-triage"]
+    })
+  }, rid);
+
+  log(rid, "info", `Triage issue created`, { issue: issue.number, name: data.name });
+
+  return new Response(JSON.stringify({
+    success: true,
+    message: "Thank you! Your submission has been received and is pending review."
+  }), { headers: corsHeaders });
 }
 
 // --- Main handler ---
