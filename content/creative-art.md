@@ -89,3 +89,7 @@ order: 1
 - **What:** Multidisciplinary arts facility — workshops, studio spaces, offices
 - **Where:** 281 Industrial Avenue
 - **Find it:** [artsfactorysociety.ca](https://artsfactorysociety.ca)
+
+## Vancouver Synthesizer Meetup Group
+- **What:** Hosts monthly meetups featuring performances by members, plus discussion of gear and techniques. Events are usually free and at Mount Pleasant Neighbourhood House, but have also taken place at Kitsilano Neighbourhood House and the VPL. A very supportive and inclusive community, with all styles and approaches welcome!
+- **Find it:** [discord.gg/NsErM5BJKT](https://discord.gg/NsErM5BJKT)
