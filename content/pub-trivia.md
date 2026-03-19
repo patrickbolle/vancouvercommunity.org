@@ -29,10 +29,6 @@ order: 5
 - **When:** 7:30pm
 - **Find it:** [eastsidecrafthouse.com](https://eastsidecrafthouse.com/saturday-night-trivia-vancouver)
 
-## Darby's Quiz Night (Kitsilano)
-- **What:** Weekly trivia at 7:30pm. Pub atmosphere, regular crowd
-- **Find it:** [darbyspub.ca](https://darbyspub.ca/) | 2001 Macdonald St
-
 ## The Butcher & Bullock Trivia
 - **What:** Pub trivia with burger & beer specials. $16 burger & beer, $5 Jameson
 - **Find it:** 911 W Pender St, Downtown
