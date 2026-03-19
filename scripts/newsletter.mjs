@@ -99,38 +99,41 @@ function anchorSlug(name) {
     .replace(/\s+/g, "-");
 }
 
-// ── Seasonal openers ───────────────────────────────────────────
+// ── Weather-aware opener ────────────────────────────────────────
 
-const openers = [
-  // Jan
-  "New year, fresh start. If you're looking to try something new this month, here's what's been added to the directory.",
-  // Feb
-  "February in Vancouver — still dark early, but there's a lot going on indoors. Here's what's new on the directory.",
-  // Mar
-  "The cherry blossoms are coming and the city's starting to wake up. A few new groups landed on the directory this week.",
-  // Apr
-  "Spring is here and Vancouver's at its best. Perfect time to get out and try something new. Here's what's been added.",
-  // May
-  "Patios are open, the days are long, and there's more happening around the city than you'd think. Here's what's new.",
-  // Jun
-  "Summer's basically here. If you're looking for people to do things with, a few new groups just got added.",
-  // Jul
-  "Peak Vancouver summer. The city's alive right now. Here's what's new on the directory.",
-  // Aug
-  "Making the most of August? Here are some new groups and a corner of the directory worth exploring.",
-  // Sep
-  "Back to it. September's great for picking up something new. Here's what landed on the directory recently.",
-  // Oct
-  "Cozy season. Rain's back, which means it's the best time to find your people indoors. Here's what's new.",
-  // Nov
-  "Dark and rainy — peak time to find a community that gets you out of the house. Here's what's been added.",
-  // Dec
-  "End of year. If you're thinking about what to do more of next year, here are some new groups to check out.",
-];
+async function getOpener() {
+  const month = new Date().getMonth();
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+  // Fetch Vancouver weather from Open-Meteo (free, no key)
+  let weather = "";
+  try {
+    const res = await fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=49.2827&longitude=-123.1207&daily=temperature_2m_max,precipitation_sum,weathercode&timezone=America/Vancouver&forecast_days=1"
+    );
+    const data = await res.json();
+    const temp = Math.round(data.daily.temperature_2m_max[0]);
+    const rain = data.daily.precipitation_sum[0];
+    const code = data.daily.weathercode[0];
+
+    // WMO weather codes: 0-1 clear, 2-3 cloudy, 45-48 fog, 51-67 rain/drizzle, 71-77 snow, 80-82 showers, 95-99 thunderstorm
+    if (code <= 1) weather = `It's ${temp}°C and sunny out there today.`;
+    else if (code <= 3) weather = `Overcast and ${temp}°C today — classic Vancouver.`;
+    else if (code <= 48) weather = `Foggy and ${temp}°C today.`;
+    else if (code <= 67 || (code >= 80 && code <= 82)) weather = `Rainy and ${temp}°C today — good day to plan something indoors.`;
+    else if (code <= 77) weather = `Snowing in Vancouver? Wild. ${temp}°C out there.`;
+    else weather = `${temp}°C in Vancouver today.`;
+  } catch {
+    weather = `Happy ${monthNames[month]} from Vancouver.`;
+  }
+
+  return `${weather} Here's what's new on the directory this week.`;
+}
 
 // ── Email HTML template ────────────────────────────────────────
 
-function buildEmail(adds, spotlight) {
+async function buildEmail(adds, spotlight) {
   let sections = "";
 
   // New additions
@@ -155,11 +158,11 @@ function buildEmail(adds, spotlight) {
     sections += `[All ${spotlight.title} →](${SITE_URL}/${spotlight.slug})\n\n`;
   }
 
-  return buildBody(sections);
+  return await buildBody(sections);
 }
 
-function buildBody(sections) {
-  const opener = openers[new Date().getMonth()];
+async function buildBody(sections) {
+  const opener = await getOpener();
   return `${opener}
 
 ${sections}
@@ -185,7 +188,7 @@ if (changes.adds.length > 0) {
   subject = `${spotlight?.emoji} ${spotlight?.title} — groups you might not know about`;
 }
 
-const html = buildEmail(changes.adds, spotlight);
+const html = await buildEmail(changes.adds, spotlight);
 
 // Create draft in Buttondown
 const res = await fetch(`${BUTTONDOWN_API}/emails`, {
