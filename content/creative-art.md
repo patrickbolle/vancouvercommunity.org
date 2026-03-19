@@ -25,10 +25,6 @@ order: 1
 - **Where:** East Van Brewing Co.
 - **Find it:** [meetup.com/the-sketchup](https://www.meetup.com/the-sketchup/)
 
-## Vancouver Creative Collective
-- **What:** Space for artists and creatives from all mediums to meet and collaborate
-- **Find it:** [vancouvercreativecollective.com](https://vancouvercreativecollective.com)
-
 ## Creative Pulse
 - **What:** Volunteer-run org for Vancouver creatives. Summer socials, industry events
 - **Find it:** [creativepulse.co](https://creativepulse.co)
