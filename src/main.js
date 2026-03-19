@@ -139,18 +139,25 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Page behaviors (run on load + after each swap) ---
 
   function initPage() {
-    // Make h2 titles clickable
+    // Make h2 titles clickable — open the group's first external link
     document.querySelectorAll('.content h2').forEach(function(h2) {
       if (h2._bound) return;
       h2._bound = true;
-      var anchor = h2.querySelector('a[href^="#"]');
-      if (anchor) {
-        h2.style.cursor = 'pointer';
-        h2.addEventListener('click', function(e) {
-          if (e.target.tagName !== 'A') {
-            window.location.hash = anchor.getAttribute('href').slice(1);
+      // Find the next sibling UL and its first external link
+      var sibling = h2.nextElementSibling;
+      while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'HR') {
+        if (sibling.tagName === 'UL') {
+          var extLink = sibling.querySelector('a[href^="http"]');
+          if (extLink) {
+            h2.style.cursor = 'pointer';
+            h2.addEventListener('click', function(e) {
+              if (e.target.tagName === 'A') return; // let anchor links work normally
+              window.open(extLink.href, '_blank', 'noopener');
+            });
+            break;
           }
-        });
+        }
+        sibling = sibling.nextElementSibling;
       }
     });
 
