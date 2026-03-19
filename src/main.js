@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function showToastThanks(toast) {
     toast.querySelector('.verify-toast-inner').innerHTML =
       '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate \u2764\ufe0f</p>';
-    setTimeout(function() { dismissToast(toast); }, 3000);
+    setTimeout(function() { dismissToast(toast); }, 1200);
   }
 
   function dismissToast(toast) {

@@ -2,16 +2,24 @@
 <html lang="en">
 <head>
   {% include "partials/head.njk" %}
-  <title>{% if groupCount %}{{ groupCount }} {% endif %}{{ title }} in Vancouver (2026) | {{ site.title }}</title>
-  <meta name="description" content="{{ title }} in Vancouver — {{ description }} Updated March 2026.">
-  <meta property="og:title" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title }} in Vancouver">
-  <meta property="og:description" content="{{ title }} in Vancouver — {{ description }}">
+  {%- set titleHasGroupWord = "club" in title | lower or "group" in title | lower or "space" in title | lower or "bar" in title | lower -%}
+  {%- if groupCount and titleHasGroupWord -%}
+    {%- set metaTitle = groupCount + " " + title + " in Vancouver" -%}
+  {%- elif groupCount -%}
+    {%- set metaTitle = groupCount + " " + title + " Group" + ("s" if groupCount != 1) + " in Vancouver" -%}
+  {%- else -%}
+    {%- set metaTitle = title + " in Vancouver" -%}
+  {%- endif -%}
+  <title>{{ metaTitle }} (2026) | {{ site.title }}</title>
+  <meta name="description" content="{{ description }} Updated March 2026.">
+  <meta property="og:title" content="{{ metaTitle }}">
+  <meta property="og:description" content="{{ description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}/{{ page.fileSlug }}/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title }} in Vancouver">
-  <meta name="twitter:description" content="{% if groupCount %}{{ groupCount }} {% endif %}{{ title | lower }} in Vancouver. {{ description }}">
+  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:description" content="{{ description }}">
   <meta name="twitter:image" content="{{ site.url }}/og-image.png">
   <link rel="canonical" href="{{ site.url }}/{{ page.fileSlug }}/">
   <script type="application/ld+json">
