@@ -35,10 +35,6 @@ order: 1
 - **What:** Various library-run book clubs
 - **Find it:** [vpl.bibliocommons.com](https://vpl.bibliocommons.com/v2/events)
 
-## Read Whatever You Want Book Club
-- **What:** Read any book you want, discuss at meetups. No assigned reading, come as you are
-- **Find it:** [meetup.com/read-whatever-you-want-book-club](https://meetup.com/read-whatever-you-want-book-club)
-
 ## Vancouver Women Who Read
 - **What:** Anti-book club where members read their own thought-provoking choices. Supportive community, monthly meetups
 - **Find it:** [meetup.com/vancouver-women-who-read](https://meetup.com/vancouver-women-who-read)
