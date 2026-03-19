@@ -31,11 +31,6 @@ order: 2
 - **What:** General intellectual discussions on varied topics. Open-minded, curious participants
 - **Find it:** [meetup.com/vancouver-discussions-meetup-group](https://www.meetup.com/vancouver-discussions-meetup-group/)
 
-## The Apeiron Society for the Practice of Philosophy
-- **What:** Philosophy practice
-- **When:** Every 2nd Tuesday (Fall & Winter)
-- **Find it:** [apeironsociety.ca](https://www.apeironsociety.ca/)
-
 ## Anime Philosophy Meetup Vancouver
 - **What:** Explore philosophical themes through anime. Unique intersection of pop culture and deep thinking
 - **Find it:** [meetup.com/anime-philosophy-meetup-vancouver](https://www.meetup.com/anime-philosophy-meetup-vancouver/)
