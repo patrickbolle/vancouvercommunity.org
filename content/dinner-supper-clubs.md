@@ -24,17 +24,8 @@ order: 1
 
 ## A Moveable Feast Supper Club
 - **What:** French wine bar inspired dinners. "Between strangers and soon-to-be friends"
-- **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859) | [Facebook](https://www.facebook.com/MoveableFeastVancouver/)
+- **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859)
 
 ## $50 Dinner Club
 - **What:** Home-cooked dinners with strangers. Host provides space/cooking, you pay $50, sells out fast
 - **Find it:** [Instagram @good_finds_club](https://instagram.com/good_finds_club)
-
-## Well Fed by Mix & Mingle
-- **What:** Curated social dinners at secret restaurants. 6 like-minded strangers, carefully matched
-- **Find it:** [mixandmingle.ca](https://www.mixandmingle.ca/events/well-fed-social-dinner)
-
-## Secret Suppers Vancouver
-- **What:** Hidden dining experiences in private homes. Communal table, 10+ seats, top-secret chef
-- **Find it:** [BC Living's Secret Suppers Guide](https://bcliving.ca/food-drink/local-food/8-secret-suppers-for-vancouver-foodies/)
-

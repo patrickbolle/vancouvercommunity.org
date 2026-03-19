@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Yoga & Wellness"
-description: "3 free yoga communities plus outdoor summer sessions, inclusive studios, and community wellness classes."
+description: "Free outdoor yoga, meditation communities, inclusive studios, and community wellness classes."
 emoji: "🧘"
 group: mind-body
 order: 1
@@ -20,10 +20,6 @@ order: 1
 - **What:** Meditation and conscious living community. "Slow down, breathe deeply, reconnect"
 - **Size:** 1,900+ members
 - **Find it:** [meetup.com/kadampa-meditation-centre-vancouver](https://www.meetup.com/kadampa-meditation-centre-vancouver/)
-
-## Free Outdoor Yoga (Parks)
-- **What:** Drop-in yoga in parks during summer. Accessible, bring your own mat
-- **Find it:** [vancouver.ca parks events](https://vancouver.ca/parks-recreation-culture/parks-events.aspx)
 
 ---
 
