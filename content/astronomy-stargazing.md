@@ -2,18 +2,13 @@
 layout: category
 tags: category
 title: "Astronomy & Stargazing"
-description: "5 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips."
+description: "4 astronomy groups — star parties, free observatory nights at Vanier Park, and dark-sky camping trips."
 emoji: "🔭"
 group: mind-body
 order: 7
 ---
 
 # 🔭 Astronomy / Stargazing
-
-## RASC Vancouver (Royal Astronomical Society of Canada)
-- **What:** Star parties, workshops, public observing nights
-- **Where:** SFU Trottier Observatory visits
-- **Find it:** [rasc-vancouver.com](https://rasc-vancouver.com/)
 
 ## UBC Astronomy Club
 - **What:** Student club open to astronomy enthusiasts
