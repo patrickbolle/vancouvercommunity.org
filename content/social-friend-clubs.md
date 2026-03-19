@@ -14,12 +14,6 @@ order: 2
 - **What:** Park hangs, pottery nights, spin classes, neighbourhood book clubs. Focused on lasting friendships, not one-night connections
 - **Find it:** [@weshouldbefriendsvancouver](https://instagram.com/weshouldbefriendsvancouver)
 
-## Maude Sips
-- **What:** Wine + community events, mostly femme-focused. "Wine as the medium, community as the message"
-- **Size:** ~35 people per event
-- **Where:** Mount Pleasant, Kits venues
-- **Find it:** [maudesips.com](https://maudesips.com/) | [Instagram](https://instagram.com/maude.sips)
-
 ## Vancouver Social Club
 - **What:** General social events for expanding your circle
 - **Size:** 4,600+ members
