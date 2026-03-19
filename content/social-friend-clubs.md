@@ -88,3 +88,8 @@ order: 2
 - **What:** LGBTQ+ swimming club. Positive, inclusive space, especially trans-friendly
 - **Find it:** Search "English Bay Swim Club Vancouver"
 
+## Let’s Adventure Vancouver
+- **What:** Stranger meetups in Vancouver and surrounding areas. Multiple outings a month, varying events 
+
+Some events free
+- **Find it:** [www.instagram.com/letsadventurevan/](https://www.instagram.com/letsadventurevan/)
