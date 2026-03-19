@@ -80,7 +80,7 @@ permalink: /
       <div class="homepage-intro-text">
         <h1 class="homepage-lede">Find your people in Vancouver.</h1>
         <p class="homepage-desc">{{ totalGroups }}+ groups, clubs, and meetups across {{ collections.categories.length }} categories — run clubs, supper clubs, philosophy circles, maker spaces. Real communities run by real people, all in one place. Just browse and show up.</p>
-        <p class="homepage-meta"><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a> <span class="meta-sep">&middot;</span> <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage"><span class="surprise-dice">&#x1F3B2;</span> Surprise me</a></p>
+        <p class="homepage-meta"><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a> <span class="meta-sep">&middot;</span> <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</a></p>
       </div>
       <div class="builder-card">
         <div class="builder-header">
@@ -113,7 +113,7 @@ permalink: /
       <ul class="cat-group-list">
         {%- for cat in collections.categories %}
         {%- if cat.data.group == group.key %}
-        <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}"><span class="cat-emoji">{{ cat.data.emoji }}</span><span class="cat-name">{{ cat.data.title }}</span>{% if cat.data.groupCount > 0 %}<span class="cat-count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
+        <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}"><span class="cat-name">{{ cat.data.title }}</span>{% if cat.data.groupCount > 0 %}<span class="cat-count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
         {%- endif %}
         {%- endfor %}
       </ul>

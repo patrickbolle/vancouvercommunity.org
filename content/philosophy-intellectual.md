@@ -1,7 +1,7 @@
 ---
 layout: category
 tags: category
-title: "Philosophy & Intellectual"
+title: "Philosophy & Discussion"
 description: "9 discussion groups — philosophy circles, Socratic cafes, and deep-conversation meetups for the genuinely curious."
 emoji: "🤔"
 group: intellectual

@@ -5,7 +5,7 @@
     <li class="sidebar-group-label">{{ group.label | ampEscape | safe }}</li>
     {%- for cat in collections.categories %}
     {%- if cat.data.group == group.key %}
-    <li><a href="/{{ cat.fileSlug }}/"{% if cat.fileSlug == currentSlug %} class="active"{% endif %} data-umami-event="click-sidebar" data-umami-event-category="{{ cat.fileSlug }}"><span class="emoji">{{ cat.data.emoji }}</span> {{ cat.data.title }}{% if cat.data.groupCount > 0 %}<span class="count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
+    <li><a href="/{{ cat.fileSlug }}/"{% if cat.fileSlug == currentSlug %} class="active"{% endif %} data-umami-event="click-sidebar" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}{% if cat.data.groupCount > 0 %}<span class="count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
     {%- endif %}
     {%- endfor %}
     {%- endfor %}
@@ -15,7 +15,7 @@
   </div>
   <div class="sidebar-footer">
     <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="sidebar">Submit a group</a>
-    <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="sidebar"><span class="surprise-dice">&#x1F3B2;</span> Surprise me</a>
+    <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="sidebar">Surprise me &rarr;</a>
     <span id="total-views"></span>
     <div class="sidebar-footer-meta">
       Updated {% buildDateHuman %}

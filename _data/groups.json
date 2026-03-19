@@ -1,9 +1,9 @@
 [
   { "key": "social", "label": "Social" },
-  { "key": "outdoor", "label": "Outdoor & Active" },
+  { "key": "outdoor", "label": "Sports & Outdoors" },
   { "key": "creative", "label": "Creative" },
   { "key": "mind-body", "label": "Mind & Body" },
-  { "key": "intellectual", "label": "Intellectual" },
+  { "key": "intellectual", "label": "Games & Learning" },
   { "key": "work-tech", "label": "Work & Tech" },
   { "key": "community", "label": "Community" }
 ]

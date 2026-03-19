@@ -214,7 +214,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   border-left-color: var(--accent);
   font-weight: 500;
 }
-.emoji { display: inline-block; width: 22px; flex-shrink: 0; font-size: 0.95em; }
 
 .count {
   margin-left: auto;
@@ -364,21 +363,6 @@ h1.homepage-lede,
 }
 .surprise-btn:active {
   transform: translateY(0) scale(0.97);
-}
-.surprise-dice {
-  display: inline-block;
-  font-size: 1.1em;
-  transition: transform 0.3s ease;
-}
-.surprise-btn:hover .surprise-dice {
-  animation: diceRoll 0.4s ease;
-}
-@keyframes diceRoll {
-  0% { transform: rotate(0deg); }
-  25% { transform: rotate(-15deg) scale(1.1); }
-  50% { transform: rotate(10deg) scale(1.15); }
-  75% { transform: rotate(-5deg) scale(1.05); }
-  100% { transform: rotate(0deg) scale(1); }
 }
 /* Sidebar version */
 .sidebar-footer .surprise-btn {
@@ -554,7 +538,7 @@ h1.homepage-lede,
 .cat-group-list li a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   padding: 7px 6px;
   color: var(--text);
   font-size: 0.9em;
@@ -573,7 +557,6 @@ h1.homepage-lede,
   color: var(--accent);
 }
 
-.cat-emoji { width: 24px; font-size: 1.1em; flex-shrink: 0; text-align: center; }
 .cat-name { flex: 1; }
 .cat-count {
   font-size: 0.78em;
