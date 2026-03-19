@@ -29,7 +29,3 @@ order: 1
 ## $50 Dinner Club
 - **What:** Home-cooked dinners with strangers. Host provides space/cooking, you pay $50, sells out fast
 - **Find it:** [Instagram @good_finds_club](https://instagram.com/good_finds_club)
-
-## Pass the Peas
-- **What:** Food-focused social club by husband-wife duo. Community dinners, food-centric gatherings
-- **Find it:** [passthepeas.co](https://passthepeas.co/) | [Instagram](https://instagram.com/pass_thepeas)
