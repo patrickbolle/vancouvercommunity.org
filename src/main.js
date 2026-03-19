@@ -224,8 +224,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Outbound link verification toast ---
 
-  var _verifiedGroups = {};
-
   document.addEventListener('click', function(e) {
     var link = e.target.closest('.content a[href^="http"]');
     if (!link) return;
@@ -246,14 +244,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     if (!groupName) return;
 
-    // Don't show if already verified this group in this session
-    if (_verifiedGroups[groupName]) return;
-
     // Open link in new tab so user stays on page
     e.preventDefault();
     window.open(link.href, '_blank', 'noopener');
 
-    // Show toast after a short delay
+    // Show feedback toast after a short delay
     var category = window.location.pathname.replace(/^\/|\/$/g, '');
     setTimeout(function() {
       showVerifyToast(groupName, link.href, category);
@@ -270,14 +265,15 @@ document.addEventListener('DOMContentLoaded', function() {
     toast.className = 'verify-toast';
     toast.innerHTML =
       '<div class="verify-toast-inner">' +
-        '<p class="verify-toast-question">Is <strong>' + groupName + '</strong> still active?</p>' +
+        '<p class="verify-toast-question">Anything wrong with <strong>' + groupName + '</strong>?</p>' +
+        '<p class="verify-toast-subtitle">Dead link, wrong info, closed group — anything helps.</p>' +
         '<div class="verify-toast-actions">' +
           '<button class="verify-btn verify-btn-yes" data-status="active">Looks good</button>' +
-          '<button class="verify-btn verify-btn-no" data-status="issue">Something\'s wrong</button>' +
+          '<button class="verify-btn verify-btn-no" data-status="issue">Report an issue</button>' +
           '<button class="verify-btn verify-btn-dismiss" aria-label="Dismiss">&times;</button>' +
         '</div>' +
         '<div class="verify-toast-detail" style="display:none">' +
-          '<input type="text" class="verify-detail-input" placeholder="What\'s wrong? (e.g. link is broken, group shut down)">' +
+          '<input type="text" class="verify-detail-input" placeholder="e.g. link is broken, wrong meeting time, group shut down">' +
           '<button class="verify-btn verify-btn-send">Send</button>' +
         '</div>' +
       '</div>';
@@ -301,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // "Looks good" — quick positive signal
     toast.querySelector('.verify-btn-yes').addEventListener('click', function() {
-      _verifiedGroups[groupName] = true;
       sendVerification(groupName, url, category, 'active', '');
       showToastThanks(toast);
     });
@@ -318,7 +313,6 @@ document.addEventListener('DOMContentLoaded', function() {
       var input = toast.querySelector('.verify-detail-input');
       var detail = input.value.trim();
       if (!detail) { input.focus(); return; }
-      _verifiedGroups[groupName] = true;
       sendVerification(groupName, url, category, 'issue', detail);
       showToastThanks(toast);
     });

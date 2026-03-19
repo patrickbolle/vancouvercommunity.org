@@ -854,6 +854,11 @@ textarea.form-input { resize: vertical; }
 .verify-toast-question strong {
   color: var(--text);
 }
+.verify-toast-subtitle {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
 .verify-toast-actions {
   display: flex;
   gap: 8px;
