@@ -10,11 +10,6 @@ order: 4
 
 # 🎤 Karaoke
 
-## Coffee Karaoke Nights
-- **What:** Karaoke + coffee (not bar scene)
-- **Where:** Downtown Vancouver
-- **Find it:** [meetup.com/vancouver-coffee-karaoke-nights-sing-sip-and-socialize](https://meetup.com/vancouver-coffee-karaoke-nights-sing-sip-and-socialize)
-
 ## Karaoke Schedule in Metro Vancouver (Facebook)
 - **What:** Community group tracking karaoke nights. Up-to-date listings across the city
 - **Find it:** [Facebook Group](https://www.facebook.com/groups/karaokeinvancouvergroup/)
