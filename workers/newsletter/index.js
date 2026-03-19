@@ -1,7 +1,5 @@
-// Cloudflare Worker for newsletter signups — proxies to beehiiv API
-// Secret: BEEHIIV_API_KEY (set via wrangler secret put BEEHIIV_API_KEY)
-
-const BEEHIIV_PUBLICATION_ID = "pub_24114c6e-a7e2-4653-a26e-9411344f36aa";
+// Cloudflare Worker for newsletter signups — proxies to Buttondown API
+// Secret: BUTTONDOWN_API_KEY (set via wrangler secret put BUTTONDOWN_API_KEY)
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -33,25 +31,24 @@ export default {
         }
 
         const res = await fetch(
-          `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUBLICATION_ID}/subscriptions`,
+          "https://api.buttondown.com/v1/subscribers",
           {
             method: "POST",
             headers: {
-              "Authorization": `Bearer ${env.BEEHIIV_API_KEY}`,
+              "Authorization": `Token ${env.BUTTONDOWN_API_KEY}`,
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              email: email.toLowerCase().trim(),
+              email_address: email.toLowerCase().trim(),
               utm_source: source || "website",
-              reactivate_existing: true,
-              send_welcome_email: true
+              type: "regular"
             })
           }
         );
 
         if (!res.ok) {
           const err = await res.text();
-          console.error("beehiiv error:", res.status, err);
+          console.error("Buttondown error:", res.status, err);
           return new Response(JSON.stringify({ error: "Could not subscribe" }), {
             status: 502, headers: corsHeaders
           });
