@@ -255,6 +255,8 @@ ${data.vibe ? `**Vibe/Atmosphere:** ${data.vibe}` : ''}
 ${data.link ? `**Website/Link:** ${data.link}` : ''}
 ${data.location ? `**Location:** ${data.location}` : ''}
 ${data.additional ? `**Additional Info:** ${data.additional}` : ''}
+${data.cost ? `**Cost:** ${data.cost}` : ''}
+${data.availability ? `**Who can join:** ${data.availability}` : ''}
 
 ---
 *Submitted via vancouvercommunity.org*

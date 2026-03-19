@@ -278,7 +278,12 @@ document.addEventListener('DOMContentLoaded', function() {
       toast.classList.add('visible');
     });
 
-    // Dismiss
+    // Dismiss on backdrop click
+    toast.addEventListener('click', function(e) {
+      if (e.target === toast) dismissToast(toast);
+    });
+
+    // Dismiss on X button
     toast.querySelector('.verify-btn-dismiss').addEventListener('click', function() {
       dismissToast(toast);
     });
@@ -316,13 +321,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Auto-dismiss after 15 seconds if no interaction
     var autoDismiss = setTimeout(function() { dismissToast(toast); }, 15000);
-    toast.addEventListener('click', function() { clearTimeout(autoDismiss); });
+    toast.querySelector('.verify-toast-inner').addEventListener('click', function() { clearTimeout(autoDismiss); });
   }
 
   function showToastThanks(toast) {
     toast.querySelector('.verify-toast-inner').innerHTML =
-      '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate.</p>';
-    setTimeout(function() { dismissToast(toast); }, 2000);
+      '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate \u2764\ufe0f</p>';
+    setTimeout(function() { dismissToast(toast); }, 3000);
   }
 
   function dismissToast(toast) {

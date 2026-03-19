@@ -862,32 +862,40 @@ textarea.form-input { resize: vertical; }
    ======================================== */
 .verify-toast {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  inset: 0;
   z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s;
   pointer-events: none;
 }
 .verify-toast.visible {
   opacity: 1;
-  transform: translateY(0);
   pointer-events: auto;
 }
 .verify-toast-inner {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 18px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  max-width: 340px;
-  font-size: 0.88em;
+  padding: 22px 26px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  max-width: 400px;
+  width: 90%;
+  font-size: 0.95em;
   line-height: 1.5;
+  transform: scale(0.95);
+  transition: transform 0.3s;
+}
+.verify-toast.visible .verify-toast-inner {
+  transform: scale(1);
 }
 .verify-toast-question {
-  color: var(--text-secondary);
-  margin-bottom: 10px;
+  color: var(--text);
+  margin-bottom: 14px;
+  font-size: 1.05em;
 }
 .verify-toast-question strong {
   color: var(--text);
@@ -964,9 +972,11 @@ textarea.form-input { resize: vertical; }
   color: #fff;
 }
 .verify-toast-thanks {
-  color: var(--text-muted);
-  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+  text-align: center;
   margin: 0;
+  font-size: 1.05em;
 }
 
 /* ========================================
@@ -1086,7 +1096,5 @@ textarea.form-input { resize: vertical; }
   /* Search input full width on mobile */
   .search-input { max-width: 100%; }
 
-  /* Verify toast full-width on mobile */
-  .verify-toast { left: 12px; right: 12px; bottom: 12px; }
-  .verify-toast-inner { max-width: 100%; }
+  /* Verify toast — already centered via inset:0 + flexbox */
 }
