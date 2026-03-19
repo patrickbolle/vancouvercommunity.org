@@ -33,8 +33,3 @@ order: 1
 ## Pass the Peas
 - **What:** Food-focused social club by husband-wife duo. Community dinners, food-centric gatherings
 - **Find it:** [passthepeas.co](https://passthepeas.co/) | [Instagram](https://instagram.com/pass_thepeas)
-
-## Secret Suppers Vancouver
-- **What:** Hidden dining experiences in private homes. Communal table, 10+ seats, top-secret chef
-- **Find it:** [BC Living's Secret Suppers Guide](https://bcliving.ca/food-drink/local-food/8-secret-suppers-for-vancouver-foodies/)
-
