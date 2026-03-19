@@ -14,6 +14,10 @@ order: 4
 - **What:** Conservation volunteering in Stanley Park. Nature restoration, education programs, ongoing community
 - **Find it:** [stanleyparkecology.ca](https://stanleyparkecology.ca/)
 
+## Shoreline Rescue Club
+- **What:** Beach cleanups in Vancouver and surrounding areas. Usually 1 per month, more in the summer
+- **Find it:** [www.instagram.com/shorelinerescueclub/](https://www.instagram.com/shorelinerescueclub/)
+
 ---
 
 ## Venues & Resources
