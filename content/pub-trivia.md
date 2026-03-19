@@ -37,10 +37,6 @@ order: 5
 - **What:** Pub trivia with burger & beer specials. $16 burger & beer, $5 Jameson
 - **Find it:** 911 W Pender St, Downtown
 
-## Storm Crow Alehouse Trivia
-- **What:** Geek-themed trivia nights. Sci-fi, fantasy, gaming topics
-- **Find it:** [stormcrowalehouse.com](https://www.stormcrowalehouse.com/)
-
 ## Amazing Brentwood Tuesday Trivia
 - **What:** Free trivia covering geeky topics. Film, TV, video games, science, teams up to 6
 - **Find it:** [theamazingbrentwood.com](https://theamazingbrentwood.com/) | Food court
