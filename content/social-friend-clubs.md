@@ -39,10 +39,6 @@ order: 2
 - **What:** Games and socializing. "Safe, comfortable space... not a dating meetup"
 - **Find it:** [meetup.com/game-of-boards-with-friendly-folks](https://meetup.com/game-of-boards-with-friendly-folks)
 
-## Common Ground (formerly Mix & Mingle)
-- **What:** Vancouver's most experiential social club. Mission to foster lasting friendships
-- **Find it:** [joincommonground.com](https://joincommonground.com/)
-
 ## Make Friends Over Brunch Vancouver
 - **What:** Brunch meetups to make new friends. Low-pressure, delicious food, small groups of 4-6 people
 - **Find it:** [groupvibe.com](https://groupvibe.com/)
