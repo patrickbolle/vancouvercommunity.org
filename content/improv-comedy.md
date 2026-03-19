@@ -53,3 +53,7 @@ order: 5
 - **What:** Professional comedy club with touring acts
 - **Where:** New Westminster
 - **Find it:** [houseofcomedy.ca](https://houseofcomedy.ca/)
+
+## New West Improv
+- **What:** Improv comedy games & jams for beginners+ in New West
+- **Find it:** [www.instagram.com/newwestimprov/](https://www.instagram.com/newwestimprov/)
