@@ -10,6 +10,10 @@ order: 1
 
 # 🏃 Run Clubs
 
+<div class="category-banner">
+🏃 Looking for every run club in Canada? I also built <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener" data-umami-event="click-runclubs-banner">runclubs.ca</a> — a directory of 200+ run clubs across the country.
+</div>
+
 ## Social Run Club
 - **What:** Social runs for beginner to intermediate runners. Fun runs, not competitive
 - **Find it:** [socialrunclub.com](https://www.socialrunclub.com/)

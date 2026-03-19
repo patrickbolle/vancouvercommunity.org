@@ -542,6 +542,25 @@ h1.homepage-lede,
   letter-spacing: 0.01em;
 }
 
+.homepage-promo {
+  margin-top: 56px;
+  padding: 20px 24px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.92em;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+.homepage-promo a {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.homepage-promo a:hover { color: var(--accent-hover); }
+.homepage-promo p { margin: 0; }
+
 .homepage-footer {
   margin-top: 56px;
   padding-top: 24px;
@@ -1044,6 +1063,10 @@ textarea.form-input { resize: vertical; }
   .category-hero { margin: -28px -20px 28px; padding: 28px 20px 24px; }
   .homepage-groups { grid-template-columns: 1fr; row-gap: 32px; }
   .homepage-lede, h1.homepage-lede { font-size: 1.5em; }
+
+  /* Minimal builder card on mobile */
+  .builder-card { padding: 14px 16px; }
+  .builder-bio { display: none; }
   .category-title { font-size: 1.6em; }
 
   /* Larger touch targets for sidebar links on mobile */
