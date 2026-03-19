@@ -30,10 +30,6 @@ order: 1
 - **What:** Home-cooked dinners with strangers. Host provides space/cooking, you pay $50, sells out fast
 - **Find it:** [Instagram @good_finds_club](https://instagram.com/good_finds_club)
 
-## Well Fed by Mix & Mingle
-- **What:** Curated social dinners at secret restaurants. 6 like-minded strangers, carefully matched
-- **Find it:** [mixandmingle.ca](https://www.mixandmingle.ca/events/well-fed-social-dinner)
-
 ## Pass the Peas
 - **What:** Food-focused social club by husband-wife duo. Community dinners, food-centric gatherings
 - **Find it:** [passthepeas.co](https://passthepeas.co/) | [Instagram](https://instagram.com/pass_thepeas)
