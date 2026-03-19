@@ -24,7 +24,7 @@ order: 1
 
 ## A Moveable Feast Supper Club
 - **What:** French wine bar inspired dinners. "Between strangers and soon-to-be friends"
-- **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859) | [Facebook](https://www.facebook.com/MoveableFeastVancouver/)
+- **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859)
 
 ## $50 Dinner Club
 - **What:** Home-cooked dinners with strangers. Host provides space/cooking, you pay $50, sells out fast
