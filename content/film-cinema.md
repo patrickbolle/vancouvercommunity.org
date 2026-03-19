@@ -10,10 +10,6 @@ order: 3
 
 # 🎬 Film / Cinema
 
-## Vancouver Cinema & Social Club
-- **What:** Movies plus hiking, walking tours, food, coffee. "Not just about movies"
-- **Find it:** [meetup.com/vancouver-cinema-club](https://meetup.com/vancouver-cinema-club)
-
 ## Celluloid Social Club
 - **What:** Independent film screenings
 - **Where:** ANZA Club, 3 West 8th Ave
