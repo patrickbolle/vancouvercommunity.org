@@ -11,7 +11,7 @@ order: 2
 # 🤝 Social / Friend Clubs
 
 ## We Should Be Friends
-- **What:** Park hangs, pottery nights, spin classes, neighbourhood book clubs — started with a viral 300-person Kits Beach hangout. Explicitly focused on *lasting* friendships, not one-night connections
+- **What:** Park hangs, pottery nights, spin classes, neighbourhood book clubs. Focused on lasting friendships, not one-night connections
 - **Find it:** [@weshouldbefriendsvancouver](https://instagram.com/weshouldbefriendsvancouver)
 
 ## Maude Sips
