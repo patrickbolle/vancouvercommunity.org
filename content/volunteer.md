@@ -53,3 +53,7 @@ order: 4
 ## SPCA Volunteer
 - **What:** Animal care, adoption events, education. For animal lovers
 - **Find it:** [spca.bc.ca/volunteer](https://spca.bc.ca/volunteer/)
+
+## Vision Zero Vancouver
+- **What:** A volunteer-led advocacy group focused on road safety, with the goal of reducing the number of people seriously injured or killed in motor vehicle crashes in Vancouver to zero. 
+- **Find it:** [visionzerovancouver.ca/](https://visionzerovancouver.ca/)
