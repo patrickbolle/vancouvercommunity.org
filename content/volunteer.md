@@ -49,3 +49,7 @@ order: 4
 ## SPCA Volunteer
 - **What:** Animal care, adoption events, education. For animal lovers
 - **Find it:** [spca.bc.ca/volunteer](https://spca.bc.ca/volunteer/)
+
+## Shoreline Rescue Club
+- **What:** Beach cleanups in Vancouver and surrounding areas. Usually 1 per month, more in the summer
+- **Find it:** [www.instagram.com/shorelinerescueclub/](https://www.instagram.com/shorelinerescueclub/)
