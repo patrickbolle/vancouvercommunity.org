@@ -108,6 +108,14 @@
       <a href="#" onclick="openEditModal('{{ page.fileSlug }}'); return false;" class="cat-action" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</a>
       <span id="page-views" class="cat-views"></span>
     </div>
+    <div class="category-newsletter">
+      <form class="newsletter-form" data-umami-event="newsletter-signup">
+        <span class="category-newsletter-label">Get new groups & events in your inbox</span>
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <span class="newsletter-status"></span>
+    </div>
   </div>
 {{ content | stripH1 | safe }}
 </main>
@@ -137,9 +145,11 @@
 
 <script>
 var _editOpener = null;
+var _editOpenedAt = 0;
 function openEditModal(category) {
   var modal = document.getElementById('edit-modal');
   _editOpener = document.activeElement;
+  _editOpenedAt = Date.now();
   document.getElementById('edit-category').value = category;
   modal.style.display = 'block';
   var closeBtn = modal.querySelector('.edit-modal-close');
@@ -149,7 +159,7 @@ function closeEditModal() {
   document.getElementById('edit-modal').style.display = 'none';
   if (_editOpener) { _editOpener.focus(); _editOpener = null; }
 }
-document.getElementById('edit-modal').addEventListener('click', (e) => { if (e.target.id === 'edit-modal') closeEditModal(); });
+document.getElementById('edit-modal').addEventListener('click', (e) => { if (e.target.id === 'edit-modal' && Date.now() - _editOpenedAt > 300) closeEditModal(); });
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') closeEditModal();
 });

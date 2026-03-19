@@ -79,25 +79,37 @@ permalink: /
     <div class="homepage-intro">
       <div class="homepage-intro-text">
         <h1 class="homepage-lede">Find your people in Vancouver.</h1>
-        <p class="homepage-desc">{{ totalGroups }}+ groups, clubs, and meetups across {{ collections.categories.length }} categories — run clubs, supper clubs, philosophy circles, maker spaces. Real communities run by real people, all in one place.</p>
-        <p class="homepage-desc homepage-desc-secondary">A user-submitted directory, built to help people in Vancouver find their next favourite community or club. Just browse, click through, and show up.</p>
-        <p class="homepage-meta"><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a> <span class="meta-sep">&middot;</span> <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</a></p>
-      </div>
-      <div class="builder-card">
-        <div class="builder-header">
-          <div class="builder-avatar" aria-hidden="true"></div>
-          <div>
-            <span class="builder-label">Built by</span>
-            <strong><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="builder-card">Patrick Bollenbach</a></strong>
+        <p class="homepage-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories — run clubs, supper clubs, philosophy circles, maker spaces, and a lot more. Browse, click through, and show up.</p>
+        <div class="homepage-actions">
+          <a href="/submit/" class="homepage-action-primary" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a>
+          <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</a>
+        </div>
+        <div class="homepage-cards">
+          <div class="homepage-newsletter">
+            <p class="homepage-newsletter-heading">Get the Vancouver roundup</p>
+            <p class="homepage-newsletter-desc">New groups, community events, and neighbourhood picks — delivered weekly.</p>
+            <form class="newsletter-form" data-umami-event="newsletter-signup">
+              <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <span class="newsletter-status"></span>
+          </div>
+          <div class="builder-card">
+            <div class="builder-header">
+              <div class="builder-avatar" aria-hidden="true"></div>
+              <div>
+                <span class="builder-label">Built by</span>
+                <strong><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="builder-card">Patrick Bollenbach</a></strong>
+              </div>
+            </div>
+            <p class="builder-bio">I make community tools in Vancouver. <a href="mailto:vancouver@bolle.co" data-umami-event="click-contact-email">Get in touch</a>.</p>
+            <div class="builder-links">
+              <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-runclubs" data-umami-event-source="builder-card">runclubs.ca</a>
+              <span class="builder-link-sep">&middot;</span>
+              <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento" data-umami-event-source="builder-card">cuento.app</a>
+            </div>
           </div>
         </div>
-        <p class="builder-bio">I build communities and software tools in Vancouver. <a href="mailto:vancouver@bolle.co" data-umami-event="click-contact-email">Get in touch</a>.</p>
-        <div class="builder-links">
-          <span class="builder-links-label">Other projects</span>
-          <div class="builder-link-item"><a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-runclubs" data-umami-event-source="builder-card">runclubs.ca</a> <span class="builder-link-desc">— Canada's biggest run club directory</span></div>
-          <div class="builder-link-item"><a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento" data-umami-event-source="builder-card">cuento.app</a> <span class="builder-link-desc">— Get matched into a neighbourhood book club</span></div>
-        </div>
-      </div>
     </div>
   </div>
   <div class="homepage-groups" id="homepage-groups">
@@ -107,7 +119,7 @@ permalink: /
       <ul class="cat-group-list">
         {%- for cat in collections.categories %}
         {%- if cat.data.group == group.key %}
-        <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}"><span class="cat-name">{{ cat.data.title }}</span>{% if cat.data.groupCount > 0 %}<span class="cat-count">{{ cat.data.groupCount }} group{{ "s" if cat.data.groupCount != 1 }}</span>{% endif %}</a></li>
+        <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}"><span class="cat-name">{{ cat.data.title }}</span>{% if cat.data.groupCount > 0 %}<span class="cat-count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
         {%- endif %}
         {%- endfor %}
       </ul>

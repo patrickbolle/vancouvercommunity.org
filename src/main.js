@@ -221,6 +221,50 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
+    // Newsletter signup
+    document.querySelectorAll('.newsletter-form').forEach(function(form) {
+      if (form._bound) return;
+      form._bound = true;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var input = form.querySelector('.newsletter-input');
+        var btn = form.querySelector('.newsletter-btn');
+        var btnLabel = btn.textContent;
+        // Status span might be inside the form's parent container (not inside the form itself)
+        var container = form.closest('.homepage-newsletter, .category-newsletter, .sidebar-newsletter, .newsletter-card') || form.parentElement;
+        var status = container.querySelector('.newsletter-status');
+        var email = input.value.trim();
+        if (!email) return;
+        btn.disabled = true;
+        btn.textContent = 'Subscribing...';
+        var source = window.location.pathname.replace(/^\/|\/$/g, '') || 'homepage';
+        fetch('https://vancouver-community-newsletter.recipekit.workers.dev/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email, source: source })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+          if (data.success) {
+            if (status) {
+              status.className = 'newsletter-status success';
+              status.textContent = "You're in! We'll be in touch.";
+            }
+            input.value = '';
+            if (typeof umami !== 'undefined') umami.track('newsletter-signup', { source: source });
+          } else {
+            throw new Error(data.error || 'Something went wrong');
+          }
+        }).catch(function(err) {
+          if (status) {
+            status.className = 'newsletter-status error';
+            status.textContent = err.message || 'Could not subscribe. Try again?';
+          }
+        }).finally(function() {
+          btn.disabled = false;
+          btn.textContent = btnLabel;
+        });
+      });
+    });
+
     // Scroll sidebar to active on initial load
     var activeLink = document.querySelector('.sidebar li a.active');
     var sidebarList = document.querySelector('.sidebar ul');

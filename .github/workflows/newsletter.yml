@@ -1,0 +1,24 @@
+name: Weekly Newsletter
+
+on:
+  schedule:
+    - cron: '0 17 * * 3' # Wednesday 9am PST (5pm UTC)
+  workflow_dispatch: # Manual trigger for testing
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for git log
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate newsletter draft
+        env:
+          BEEHIIV_API_KEY: ${{ secrets.BEEHIIV_API_KEY }}
+          BEEHIIV_PUB_ID: pub_24114c6e-a7e2-4653-a26e-9411344f36aa
+        run: node scripts/newsletter.mjs

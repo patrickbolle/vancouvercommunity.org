@@ -1,0 +1,9 @@
+name = "vancouver-community-newsletter"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[observability]
+enabled = true
+
+# Secret (set via `wrangler secret put`):
+#   BEEHIIV_API_KEY
