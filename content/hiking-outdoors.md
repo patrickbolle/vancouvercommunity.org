@@ -53,10 +53,6 @@ order: 2
 - **What:** Various groups designed for beginner hikers. Low-pressure, supportive, easy trails
 - **Find it:** [meetup.com/find/ca--vancouver/hiking](https://meetup.com/find/ca--vancouver/hiking/) | [hikesnearvancouver.ca/group-hikes](https://hikesnearvancouver.ca/group-hikes-near-vancouver/)
 
-## 101 Hikes Vancouver
-- **What:** Explore breathtaking trails and hidden gems in BC. Beginners to experienced, all skill levels
-- **Find it:** [meetup.com/101hikes](https://meetup.com/101hikes)
-
 ## Y Adventure Kommunity (YAK)
 - **What:** Free adventure club - hiking, paddle boarding, biking, bouldering, camping. Make new friends through outdoor activities
 - **Find it:** [meetup.com/y-adventure](https://meetup.com/y-adventure)
