@@ -174,3 +174,7 @@ order: 1
 ## Launch Academy
 - **What:** Startup accelerator with events and resources. Educational, supportive of early-stage founders
 - **Find it:** [launchacademy.ca](https://www.launchacademy.ca/)
+
+## BlueHour Health
+- **What:** Grassroots community-building initiative to break down silos between healthcare clinicians, technical experts, founders, investors, etc. If you’re building something in health tech, work in healthcare, and/or part of the ecosystem, this community is for you!
+- **Find it:** [bluehourhealth.ca/](https://bluehourhealth.ca/)
