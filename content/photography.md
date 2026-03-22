@@ -26,10 +26,6 @@ order: 2
 - **What:** 2-hour photography sessions based on themes/techniques
 - **Find it:** [vancouverphotography.group](https://vancouverphotography.group/)
 
-## Street16
-- **What:** Street photography workshops and photo walks. Night, abstract, film photography skills
-- **Find it:** [street16photography.com](https://street16photography.com/)
-
 ## Metro Vancouver Photography, Travel & Connections
 - **What:** Photography outings plus travel discussions. Amateur and professional welcome
 - **Find it:** [meetup.com/Photography-photowalks-virtual-anything-goes](https://meetup.com/Photography-photowalks-virtual-anything-goes)
