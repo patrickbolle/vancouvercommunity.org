@@ -1307,6 +1307,9 @@ textarea.form-input { resize: vertical; }
   /* Homepage actions: prevent "Know a group? Add it" from wrapping */
   .homepage-action-primary { white-space: nowrap; }
 
+  /* Hide anchor # links on mobile — hover doesn't apply on touch */
+  .content h2 .anchor { display: none; }
+
   /* Larger touch targets for sidebar links on mobile */
   .sidebar li a { padding: 11px 22px; min-height: 44px; }
 
