@@ -4,6 +4,23 @@ function goRandom() {
   const cat = categories[Math.floor(Math.random() * categories.length)];
   window.location.href = "/" + cat + "/";
 }
+function sharePage(source, el) {
+  var url = window.location.href;
+  var title = document.title;
+  function track() { if (typeof umami !== 'undefined') umami.track('share', { source: source }); }
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).then(track).catch(function() {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function() {
+      track();
+      if (el) {
+        var orig = el.textContent;
+        el.textContent = 'Link copied!';
+        setTimeout(function() { el.textContent = orig; }, 2000);
+      }
+    });
+  }
+}
 fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
   .then(r => r.json())
   .then(data => {

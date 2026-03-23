@@ -76,61 +76,77 @@ permalink: /
 {% include "partials/sidebar.njk" %}
 <main class="content content-wide" id="main-content">
   <div class="homepage-hero">
-    <div class="homepage-intro">
-      <div class="homepage-intro-text">
+    <div class="homepage-hero-layout">
+      <div class="homepage-hero-left">
         <h1 class="homepage-lede">Find your people in Vancouver.</h1>
-        <p class="homepage-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories — run clubs, supper clubs, philosophy circles, maker spaces, and a lot more. Browse, click through, and show up.</p>
-        <div class="homepage-actions">
-          <a href="/submit/" class="homepage-action-primary" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a>
-          <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</a>
+        <p class="homepage-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces, and more. Browse, click through, show up.</p>
+        <p class="homepage-desc-secondary">Vancouver can feel like a hard city to make friends. This directory is here to help — a community-built list of clubs, meetups, and groups where you can actually meet people. Updated weekly, no account needed.</p>
+        <div class="homepage-hero-actions">
+          <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Add a group</a>
+          <span class="homepage-sep">&middot;</span>
+          <button type="button" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me</button>
+          <span class="homepage-sep">&middot;</span>
+          <button type="button" onclick="sharePage('homepage', this)" data-umami-event="click-share" data-umami-event-source="homepage">Tell a friend</button>
         </div>
-        <div class="homepage-cards">
-          <div class="homepage-newsletter">
-            <p class="homepage-newsletter-heading">Get the Vancouver roundup</p>
-            <p class="homepage-newsletter-desc">New groups, community events, and neighbourhood picks — delivered weekly.</p>
-            <form class="newsletter-form" data-umami-event="newsletter-signup">
-              <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
-              <button type="submit" class="newsletter-btn">Subscribe</button>
-            </form>
-            <span class="newsletter-status"></span>
-          </div>
-          <div class="builder-card">
-            <div class="builder-header">
-              <div class="builder-avatar" aria-hidden="true"></div>
-              <div>
-                <span class="builder-label">Built by</span>
-                <strong><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="builder-card">Patrick Bollenbach</a></strong>
-              </div>
-            </div>
-            <p class="builder-bio">I make community tools in Vancouver. <a href="mailto:vancouver@bolle.co" data-umami-event="click-contact-email">Get in touch</a>.</p>
-            <div class="builder-links">
-              <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-runclubs" data-umami-event-source="builder-card">runclubs.ca</a>
-              <span class="builder-link-sep">&middot;</span>
-              <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento" data-umami-event-source="builder-card">cuento.app</a>
-            </div>
-          </div>
-        </div>
+      </div>
+      <div class="homepage-hero-newsletter-card">
+        <p class="homepage-newsletter-heading">Get the Vancouver roundup</p>
+        <p class="homepage-newsletter-desc">New groups, community picks, and neighbourhood events — weekly.</p>
+        <form class="newsletter-form" data-umami-event="newsletter-signup">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+        <span class="newsletter-status"></span>
+      </div>
     </div>
   </div>
-  <div class="homepage-groups" id="homepage-groups">
-    {%- for group in groups %}
-    <div class="cat-group">
-      <p class="cat-group-heading">{{ group.label | ampEscape | safe }}</p>
-      <ul class="cat-group-list">
-        {%- for cat in collections.categories %}
-        {%- if cat.data.group == group.key %}
-        <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}"><span class="cat-name">{{ cat.data.title }}</span>{% if cat.data.groupCount > 0 %}<span class="cat-count">{{ cat.data.groupCount }}</span>{% endif %}</a></li>
-        {%- endif %}
-        {%- endfor %}
-      </ul>
+
+  {%- if recentGroups.length > 0 %}
+  <section class="homepage-section">
+    <p class="homepage-section-title">Recently added</p>
+    <div class="recent-groups">
+      {%- for group in recentGroups %}
+      <a href="/{{ group.categorySlug }}/#{{ group.name | slugify }}" class="recent-group" data-umami-event="click-recent-group">
+        <span class="recent-group-name">{{ group.name }}</span>
+        <span class="recent-group-desc">{{ group.description | truncate(80) }}</span>
+        <span class="recent-group-cat">{{ group.categoryTitle }}</span>
+      </a>
+      {%- endfor %}
     </div>
-    {%- endfor %}
-  </div>
-  <div class="homepage-promo">
-    <p>📖 I'm also building <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento-promo" data-umami-event-source="homepage">Cuento</a> — get matched into a small book club in your neighbourhood. Pick your genres, get placed with 5–6 readers nearby, and meet at a local café. <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento-promo-cta" data-umami-event-source="homepage">Check it out&nbsp;&rarr;</a></p>
+  </section>
+  {%- endif %}
+
+  <section class="homepage-section">
+    <p class="homepage-section-title">Popular categories</p>
+    <div class="popular-cats">
+      {%- set sortedCats = collections.categories | sort(true, false, "data.groupCount") %}
+      {%- for cat in sortedCats %}
+      {%- if loop.index <= 10 and cat.data.groupCount > 0 %}
+      <a href="/{{ cat.fileSlug }}/" class="popular-cat" data-umami-event="click-popular-cat">{{ cat.data.title }} <span>{{ cat.data.groupCount }}</span></a>
+      {%- endif %}
+      {%- endfor %}
+    </div>
+  </section>
+
+  <div class="homepage-bottom">
+    <div class="builder-card">
+      <div class="builder-header">
+        <div class="builder-avatar" aria-hidden="true"></div>
+        <div>
+          <span class="builder-label">Built by</span>
+          <strong><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="builder-card">Patrick Bollenbach</a></strong>
+        </div>
+      </div>
+      <p class="builder-bio">I make community tools in Vancouver. <a href="mailto:vancouver@bolle.co" data-umami-event="click-contact-email">Get in touch</a>.</p>
+      <div class="builder-links">
+        <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-runclubs" data-umami-event-source="builder-card">runclubs.ca</a>
+        <span class="builder-link-sep">&middot;</span>
+        <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento" data-umami-event-source="builder-card">cuento.app</a>
+      </div>
+    </div>
   </div>
   <div class="homepage-footer">
-    Made by <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Patrick Bollenbach</a> in Vancouver. <span id="homepage-total-views"></span>
+    <span id="homepage-total-views"></span>
   </div>
 </main>
 </div>
