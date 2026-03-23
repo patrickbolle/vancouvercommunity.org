@@ -102,7 +102,7 @@ permalink: /
 
   {%- if recentGroups.length > 0 %}
   <section class="homepage-section">
-    <h2 class="homepage-section-title">New on the board</h2>
+    <p class="homepage-section-title">Recently added</p>
     <div class="recent-groups">
       {%- for group in recentGroups %}
       <a href="/{{ group.categorySlug }}/#{{ group.name | slugify }}" class="recent-group" data-umami-event="click-recent-group">
@@ -116,7 +116,7 @@ permalink: /
   {%- endif %}
 
   <section class="homepage-section">
-    <h2 class="homepage-section-title">Popular categories</h2>
+    <p class="homepage-section-title">Popular categories</p>
     <div class="popular-cats">
       {%- set sortedCats = collections.categories | sort(true, false, "data.groupCount") %}
       {%- for cat in sortedCats %}
