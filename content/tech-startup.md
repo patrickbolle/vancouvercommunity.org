@@ -167,6 +167,10 @@ order: 1
 - **What:** Annual cybersecurity conference. Community-driven security event
 - **Find it:** [lu.ma/BsidesVancouver](https://lu.ma/BsidesVancouver)
 
+## BlueHour Health
+- **What:** Grassroots community-building initiative to break down silos between healthcare clinicians, technical experts, founders, investors, etc. If you’re building something in health tech, work in healthcare, and/or part of the ecosystem, this community is for you!
+- **Find it:** [bluehourhealth.ca](https://bluehourhealth.ca/)
+
 ---
 
 ## Venues & Resources
