@@ -27,14 +27,19 @@ module.exports = function (eleventyConfig) {
     mdLib.renderer.rules.link_open = function(tokens, idx, options, env, self) {
       const href = tokens[idx].attrGet("href");
       if (href && href.startsWith("http")) {
-        tokens[idx].attrSet("target", "_blank");
-        tokens[idx].attrSet("rel", "noopener noreferrer");
-        // Umami event tracking for all outbound links
+        // Add referral parameter to external links
         try {
-          const domain = new URL(href).hostname.replace("www.", "");
+          const url = new URL(href);
+          if (!url.searchParams.has("ref")) {
+            url.searchParams.set("ref", "vancouvercommunity.org");
+            tokens[idx].attrSet("href", url.toString());
+          }
+          const domain = url.hostname.replace("www.", "");
           tokens[idx].attrSet("data-umami-event", "outbound-link");
           tokens[idx].attrSet("data-umami-event-url", domain);
         } catch (e) {}
+        tokens[idx].attrSet("target", "_blank");
+        tokens[idx].attrSet("rel", "noopener noreferrer");
       }
       return defaultRender(tokens, idx, options, env, self);
     };
