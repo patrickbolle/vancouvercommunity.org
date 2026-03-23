@@ -105,8 +105,8 @@
     <p class="category-desc">{{ description }}</p>
     <div class="category-actions">
       <a href="/submit/" class="cat-action" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Know a group? Add it</a>
-      <a href="#" onclick="openEditModal('{{ page.fileSlug }}'); return false;" class="cat-action" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</a>
-      <a href="#" onclick="sharePage('{{ page.fileSlug }}', this); return false;" class="cat-action" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</a>
+      <button type="button" onclick="openEditModal('{{ page.fileSlug }}')" class="cat-action" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button>
+      <button type="button" onclick="sharePage('{{ page.fileSlug }}', this)" class="cat-action" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button>
       <span id="page-views" class="cat-views"></span>
     </div>
     <div class="category-newsletter">

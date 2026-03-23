@@ -82,8 +82,8 @@ permalink: /
         <p class="homepage-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories — run clubs, supper clubs, philosophy circles, maker spaces, and a lot more. Browse, click through, and show up.</p>
         <div class="homepage-actions">
           <a href="/submit/" class="homepage-action-primary" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Know a group? Add it</a>
-          <a href="#" class="surprise-btn" onclick="goRandom(); return false;" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</a>
-          <a href="#" class="surprise-btn" onclick="sharePage('homepage', this); return false;" data-umami-event="click-share" data-umami-event-source="homepage">Tell a friend</a>
+          <button type="button" class="surprise-btn" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me &rarr;</button>
+          <button type="button" class="surprise-btn" onclick="sharePage('homepage', this)" data-umami-event="click-share" data-umami-event-source="homepage">Tell a friend</button>
         </div>
         <div class="homepage-cards">
           <div class="homepage-newsletter">
@@ -116,7 +116,7 @@ permalink: /
   <div class="homepage-groups" id="homepage-groups">
     {%- for group in groups %}
     <div class="cat-group">
-      <p class="cat-group-heading">{{ group.label | ampEscape | safe }}</p>
+      <h2 class="cat-group-heading">{{ group.label | ampEscape | safe }}</h2>
       <ul class="cat-group-list">
         {%- for cat in collections.categories %}
         {%- if cat.data.group == group.key %}
