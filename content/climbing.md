@@ -31,6 +31,10 @@ order: 4
 - **What:** Connect with local climbers, find partners. Active community for indoor and outdoor climbing
 - **Find it:** [Facebook Group](https://www.facebook.com/groups/vrcg.ca/)
 
+## Bad Climbers Club
+- **What:** Climbers who don't take it too seriously. Supportive community with discounted meet-ups and workshops — holds space for women and GNC folks
+- **Find it:** [thebadacademy.com/clubs/bad-climbers-club](https://www.thebadacademy.com/clubs/bad-climbers-club)
+
 ---
 
 ## Venues & Spaces
@@ -60,6 +64,3 @@ order: 4
 - **What:** University climbing wall open to public. Affordable, beginner-friendly
 - **Find it:** [sfu.ca/recreation/climbing](https://www.sfu.ca/recreation/climbing.html)
 
-## Bad Climbers Club
-- **What:** We're a group of climbers that don't take it so seriously. We like to have fun, be supportive no matter what your climbing abilities, and hold space for women and GNC folks in our climbing community through discounted meet-ups, helpful workshops, and good vibes <3
-- **Find it:** [www.thebadacademy.com/clubs/bad-climbers-club](https://www.thebadacademy.com/clubs/bad-climbers-club)
