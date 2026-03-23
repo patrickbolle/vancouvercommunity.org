@@ -370,7 +370,12 @@ h1.homepage-lede,
   text-decoration: none;
   transition: color 0.12s;
 }
+.homepage-hero-actions a:first-child {
+  color: var(--accent);
+  font-weight: 500;
+}
 .homepage-hero-actions a:visited { color: var(--text-muted); }
+.homepage-hero-actions a:first-child:visited { color: var(--accent); }
 .homepage-hero-actions a:hover,
 .homepage-hero-actions button:hover { color: var(--accent); }
 .homepage-sep { color: var(--text-muted); font-size: 0.85em; }
@@ -399,14 +404,14 @@ h1.homepage-lede,
   display: block;
   padding: 14px 16px;
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: border-color 0.12s, background 0.12s;
+  transition: border-color 0.12s, box-shadow 0.15s;
 }
 .recent-group:hover {
-  border-color: var(--border);
-  background: var(--bg-warm);
+  border-color: var(--accent);
+  box-shadow: 0 1px 4px rgba(168,90,70,0.08);
 }
 .recent-group-name {
   display: block;
