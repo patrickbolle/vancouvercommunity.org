@@ -53,6 +53,7 @@ body {
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
+body.modal-open { overflow: hidden; }
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -838,35 +839,29 @@ textarea.form-input { resize: vertical; }
    ======================================== */
 .verify-toast {
   position: fixed;
-  inset: 0;
+  bottom: 20px;
+  right: 20px;
   z-index: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0,0,0,0.35);
   opacity: 0;
-  transition: opacity 0.3s;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s;
   pointer-events: none;
 }
 .verify-toast.visible {
   opacity: 1;
+  transform: translateY(0);
   pointer-events: auto;
 }
 .verify-toast-inner {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 22px 26px;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
-  max-width: 400px;
-  width: 90%;
-  font-size: 0.95em;
+  padding: 18px 22px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  max-width: 360px;
+  width: 100%;
+  font-size: 0.92em;
   line-height: 1.5;
-  transform: scale(0.95);
-  transition: transform 0.3s;
-}
-.verify-toast.visible .verify-toast-inner {
-  transform: scale(1);
 }
 .verify-toast-question {
   color: var(--text);
@@ -887,7 +882,7 @@ textarea.form-input { resize: vertical; }
   align-items: center;
 }
 .verify-btn {
-  padding: 5px 12px;
+  padding: 8px 14px;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--bg);
@@ -900,6 +895,11 @@ textarea.form-input { resize: vertical; }
 .verify-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
+}
+.verify-btn:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(168,90,70,0.12);
 }
 .verify-btn-yes {
   background: var(--accent-light);
@@ -917,6 +917,11 @@ textarea.form-input { resize: vertical; }
   background: none;
   font-size: 1.1em;
   padding: 2px 6px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--text-muted);
 }
 .verify-btn-dismiss:hover {
@@ -940,6 +945,7 @@ textarea.form-input { resize: vertical; }
 .verify-detail-input:focus {
   border-color: var(--accent);
   outline: none;
+  box-shadow: 0 0 0 3px rgba(168,90,70,0.12);
 }
 .verify-btn-send {
   background: var(--accent);
@@ -955,10 +961,32 @@ textarea.form-input { resize: vertical; }
 .verify-toast-thanks {
   color: var(--accent);
   font-weight: 500;
-  text-align: center;
   margin: 0;
-  font-size: 1.05em;
+  font-size: 1em;
 }
+.verify-toast-funnel {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 0.88em;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.verify-funnel-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+.verify-funnel-link:hover { color: var(--accent-hover); }
+.edit-success-message {
+  color: #5B8C5A;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+.edit-success-actions { font-size: 0.92em; }
 
 /* ========================================
    NEWSLETTER — shared
@@ -1264,5 +1292,11 @@ textarea.form-input { resize: vertical; }
   /* Search input full width on mobile */
   .search-input { max-width: 100%; }
 
-  /* Verify toast — already centered via inset:0 + flexbox */
+  /* Verify toast — full-width bottom sheet on mobile */
+  .verify-toast { bottom: 0; right: 0; left: 0; }
+  .verify-toast-inner {
+    width: 100%;
+    border-radius: var(--radius) var(--radius) 0 0;
+    border-bottom: none;
+  }
 }

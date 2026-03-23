@@ -106,6 +106,7 @@
     <div class="category-actions">
       <a href="/submit/" class="cat-action" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Know a group? Add it</a>
       <a href="#" onclick="openEditModal('{{ page.fileSlug }}'); return false;" class="cat-action" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</a>
+      <a href="#" onclick="sharePage('{{ page.fileSlug }}', this); return false;" class="cat-action" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</a>
       <span id="page-views" class="cat-views"></span>
     </div>
     <div class="category-newsletter">
@@ -152,11 +153,13 @@ function openEditModal(category) {
   _editOpenedAt = Date.now();
   document.getElementById('edit-category').value = category;
   modal.style.display = 'block';
+  document.body.classList.add('modal-open');
   var closeBtn = modal.querySelector('.edit-modal-close');
   if (closeBtn) closeBtn.focus();
 }
 function closeEditModal() {
   document.getElementById('edit-modal').style.display = 'none';
+  document.body.classList.remove('modal-open');
   if (_editOpener) { _editOpener.focus(); _editOpener = null; }
 }
 document.getElementById('edit-modal').addEventListener('click', (e) => { if (e.target.id === 'edit-modal' && Date.now() - _editOpenedAt > 300) closeEditModal(); });
@@ -178,18 +181,17 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
     });
     const result = await res.json();
     if (result.success) {
-      status.className = 'form-status success';
-      status.textContent = '✓ Got it, thanks!';
       if (typeof umami !== 'undefined') umami.track('submit-edit', { category: document.getElementById('edit-category').value });
-      e.target.reset();
-      setTimeout(closeEditModal, 2000);
+      var formEl = document.getElementById('edit-form');
+      formEl.innerHTML =
+        '<p class="edit-success-message">Got it, thanks for helping keep this accurate.</p>' +
+        '<p class="edit-success-actions"><a href="#" class="verify-funnel-link" onclick="sharePage(\'{{ page.fileSlug }}-edit\', this); return false;">Tell a friend about this list</a></p>';
+      setTimeout(closeEditModal, 5000);
     } else throw new Error(result.error || 'Something went wrong');
   } catch (err) {
     status.className = 'form-status error';
     status.textContent = 'Could not send — try emailing directly.';
   }
-  btn.disabled = false;
-  btn.textContent = 'Send suggestion';
 });
 </script>
 

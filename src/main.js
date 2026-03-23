@@ -150,9 +150,18 @@ document.addEventListener('DOMContentLoaded', function() {
           var extLink = sibling.querySelector('a[href^="http"]');
           if (extLink) {
             h2.style.cursor = 'pointer';
-            h2.addEventListener('click', function(e) {
-              if (e.target.tagName === 'A') return; // let anchor links work normally
+            h2.setAttribute('tabindex', '0');
+            h2.setAttribute('role', 'link');
+            function activateH2(e) {
+              if (e.target.tagName === 'A') return;
               window.open(extLink.href, '_blank', 'noopener');
+              var category = window.location.pathname.replace(/^\/|\/$/g, '');
+              var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
+              setTimeout(function() { showVerifyToast(groupName, extLink.href, category); }, 600);
+            }
+            h2.addEventListener('click', activateH2);
+            h2.addEventListener('keydown', function(e) {
+              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateH2(e); }
             });
             break;
           }
@@ -306,17 +315,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 600);
   });
 
+  function escapeHtml(str) {
+    var el = document.createElement('span');
+    el.textContent = str;
+    return el.innerHTML;
+  }
+
   function showVerifyToast(groupName, url, category) {
     // Remove any existing toast
     var existing = document.getElementById('verify-toast');
     if (existing) existing.remove();
 
+    var safeName = escapeHtml(groupName);
     var toast = document.createElement('div');
     toast.id = 'verify-toast';
     toast.className = 'verify-toast';
+    toast.setAttribute('role', 'dialog');
+    toast.setAttribute('aria-label', 'Link verification for ' + groupName);
     toast.innerHTML =
       '<div class="verify-toast-inner">' +
-        '<p class="verify-toast-question">Anything wrong with <strong>' + groupName + '</strong>?</p>' +
+        '<p class="verify-toast-question">Anything wrong with <strong>' + safeName + '</strong>?</p>' +
         '<p class="verify-toast-subtitle">Dead link, wrong info, closed group — anything helps.</p>' +
         '<div class="verify-toast-actions">' +
           '<button class="verify-btn verify-btn-yes" data-status="active">Looks good</button>' +
@@ -334,11 +352,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Animate in
     requestAnimationFrame(function() {
       toast.classList.add('visible');
-    });
-
-    // Dismiss on backdrop click
-    toast.addEventListener('click', function(e) {
-      if (e.target === toast) dismissToast(toast);
     });
 
     // Dismiss on X button
@@ -375,15 +388,28 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Escape key to dismiss
+    function onEscape(e) {
+      if (e.key === 'Escape') { dismissToast(toast); document.removeEventListener('keydown', onEscape); }
+    }
+    document.addEventListener('keydown', onEscape);
+
     // Auto-dismiss after 15 seconds if no interaction
     var autoDismiss = setTimeout(function() { dismissToast(toast); }, 15000);
     toast.querySelector('.verify-toast-inner').addEventListener('click', function() { clearTimeout(autoDismiss); });
   }
 
   function showToastThanks(toast) {
-    toast.querySelector('.verify-toast-inner').innerHTML =
-      '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate \u2764\ufe0f</p>';
-    setTimeout(function() { dismissToast(toast); }, 1200);
+    var category = window.location.pathname.replace(/^\/|\/$/g, '') || 'homepage';
+    var inner = toast.querySelector('.verify-toast-inner');
+    inner.innerHTML =
+      '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate.</p>' +
+      '<div class="verify-toast-funnel">' +
+        '<a href="#" class="verify-funnel-link" onclick="sharePage(\'' + category + '-verify\', this); return false;">Tell a friend about this list</a>' +
+      '</div>';
+
+    var autoDismiss = setTimeout(function() { dismissToast(toast); }, 5000);
+    inner.addEventListener('click', function() { clearTimeout(autoDismiss); });
   }
 
   function dismissToast(toast) {
