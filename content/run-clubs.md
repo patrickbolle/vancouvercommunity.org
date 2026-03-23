@@ -84,6 +84,10 @@ order: 1
 - **What:** Free outdoor fitness community, includes running. Early morning workouts, high energy
 - **Find it:** [november-project.com](https://november-project.com/)
 
+## Kamino Run Club
+- **What:** Community worth running for. Bringing runners through curated runs, races, and coaching.
+- **Find it:** [kaminorunning.ca](https://www.kaminorunning.ca/)
+
 ---
 
 ## Venues & Resources
@@ -92,6 +96,3 @@ order: 1
 - **What:** Directory of 60+ Vancouver run clubs compiled in one site
 - **Find it:** [runclubs.ca/vancouver](https://runclubs.ca/vancouver)
 
-## Kamino Run Club
-- **What:** Community worth running for. Bringing runners through curated runs, races, and coaching. 
-- **Find it:** [www.kaminorunning.ca/](https://www.kaminorunning.ca/)
