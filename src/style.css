@@ -311,6 +311,7 @@ h1.homepage-lede,
   color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 12px;
+  max-width: 640px;
 }
 .homepage-desc-secondary {
   color: var(--text-muted);
@@ -530,6 +531,16 @@ h1.homepage-lede,
   color: var(--accent);
   background: var(--accent-light);
 }
+.cat-group-list li a::after {
+  content: "\2192";
+  font-size: 0.8em;
+  color: var(--accent);
+  visibility: hidden;
+  margin-left: 4px;
+}
+.cat-group-list li a:hover::after {
+  visibility: visible;
+}
 
 .cat-name { flex: 1; }
 .cat-count {
@@ -669,7 +680,7 @@ h1.homepage-lede,
   padding-top: 0;
 }
 .content h2:not(:first-of-type) {
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--border);
   padding-top: 28px;
   margin-top: 4px;
 }
@@ -1113,7 +1124,7 @@ textarea.form-input { resize: vertical; }
 .category-newsletter .newsletter-input {
   padding: 8px 12px;
   font-size: 0.85em;
-  max-width: 200px;
+  max-width: 260px;
 }
 .category-newsletter .newsletter-btn {
   padding: 8px 16px;
