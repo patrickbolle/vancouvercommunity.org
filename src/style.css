@@ -1249,19 +1249,15 @@ textarea.form-input { resize: vertical; }
   .content { padding: 28px 20px 56px; }
   .homepage-hero { margin: -28px -20px 24px; padding: 24px 20px 18px; }
   .category-hero { margin: -28px -20px 28px; padding: 28px 20px 24px; }
-  .homepage-lede, h1.homepage-lede { font-size: 1.5em; }
+  .homepage-lede, h1.homepage-lede, .category-title { font-size: 1.5em; }
   .recent-groups { grid-template-columns: 1fr; }
 
   /* Minimal builder card on mobile */
   .builder-card { padding: 14px 16px; }
   .builder-bio { display: none; }
-  .category-title { font-size: 1.6em; }
 
-  /* Category actions: views on its own row */
-  .cat-views { width: 100%; margin-left: 0; margin-top: 2px; }
-
-  /* Homepage actions: prevent "Know a group? Add it" from wrapping */
-  .homepage-action-primary { white-space: nowrap; }
+  /* Popular categories: allow wrapping inside chips */
+  .popular-cat { white-space: normal; }
 
   /* Hide anchor # links on mobile — hover doesn't apply on touch */
   .content h2 .anchor { display: none; }
