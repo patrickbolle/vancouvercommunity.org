@@ -1,5 +1,4 @@
 const markdownItAnchor = require("markdown-it-anchor");
-const { execSync } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 
@@ -80,53 +79,6 @@ module.exports = function (eleventyConfig) {
     return cats;
   });
 
-  // --- Global data: recently added groups (from git history) ---
-  eleventyConfig.addGlobalData("recentGroups", () => {
-    try {
-      const log = execSync(
-        'git log --pretty=format:"%ai|%s" --since="60 days ago" -- content/*.md',
-        { encoding: "utf-8" }
-      );
-      const additions = log.split("\n")
-        .filter((line) => line.includes("|Add ") || line.includes("|add "))
-        .map((line) => {
-          const [date, ...msgParts] = line.split("|");
-          const msg = msgParts.join("|");
-          const match = msg.match(/Add (.+?) to (.+)/i);
-          if (!match) return null;
-          return {
-            name: match[1].trim(),
-            categorySlug: match[2].trim(),
-            date: date.trim().split(" ")[0], // YYYY-MM-DD
-          };
-        })
-        .filter(Boolean);
-
-      // Cross-reference with actual markdown content to get descriptions
-      for (const entry of additions) {
-        const filePath = path.join("content", entry.categorySlug + ".md");
-        if (!fs.existsSync(filePath)) continue;
-        const raw = fs.readFileSync(filePath, "utf-8");
-        const frontmatter = raw.match(/^---[\s\S]*?---/);
-        const titleMatch = frontmatter && frontmatter[0].match(/title:\s*"(.+?)"/);
-        entry.categoryTitle = titleMatch ? titleMatch[1] : entry.categorySlug;
-
-        // Find this group's section in the markdown
-        const regex = new RegExp("## " + entry.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\n([\\s\\S]*?)(?=\\n## |\\n---|$)");
-        const sectionMatch = raw.match(regex);
-        if (sectionMatch) {
-          const whatMatch = sectionMatch[1].match(/\*\*What:\*\*\s*(.+)/);
-          const findMatch = sectionMatch[1].match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
-          entry.description = whatMatch ? whatMatch[1].trim() : "";
-          entry.url = findMatch ? findMatch[1] : "";
-        }
-      }
-
-      return additions.filter((e) => e.description).slice(0, 8);
-    } catch (e) {
-      return [];
-    }
-  });
 
   // --- Filter: strip the h1 line from rendered markdown content ---
   eleventyConfig.addFilter("stripH1", function (content) {
