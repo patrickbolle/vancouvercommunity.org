@@ -11,7 +11,7 @@ order: 3
 # 🗣️ Language Exchange
 
 ## Vancouver Chinese/English Language Exchange
-- **What:** Practice Chinese and English, make friends. Casual
+- **What:** Practice Mandarin Chinese and English, make friends. Casual
 - **Find it:** [meetup.com/vancouver-chinese-english-language-exchange](https://meetup.com/vancouver-chinese-english-language-exchange)
 
 ## Se Habla (English & Spanish)
