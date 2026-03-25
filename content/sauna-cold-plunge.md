@@ -38,10 +38,6 @@ order: 6
 - **What:** Sauna club with community and private sessions, patio parties, brand pop-ups, and community runs
 - **Find it:** [talitywellness.ca](https://www.talitywellness.ca/) / [talityspa.com](https://www.talityspa.com/)
 
-## Connect Wellness
-- **What:** Outdoor wood-burning saunas, cold plunge pools, soaking flume
-- **Find it:** [connectwellness.biz](https://www.connectwellness.biz/)
-
 ## Gatherwell
 - **What:** Outdoor sauna and cold plunges. "Meaningful connection through shared ritual of hot and cold"
 - **Find it:** [gatherwell.ca](https://www.gatherwell.ca)
