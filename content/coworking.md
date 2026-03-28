@@ -16,10 +16,6 @@ order: 2
 
 ## Venues & Spaces
 
-## Common Ground
-- **What:** Coworking for creatives, freelancers, entrepreneurs. "Coziness of a living room with charm of a coffee shop"
-- **Find it:** [common-ground.ca](https://common-ground.ca)
-
 ## The HiVE
 - **What:** Coworking for social impact sector. 150+ people, cafe-like studio culture
 - **Find it:** [hivevancouver.com](https://www.hivevancouver.com/)
