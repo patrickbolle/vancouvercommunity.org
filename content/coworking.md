@@ -46,6 +46,3 @@ order: 2
 - **Where:** East Vancouver
 - **Find it:** [coworkingvancouver.ca](https://coworkingvancouver.ca/)
 
-## Spacekraft
-- **What:** Creative coworking space in Burnaby. Design-focused, community events
-- **Find it:** [spacekraft.co](http://old.spacekraft.co/) | 4501 Kingsway, Burnaby
