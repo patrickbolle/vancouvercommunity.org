@@ -135,34 +135,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   display: flex;
   flex-direction: column;
   padding: 28px 22px 22px;
-  color: #fff;
   text-decoration: none;
-  margin-bottom: 2px;
 }
 .sidebar-logo:hover { text-decoration: none; opacity: 0.9; }
 .sidebar-logo:visited { color: #fff; }
-
-.logo-city {
+.logo-line {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.6em;
+  font-size: 1.65em;
   font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.05;
   color: #fff;
 }
-.logo-accent {
+.logo-italic {
+  font-style: italic;
   color: var(--accent);
-}
-.logo-type {
-  font-family: var(--font-body);
-  font-size: 0.62em;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.4);
-  margin-top: 6px;
-  padding-top: 6px;
-  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* Nav list */
