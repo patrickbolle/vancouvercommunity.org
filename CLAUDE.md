@@ -111,6 +111,8 @@ New entries go **above** the `---` / `## Venues` divider if one exists, otherwis
 
 Omit optional fields entirely if not provided — don't leave blanks.
 
+Also update `_data/recentGroups.js`: add the new group to the top of the `recent` array and remove the oldest entry (keep 6 total).
+
 ### Verifying a link
 
 Check with: `curl -sL -o /dev/null -w "%{http_code}" "URL"` — run twice if first attempt times out.
