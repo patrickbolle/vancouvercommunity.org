@@ -171,6 +171,11 @@ order: 1
 - **What:** Grassroots community-building initiative to break down silos between healthcare clinicians, technical experts, founders, investors, etc. If you’re building something in health tech, work in healthcare, and/or part of the ecosystem, this community is for you!
 - **Find it:** [bluehourhealth.ca](https://bluehourhealth.ca/)
 
+
+## Infer Vancouver
+- **What:** AI engineering meetup slash speaker series - focused around developers working with LLMs.
+- **Find it:** [infervan.com](https://infervan.com/)
+
 ---
 
 ## Venues & Resources
