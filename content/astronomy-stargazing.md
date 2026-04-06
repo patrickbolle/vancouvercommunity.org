@@ -29,7 +29,7 @@ order: 7
 
 
 ## Starry Nights Star Parties
-- **What:** Embark on a celestial adventure at Starry Nights at SFU Burnaby! This is a free, all ages,  in-person event every Friday night, with the last Friday of the month being an ONLINE only event. These events are weather dependant so please check our X/Twitter or Facebook feed for updates on weather conditions every Friday afternoon.​
+- **What:** Free, all-ages star parties at SFU Burnaby's Trottier Observatory every Friday night (weather permitting). Check their social feeds before heading out — the last Friday of each month is online only.
 - **Find it:** [sfu.ca/science/community/trottier-observatory---courtyard/starry-nights.html](https://www.sfu.ca/science/community/trottier-observatory---courtyard/starry-nights.html)
 
 ---
