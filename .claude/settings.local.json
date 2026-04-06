@@ -21,7 +21,12 @@
       "WebFetch(domain:cuento.app)",
       "Bash(curl -s http://localhost:8082)",
       "WebFetch(domain:bollenbach.ca)",
-      "Bash(git rebase:*)"
+      "Bash(git rebase:*)",
+      "mcp__plugin_compound-engineering_pw__browser_click",
+      "Bash(git checkout:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080)",
+      "Bash(pkill -f \"chrome-devtools-mcp\")",
+      "Bash(pkill -f \"Chrome.*chrome-devtools\")"
     ]
   },
   "enableAllProjectMcpServers": true,

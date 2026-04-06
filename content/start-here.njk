@@ -1,0 +1,135 @@
+---
+layout: false
+permalink: /start-here/
+---
+{%- set totalGroups = 0 %}
+{%- for cat in collections.categories %}
+  {%- set totalGroups = totalGroups + cat.data.groupCount %}
+{%- endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>New to Vancouver? Start Here | {{ site.title }}</title>
+  <meta name="description" content="A curated list of free, beginner-friendly groups in Vancouver. Just show up.">
+  <meta property="og:title" content="New to Vancouver? Start Here">
+  <meta property="og:description" content="A curated list of free, beginner-friendly groups in Vancouver. Just show up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/start-here/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/start-here/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="start-hero-wrap">
+      <h1 class="cat-title">New to Vancouver? Start here.</h1>
+      <p class="cat-desc">Vancouver can feel like a hard city to meet people. These groups are free (or cheap), beginner-friendly, and welcoming to newcomers. Just show up.</p>
+    </div>
+  </div>
+
+  <div class="start-here-content">
+
+    <section class="start-section">
+      <h2 class="start-section-title">Get moving</h2>
+      <div class="start-groups">
+        <a href="/hiking-outdoors/#y-adventure-kommunity-(yak)" class="start-group-card">
+          <span class="start-group-name">Y Adventure Kommunity (YAK)</span>
+          <span class="start-group-desc">Free adventure club — hiking, paddle boarding, biking, bouldering, and camping to make friends through outdoor activities.</span>
+        </a>
+        <a href="/run-clubs/#social-run-club" class="start-group-card">
+          <span class="start-group-name">Social Run Club</span>
+          <span class="start-group-desc">Social runs for beginner to intermediate runners. Fun runs, not competitive. Just show up.</span>
+        </a>
+        <a href="/dance/#rueda-de-la-vida---friday-free-community-salsa%2Fbachata" class="start-group-card">
+          <span class="start-group-name">Rueda de la Vida</span>
+          <span class="start-group-desc">Free outdoor Latin dance every Friday with a beginner lesson at 7pm. No partner needed.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="start-section">
+      <h2 class="start-section-title">Make friends</h2>
+      <div class="start-groups">
+        <a href="/social-friend-clubs/#we-should-be-friends" class="start-group-card">
+          <span class="start-group-name">We Should Be Friends</span>
+          <span class="start-group-desc">Park hangs, pottery nights, spin classes, neighbourhood book clubs — focused on lasting friendships.</span>
+        </a>
+        <a href="/dinner-supper-clubs/#dayofus---dinner-with-strangers" class="start-group-card">
+          <span class="start-group-name">DayOfUs — Dinner with Strangers</span>
+          <span class="start-group-desc">Weekly curated dinners pairing you with 5 strangers at a surprise restaurant.</span>
+        </a>
+        <a href="/social-friend-clubs/#meatless-meetup" class="start-group-card">
+          <span class="start-group-name">Meatless Meetup</span>
+          <span class="start-group-desc">Social events for vegetarians and vegans. 5,400+ members and growing.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="start-section">
+      <h2 class="start-section-title">Get creative</h2>
+      <div class="start-groups">
+        <a href="/creative-art/#draw-around-vancouver" class="start-group-card">
+          <span class="start-group-name">Draw Around Vancouver</span>
+          <span class="start-group-desc">Drawing circles, creative flow workshops, and still life sessions. Slow, alcohol-free, beginner-friendly.</span>
+        </a>
+        <a href="/writing/#shut-up-%26-write!-vancouver" class="start-group-card">
+          <span class="start-group-name">Shut Up & Write! Vancouver</span>
+          <span class="start-group-desc">Quiet writing time followed by chat at VPL Central. Accepting, supportive, judgment-free.</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="start-section">
+      <h2 class="start-section-title">Learn something</h2>
+      <div class="start-groups">
+        <a href="/book-clubs/#silent-book-club" class="start-group-card">
+          <span class="start-group-name">Silent Book Club</span>
+          <span class="start-group-desc">People gather to read silently together, then chat. Introvert-friendly, low-pressure social.</span>
+        </a>
+        <a href="/philosophy-intellectual/#vancouver-philosophy-salon" class="start-group-card">
+          <span class="start-group-name">Vancouver Philosophy Salon</span>
+          <span class="start-group-desc">Philosophical dialogue and friendly debate covering wide variety of topics from Plato to Buddha.</span>
+        </a>
+        <a href="/chess/#vancouver-beer-%26-chess" class="start-group-card">
+          <span class="start-group-name">Vancouver Beer & Chess</span>
+          <span class="start-group-desc">Chess + drinks in a social setting. "We play chess and get to know people who like chess."</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="start-section">
+      <h2 class="start-section-title">Find your community</h2>
+      <div class="start-groups">
+        <a href="/run-clubs/#vancouver-frontrunners" class="start-group-card">
+          <span class="start-group-name">Vancouver Frontrunners</span>
+          <span class="start-group-desc">Inclusive running and walking group. No-drop policy, LGBTQ+ friendly.</span>
+        </a>
+        <a href="/board-games/#vancouver-gaymers" class="start-group-card">
+          <span class="start-group-name">Vancouver Gaymers</span>
+          <span class="start-group-desc">2SLGBTQIA+ gaming community. Board games, video games, and social events.</span>
+        </a>
+        <a href="/mens-groups/#the-dudes-club" class="start-group-card">
+          <span class="start-group-name">The DUDES Club</span>
+          <span class="start-group-desc">Men's talking circles focused on health and wellness. Participant-led community of brotherhood.</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="start-browse-more">
+      <p>Ready to explore more?</p>
+      <div class="start-browse-links">
+        <a href="/" class="start-browse-link">Browse all {{ totalGroups }}+ groups</a>
+        <a href="/submit/" class="start-browse-link start-browse-link-muted">Add a group you know about</a>
+      </div>
+    </div>
+
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

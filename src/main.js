@@ -102,19 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
       s.remove();
     });
 
-    // Update sidebar active state
-    var slug = href.replace(/^\/|\/$/g, '') || '';
-    document.querySelectorAll('.sidebar li a').forEach(function(a) {
-      var linkSlug = a.getAttribute('href').replace(/^\/|\/$/g, '');
-      a.classList.toggle('active', linkSlug === slug);
-    });
-
-    // Scroll sidebar to active link
-    var activeLink = document.querySelector('.sidebar li a.active');
-    var sidebarList = document.querySelector('.sidebar ul');
-    if (activeLink && sidebarList) {
-      sidebarList.scrollTop = Math.max(0, activeLink.offsetTop - sidebarList.clientHeight / 3);
-    }
+    // Close topbar menus after navigation
+    var browseEl = document.getElementById('topbar-browse');
+    if (browseEl) browseEl.classList.remove('open');
+    var mobileMenu = document.getElementById('topbar-mobile-menu');
+    if (mobileMenu) mobileMenu.classList.remove('open');
 
     // Scroll to hash target or top
     var scrollTarget = hash && document.getElementById(hash.slice(1));
@@ -140,11 +132,30 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Page behaviors (run on load + after each swap) ---
 
   function initPage() {
-    // Make h2 titles clickable — open the group's first external link
+    // Make entire group card clickable — open the group's visit link
+    document.querySelectorAll('.group-card').forEach(function(card) {
+      if (card._bound) return;
+      card._bound = true;
+      var visitLink = card.querySelector('.group-card-link');
+      var h2 = card.querySelector('h2');
+      if (visitLink && h2) {
+        card.style.cursor = 'pointer';
+        function activateCard(e) {
+          // Don't intercept clicks on the anchor permalink
+          if (e.target.closest('.anchor')) return;
+          window.open(visitLink.href, '_blank', 'noopener');
+          var category = window.location.pathname.replace(/^\/|\/$/g, '');
+          var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
+          setTimeout(function() { showVerifyToast(groupName, visitLink.href, category); }, 600);
+        }
+        card.addEventListener('click', activateCard);
+      }
+    });
+
+    // Legacy: Make h2 titles clickable (non-card pages)
     document.querySelectorAll('.content h2').forEach(function(h2) {
-      if (h2._bound) return;
+      if (h2._bound || h2.closest('.group-card')) return;
       h2._bound = true;
-      // Find the next sibling UL and its first external link
       var sibling = h2.nextElementSibling;
       while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'HR') {
         if (sibling.tagName === 'UL') {
@@ -171,63 +182,112 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Sidebar scroll hint
-    var scrollHint = document.getElementById('sidebar-scroll-hint');
-    var sidebarList = document.querySelector('.sidebar ul');
-    if (sidebarList && scrollHint && !sidebarList._bound) {
-      sidebarList._bound = true;
-      function checkScroll() {
-        var atBottom = sidebarList.scrollTop + sidebarList.clientHeight >= sidebarList.scrollHeight - 40;
-        scrollHint.classList.toggle('hidden', atBottom);
-      }
-      checkScroll();
-      sidebarList.addEventListener('scroll', checkScroll, { passive: true });
-    }
-
-    // Sidebar toggle (mobile)
-    var toggle = document.querySelector('.sidebar-toggle');
-    var sidebar = document.getElementById('sidebar');
-    if (toggle && sidebar && !toggle._bound) {
-      toggle._bound = true;
-      toggle.addEventListener('click', function() {
-        var open = sidebar.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open);
-        toggle.textContent = open ? 'Hide categories' : 'Browse categories';
+    // Show all categories button (mobile)
+    var showAllBtn = document.getElementById('show-all-cats');
+    if (showAllBtn && !showAllBtn._bound) {
+      showAllBtn._bound = true;
+      showAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.hp-cat-group').forEach(function(g) { g.classList.add('show'); });
+        showAllBtn.style.display = 'none';
       });
     }
 
-    // Close mobile sidebar after swap
-    if (sidebar && sidebar.classList.contains('open')) {
-      sidebar.classList.remove('open');
-      if (toggle) {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.textContent = 'Browse categories';
-      }
+    // Topbar Browse dropdown
+    var browseEl = document.getElementById('topbar-browse');
+    if (browseEl && !browseEl._bound) {
+      browseEl._bound = true;
+      var browseBtn = browseEl.querySelector('.topbar-browse-btn');
+      browseBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var isOpen = browseEl.classList.toggle('open');
+        browseBtn.setAttribute('aria-expanded', isOpen);
+      });
+      // Close on outside click
+      document.addEventListener('click', function(e) {
+        if (!browseEl.contains(e.target)) {
+          browseEl.classList.remove('open');
+          browseBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      // Close on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && browseEl.classList.contains('open')) {
+          browseEl.classList.remove('open');
+          browseBtn.setAttribute('aria-expanded', 'false');
+          browseBtn.focus();
+        }
+      });
     }
 
-    // Homepage search
-    var homepageSearch = document.getElementById('homepage-search');
-    var _searchTimer = null;
-    if (homepageSearch && !homepageSearch._bound) {
-      homepageSearch._bound = true;
-      homepageSearch.addEventListener('input', function() {
-        var q = this.value.toLowerCase();
-        clearTimeout(_searchTimer);
+    // Topbar mobile hamburger
+    var hamburger = document.getElementById('topbar-hamburger');
+    var mobileMenu = document.getElementById('topbar-mobile-menu');
+    if (hamburger && mobileMenu && !hamburger._bound) {
+      hamburger._bound = true;
+      hamburger.addEventListener('click', function() {
+        var isOpen = mobileMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    // Close mobile menu after page swap
+    if (mobileMenu && mobileMenu.classList.contains('open')) {
+      mobileMenu.classList.remove('open');
+      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    // Homepage group search
+    var groupSearch = document.getElementById('homepage-group-search');
+    if (groupSearch && !groupSearch._bound) {
+      groupSearch._bound = true;
+      var _searchDebounce = null;
+      var _trackDebounce = null;
+
+      groupSearch.addEventListener('input', function() {
+        var q = this.value.trim().toLowerCase();
+        var resultsEl = document.getElementById('search-results');
+        clearTimeout(_searchDebounce);
+        clearTimeout(_trackDebounce);
+
+        if (!q) {
+          if (resultsEl) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; }
+          return;
+        }
+
+        _searchDebounce = setTimeout(function() {
+          var resultsEl = document.getElementById('search-results');
+          if (!resultsEl) return;
+          var groups = window._searchGroups || [];
+          var matches = groups.filter(function(g) {
+            return g.n.toLowerCase().indexOf(q) !== -1 ||
+                   g.d.toLowerCase().indexOf(q) !== -1 ||
+                   g.c.toLowerCase().indexOf(q) !== -1;
+          });
+
+          resultsEl.style.display = '';
+
+          if (matches.length === 0) {
+            resultsEl.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>.</p>';
+            return;
+          }
+
+          var html = '<div class="search-results-grid">';
+          matches.forEach(function(g) {
+            html += '<a href="/' + g.s + '/#' + g.id + '" class="search-result-card" data-umami-event="click-search-result">';
+            html += '<span class="search-result-name">' + escapeHtml(g.n) + '</span>';
+            html += '<span class="search-result-desc">' + escapeHtml(g.d) + '</span>';
+            html += '<span class="search-result-cat">' + g.c + '</span>';
+            html += '</a>';
+          });
+          html += '</div>';
+          resultsEl.innerHTML = html;
+        }, 150);
+
         if (q.length >= 2) {
-          _searchTimer = setTimeout(function() {
+          _trackDebounce = setTimeout(function() {
             if (typeof umami !== 'undefined') umami.track('search', { query: q });
           }, 800);
         }
-        document.querySelectorAll('.cat-group').forEach(function(group) {
-          var anyVisible = false;
-          group.querySelectorAll('li').forEach(function(li) {
-            var match = li.textContent.toLowerCase().indexOf(q) !== -1;
-            li.style.display = match ? '' : 'none';
-            if (match) anyVisible = true;
-          });
-          group.style.display = anyVisible ? '' : 'none';
-        });
-        filterSidebarLinks(q);
       });
     }
 
@@ -241,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var btn = form.querySelector('.newsletter-btn');
         var btnLabel = btn.textContent;
         // Status span might be inside the form's parent container (not inside the form itself)
-        var container = form.closest('.homepage-newsletter, .category-newsletter, .sidebar-newsletter, .newsletter-card') || form.parentElement;
+        var container = form.closest('.hp-newsletter, .category-newsletter, .newsletter-card') || form.parentElement;
         var status = container.querySelector('.newsletter-status');
         var email = input.value.trim();
         if (!email) return;
@@ -275,25 +335,32 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
 
-    // Scroll sidebar to active on initial load
-    var activeLink = document.querySelector('.sidebar li a.active');
-    var sidebarList = document.querySelector('.sidebar ul');
-    if (activeLink && sidebarList) {
-      sidebarList.scrollTop = Math.max(0, activeLink.offsetTop - sidebarList.clientHeight / 3);
-    }
   }
 
   // --- Outbound link verification toast ---
 
   document.addEventListener('click', function(e) {
-    var link = e.target.closest('.content a[href^="http"]');
+    var link = e.target.closest('main a[href^="http"]');
     if (!link) return;
 
-    // Only target "Find it" links (links inside list items in content)
+    // Card layout: "Visit →" links
+    var card = link.closest('.group-card');
+    if (card && link.classList.contains('group-card-link')) {
+      e.preventDefault();
+      window.open(link.href, '_blank', 'noopener');
+      var h2 = card.querySelector('h2');
+      var groupName = h2 ? h2.textContent.replace(/\s*#\s*$/, '').trim() : '';
+      if (groupName) {
+        var category = window.location.pathname.replace(/^\/|\/$/g, '');
+        setTimeout(function() { showVerifyToast(groupName, link.href, category); }, 600);
+      }
+      return;
+    }
+
+    // Legacy: "Find it" links (links inside list items in content)
     var li = link.closest('li');
     if (!li) return;
 
-    // Find the group name from the nearest h2
     var groupName = '';
     var el = li.closest('ul');
     while (el && el.previousElementSibling) {
@@ -305,11 +372,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     if (!groupName) return;
 
-    // Open link in new tab so user stays on page
     e.preventDefault();
     window.open(link.href, '_blank', 'noopener');
 
-    // Show feedback toast after a short delay
     var category = window.location.pathname.replace(/^\/|\/$/g, '');
     setTimeout(function() {
       showVerifyToast(groupName, link.href, category);
@@ -435,15 +500,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }).catch(function() { /* silent fail */ });
   }
 
-  function filterSidebarLinks(q) {
-    var links = document.querySelectorAll('.sidebar li');
-    if (!q) {
-      links.forEach(function(li) { li.style.display = ''; });
-      return;
-    }
-    links.forEach(function(li) {
-      var text = li.textContent.toLowerCase();
-      li.style.display = text.indexOf(q) !== -1 ? '' : 'none';
-    });
-  }
 });

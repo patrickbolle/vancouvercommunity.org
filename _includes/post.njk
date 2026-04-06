@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>{{ title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ description or title }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description or title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{ site.url }}/blog/{{ page.fileSlug }}/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/blog/{{ page.fileSlug }}/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="prose-hero-wrap">
+      <p class="post-meta-top"><a href="/blog/">Blog</a> &middot; {{ date | readableDate }}</p>
+      <h1 class="cat-title">{{ title }}</h1>
+      {% if description %}<p class="cat-desc">{{ description }}</p>{% endif %}
+    </div>
+  </div>
+
+  <div class="page-content prose-content">
+    {{ content | safe }}
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

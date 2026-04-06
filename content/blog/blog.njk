@@ -1,0 +1,49 @@
+---
+layout: false
+permalink: /blog/
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>Blog | {{ site.title }}</title>
+  <meta name="description" content="Community updates, newsletter issues, and stories from Vancouver.">
+  <meta property="og:title" content="Blog — Vancouver Community">
+  <meta property="og:description" content="Community updates, newsletter issues, and stories from Vancouver.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/blog/">
+  <link rel="canonical" href="{{ site.url }}/blog/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="prose-hero-wrap">
+      <h1 class="cat-title">Blog</h1>
+      <p class="cat-desc">Community updates, newsletter issues, and stories from Vancouver.</p>
+    </div>
+  </div>
+
+  {% set posts = collections.posts %}
+  {% if posts.length > 0 %}
+  <div class="page-content blog-posts">
+    {%- for post in posts %}
+    <a href="{{ post.url }}" class="blog-post-card">
+      <span class="blog-post-date">{{ post.date | readableDate }}</span>
+      <span class="blog-post-title">{{ post.data.title }}</span>
+      {% if post.data.description %}<span class="blog-post-desc">{{ post.data.description }}</span>{% endif %}
+    </a>
+    {%- endfor %}
+  </div>
+  {% else %}
+  <div class="page-content blog-empty">
+    <p>No posts yet. Check back soon.</p>
+  </div>
+  {% endif %}
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

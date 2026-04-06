@@ -67,89 +67,96 @@ permalink: /
 </head>
 <body class="homepage">
 <a href="#main-content" class="skip-link">Skip to content</a>
-<header class="site-header">
-  <a href="/" class="logo">Vancouver Community</a>
-  <button class="sidebar-toggle" aria-expanded="false" aria-controls="sidebar">Browse</button>
-</header>
-<div class="main-container">
-{% set currentSlug = "" %}
-{% include "partials/sidebar.njk" %}
-<main class="content content-wide" id="main-content">
-  <div class="homepage-hero">
-    <div class="homepage-hero-layout">
-      <div class="homepage-hero-left">
-        <h1 class="homepage-lede">Find your people in Vancouver.</h1>
-        <p class="homepage-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces, and more. Browse, click through, show up.</p>
-        <p class="homepage-desc-secondary">Vancouver can feel like a hard city to make friends. This directory is here to help — a community-built list of clubs, meetups, and groups where you can actually meet people. Updated weekly, no account needed.</p>
-        <div class="homepage-hero-actions">
-          <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Add a group</a>
-          <span class="homepage-sep">&middot;</span>
-          <button type="button" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me</button>
-          <span class="homepage-sep">&middot;</span>
-          <button type="button" onclick="sharePage('homepage', this)" data-umami-event="click-share" data-umami-event-source="homepage">Tell a friend</button>
-        </div>
+{% include "partials/topbar.njk" %}
+
+<main id="main-content">
+  <div class="hp-hero">
+    <div class="hp-hero-wrap">
+    <div class="hp-hero-inner">
+      <h1 class="hp-lede">Find your people in Vancouver.</h1>
+      <p class="hp-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces, and more. Browse, click through, show up.</p>
+      <div class="hp-search">
+        <svg class="hp-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" id="homepage-group-search" class="hp-search-input" placeholder="Search {{ totalGroups }}+ groups — try &quot;hiking&quot;, &quot;chess&quot;, &quot;supper club&quot;…" autocomplete="off" data-umami-event="homepage-search">
       </div>
-      <div class="homepage-hero-newsletter-card">
-        <p class="homepage-newsletter-heading">Get the Vancouver roundup</p>
-        <p class="homepage-newsletter-desc">New groups, community picks, and neighbourhood events — weekly.</p>
-        <form class="newsletter-form" data-umami-event="newsletter-signup">
-          <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
-          <button type="submit" class="newsletter-btn">Subscribe</button>
-        </form>
-        <span class="newsletter-status"></span>
+      <div class="hp-actions">
+        <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Add a group</a>
+        <span class="hp-sep">&middot;</span>
+        <button type="button" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me</button>
       </div>
+      <div id="search-results" class="search-results" style="display:none"></div>
     </div>
+    <div class="hp-hero-newsletter">
+      <p class="hp-hero-nl-heading">The Vancouver roundup</p>
+      <p class="hp-hero-nl-desc">A weekly email with the newest groups added to the directory, plus community picks.</p>
+      <form class="newsletter-form" data-umami-event="newsletter-signup">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <span class="newsletter-status"></span>
+      <p class="hp-hero-nl-note">Free. No spam. Unsubscribe anytime.</p>
+    </div>
+    </div><!-- end hp-hero-wrap -->
   </div>
 
+  <div id="homepage-browse-content">
+
   {%- if recentGroups.length > 0 %}
-  <section class="homepage-section">
-    <p class="homepage-section-title">Recently added</p>
+  <section class="hp-section">
+    <p class="hp-section-title">Recently added</p>
     <div class="recent-groups">
       {%- for group in recentGroups %}
+      {%- if loop.index <= 4 %}
       <a href="/{{ group.categorySlug }}/#{{ group.name | slugify }}" class="recent-group" data-umami-event="click-recent-group">
+        <span class="recent-group-tag">New</span>
         <span class="recent-group-name">{{ group.name }}</span>
         <span class="recent-group-desc">{{ group.description | truncate(80) }}</span>
-        <span class="recent-group-cat">{{ group.categoryTitle }}</span>
       </a>
+      {%- endif %}
       {%- endfor %}
     </div>
   </section>
   {%- endif %}
 
-  <section class="homepage-section">
-    <p class="homepage-section-title">Popular categories</p>
-    <div class="popular-cats">
-      {%- set sortedCats = collections.categories | sort(true, false, "data.groupCount") %}
-      {%- for cat in sortedCats %}
-      {%- if loop.index <= 10 and cat.data.groupCount > 0 %}
-      <a href="/{{ cat.fileSlug }}/" class="popular-cat" data-umami-event="click-popular-cat">{{ cat.data.title }} <span>{{ cat.data.groupCount }}</span></a>
-      {%- endif %}
-      {%- endfor %}
+  <section class="hp-section" id="categories">
+    <p class="hp-section-title">Browse {{ totalGroups }}+ groups</p>
+    {%- for group in groups %}
+    <div class="hp-cat-group" id="group-{{ group.key }}">
+      <a href="#group-{{ group.key }}" class="hp-cat-group-label">{{ group.label | ampEscape | safe }}</a>
+      <div class="hp-cat-grid">
+        {%- for cat in collections.categories %}
+        {%- if cat.data.group == group.key %}
+        <a href="/{{ cat.fileSlug }}/" class="hp-cat-card" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">
+          <span class="hp-cat-card-top">
+            <span class="hp-cat-name">{{ cat.data.title }}</span>
+            {% if cat.data.groupCount > 0 %}<span class="hp-cat-count">{{ cat.data.groupCount }}</span>{% endif %}
+          </span>
+          <span class="hp-cat-desc">{{ cat.data.description | truncate(140) }}</span>
+        </a>
+        {%- endif %}
+        {%- endfor %}
+      </div>
     </div>
+    {%- endfor %}
   </section>
 
-  <div class="homepage-bottom">
-    <div class="builder-card">
-      <div class="builder-header">
-        <div class="builder-avatar" aria-hidden="true"></div>
-        <div>
-          <span class="builder-label">Built by</span>
-          <strong><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="builder-card">Patrick Bollenbach</a></strong>
-        </div>
-      </div>
-      <p class="builder-bio">I make community tools in Vancouver. <a href="mailto:vancouver@bolle.co" data-umami-event="click-contact-email">Get in touch</a>.</p>
-      <div class="builder-links">
-        <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-runclubs" data-umami-event-source="builder-card">runclubs.ca</a>
-        <span class="builder-link-sep">&middot;</span>
-        <a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-cuento" data-umami-event-source="builder-card">cuento.app</a>
-      </div>
-    </div>
-  </div>
-  <div class="homepage-footer">
-    <span id="homepage-total-views"></span>
-  </div>
+  <button class="hp-show-all-cats" id="show-all-cats">Show all categories</button>
+
+  {% include "partials/footer.njk" %}
+
+  </div><!-- end #homepage-browse-content -->
+
+
 </main>
-</div>
+<script>
+var _searchGroups = [
+{%- for cat in collections.categories -%}
+  {%- for item in cat.data.groupItems -%}
+  {n:"{{ item.name | replace('"', '\\"') | safe }}",d:"{{ item.description | replace('"', '\\"') | truncate(120) | safe }}",c:"{{ cat.data.title | safe }}",s:"{{ cat.fileSlug }}",id:"{{ item.name | slugify }}"},
+  {%- endfor -%}
+{%- endfor -%}
+];
+</script>
 {% include "partials/scripts.njk" %}
 </body>
 </html>

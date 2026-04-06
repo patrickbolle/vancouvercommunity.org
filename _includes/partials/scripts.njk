@@ -1,8 +1,34 @@
 <script>
-const categories = [{% for cat in collections.categories %}"{{ cat.fileSlug }}"{% if not loop.last %},{% endif %}{% endfor %}];
+var categories = [{% for cat in collections.categories %}"{{ cat.fileSlug }}"{% if not loop.last %},{% endif %}{% endfor %}];
 function goRandom() {
-  const cat = categories[Math.floor(Math.random() * categories.length)];
-  window.location.href = "/" + cat + "/";
+  var groups = window._searchGroups;
+  if (!groups || !groups.length) {
+    var cat = categories[Math.floor(Math.random() * categories.length)];
+    window.location.href = "/" + cat + "/";
+    return;
+  }
+  var g = groups[Math.floor(Math.random() * groups.length)];
+  var existing = document.getElementById('surprise-modal');
+  if (existing) existing.remove();
+  var modal = document.createElement('div');
+  modal.id = 'surprise-modal';
+  modal.className = 'surprise-modal';
+  modal.innerHTML =
+    '<div class="surprise-modal-inner">' +
+      '<button class="surprise-close" onclick="this.closest(\'.surprise-modal\').remove()" aria-label="Close">&times;</button>' +
+      '<p class="surprise-label">You should check out</p>' +
+      '<p class="surprise-name">' + g.n + '</p>' +
+      '<p class="surprise-desc">' + g.d + '</p>' +
+      '<p class="surprise-cat">' + g.c + '</p>' +
+      '<div class="surprise-actions">' +
+        '<a href="/' + g.s + '/#' + g.id + '" class="surprise-go">Take me there</a>' +
+        '<button onclick="this.closest(\'.surprise-modal\').remove(); goRandom();" class="surprise-again">Try another</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(modal);
+  requestAnimationFrame(function() { modal.classList.add('visible'); });
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.remove(); });
+  if (typeof umami !== 'undefined') umami.track('surprise', { group: g.n });
 }
 function sharePage(source, el) {
   var url = window.location.href;
@@ -21,20 +47,21 @@ function sharePage(source, el) {
     });
   }
 }
-fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
-  .then(r => r.json())
-  .then(data => {
-    window._statsData = data;
-    const path = window.location.pathname;
-    const pageViews = data.pages[path] || 0;
-    const totalViews = data.total.pageviews || 0;
-    const pageCounter = document.getElementById("page-views");
-    if (pageCounter) pageCounter.textContent = pageViews.toLocaleString() + " views";
-    const totalCounter = document.getElementById("total-views");
-    if (totalCounter) totalCounter.textContent = totalViews.toLocaleString() + " total views";
-    const homepageTotal = document.getElementById("homepage-total-views");
-    if (homepageTotal) homepageTotal.textContent = totalViews.toLocaleString() + " views";
-  })
-  .catch(() => {});
+if (!window._statsLoaded) {
+  window._statsLoaded = true;
+  fetch("https://vancouver-communities-stats.recipekit.workers.dev/")
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      window._statsData = data;
+      var path = window.location.pathname;
+      var pageViews = data.pages[path] || 0;
+      var totalViews = data.total.pageviews || 0;
+      var pageCounter = document.getElementById("page-views");
+      if (pageCounter) pageCounter.textContent = pageViews.toLocaleString() + " views";
+      var totalCounter = document.getElementById("total-views");
+      if (totalCounter) totalCounter.textContent = totalViews.toLocaleString() + " total views";
+    })
+    .catch(function() {});
+}
 </script>
 <script src="/_build/main.js"></script>
