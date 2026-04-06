@@ -1,0 +1,6 @@
+---
+layout: false
+permalink: /search-data.json
+eleventyExcludeFromCollections: true
+---
+[{% for cat in collections.categories %}{% for item in cat.data.groupItems %}{n:"{{ item.name | replace('"', '\\"') | safe }}",d:"{{ item.description | replace('"', '\\"') | truncate(120) | safe }}",c:"{{ cat.data.title | safe }}",s:"{{ cat.fileSlug }}",id:"{{ item.name | slugify }}"}{% if not loop.last %},{% endif %}{% endfor %}{% if not loop.last %},{% endif %}{% endfor %}]

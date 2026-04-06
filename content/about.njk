@@ -31,37 +31,44 @@ permalink: /about/
   </div>
 
   <div class="about-content page-content">
-    <section class="about-section">
-      <h2>Why this exists</h2>
-      <p>Vancouver consistently ranks as one of the hardest cities to make friends. This directory exists to make it a little easier. If you're new to the city, shy, or just looking for your people — start browsing.</p>
-    </section>
+    <div class="about-layout">
+      <div class="about-main">
+        <section class="about-section">
+          <h2>Why I built this</h2>
+          <p>After nearly a decade of traveling — 60+ countries, living out of a backpack — I got to see what community looks like in cities all over the world. Run clubs in Berlin, language exchanges in Buenos Aires, climbing groups in Taipei. People finding their people everywhere I went.</p>
+          <p>When I moved to Vancouver, I heard the stereotype: it's a lonely city, hard to break into. I found that reputation to be mostly earned. But I also found that hundreds of communities were already here — run clubs, craft nights, board game groups, climbing crews — quietly doing their thing, just hard to find.</p>
+          <p>So I started searching them out for myself. Then I started keeping a list. Then I figured: why not make this available to everyone? That list became this directory — {{ totalGroups }}+ groups, all free to browse.</p>
+        </section>
 
-    <section class="about-section">
-      <h2>How it works</h2>
-      <ul>
-        <li>Anyone can submit a group via the <a href="/submit/">submit form</a>.</li>
-        <li>Submissions are reviewed and added weekly.</li>
-        <li>The directory is maintained by <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Patrick Bollenbach</a>, a software developer in Vancouver who also built <a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">runclubs.ca</a>.</li>
-      </ul>
-    </section>
+        <section class="about-section">
+          <h2>How this works</h2>
+          <p>Anyone can <a href="/submit/">submit a group</a>. I review submissions and add new ones weekly. The whole thing is community-built — most of the best entries came from people who wanted to share something they love.</p>
+        </section>
 
-    <section class="about-section">
-      <h2>Press</h2>
-      <ul>
-        <li>CBC — April 6, 2026</li>
-      </ul>
-    </section>
+        <section class="about-section">
+          <h2>Get in touch</h2>
+          <p><a href="mailto:vancouver@bolle.co">vancouver@bolle.co</a></p>
+        </section>
+      </div>
 
-    <section class="about-section">
-      <h2>Get in touch</h2>
-      <p>Email: <a href="mailto:vancouver@bolle.co">vancouver@bolle.co</a></p>
-      <p>Have a group to add? <a href="/submit/">Submit it here</a>.</p>
-    </section>
+      <aside class="about-sidebar">
+        <img src="/patrick.jpg" alt="Patrick Bollenbach" class="about-sidebar-photo" loading="lazy">
+        <h3>Patrick Bollenbach</h3>
+        <p>Software developer in Vancouver. Spent a decade as a digital nomad across 60+ countries before putting down roots here.</p>
+        <div class="about-projects">
+          <h4>Other projects</h4>
+          <ul>
+            <li><a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">runclubs.ca</a> — Canada's run club directory</li>
+            <li><a href="https://recipekit.com?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Recipe Kit</a> — Recipe cards for Shopify</li>
+            <li><a href="https://cuento.app?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Cuento</a> — Local book club discovery</li>
+          </ul>
+        </div>
+        <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" class="about-sidebar-blog">bollenbach.ca</a>
+      </aside>
+    </div>
   </div>
 
-  <div class="cat-footer page-footer">
-    Made by <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Patrick Bollenbach</a> in Vancouver. <span id="total-views"></span>
-  </div>
+  {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}
 </body>

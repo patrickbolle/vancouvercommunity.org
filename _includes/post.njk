@@ -27,9 +27,7 @@
     {{ content | safe }}
   </div>
 
-  <div class="cat-footer page-footer">
-    <a href="/blog/">&larr; All posts</a> &middot; Made by <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Patrick Bollenbach</a> in Vancouver.
-  </div>
+  {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}
 </body>

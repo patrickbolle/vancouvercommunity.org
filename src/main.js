@@ -132,27 +132,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Page behaviors (run on load + after each swap) ---
 
   function initPage() {
-    // Make group cards clickable — open the group's visit link
+    // Make entire group card clickable — open the group's visit link
     document.querySelectorAll('.group-card').forEach(function(card) {
       if (card._bound) return;
       card._bound = true;
       var visitLink = card.querySelector('.group-card-link');
       var h2 = card.querySelector('h2');
       if (visitLink && h2) {
-        h2.style.cursor = 'pointer';
-        h2.setAttribute('tabindex', '0');
-        h2.setAttribute('role', 'link');
+        card.style.cursor = 'pointer';
         function activateCard(e) {
-          if (e.target.tagName === 'A') return;
+          // Don't intercept clicks on the anchor permalink
+          if (e.target.closest('.anchor')) return;
           window.open(visitLink.href, '_blank', 'noopener');
           var category = window.location.pathname.replace(/^\/|\/$/g, '');
           var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
           setTimeout(function() { showVerifyToast(groupName, visitLink.href, category); }, 600);
         }
-        h2.addEventListener('click', activateCard);
-        h2.addEventListener('keydown', function(e) {
-          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateCard(e); }
-        });
+        card.addEventListener('click', activateCard);
       }
     });
 
@@ -186,6 +182,16 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
+    // Show all categories button (mobile)
+    var showAllBtn = document.getElementById('show-all-cats');
+    if (showAllBtn && !showAllBtn._bound) {
+      showAllBtn._bound = true;
+      showAllBtn.addEventListener('click', function() {
+        document.querySelectorAll('.hp-cat-group').forEach(function(g) { g.classList.add('show'); });
+        showAllBtn.style.display = 'none';
+      });
+    }
+
     // Topbar Browse dropdown
     var browseEl = document.getElementById('topbar-browse');
     if (browseEl && !browseEl._bound) {
@@ -201,6 +207,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!browseEl.contains(e.target)) {
           browseEl.classList.remove('open');
           browseBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+      // Close on Escape
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && browseEl.classList.contains('open')) {
+          browseEl.classList.remove('open');
+          browseBtn.setAttribute('aria-expanded', 'false');
+          browseBtn.focus();
         }
       });
     }
@@ -228,22 +242,21 @@ document.addEventListener('DOMContentLoaded', function() {
       groupSearch._bound = true;
       var _searchDebounce = null;
       var _trackDebounce = null;
-      var resultsEl = document.getElementById('search-results');
-      var browseEl = document.getElementById('homepage-browse-content');
 
       groupSearch.addEventListener('input', function() {
         var q = this.value.trim().toLowerCase();
+        var resultsEl = document.getElementById('search-results');
         clearTimeout(_searchDebounce);
         clearTimeout(_trackDebounce);
 
         if (!q) {
-          resultsEl.style.display = 'none';
-          resultsEl.innerHTML = '';
-          if (browseEl) browseEl.style.display = '';
+          if (resultsEl) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; }
           return;
         }
 
         _searchDebounce = setTimeout(function() {
+          var resultsEl = document.getElementById('search-results');
+          if (!resultsEl) return;
           var groups = window._searchGroups || [];
           var matches = groups.filter(function(g) {
             return g.n.toLowerCase().indexOf(q) !== -1 ||
@@ -251,7 +264,6 @@ document.addEventListener('DOMContentLoaded', function() {
                    g.c.toLowerCase().indexOf(q) !== -1;
           });
 
-          if (browseEl) browseEl.style.display = 'none';
           resultsEl.style.display = '';
 
           if (matches.length === 0) {
@@ -328,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Outbound link verification toast ---
 
   document.addEventListener('click', function(e) {
-    var link = e.target.closest('.content a[href^="http"]');
+    var link = e.target.closest('main a[href^="http"]');
     if (!link) return;
 
     // Card layout: "Visit →" links

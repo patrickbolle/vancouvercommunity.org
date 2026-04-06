@@ -22,47 +22,51 @@ permalink: /submit/
   </div>
   <div class="page-content">
 
-  <form id="submit-form" class="form">
-    <div class="form-field">
-      <label class="form-label" for="submit-name">Group Name *</label>
-      <input class="form-input" type="text" id="submit-name" name="name" required>
+  <form id="submit-form" class="form submit-form">
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label" for="submit-name">Group name *</label>
+        <input class="form-input" type="text" id="submit-name" name="name" required placeholder="e.g. Kits Social Run Club">
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="submit-category">Category *</label>
+        <select class="form-input" id="submit-category" name="category" required>
+          <option value="">Select a category...</option>
+          {%- for cat in collections.categories %}
+          <option value="{{ cat.data.title }}">{{ cat.data.title }}</option>
+          {%- endfor %}
+          <option value="Other">Other / not sure</option>
+        </select>
+      </div>
     </div>
     <div class="form-field">
-      <label class="form-label" for="submit-category">Category *</label>
-      <select class="form-input" id="submit-category" name="category" required>
-        <option value="">Select a category...</option>
-        {%- for cat in collections.categories %}
-        <option value="{{ cat.data.title }}">{{ cat.data.title }}</option>
-        {%- endfor %}
-        <option value="Other">Other</option>
-      </select>
+      <label class="form-label" for="submit-description">What does this group do? *</label>
+      <textarea class="form-input" id="submit-description" name="description" required rows="3" placeholder="e.g. Weekly social runs in Kitsilano. All paces welcome, free to join."></textarea>
     </div>
     <div class="form-field">
-      <label class="form-label" for="submit-description">What is it? *</label>
-      <textarea class="form-input" id="submit-description" name="description" required rows="3" placeholder="What does this group do?"></textarea>
+      <label class="form-label" for="submit-link">Website, Instagram, or Meetup link</label>
+      <input class="form-input" type="url" id="submit-link" name="link" placeholder="https://instagram.com/yourgroup">
     </div>
-    <div class="form-field">
-      <label class="form-label" for="submit-link">Website or Social Link</label>
-      <input class="form-input" type="url" id="submit-link" name="link" placeholder="https://...">
+    <div class="form-row">
+      <div class="form-field">
+        <label class="form-label" for="submit-cost">Cost</label>
+        <select class="form-input" id="submit-cost" name="cost">
+          <option value="">Not sure</option>
+          <option value="Free">Free</option>
+          <option value="By Donation">By donation</option>
+          <option value="Paid">Paid</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label class="form-label" for="submit-availability">Who can join?</label>
+        <select class="form-input" id="submit-availability" name="availability">
+          <option value="">Not sure</option>
+          <option value="Open to All">Open to all</option>
+          <option value="Membership Required">Membership required</option>
+        </select>
+      </div>
     </div>
-    <div class="form-field">
-      <label class="form-label" for="submit-cost">Cost</label>
-      <select class="form-input" id="submit-cost" name="cost">
-        <option value="">Not sure</option>
-        <option value="Free">Free</option>
-        <option value="By Donation">By Donation</option>
-        <option value="Paid">Paid</option>
-      </select>
-    </div>
-    <div class="form-field">
-      <label class="form-label" for="submit-availability">Who can join?</label>
-      <select class="form-input" id="submit-availability" name="availability">
-        <option value="">Not sure</option>
-        <option value="Open to All">Open to All</option>
-        <option value="Membership Required">Membership Required</option>
-      </select>
-    </div>
-    <button class="form-submit" type="submit">Submit</button>
+    <button class="form-submit" type="submit">Submit group</button>
     <p class="form-status" id="form-status"></p>
   </form>
 
@@ -99,6 +103,7 @@ permalink: /submit/
   });
   </script>
   </div>
+  {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}
 </body>

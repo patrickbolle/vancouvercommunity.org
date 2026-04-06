@@ -96,30 +96,43 @@
 
 <main id="main-content">
   {%- set groupLabel = "" %}
+  {%- set groupKey = "" %}
   {%- for g in groups %}
     {%- for cat in collections.categories %}
       {%- if cat.data.group == g.key and cat.fileSlug == page.fileSlug %}
         {%- set groupLabel = g.label %}
+        {%- set groupKey = g.key %}
       {%- endif %}
     {%- endfor %}
   {%- endfor %}
-  <div class="breadcrumbs">
-    <a href="/">Home</a> <span>&rsaquo;</span>
-    {% if groupLabel %}<span>{{ groupLabel }}</span> <span>&rsaquo;</span>{% endif %}
-    <span class="breadcrumb-current">{{ title }}</span>
-  </div>
-
   <div class="cat-hero">
     <div class="cat-hero-wrap">
-      <h1 class="cat-title">{{ title }} in Vancouver</h1>
-      <p class="cat-desc">{{ description }}</p>
-      <div class="cat-actions">
-        <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a>
-        <span class="hp-sep">&middot;</span>
-        <button type="button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button>
-        <span class="hp-sep">&middot;</span>
-        <button type="button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button>
-        <span id="page-views" class="cat-views"></span>
+      <div class="cat-hero-main">
+        <div class="breadcrumbs">
+          <a href="/">Home</a> <span>&rsaquo;</span>
+          {% if groupLabel %}<a href="/#group-{{ groupKey }}">{{ groupLabel }}</a> <span>&rsaquo;</span>{% endif %}
+          <span class="breadcrumb-current">{{ title }}</span>
+        </div>
+        <h1 class="cat-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
+        <p class="cat-desc">{{ description }}</p>
+        <div class="cat-actions">
+          <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a>
+          <span class="hp-sep">&middot;</span>
+          <button type="button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button>
+          <span class="hp-sep">&middot;</span>
+          <button type="button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button>
+          <span id="page-views" class="cat-views"></span>
+        </div>
+      </div>
+      <div class="hp-hero-newsletter">
+        <p class="hp-hero-nl-heading">The Vancouver roundup</p>
+        <p class="hp-hero-nl-desc">A weekly email with the newest groups added to the directory, plus community picks.</p>
+        <form class="newsletter-form" data-umami-event="newsletter-signup">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+        </form>
+        <span class="newsletter-status"></span>
+        <p class="hp-hero-nl-note">Free. No spam. Unsubscribe anytime.</p>
       </div>
     </div>
   </div>
@@ -128,9 +141,7 @@
     {{ content | stripH1 | cardify | safe }}
   </div>
 
-  <div class="cat-footer">
-    Made by <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" data-umami-event="click-bollenbach" data-umami-event-source="category-footer">Patrick Bollenbach</a> in Vancouver. <span id="total-views"></span>
-  </div>
+  {% include "partials/footer.njk" %}
 </main>
 
 <!-- Suggest Edit Modal -->

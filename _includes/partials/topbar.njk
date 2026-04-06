@@ -1,6 +1,6 @@
 <nav class="topbar" id="topbar">
   <div class="topbar-inner">
-    <a href="/" class="topbar-logo"><span class="topbar-logo-text">Vancouver</span> <span class="topbar-logo-text topbar-logo-italic">Community</span></a>
+    <a href="/" class="topbar-logo"><span class="topbar-logo-van">Vancouver</span> <span class="topbar-logo-com">Community</span></a>
     <div class="topbar-actions">
       <div class="topbar-browse" id="topbar-browse">
         <button class="topbar-browse-btn" aria-expanded="false" aria-controls="topbar-dropdown">Browse <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -21,8 +21,8 @@
           </div>
         </div>
       </div>
-      <a href="/about/" class="topbar-submit" data-umami-event="click-about" data-umami-event-source="topbar">About</a>
-      <a href="/submit/" class="topbar-submit" data-umami-event="click-submit-cta" data-umami-event-source="topbar">Submit</a>
+      <a href="/about/" class="topbar-link" data-umami-event="click-about" data-umami-event-source="topbar">About</a>
+      <a href="/submit/" class="topbar-cta" data-umami-event="click-submit-cta" data-umami-event-source="topbar">Submit a group</a>
       <button class="topbar-hamburger" id="topbar-hamburger" aria-expanded="false" aria-label="Menu">
         <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
@@ -30,24 +30,12 @@
   </div>
   <div class="topbar-mobile-menu" id="topbar-mobile-menu">
     <div class="topbar-mobile-inner">
-      {%- for group in groups %}
-      <div class="topbar-mobile-group">
-        <p class="topbar-mobile-group-label">{{ group.label | ampEscape | safe }}</p>
-        <div class="topbar-mobile-list">
-          {%- for cat in collections.categories %}
-          {%- if cat.data.group == group.key %}
-          <a href="/{{ cat.fileSlug }}/">{{ cat.data.title }}{% if cat.data.groupCount > 0 %} <span class="browse-count">{{ cat.data.groupCount }}</span>{% endif %}</a>
-          {%- endif %}
-          {%- endfor %}
-        </div>
-      </div>
-      {%- endfor %}
-      <div class="topbar-mobile-links">
-        <a href="/submit/" class="topbar-mobile-submit">Submit a group</a>
-        <a href="/start-here/">New to Vancouver</a>
-        <a href="/blog/">Blog</a>
-        <a href="/about/">About</a>
-      </div>
+      <a href="/" class="topbar-mobile-link">Home</a>
+      <a href="/#categories" class="topbar-mobile-link">Browse categories</a>
+      <a href="/start-here/" class="topbar-mobile-link">New to Vancouver</a>
+      <a href="/submit/" class="topbar-mobile-link">Submit a group</a>
+      <a href="/blog/" class="topbar-mobile-link">Blog</a>
+      <a href="/about/" class="topbar-mobile-link">About</a>
     </div>
   </div>
 </nav>

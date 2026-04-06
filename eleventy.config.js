@@ -129,11 +129,18 @@ module.exports = function (eleventyConfig) {
         var urlM = findIt.match(/href="([^"]+)"/);
         var url = urlM ? urlM[1] : "";
 
+        // Detect "Free" from cost field or description
+        var badge = cost;
+        if (!badge) {
+          var plainDesc = desc.replace(/<[^>]+>/g, "").toLowerCase();
+          if (/\bfree\b/.test(plainDesc)) badge = "Free";
+        }
+
         var c = '<div class="group-card" id="' + id + '">';
         c += '<div class="group-card-header">';
         c += "<h2>" + name + "</h2>";
-        if (cost)
-          c += '<span class="group-card-badge">' + cost + "</span>";
+        if (badge)
+          c += '<span class="group-card-badge">' + badge + "</span>";
         c += "</div>";
         if (desc) c += '<p class="group-card-desc">' + desc + "</p>";
         var metas = [];
