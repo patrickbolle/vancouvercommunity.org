@@ -33,7 +33,7 @@ order: 7
 
 ## SFU Trottier Observatory
 - **What:** Public observing nights with high-powered telescopes. Educational, open to the public on clear nights
-- **Find it:** [sfu.ca/science/trottier-observatory](https://www.sfu.ca/science/trottier-observatory.html)
+- **Find it:** [sfu.ca/science/community/trottier-observatory](https://www.sfu.ca/science/community/trottier-observatory---courtyard.html)
 
 ## H.R. MacMillan Space Centre
 - **What:** Planetarium shows and special astronomy events. Family-friendly, educational programs
