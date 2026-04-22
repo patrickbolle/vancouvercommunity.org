@@ -47,3 +47,6 @@ order: 1
 - **What:** Off-the-beaten-path book selections. Literary, iconoclastic reads
 - **Find it:** [meetup.com/vanunconventionalbooks](https://meetup.com/vanunconventionalbooks)
 
+## Vancouver Fantasy & Sci-Fi Group
+- **What:** A discussion group for science fiction, fantasy, anime, and speculative fiction — treated seriously as machines for ideas. Not trivia, not fandom flexing, not lore debates. Events meet weekly and cover anime discussions (Psycho-Pass, Steins;Gate, Neon Genesis Evangelion), sci-fi film nights (The Matrix, WALL-E, Project Hail Mary), fantasy book clubs (Lord of the Rings, The Odyssey), and short speculative fiction (Ken Liu, Ursula Le Guin). The tone is serious but not pretentious. Every story is a way to talk about power, identity, technology, fear, freedom, and what it means to be human. For people who love genre but want to talk like adults. Free to join, open to all.
+- **Find it:** [meetup.com/vancouver-fantasy-scifi-meetup-group](https://www.meetup.com/vancouver-fantasy-scifi-meetup-group/)
