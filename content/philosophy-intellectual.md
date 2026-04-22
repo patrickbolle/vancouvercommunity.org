@@ -39,3 +39,7 @@ order: 2
 - **What:** Open philosophical inquiry for everyone. Socratic method, no expertise required
 - **Find it:** [meetup.com/topics/socratescafe](https://www.meetup.com/topics/socratescafe/) (check for Vancouver events)
 
+## Vancouver Curiosity Club
+- **What:** Community for curious adults who want to do real things together and talk about them meaningfully. Philosophy and essay nights (Plato, Shelley, Emerson, Bacon — framed around modern problems), meditation and journaling circles, silent reading parties, restaurant outings, gallery visits, film discussions, and social nights. Intelligent but not academic, social but not chaotic
+- **Find it:** [meetup.com/vancouver-meetup-group](https://www.meetup.com/vancouver-meetup-group/)
+
