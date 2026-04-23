@@ -23,6 +23,11 @@ order: 3
 - **What:** Canada's longest-running Asian film festival. Year-round programs, November festival
 - **Find it:** [vaff.org](https://vaff.org/)
 
+
+## Vancouver Literature and Film
+- **What:** Vancouver Literature and Film is for people who want serious books, classic texts, Shakespeare, poetry, essays, screenplays, and cinema to feel alive again. We host discussion nights, reading sessions, film conversations, theatre and cinema outings, and classic works reframed through modern life: ego, ambition, grief, power, love, control, shame, beauty, and moral compromise. Not school. Not museum homework. A room for people who still think art can bite.
+- **Find it:** [meetup.com/vancouver-literature-and-film](https://www.meetup.com/vancouver-literature-and-film/)
+
 ---
 
 ## Venues & Spaces
