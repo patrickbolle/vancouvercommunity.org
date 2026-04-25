@@ -10,11 +10,6 @@ order: 3
 
 # 🚴 Cycling
 
-## Gradient Cycling Club
-- **What:** Social rides Wednesdays 6:30pm, Saturdays 8:30am
-- **Where:** Meet at Pure Bread (5 E. 5th Ave)
-- **Find it:** [Instagram](https://instagram.com/gradient_cycle)
-
 ## Lotus Cycling Club
 - **What:** Road cycling, group rides, training, workshops
 - **Find it:** [lotuscyclingclub.com](https://www.lotuscyclingclub.com/)
