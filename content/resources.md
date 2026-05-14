@@ -20,10 +20,6 @@ order: 3
 - **What:** Reddit community for Vancouver friend-making
 - **Find it:** [reddit.com/r/Vancouver4Friends](https://www.reddit.com/r/Vancouver4Friends/)
 
-## Mix & Mingle Vancouver
-- **What:** Blog/guide to Vancouver social clubs
-- **Find it:** [mixandmingle.ca](https://www.mixandmingle.ca/)
-
 ## Meetup Vancouver
 - **What:** Aggregator for all kinds of social groups
 - **Find it:** [meetup.com/cities/ca/bc/vancouver](https://meetup.com/cities/ca/bc/vancouver)
