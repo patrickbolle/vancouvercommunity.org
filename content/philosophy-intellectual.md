@@ -31,10 +31,6 @@ order: 2
 - **What:** General intellectual discussions on varied topics. Open-minded, curious participants
 - **Find it:** [meetup.com/vancouver-discussions-meetup-group](https://www.meetup.com/vancouver-discussions-meetup-group/)
 
-## SFU Philosophy Café
-- **What:** Public philosophy discussions. Academic but accessible
-- **Find it:** [sfu.ca/philosophy/events](https://www.sfu.ca/philosophy/events.html)
-
 ## Socrates Café Vancouver
 - **What:** Open philosophical inquiry for everyone. Socratic method, no expertise required
 - **Find it:** [meetup.com/topics/socratescafe](https://www.meetup.com/topics/socratescafe/) (check for Vancouver events)
