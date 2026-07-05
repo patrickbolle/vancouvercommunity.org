@@ -180,7 +180,7 @@
     <div class="start-groups">
       {%- for cat in relatedCats %}
       <a href="/{{ cat.fileSlug }}/" class="start-group-card" data-umami-event="click-related-category" data-umami-event-category="{{ cat.fileSlug }}">
-        <span class="start-group-name">{{ cat.data.emoji }} {{ cat.data.title }}</span>
+        <span class="start-group-name">{{ cat.data.title }}</span>
         <span class="start-group-desc">{{ cat.data.description | truncate(100) }}</span>
       </a>
       {%- endfor %}

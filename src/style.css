@@ -2456,12 +2456,6 @@ textarea.form-input { resize: vertical; }
 .hp-origin:hover span { color: var(--accent); }
 .hp-origin:visited { color: var(--text-muted); }
 
-.hp-cat-emoji {
-  font-size: 0.9em;
-  margin-right: 2px;
-  opacity: 0.85;
-}
-
 .cat-facts {
   background: var(--bg-card);
   border: 1px solid var(--border);
