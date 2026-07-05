@@ -1,0 +1,8 @@
+{
+  "_docs": "Newsletter classifieds ($25/issue, sold via /advertise/). The newsletter script includes the first active listing per issue, clearly labeled. Fields: text (1-2 neighborly sentences, markdown links allowed), until (optional YYYY-MM-DD last-run date — omit for run-until-removed). Entries past their 'until' date are skipped automatically.",
+  "_example": {
+    "text": "Example Clay Studio in Mount Pleasant has two spots left in its 6-week beginner wheel course starting August. [See class times](https://example.com).",
+    "until": "2026-08-01"
+  },
+  "listings": []
+}

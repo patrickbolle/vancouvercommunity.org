@@ -9,9 +9,10 @@ const BUTTONDOWN_API = "https://api.buttondown.com/v1";
 const API_KEY = process.env.BUTTONDOWN_API_KEY;
 const SITE_URL = "https://vancouvercommunity.org";
 const CONTENT_DIR = join(process.cwd(), "content");
+const DRY_RUN = process.argv.includes("--dry-run");
 
-if (!API_KEY) {
-  console.error("BUTTONDOWN_API_KEY is required");
+if (!API_KEY && !DRY_RUN) {
+  console.error("BUTTONDOWN_API_KEY is required (or pass --dry-run to preview)");
   process.exit(1);
 }
 
@@ -82,6 +83,20 @@ function getSpotlightCategory() {
   return { title, emoji, slug, groups };
 }
 
+// ── Classified (one per issue, sold via /advertise/) ───────────
+
+function getClassified() {
+  try {
+    const data = JSON.parse(
+      readFileSync(join(process.cwd(), "_data", "classifieds.json"), "utf-8")
+    );
+    const today = new Date().toISOString().slice(0, 10);
+    return (data.listings || []).find((c) => c.text && (!c.until || c.until >= today)) || null;
+  } catch {
+    return null;
+  }
+}
+
 // ── Pretty category name from slug ─────────────────────────────
 
 function prettyCategory(slug) {
@@ -133,7 +148,7 @@ async function getOpener() {
 
 // ── Email HTML template ────────────────────────────────────────
 
-async function buildEmail(adds, spotlight) {
+async function buildEmail(adds, spotlight, classified) {
   let sections = "";
 
   // New additions
@@ -158,6 +173,13 @@ async function buildEmail(adds, spotlight) {
     sections += `[All ${spotlight.title} →](${SITE_URL}/${spotlight.slug})\n\n`;
   }
 
+  // Classified (clearly labeled, one per issue)
+  if (classified) {
+    sections += `## Classified\n\n`;
+    sections += `${classified.text}\n\n`;
+    sections += `*Classifieds are paid and keep the directory free — [book one](${SITE_URL}/advertise/).*\n\n`;
+  }
+
   return await buildBody(sections);
 }
 
@@ -169,13 +191,14 @@ ${sections}
 
 ---
 
-[Browse the directory](${SITE_URL})`;
+[Browse the directory](${SITE_URL}) · [Sponsor the directory](${SITE_URL}/advertise/)`;
 }
 
 // ── Main ───────────────────────────────────────────────────────
 
 const changes = getRecentChanges();
 const spotlight = getSpotlightCategory();
+const classified = getClassified();
 
 const datePart = new Date().toLocaleDateString("en-CA", { month: "short", day: "numeric" });
 
@@ -188,7 +211,12 @@ if (changes.adds.length > 0) {
   subject = `${spotlight?.emoji} ${spotlight?.title} — groups you might not know about`;
 }
 
-const html = await buildEmail(changes.adds, spotlight);
+const html = await buildEmail(changes.adds, spotlight, classified);
+
+if (DRY_RUN) {
+  console.log(`\nSubject: ${subject}\n\n${html}`);
+  process.exit(0);
+}
 
 // Create draft in Buttondown
 const res = await fetch(`${BUTTONDOWN_API}/emails`, {

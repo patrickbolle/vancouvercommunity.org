@@ -11,6 +11,15 @@ on:
       - 'static/**'
       - 'eleventy.config.js'
       - 'package.json'
+  pull_request:
+    paths:
+      - 'content/**'
+      - '_includes/**'
+      - '_data/**'
+      - 'src/**'
+      - 'static/**'
+      - 'eleventy.config.js'
+      - 'package.json'
 
 jobs:
   build:
