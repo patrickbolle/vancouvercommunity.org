@@ -59,6 +59,14 @@ module.exports = function (eleventyConfig) {
       const h2s = beforeHr.match(/^## /gm);
       cat.data.groupCount = h2s ? h2s.length : 0;
 
+      // Total listings including venues (minus section headers like
+      // "Venues & Resources") — used for count badges so they match
+      // what a visitor actually sees on the page.
+      const allH2s = body.match(/^## .+$/gm) || [];
+      cat.data.listingCount = allH2s.filter(
+        (h) => !/venues?\s*(&|and)\s*(resources|spaces)/i.test(h)
+      ).length;
+
       // Extract structured group data for schema markup
       const sections = beforeHr.split(/^## /m).slice(1); // skip content before first h2
       cat.data.groupItems = sections.map((section) => {
@@ -156,11 +164,19 @@ module.exports = function (eleventyConfig) {
         if (size) metas.push('<span class="group-card-size">' + size + "</span>");
         if (metas.length)
           c += '<div class="group-card-meta">' + metas.join("") + "</div>";
-        if (url)
+        if (url) {
+          var linkLabel = "Visit";
+          try {
+            var host = new URL(url).hostname.replace(/^www\./, "");
+            if (host.length <= 28) linkLabel = host;
+          } catch (e) {}
           c +=
             '<a href="' +
             url +
-            '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">Visit \u2192</a>';
+            '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' +
+            linkLabel +
+            " \u2192</a>";
+        }
         c += '<a class="anchor" href="#' + id + '">#</a>';
         c += "</div>";
         return c;
