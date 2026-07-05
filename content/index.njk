@@ -132,7 +132,7 @@ permalink: /
         {%- if cat.data.group == group.key %}
         <a href="/{{ cat.fileSlug }}/" class="hp-cat-card" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">
           <span class="hp-cat-card-top">
-            {% if cat.data.emoji %}<span class="hp-cat-emoji" aria-hidden="true">{{ cat.data.emoji }}</span>{% endif %}<span class="hp-cat-name">{{ cat.data.title }}</span>
+            <span class="hp-cat-name">{{ cat.data.title }}</span>
             {% if cat.data.listingCount > 0 %}<span class="hp-cat-count">{{ cat.data.listingCount }}</span>{% endif %}
           </span>
           <span class="hp-cat-desc">{{ cat.data.description | truncate(140) }}</span>

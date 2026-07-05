@@ -88,7 +88,7 @@ eleventyExcludeFromCollections: true
     {%- endfor %}
     {%- if catFree.length %}
     <section class="start-section">
-      <h2 class="start-section-title">{{ cat.data.emoji }} <a href="/{{ cat.fileSlug }}/">{{ cat.data.title }}</a></h2>
+      <h2 class="start-section-title"><a href="/{{ cat.fileSlug }}/">{{ cat.data.title }}</a></h2>
       <div class="start-groups">
         {%- for item in catFree %}
         <a href="/{{ cat.fileSlug }}/#{{ item.name | mdAnchor }}" class="start-group-card" data-umami-event="click-free-group" data-umami-event-category="{{ cat.fileSlug }}">
