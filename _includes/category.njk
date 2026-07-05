@@ -124,15 +124,21 @@
           <span id="page-views" class="cat-views"></span>
         </div>
       </div>
-      <div class="hp-hero-newsletter">
-        <p class="hp-hero-nl-heading">The Vancouver roundup</p>
-        <p class="hp-hero-nl-desc">A weekly email with the newest groups added to the directory, plus community picks.</p>
-        <form class="newsletter-form" data-umami-event="newsletter-signup">
-          <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
-          <button type="submit" class="newsletter-btn">Subscribe</button>
-        </form>
-        <span class="newsletter-status"></span>
-        <p class="hp-hero-nl-note">Free. No spam. Unsubscribe anytime.</p>
+      {%- set freeInCat = 0 %}
+      {%- for item in groupItems %}
+        {%- if item.free %}{% set freeInCat = freeInCat + 1 %}{% endif %}
+      {%- endfor %}
+      <div class="cat-facts">
+        <p class="cat-facts-row">
+          <span class="cat-facts-stat"><strong>{{ listingCount }}</strong> listed</span>
+          {%- if freeInCat > 0 %}
+          <span class="cat-facts-sep">&middot;</span>
+          <span class="cat-facts-stat"><strong>{{ freeInCat }}</strong> free</span>
+          {%- endif %}
+          <span class="cat-facts-sep">&middot;</span>
+          <span class="cat-facts-stat">updated {% buildDateHuman %}</span>
+        </p>
+        <p class="cat-facts-note">New groups added most weeks — <a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">get them by email</a> or <a href="/feed.xml">RSS</a>.</p>
       </div>
     </div>
   </div>
