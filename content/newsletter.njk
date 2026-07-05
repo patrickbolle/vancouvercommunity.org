@@ -1,0 +1,70 @@
+---
+layout: false
+permalink: /newsletter/
+eleventyExcludeFromCollections: true
+---
+{%- set totalGroups = 0 %}
+{%- for cat in collections.categories %}
+  {%- set totalGroups = totalGroups + cat.data.groupCount %}
+{%- endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>The Vancouver Roundup — A Weekly Newsletter About Community in Vancouver | {{ site.title }}</title>
+  <meta name="description" content="A free weekly email with the newest groups added to the Vancouver Community Directory, plus a spotlight on communities you might not know about. No spam, unsubscribe anytime.">
+  <meta property="og:title" content="The Vancouver Roundup — weekly community newsletter">
+  <meta property="og:description" content="The newest groups in Vancouver's community directory, in your inbox once a week. Free, no spam.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/newsletter/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Vancouver Roundup — weekly community newsletter">
+  <meta name="twitter:description" content="The newest groups in Vancouver's community directory, in your inbox once a week. Free, no spam.">
+  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/newsletter/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="start-hero-wrap">
+      <h1 class="cat-title">The Vancouver roundup</h1>
+      <p class="cat-desc">One email a week: the newest groups added to the directory, plus a spotlight on a corner of Vancouver's community you might not know about. Written by a person, not a marketing team.</p>
+    </div>
+  </div>
+
+  <div class="page-content prose-content">
+
+    <div class="newsletter-page-signup">
+      <form class="newsletter-form" data-umami-event="newsletter-signup">
+        <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+      <span class="newsletter-status"></span>
+      <p class="newsletter-page-note">Free. No spam. Unsubscribe anytime.</p>
+    </div>
+
+    <h2>What's inside</h2>
+    <ul>
+      <li><strong>Just added</strong> — every new group that joined the directory this week, with a one-line description and a direct link. The directory tracks {{ totalGroups }}+ groups across {{ collections.categories.length }} categories, and it grows most weeks.</li>
+      <li><strong>The spotlight</strong> — each issue digs into one category (sauna crews, zine makers, birding walks…) and pulls out a few groups worth knowing about, whether you're new to the city or have lived here for decades.</li>
+      <li><strong>The weather-honest opener</strong> — yes, the email checks the forecast and admits when it's raining.</li>
+    </ul>
+
+    <h2>Why it exists</h2>
+    <p>Vancouver can feel like a hard city to make friends in. The directory exists to prove there's more going on here than people think — and the roundup is the low-effort way to keep a finger on it. Most people who find their group found it because someone happened to mention it at the right time. This email is that someone.</p>
+
+    <h2>The fine print</h2>
+    <p>It's free, it's weekly, and your email is used for exactly one thing: sending it. Occasionally an issue carries one clearly-labeled paid classified from a local business — that's what <a href="/advertise/">keeps the directory free</a>. Unsubscribe is one click, no guilt trip.</p>
+
+    <p>Prefer RSS? The site has <a href="/feed.xml">a feed</a> too. Or just <a href="/">browse the directory</a> whenever.</p>
+
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

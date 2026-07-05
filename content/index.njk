@@ -107,7 +107,7 @@ permalink: /
     <div class="recent-groups">
       {%- for group in recentGroups %}
       {%- if loop.index <= 4 %}
-      <a href="/{{ group.categorySlug }}/#{{ group.name | slugify }}" class="recent-group" data-umami-event="click-recent-group">
+      <a href="/{{ group.categorySlug }}/#{{ group.name | mdAnchor }}" class="recent-group" data-umami-event="click-recent-group">
         <span class="recent-group-tag">New</span>
         <span class="recent-group-name">{{ group.name }}</span>
         <span class="recent-group-desc">{{ group.description | truncate(80) }}</span>
@@ -152,7 +152,7 @@ permalink: /
 var _searchGroups = [
 {%- for cat in collections.categories -%}
   {%- for item in cat.data.groupItems -%}
-  {n:"{{ item.name | replace('"', '\\"') | safe }}",d:"{{ item.description | replace('"', '\\"') | truncate(120) | safe }}",c:"{{ cat.data.title | safe }}",s:"{{ cat.fileSlug }}",id:"{{ item.name | slugify }}"},
+  {n:"{{ item.name | replace('"', '\\"') | safe }}",d:"{{ item.description | replace('"', '\\"') | truncate(120) | safe }}",c:"{{ cat.data.title | safe }}",s:"{{ cat.fileSlug }}",id:"{{ item.name | mdAnchor }}"},
   {%- endfor -%}
 {%- endfor -%}
 ];

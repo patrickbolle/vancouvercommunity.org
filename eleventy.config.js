@@ -67,11 +67,16 @@ module.exports = function (eleventyConfig) {
         const whatMatch = section.match(/\*\*What:\*\*\s*(.+)/);
         const findMatch = section.match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
         const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
+        const costMatch = section.match(/\*\*Cost:\*\*\s*(.+)/);
+        const free =
+          /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
+          /\bfree\b/i.test(whatMatch ? whatMatch[1] : "");
         return {
           name,
           description: whatMatch ? whatMatch[1].trim() : "",
           url: findMatch ? findMatch[1] : "",
           location: whereMatch ? whereMatch[1].trim() : "",
+          free,
         };
       }).filter((g) => g.name && g.description);
     }
@@ -161,6 +166,14 @@ module.exports = function (eleventyConfig) {
         return c;
       }
     );
+  });
+
+  // --- Filter: anchor ID matching markdown-it-anchor's default slugify ---
+  // (Eleventy's `slugify` strips punctuation differently and produces broken
+  // deep links for names like "Y Adventure Kommunity (YAK)" — use this for
+  // any link targeting a group's h2 anchor.)
+  eleventyConfig.addFilter("mdAnchor", function (s) {
+    return encodeURIComponent(String(s).trim().toLowerCase().replace(/\s+/g, "-"));
   });
 
   // --- Filter: HTML-escape ampersands for sidebar labels ---

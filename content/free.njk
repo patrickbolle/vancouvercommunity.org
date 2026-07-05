@@ -1,0 +1,117 @@
+---
+layout: false
+permalink: /free/
+eleventyExcludeFromCollections: true
+---
+{%- set freeCount = 0 %}
+{%- for cat in collections.categories %}
+  {%- for item in cat.data.groupItems %}
+    {%- if item.free %}{% set freeCount = freeCount + 1 %}{% endif %}
+  {%- endfor %}
+{%- endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>{{ freeCount }}+ Free Things to Do in Vancouver — Groups & Meetups (2026) | {{ site.title }}</title>
+  <meta name="description" content="Free ways to meet people in Vancouver: {{ freeCount }}+ groups and meetups that cost nothing to join — run clubs, salsa nights, book clubs, hiking crews, and more. Just show up.">
+  <meta property="og:title" content="{{ freeCount }}+ Free Things to Do in Vancouver">
+  <meta property="og:description" content="Free ways to meet people in Vancouver — groups and meetups that cost nothing to join. Just show up.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/free/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ freeCount }}+ Free Things to Do in Vancouver">
+  <meta name="twitter:description" content="Free ways to meet people in Vancouver — groups and meetups that cost nothing to join.">
+  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/free/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Free Things to Do in Vancouver",
+    "description": "Free groups and meetups in Vancouver, BC — activities that cost nothing to join.",
+    "url": "{{ site.url }}/free/",
+    "numberOfItems": {{ freeCount }},
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "{{ site.title }}",
+      "url": "{{ site.url }}"
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": {{ freeCount }},
+      "itemListElement": [
+        {%- set pos = 0 %}
+        {%- for cat in collections.categories %}
+        {%- for item in cat.data.groupItems %}
+        {%- if item.free %}
+        {%- set pos = pos + 1 %}
+        {% if pos > 1 %},{% endif %}{
+          "@type": "ListItem",
+          "position": {{ pos }},
+          "item": {
+            "@type": "Organization",
+            "name": "{{ item.name | replace('"', '\\"') }}",
+            "description": "{{ item.description | replace('"', '\\"') }}"{% if item.url %},
+            "url": "{{ item.url }}"{% endif %}
+          }
+        }
+        {%- endif %}
+        {%- endfor %}
+        {%- endfor %}
+      ]
+    }
+  }
+  </script>
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="start-hero-wrap">
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <span class="breadcrumb-current">Free things to do</span>
+      </div>
+      <h1 class="cat-title">{{ freeCount }}+ free things to do in Vancouver</h1>
+      <p class="cat-desc">Meeting people in this city doesn't have to cost anything. Every group below is explicitly free — no membership, no drop-in fee, no gear list. Just show up. (Plenty more groups are cheap or donation-based; these are the ones that cost exactly zero.)</p>
+    </div>
+  </div>
+
+  <div class="start-here-content">
+    {%- for cat in collections.categories %}
+    {%- set catFree = [] %}
+    {%- for item in cat.data.groupItems %}
+      {%- if item.free %}{% set catFree = catFree.concat([item]) %}{% endif %}
+    {%- endfor %}
+    {%- if catFree.length %}
+    <section class="start-section">
+      <h2 class="start-section-title">{{ cat.data.emoji }} <a href="/{{ cat.fileSlug }}/">{{ cat.data.title }}</a></h2>
+      <div class="start-groups">
+        {%- for item in catFree %}
+        <a href="/{{ cat.fileSlug }}/#{{ item.name | mdAnchor }}" class="start-group-card" data-umami-event="click-free-group" data-umami-event-category="{{ cat.fileSlug }}">
+          <span class="start-group-name">{{ item.name }}</span>
+          <span class="start-group-desc">{{ item.description | truncate(120) }}</span>
+        </a>
+        {%- endfor %}
+      </div>
+    </section>
+    {%- endif %}
+    {%- endfor %}
+
+    <div class="start-browse-more">
+      <p>Lots of other groups are cheap, donation-based, or free to try — they just don't say so explicitly.</p>
+      <div class="start-browse-links">
+        <a href="/" class="start-browse-link">Browse all categories</a>
+        <a href="/start-here/" class="start-browse-link start-browse-link-muted">New to Vancouver? Start here</a>
+      </div>
+    </div>
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

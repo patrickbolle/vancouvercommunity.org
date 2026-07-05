@@ -93,7 +93,7 @@ No, but the method changes. School handed you repetition for free; now you have 
 Most of this list, honestly: [run clubs](/run-clubs/), [hiking](/hiking-outdoors/), [silent book club](/book-clubs/), [drawing circles](/creative-art/), [climbing](/climbing/), [meditation](/mindfulness-meditation/), [sauna crews](/sauna-cold-plunge/). Vancouver might be the best sober-social city in Canada.
 
 **What's actually free?**
-More than you'd think. Community run clubs, Friday beach salsa, library book clubs, philosophy meetups, hiking groups, drop-in meditation — the directory marks free groups on each category page.
+More than you'd think. Community run clubs, Friday beach salsa, library book clubs, philosophy meetups, hiking groups, drop-in meditation — there's a whole page of [free things to do in Vancouver](/free/), and the directory marks free groups on each category page.
 
 ---
 
