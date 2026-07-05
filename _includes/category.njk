@@ -137,9 +137,51 @@
     </div>
   </div>
 
+  {%- set sponsor = null %}
+  {%- for s in sponsors.listings %}
+    {%- if s.category == page.fileSlug %}{% set sponsor = s %}{% endif %}
+  {%- endfor %}
+
   <div class="category-entries">
+    {%- if sponsor %}
+    <div class="sponsor-card">
+      <span class="sponsor-card-label">Community sponsor</span>
+      <div class="group-card-header">
+        <h2>{{ sponsor.name }}</h2>
+      </div>
+      <p class="group-card-desc">{{ sponsor.description }}</p>
+      {%- if sponsor.where %}
+      <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsor.where }}</span></div>
+      {%- endif %}
+      <a href="{{ sponsor.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a>
+    </div>
+    {%- endif %}
     {{ content | stripH1 | cardify | safe }}
+    {%- if not sponsor %}
+    <p class="sponsor-slot-note">Run a studio, shop, or business this crowd would love? <a href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">Feature it here</a> — it helps keep the directory free.</p>
+    {%- endif %}
   </div>
+
+  {%- set relatedCats = [] %}
+  {%- for cat in collections.categories %}
+    {%- if cat.data.group == groupKey and cat.fileSlug != page.fileSlug and relatedCats.length < 4 %}
+      {%- set relatedCats = relatedCats.concat([cat]) %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if relatedCats.length %}
+  <section class="related-cats">
+    <p class="hp-section-title">More ways to meet people</p>
+    <div class="start-groups">
+      {%- for cat in relatedCats %}
+      <a href="/{{ cat.fileSlug }}/" class="start-group-card" data-umami-event="click-related-category" data-umami-event-category="{{ cat.fileSlug }}">
+        <span class="start-group-name">{{ cat.data.emoji }} {{ cat.data.title }}</span>
+        <span class="start-group-desc">{{ cat.data.description | truncate(100) }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+    <p class="related-cats-more">New in town? <a href="/start-here/">Start here</a> &middot; Feeling stuck? Read <a href="/blog/how-to-make-friends-in-vancouver/">how to make friends in Vancouver</a>.</p>
+  </section>
+  {%- endif %}
 
   {% include "partials/footer.njk" %}
 </main>
