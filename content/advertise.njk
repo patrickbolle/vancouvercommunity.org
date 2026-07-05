@@ -1,0 +1,84 @@
+---
+layout: false
+permalink: /advertise/
+eleventyExcludeFromCollections: true
+---
+{%- set totalGroups = 0 %}
+{%- for cat in collections.categories %}
+  {%- set totalGroups = totalGroups + cat.data.groupCount %}
+{%- endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>Sponsor the Directory | {{ site.title }}</title>
+  <meta name="description" content="Put your studio, shop, or business in front of people actively looking for community in Vancouver. Simple, honest sponsorships that keep the directory free.">
+  <meta property="og:title" content="Sponsor the Vancouver Community Directory">
+  <meta property="og:description" content="Reach people actively looking for community in Vancouver. Simple, honest sponsorships that keep the directory free.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/advertise/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/advertise/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="start-hero-wrap">
+      <h1 class="cat-title">Put your business in front of people looking for community.</h1>
+      <p class="cat-desc">This directory helps people in Vancouver find their people — {{ totalGroups }}+ groups across {{ collections.categories.length }} categories. If you run a studio, gym, shop, or venue that belongs in that world, a sponsorship puts you exactly where they're already looking.</p>
+    </div>
+  </div>
+
+  <div class="page-content prose-content">
+
+    <h2>Who visits</h2>
+    <p>Around 2,500 people a month, almost entirely from Google searches like <em>"pottery classes vancouver"</em>, <em>"run clubs vancouver"</em>, or <em>"how to make friends in vancouver"</em>. Nobody lands here by accident — they searched for the exact thing your business offers, in this city, this week. There's also <a href="/#categories">a weekly newsletter</a> that goes out with the newest groups added to the directory.</p>
+    <p>Community groups are always listed free. That never changes. Sponsorships are how businesses — the studios, gyms, and shops that host this city's communities — support the directory and get seen doing it.</p>
+
+    <h2>What you can sponsor</h2>
+
+    <div class="advertise-tiers">
+      <div class="advertise-tier">
+        <h3>Category sponsor</h3>
+        <p class="advertise-tier-price">$39/month <span>or $350/year</span></p>
+        <ul>
+          <li>A featured card at the top of one category page (e.g. Pottery &amp; Ceramics, Climbing, Coworking)</li>
+          <li>Clearly labeled "Community sponsor" — honest, not sneaky</li>
+          <li>Your name, a short description in the site's voice, and a link</li>
+          <li>One sponsor per category, ever. No bidding wars</li>
+          <li>A welcome mention in the newsletter when you start</li>
+        </ul>
+      </div>
+      <div class="advertise-tier">
+        <h3>Newsletter feature</h3>
+        <p class="advertise-tier-price">$25/issue</p>
+        <ul>
+          <li>A short, clearly-marked classified in the weekly Vancouver roundup</li>
+          <li>Written like the rest of the email — a neighbourly recommendation, not ad copy</li>
+          <li>One per issue, first come first served</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>House rules</h2>
+    <p>This site works because people trust it, so sponsorships are picky on purpose:</p>
+    <ul>
+      <li><strong>Relevant only.</strong> Your business should be somewhere a person could actually meet people — classes, drop-ins, leagues, events, spaces. If it doesn't pass the "can I find my people here?" test, it's not a fit.</li>
+      <li><strong>Always labeled.</strong> Sponsored placements say so, plainly.</li>
+      <li><strong>Editorial stays editorial.</strong> Sponsoring never buys a regular listing, changes one, or removes a competitor. The directory stays honest.</li>
+      <li><strong>I can say no</strong> (and refund you) if it's not working for readers.</li>
+    </ul>
+
+    <h2>Interested?</h2>
+    <p>Email me at <a href="mailto:vancouver@bolle.co?subject=Sponsoring%20the%20directory" data-umami-event="click-advertise-email">vancouver@bolle.co</a> with what you run and which category fits. I'll reply within a couple of days with current traffic numbers for that page and next steps. Payment is a simple monthly invoice — cancel anytime.</p>
+    <p>Not a business, just a group? <a href="/submit/">Submit it here</a> — free, always.</p>
+
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

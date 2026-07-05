@@ -136,6 +136,12 @@ Apply this test: *"If I'm interested in X, can I go here and find my people?"*
 - PR descriptions should be 1-3 sentences explaining what and why
 - Link to the triggering issue in the PR body when applicable: `Resolves #123`
 
+## Monetization
+
+- **Category sponsors** live in `_data/sponsors.json` (`listings` array; see `_docs`/`_example` in the file). A listing renders a labeled "Community sponsor" card at the top of that category page; categories without a sponsor show a one-line note linking to `/advertise/`. One sponsor per category, `rel="sponsored"` on links, always labeled. Sponsorship never buys, changes, or removes a regular listing.
+- **Pricing** is on `/advertise/` (`content/advertise.njk`): $39/mo or $350/yr per category, $25/issue newsletter classified. Sold by email (vancouver@bolle.co).
+- Community groups are never charged — sponsorships are for businesses (studios, gyms, shops, venues) only, and must pass the same "can I find my people here?" test.
+
 ## Deployment
 
 Cloudflare Pages builds the site on push (`npm run build`) and deploys from `site/`. The `site/` directory is gitignored — never commit built output. The GitHub Action in `.github/workflows/build.yml` runs the build as a CI check only.

@@ -17,9 +17,36 @@ eleventyExcludeFromCollections: true
     <priority>0.8</priority>
   </url>
   {%- endfor %}
+  {%- for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}/blog/{{ post.fileSlug }}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {%- endfor %}
+  <url>
+    <loc>{{ site.url }}/start-here/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/about/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <url>
     <loc>{{ site.url }}/submit/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>{{ site.url }}/advertise/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

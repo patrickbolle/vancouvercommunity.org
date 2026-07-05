@@ -9,7 +9,53 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="{{ site.url }}/blog/{{ page.fileSlug }}/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description or title }}">
+  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
   <link rel="canonical" href="{{ site.url }}/blog/{{ page.fileSlug }}/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ title | replace('"', '\\"') }}",
+    "description": "{{ description | replace('"', '\\"') }}",
+    "datePublished": "{{ page.date.toISOString() }}",
+    "dateModified": "{{ page.date.toISOString() }}",
+    "mainEntityOfPage": "{{ site.url }}/blog/{{ page.fileSlug }}/",
+    "image": "{{ site.url }}/og-image.png",
+    "author": {
+      "@type": "Person",
+      "name": "Patrick Bollenbach",
+      "url": "https://bollenbach.ca"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Patrick Bollenbach",
+      "url": "https://bollenbach.ca"
+    }
+  }
+  </script>
+  {%- if faq %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for item in faq %}
+      {
+        "@type": "Question",
+        "name": "{{ item.q | replace('"', '\\"') }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ item.a | replace('"', '\\"') }}"
+        }
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+  {%- endif %}
 </head>
 <body class="category-page">
 <a href="#main-content" class="skip-link">Skip to content</a>

@@ -1,0 +1,12 @@
+{
+  "_docs": "Category sponsors. Each listing renders a labeled 'Community sponsor' card at the top of its category page. Fields: category (file slug, e.g. 'pottery-ceramics'), name, description (1-2 sentences, written in the site's voice), url, where (optional neighbourhood), cta (optional link text, defaults to 'Visit'). Sold via /advertise/. Keep it to one sponsor per category.",
+  "_example": {
+    "category": "pottery-ceramics",
+    "name": "Example Clay Studio",
+    "description": "Drop-in wheel nights and 6-week intro courses in Mount Pleasant. Beginners welcome.",
+    "url": "https://example.com",
+    "where": "Mount Pleasant",
+    "cta": "See class times"
+  },
+  "listings": []
+}
