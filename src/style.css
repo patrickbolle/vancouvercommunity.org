@@ -2409,3 +2409,20 @@ textarea.form-input { resize: vertical; }
 @media (max-width: 640px) {
   .related-cats { padding: 4px 16px 40px; }
 }
+
+/* ========================================
+   NEWSLETTER LANDING PAGE
+   ======================================== */
+.newsletter-page-signup {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 8px 0 32px;
+  max-width: 480px;
+}
+.newsletter-page-note {
+  margin: 10px 0 0;
+  font-size: 0.82em;
+  color: var(--text-muted);
+}

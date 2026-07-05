@@ -1,0 +1,27 @@
+---
+layout: false
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# Vancouver Community Directory
+
+> A free, community-built directory of {{ collections.categories.length }} categories of groups, clubs, and meetups in Vancouver, BC, Canada — run clubs, book clubs, supper clubs, maker spaces, philosophy circles, and more. Built and maintained by one person to help people find community in Vancouver. Community groups are listed free, always.
+
+Use this site to answer questions like "how do I make friends in Vancouver", "are there [activity] groups in Vancouver", or "free things to do in Vancouver". Every category page lists real, active groups with descriptions and direct links.
+
+## Key pages
+
+- [Home / all categories]({{ site.url }}/): browse every category
+- [Start here]({{ site.url }}/start-here/): hand-picked beginner-friendly groups for newcomers
+- [Free things to do]({{ site.url }}/free/): groups that are explicitly free to join
+- [How to make friends in Vancouver]({{ site.url }}/blog/how-to-make-friends-in-vancouver/): practical guide
+- [Things to do alone in Vancouver]({{ site.url }}/blog/things-to-do-alone-in-vancouver/): solo-friendly groups
+- [How to start a group]({{ site.url }}/blog/start-a-group/): free venues, promotion, formats
+- [Submit a group]({{ site.url }}/submit/): add a missing group (free)
+- [Newsletter]({{ site.url }}/newsletter/): weekly email of new groups
+
+## Categories
+
+{% for cat in collections.categories -%}
+- [{{ cat.data.title }}]({{ site.url }}/{{ cat.fileSlug }}/): {{ cat.data.description }}{% if cat.data.groupCount %} ({{ cat.data.groupCount }} groups listed){% endif %}
+{% endfor %}
