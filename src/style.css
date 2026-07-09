@@ -115,6 +115,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 1.2em;
   font-weight: 600;
   color: var(--accent);
+  position: relative;
+}
+/* Hand-drawn flourish under "Community" — the same hand as the hero underline */
+.topbar-logo-com::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -2px;
+  bottom: -0.17em;
+  height: 0.26em;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 Q 32 2 62 5 T 118 4' stroke='%23A85A46' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.8;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+.topbar-logo:hover .topbar-logo-com::after {
+  opacity: 1;
+  transform: translateY(1px);
 }
 
 .topbar-actions {
@@ -134,7 +152,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 7px 14px;
   background: none;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: inherit;
   font-size: 0.88em;
   font-weight: 500;
@@ -232,7 +250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 500;
   color: var(--text-on-accent);
   background: var(--accent);
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   transition: background 0.15s;
 }
@@ -2569,4 +2587,42 @@ textarea.form-input { resize: vertical; }
   border-top: 1px solid var(--border);
   font-size: 0.9em;
   color: var(--text-muted);
+}
+
+/* ==========================================================================
+   PROTOTYPE — "cozy paper" warmth pass (design proposal, reversible)
+   ========================================================================== */
+:root { --bg-card: #FFFDF9; } /* was #fff — a hair of cream, reads as paper */
+
+/* Faint paper grain over the whole page — barely perceptible, adds warmth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Hand-drawn underline under "people" in the hero — homemade, on-brand */
+.hand-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.hand-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.12em;
+  height: 0.32em;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='16' viewBox='0 0 200 16' preserveAspectRatio='none'%3E%3Cpath d='M3 9 Q 40 3 80 8 T 160 7 Q 180 8 197 5' stroke='%23A85A46' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.85;
+}
+
+/* Cards feel a touch more like paper pinned to a board */
+.group-card, .hp-cat-card, .start-group-card, .recent-group {
+  box-shadow: 0 1px 2px rgba(44,41,37,0.04), 0 2px 8px rgba(44,41,37,0.03);
 }
