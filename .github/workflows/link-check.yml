@@ -26,14 +26,14 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if grep -q "^## Broken" link-report.md; then
+          if [ -f link-issue.md ]; then
             existing=$(gh issue list --state open --search "Broken links report in:title" --json number --jq '.[0].number // empty')
             if [ -n "$existing" ]; then
               echo "Updating issue #$existing"
-              gh issue edit "$existing" --body-file link-report.md
+              gh issue edit "$existing" --body-file link-issue.md
             else
               echo "Creating new issue"
-              gh issue create --title "🔗 Broken links report" --body-file link-report.md
+              gh issue create --title "🔗 Broken links report" --body-file link-issue.md
             fi
           else
             echo "No high-confidence broken links."

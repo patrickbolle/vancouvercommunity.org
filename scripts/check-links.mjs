@@ -12,10 +12,13 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const CONTENT_DIR = join(process.cwd(), "content");
-const CONCURRENCY = 8;
-const TIMEOUT_MS = 12000;
+const CONCURRENCY = 6;
+const TIMEOUT_MS = 15000;
+// A real browser UA — a bot-identifying UA gets challenged/blocked far more
+// often, which would produce false positives. We only READ status codes.
 const UA =
-  "Mozilla/5.0 (compatible; VancouverCommunityLinkCheck/1.0; +https://vancouvercommunity.org)";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
+  "(KHTML, like Gecko) Chrome/124.0 Safari/537.36";
 
 // ── Collect { category, group, url } from every "Find it" line ──────────
 
@@ -64,48 +67,41 @@ async function fetchOnce(url, method) {
   }
 }
 
-const BOT_BLOCKED = new Set([401, 403, 405, 406, 429, 999]);
-
 // States:
 //   ok          — 2xx/3xx
-//   broken      — clean 404/410 (high confidence; safe to remove/fix)
-//   unreachable — network error / timeout / odd 4xx (VERIFY by hand; a
-//                 proxy hiccup or bot-hostile server can cause these)
-//   skipped     — site blocks bots (401/403/405/429/999); not a signal
-function classifyStatus(status, method) {
-  if (typeof status === "number") {
-    if (status >= 200 && status < 400) return { state: "ok", status };
-    if (status === 404 || status === 410) return { state: "broken", status };
-    if (BOT_BLOCKED.has(status)) return { state: "skipped", status };
-    if (status >= 500) return { state: "skipped", status }; // transient
-    // Other 4xx: only decide after GET; ambiguous otherwise.
-    if (method === "GET") return { state: "unreachable", status };
+//   broken      — clean 404/410 confirmed on TWO GETs (safe to fix/remove)
+//   unreachable — network error / odd 4xx (VERIFY by hand; a bot wall,
+//                 proxy hiccup, or slow-but-live server causes these)
+//   skipped     — bot-blocked (401/403/…), 5xx, or any other non-signal
+// Deliberately biased to under-report: only double-confirmed clean 404/410
+// ever counts as broken, so the auto-filed issue stays trustworthy.
+const BOT_BLOCKED = new Set([401, 403, 405, 406, 408, 409, 429, 451, 999]);
+
+async function getStatus(url) {
+  // GET (not HEAD — many servers mishandle HEAD and 404 it falsely).
+  try {
+    const { status } = await fetchOnce(url, "GET");
+    return status;
+  } catch (e) {
+    return e.name || "network-error";
   }
-  return null;
 }
 
 async function checkUrl(url) {
-  // Try HEAD first (cheap); fall back to GET if HEAD is rejected or errors.
-  for (const method of ["HEAD", "GET"]) {
-    try {
-      const { status } = await fetchOnce(url, method);
-      const c = classifyStatus(status, method);
-      if (c) return c;
-    } catch (e) {
-      if (method === "GET") {
-        // One more GET attempt before calling it unreachable.
-        try {
-          const { status } = await fetchOnce(url, "GET");
-          const c = classifyStatus(status, "GET");
-          if (c) return c;
-          return { state: "unreachable", status };
-        } catch (e2) {
-          return { state: "unreachable", status: e2.name || "network-error" };
-        }
-      }
-    }
+  let s = await getStatus(url);
+  if (typeof s !== "number") s = await getStatus(url); // retry once
+  if (typeof s !== "number") return { state: "unreachable", status: s };
+  if (s >= 200 && s < 400) return { state: "ok", status: s };
+  if (BOT_BLOCKED.has(s) || s >= 500) return { state: "skipped", status: s };
+  if (s === 404 || s === 410) {
+    // Confirm a dead link on a second GET before flagging it.
+    const s2 = await getStatus(url);
+    if (s2 === 404 || s2 === 410) return { state: "broken", status: s2 };
+    if (typeof s2 === "number" && s2 >= 200 && s2 < 400)
+      return { state: "ok", status: s2 };
+    return { state: "unreachable", status: s2 };
   }
-  return { state: "unreachable", status: "unknown" };
+  return { state: "unreachable", status: s }; // other 4xx: ambiguous
 }
 
 // ── Simple concurrency pool ─────────────────────────────────────────────
@@ -169,31 +165,37 @@ function section(title, list, note) {
   return s;
 }
 
-let report = `# Link check report\n\n`;
-report += `_${ok.length} ok · **${broken.length} broken** · ${unreachable.length} unreachable · ${skipped.length} skipped (bot-blocked)_\n\n`;
+const summary = `_${ok.length} ok · **${broken.length} broken** · ${unreachable.length} unreachable · ${skipped.length} skipped (bot-blocked)_`;
 
+// Full report — for local runs and CI logs (all buckets).
+let report = `# Link check report\n\n${summary}\n\n`;
 if (!broken.length && !unreachable.length) {
   report += `All links resolved cleanly. 🎉\n`;
 } else {
-  if (broken.length) {
+  if (broken.length)
     report += section(
-      "Broken — safe to fix or remove (clean 404/410)",
+      "Broken — clean 404/410, confirmed twice",
       broken,
-      'These returned a definitive 404/410. Update the link, or remove the group per CLAUDE.md → "Removing a group".'
+      'Update the link, or remove the group per CLAUDE.md → "Removing a group".'
     );
-  }
-  if (unreachable.length) {
+  if (unreachable.length)
     report += section(
-      "Unreachable — verify by hand before acting",
+      "Unreachable — VERIFY BY HAND, do not auto-remove",
       unreachable,
-      "A network error/timeout or ambiguous status. Could be a dead site OR a slow/bot-hostile server. Open the link yourself before removing anything."
+      "A network error or ambiguous status — very often a bot wall or a slow-but-live site (this is expected for many hosts). Open the link yourself before touching the listing."
     );
-  }
-  report += `_${skipped.length} links were skipped because the host blocks automated checks (Instagram, Meetup, LinkedIn, etc.). Not a problem signal._\n`;
+  report += `_${skipped.length} links skipped: the host blocks automated checks (Instagram, Meetup, LinkedIn, etc.). Not a signal._\n`;
+}
+writeFileSync("link-report.md", report);
+
+// Issue body — ONLY the high-confidence broken links, so the weekly issue
+// never cries wolf. Unreachable/skipped are intentionally left out.
+if (broken.length) {
+  let issue = `${summary}\n\n`;
+  issue += section("Broken links (clean 404/410, confirmed twice)", broken, "");
+  issue += `_Also ${unreachable.length} unreachable and ${skipped.length} bot-blocked links were seen but left out — many sites block automated checks, so those aren't reliable. See the workflow logs for the full report._\n`;
+  writeFileSync("link-issue.md", issue);
 }
 
-writeFileSync("link-report.md", report);
-console.error("Wrote link-report.md");
-
-// Non-zero only for high-confidence broken links, so CI noise stays low.
+console.error("Wrote link-report.md" + (broken.length ? " + link-issue.md" : ""));
 process.exit(broken.length ? 1 : 0);
