@@ -2570,3 +2570,41 @@ textarea.form-input { resize: vertical; }
   font-size: 0.9em;
   color: var(--text-muted);
 }
+
+/* ==========================================================================
+   PROTOTYPE — "cozy paper" warmth pass (design proposal, reversible)
+   ========================================================================== */
+:root { --bg-card: #FFFDF9; } /* was #fff — a hair of cream, reads as paper */
+
+/* Faint paper grain over the whole page — barely perceptible, adds warmth */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Hand-drawn underline under "people" in the hero — homemade, on-brand */
+.hand-underline {
+  position: relative;
+  white-space: nowrap;
+}
+.hand-underline::after {
+  content: "";
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -0.12em;
+  height: 0.32em;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='16' viewBox='0 0 200 16' preserveAspectRatio='none'%3E%3Cpath d='M3 9 Q 40 3 80 8 T 160 7 Q 180 8 197 5' stroke='%23A85A46' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.85;
+}
+
+/* Cards feel a touch more like paper pinned to a board */
+.group-card, .hp-cat-card, .start-group-card, .recent-group {
+  box-shadow: 0 1px 2px rgba(44,41,37,0.04), 0 2px 8px rgba(44,41,37,0.03);
+}
