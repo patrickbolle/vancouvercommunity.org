@@ -161,11 +161,17 @@
       {%- endif %}
       <a href="{{ sponsor.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a>
     </div>
+    {%- else %}
+    <a href="/advertise/" class="sponsor-card sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">
+      <span class="sponsor-card-label">Sponsor slot &middot; open</span>
+      <div class="group-card-header">
+        <h2>Your {{ title | lower }} business here</h2>
+      </div>
+      <p class="group-card-desc">Reach people searching for {{ title | lower }} in Vancouver this week — the exact crowd you want. Community groups stay free; sponsors keep it that way.</p>
+      <span class="sponsor-card-link">Feature it &middot; from $39/mo &rarr;</span>
+    </a>
     {%- endif %}
     {{ content | stripH1 | cardify | safe }}
-    {%- if not sponsor %}
-    <p class="sponsor-slot-note">Run a studio, shop, or business this crowd would love? <a href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">Feature it here</a> — it helps keep the directory free.</p>
-    {%- endif %}
   </div>
 
   {%- set relatedCats = [] %}
