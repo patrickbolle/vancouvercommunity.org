@@ -115,6 +115,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-size: 1.2em;
   font-weight: 600;
   color: var(--accent);
+  position: relative;
+}
+/* Hand-drawn flourish under "Community" — the same hand as the hero underline */
+.topbar-logo-com::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -2px;
+  bottom: -0.17em;
+  height: 0.26em;
+  background: no-repeat center/100% 100%
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10' preserveAspectRatio='none'%3E%3Cpath d='M2 6 Q 32 2 62 5 T 118 4' stroke='%23A85A46' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  opacity: 0.8;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+.topbar-logo:hover .topbar-logo-com::after {
+  opacity: 1;
+  transform: translateY(1px);
 }
 
 .topbar-actions {
@@ -134,7 +152,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   padding: 7px 14px;
   background: none;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: inherit;
   font-size: 0.88em;
   font-weight: 500;
@@ -232,7 +250,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   font-weight: 500;
   color: var(--text-on-accent);
   background: var(--accent);
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   transition: background 0.15s;
 }
