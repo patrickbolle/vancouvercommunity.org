@@ -87,6 +87,28 @@ module.exports = function (eleventyConfig) {
           free,
         };
       }).filter((g) => g.name && g.description);
+
+      // All listings including venues below the divider (studios, gyms,
+      // spaces with addresses) — used by neighbourhood pages, which want the
+      // physical places too, not just community groups.
+      const allSections = body.split(/^## /m).slice(1);
+      cat.data.allGroupItems = allSections.map((section) => {
+        const name = section.trim().split("\n")[0].trim();
+        const whatMatch = section.match(/\*\*What:\*\*\s*(.+)/);
+        const findMatch = section.match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
+        const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
+        return {
+          name,
+          description: whatMatch ? whatMatch[1].trim() : "",
+          url: findMatch ? findMatch[1] : "",
+          location: whereMatch ? whereMatch[1].trim() : "",
+        };
+      }).filter(
+        (g) =>
+          g.name &&
+          !/^venues?\s*(&|and)\s*(resources|spaces)$/i.test(g.name) &&
+          (g.description || g.location)
+      );
     }
 
     return cats;
@@ -190,6 +212,38 @@ module.exports = function (eleventyConfig) {
   // any link targeting a group's h2 anchor.)
   eleventyConfig.addFilter("mdAnchor", function (s) {
     return encodeURIComponent(String(s).trim().toLowerCase().replace(/\s+/g, "-"));
+  });
+
+  // --- Filter: groups matching a neighbourhood (by location/description/name) ---
+  // Returns categories (in site order) each with the subset of their groups
+  // that reference the neighbourhood. Powers /neighbourhoods/ pages so they
+  // surface real, auto-updating community listings on top of editorial copy.
+  eleventyConfig.addFilter("neighbourhoodGroups", function (categories, aliasesCsv) {
+    const aliases = String(aliasesCsv)
+      .split(",")
+      .map((a) => a.trim().toLowerCase())
+      .filter(Boolean)
+      // Word-boundary regex per alias so "kits" doesn't match "kitsilano"
+      // partials and "commercial drive" doesn't match "worth the drive".
+      .map((a) => new RegExp("\\b" + a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b"));
+    const out = [];
+    for (const cat of categories) {
+      const matches = (cat.data.allGroupItems || cat.data.groupItems || []).filter((g) => {
+        const blob = (
+          g.name + " " + (g.location || "") + " " + (g.description || "")
+        ).toLowerCase();
+        return aliases.some((re) => re.test(blob));
+      });
+      if (matches.length) {
+        out.push({
+          title: cat.data.title,
+          slug: cat.fileSlug,
+          emoji: cat.data.emoji,
+          groups: matches,
+        });
+      }
+    }
+    return out;
   });
 
   // --- Filter: HTML-escape ampersands for sidebar labels ---

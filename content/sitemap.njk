@@ -35,6 +35,18 @@ eleventyExcludeFromCollections: true
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>{{ site.url }}/neighbourhoods/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {%- for n in neighbourhoods %}
+  <url>
+    <loc>{{ site.url }}/neighbourhoods/{{ n.slug }}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  {%- endfor %}
+  <url>
     <loc>{{ site.url }}/newsletter/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
