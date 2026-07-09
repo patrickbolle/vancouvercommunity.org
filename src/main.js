@@ -273,7 +273,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
           var html = '<div class="search-results-grid">';
           matches.forEach(function(g) {
-            html += '<a href="/' + g.s + '/#' + g.id + '" class="search-result-card" data-umami-event="click-search-result">';
+            html += '<a href="/' + g.s + '/#' + g.id + '" class="search-result-card" data-umami-event="click-search-result"' +
+              ' data-group data-g-name="' + escapeHtml(g.n) + '" data-g-desc="' + escapeHtml(g.d) + '"' +
+              ' data-g-cat="' + escapeHtml(g.c) + '" data-g-slug="' + escapeHtml(g.s) + '"' +
+              (g.u ? ' data-g-url="' + escapeHtml(g.u) + '"' : '') +
+              (g.w ? ' data-g-where="' + escapeHtml(g.w) + '"' : '') +
+              (g.b ? ' data-g-badge="' + escapeHtml(g.b) + '"' : '') + '>';
             html += '<span class="search-result-name">' + escapeHtml(g.n) + '</span>';
             html += '<span class="search-result-desc">' + escapeHtml(g.d) + '</span>';
             html += '<span class="search-result-cat">' + g.c + '</span>';
@@ -501,3 +506,92 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
 });
+
+// ── Group detail modal ─────────────────────────────────────────────
+// A focused "here's the group you clicked" popup, opened from any card
+// carrying data-group attributes. Replaces the jarring jump-to-anchor.
+// Progressive enhancement: the underlying links still work without JS.
+(function () {
+  function esc(s) {
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  var lastFocus = null;
+
+  function close() {
+    var m = document.getElementById("group-modal");
+    if (!m) return;
+    m.classList.remove("visible");
+    document.body.classList.remove("modal-open");
+    setTimeout(function () { if (m.parentNode) m.remove(); }, 180);
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
+  }
+
+  window.openGroupModal = function (g) {
+    lastFocus = document.activeElement;
+    var existing = document.getElementById("group-modal");
+    if (existing) existing.remove();
+
+    var domain = "";
+    if (g.url) { try { domain = new URL(g.url).hostname.replace(/^www\./, ""); } catch (e) {} }
+
+    var m = document.createElement("div");
+    m.id = "group-modal";
+    m.className = "group-modal";
+    m.setAttribute("role", "dialog");
+    m.setAttribute("aria-modal", "true");
+    m.setAttribute("aria-label", g.name || "Group details");
+
+    var html = '<div class="group-modal-inner">';
+    html += '<button class="group-modal-close" aria-label="Close">&times;</button>';
+    if (g.cat) {
+      html += '<a class="group-modal-cat" href="/' + esc(g.slug) + '/">' + esc(g.cat) + '</a>';
+    }
+    html += '<h2 class="group-modal-name">' + esc(g.name) + '</h2>';
+    if (g.badge) html += '<span class="group-modal-badge">' + esc(g.badge) + '</span>';
+    if (g.desc) html += '<p class="group-modal-desc">' + esc(g.desc) + '</p>';
+    if (g.where) html += '<p class="group-modal-where">\uD83D\uDCCD ' + esc(g.where) + '</p>';
+    html += '<div class="group-modal-actions">';
+    if (g.url) {
+      html += '<a class="group-modal-visit" href="' + esc(g.url) + '" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link" data-umami-event-url="' + esc(domain) + '">Visit' + (domain ? " " + esc(domain) : "") + ' \u2192</a>';
+    }
+    if (g.slug) {
+      html += '<a class="group-modal-more" href="/' + esc(g.slug) + '/">See all ' + esc(g.cat || "in this category") + '</a>';
+    }
+    html += '</div></div>';
+    m.innerHTML = html;
+    document.body.appendChild(m);
+    document.body.classList.add("modal-open");
+    requestAnimationFrame(function () { m.classList.add("visible"); });
+
+    m.querySelector(".group-modal-close").addEventListener("click", close);
+    m.addEventListener("click", function (e) { if (e.target === m) close(); });
+    m.querySelector(".group-modal-close").focus();
+    if (typeof umami !== "undefined") umami.track("group-modal", { group: g.name });
+  };
+
+  // Delegated on the CAPTURE phase so this pre-empts the site's SPA
+  // link-interceptor: any [data-group] element opens the modal instead of
+  // navigating to the group's anchor. Real outbound links are left alone.
+  document.addEventListener("click", function (e) {
+    if (e.target.closest('a[target="_blank"]')) return;
+    var t = e.target.closest("[data-group]");
+    if (!t) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    window.openGroupModal({
+      name: t.getAttribute("data-g-name"),
+      desc: t.getAttribute("data-g-desc"),
+      cat: t.getAttribute("data-g-cat"),
+      slug: t.getAttribute("data-g-slug"),
+      url: t.getAttribute("data-g-url"),
+      where: t.getAttribute("data-g-where"),
+      badge: t.getAttribute("data-g-badge")
+    });
+  }, true);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && document.getElementById("group-modal")) close();
+  });
+})();

@@ -32,11 +32,18 @@ module.exports = function () {
     const whatMatch = sectionMatch[1].match(/\*\*What:\*\*\s*(.+)/);
     if (!whatMatch) return null;
 
+    const findMatch = sectionMatch[1].match(
+      /\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/
+    );
+    const whereMatch = sectionMatch[1].match(/\*\*Where:\*\*\s*(.+)/);
+
     return {
       name: entry.name,
       categorySlug: entry.categorySlug,
       categoryTitle,
       description: whatMatch[1].trim(),
+      url: findMatch ? findMatch[1] : "",
+      location: whereMatch ? whereMatch[1].trim() : "",
     };
   }).filter(Boolean);
 };
