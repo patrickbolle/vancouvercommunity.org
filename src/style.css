@@ -2364,6 +2364,28 @@ textarea.form-input { resize: vertical; }
   max-width: none;
 }
 
+/* Hero variant — sponsor sits in the category hero aside (prime placement) */
+.sponsor-card-hero {
+  width: 340px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  max-width: 340px;
+  background: var(--bg-card);
+}
+.sponsor-card-hero.sponsor-card-open { background: transparent; }
+@media (max-width: 900px) {
+  .sponsor-card-hero { width: 100%; max-width: none; }
+}
+
+/* Slim facts line under the category description (freed the hero aside) */
+.cat-facts-inline {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin: 10px 0 0;
+}
+.cat-facts-inline strong { color: var(--text-secondary); font-weight: 600; }
+.cat-facts-inline a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
 /* Open/available state — an empty slot that sells itself. Warm dashed
    placeholder styled like a real sponsor card so a business can picture it. */
 .sponsor-card-open {
@@ -2477,45 +2499,6 @@ textarea.form-input { resize: vertical; }
 /* ========================================
    DESIGN BATCH — category facts, post TOC
    ======================================== */
-.cat-facts {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 22px;
-  width: 320px;
-  flex-shrink: 0;
-  align-self: center;
-}
-.cat-facts-row {
-  margin: 0 0 8px;
-  font-size: 0.9em;
-  color: var(--text-secondary);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: baseline;
-}
-.cat-facts-stat strong {
-  font-family: var(--font-display);
-  font-size: 1.25em;
-  font-weight: 600;
-  color: var(--text);
-}
-.cat-facts-sep { color: var(--text-muted); }
-.cat-facts-note {
-  margin: 0;
-  font-size: 0.82em;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-.cat-facts-note a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-@media (max-width: 900px) {
-  .cat-facts { width: 100%; align-self: stretch; }
-}
 
 .post-toc {
   background: var(--bg-warm);

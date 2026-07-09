@@ -105,6 +105,15 @@
       {%- endif %}
     {%- endfor %}
   {%- endfor %}
+  {%- set sponsor = null %}
+  {%- for s in sponsors.listings %}
+    {%- if s.category == page.fileSlug %}{% set sponsor = s %}{% endif %}
+  {%- endfor %}
+  {%- set freeInCat = 0 %}
+  {%- for item in groupItems %}
+    {%- if item.free %}{% set freeInCat = freeInCat + 1 %}{% endif %}
+  {%- endfor %}
+
   <div class="cat-hero">
     <div class="cat-hero-wrap">
       <div class="cat-hero-main">
@@ -115,6 +124,9 @@
         </div>
         <h1 class="cat-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
         <p class="cat-desc">{{ description }}</p>
+        <p class="cat-facts-inline">
+          <strong>{{ listingCount }}</strong> listed{% if freeInCat > 0 %} &middot; <strong>{{ freeInCat }}</strong> free{% endif %} &middot; updated {% buildDateHuman %} &middot; <a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">get new ones by email</a>
+        </p>
         <div class="cat-actions">
           <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a>
           <span class="hp-sep">&middot;</span>
@@ -124,53 +136,28 @@
           <span id="page-views" class="cat-views"></span>
         </div>
       </div>
-      {%- set freeInCat = 0 %}
-      {%- for item in groupItems %}
-        {%- if item.free %}{% set freeInCat = freeInCat + 1 %}{% endif %}
-      {%- endfor %}
-      <div class="cat-facts">
-        <p class="cat-facts-row">
-          <span class="cat-facts-stat"><strong>{{ listingCount }}</strong> listed</span>
-          {%- if freeInCat > 0 %}
-          <span class="cat-facts-sep">&middot;</span>
-          <span class="cat-facts-stat"><strong>{{ freeInCat }}</strong> free</span>
-          {%- endif %}
-          <span class="cat-facts-sep">&middot;</span>
-          <span class="cat-facts-stat">updated {% buildDateHuman %}</span>
-        </p>
-        <p class="cat-facts-note">New groups added most weeks — <a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">get them by email</a> or <a href="/feed.xml">RSS</a>.</p>
+      {%- if sponsor %}
+      <div class="sponsor-card sponsor-card-hero">
+        <span class="sponsor-card-label">Community sponsor</span>
+        <div class="group-card-header"><h2>{{ sponsor.name }}</h2></div>
+        <p class="group-card-desc">{{ sponsor.description }}</p>
+        {%- if sponsor.where %}
+        <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsor.where }}</span></div>
+        {%- endif %}
+        <a href="{{ sponsor.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a>
       </div>
+      {%- else %}
+      <a href="/advertise/" class="sponsor-card sponsor-card-hero sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">
+        <span class="sponsor-card-label">Sponsor slot &middot; open</span>
+        <div class="group-card-header"><h2>Your {{ title | lower }} business here</h2></div>
+        <p class="group-card-desc">Reach people searching for {{ title | lower }} in Vancouver this week. Community groups stay free; sponsors keep it that way.</p>
+        <span class="sponsor-card-link">Feature it &middot; from $39/mo &rarr;</span>
+      </a>
+      {%- endif %}
     </div>
   </div>
 
-  {%- set sponsor = null %}
-  {%- for s in sponsors.listings %}
-    {%- if s.category == page.fileSlug %}{% set sponsor = s %}{% endif %}
-  {%- endfor %}
-
   <div class="category-entries">
-    {%- if sponsor %}
-    <div class="sponsor-card">
-      <span class="sponsor-card-label">Community sponsor</span>
-      <div class="group-card-header">
-        <h2>{{ sponsor.name }}</h2>
-      </div>
-      <p class="group-card-desc">{{ sponsor.description }}</p>
-      {%- if sponsor.where %}
-      <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsor.where }}</span></div>
-      {%- endif %}
-      <a href="{{ sponsor.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a>
-    </div>
-    {%- else %}
-    <a href="/advertise/" class="sponsor-card sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">
-      <span class="sponsor-card-label">Sponsor slot &middot; open</span>
-      <div class="group-card-header">
-        <h2>Your {{ title | lower }} business here</h2>
-      </div>
-      <p class="group-card-desc">Reach people searching for {{ title | lower }} in Vancouver this week — the exact crowd you want. Community groups stay free; sponsors keep it that way.</p>
-      <span class="sponsor-card-link">Feature it &middot; from $39/mo &rarr;</span>
-    </a>
-    {%- endif %}
     {{ content | stripH1 | cardify | safe }}
   </div>
 
