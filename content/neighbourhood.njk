@@ -1,0 +1,114 @@
+---
+layout: false
+pagination:
+  data: neighbourhoods
+  size: 1
+  alias: hood
+permalink: "/neighbourhoods/{{ hood.slug }}/"
+eleventyExcludeFromCollections: true
+---
+{%- set matched = collections.categories | neighbourhoodGroups(hood.aliases) %}
+{%- set groupTotal = 0 %}
+{%- for c in matched %}{% set groupTotal = groupTotal + c.groups.length %}{% endfor %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>Things to Do in {{ hood.name }}, Vancouver — Groups & Meetups (2026) | {{ site.title }}</title>
+  <meta name="description" content="{{ hood.metaDescription }}">
+  <meta property="og:title" content="Things to do in {{ hood.name }}, Vancouver — find your people">
+  <meta property="og:description" content="{{ hood.metaDescription }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/neighbourhoods/{{ hood.slug }}/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Things to do in {{ hood.name }}, Vancouver">
+  <meta name="twitter:description" content="{{ hood.metaDescription }}">
+  <meta name="twitter:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/neighbourhoods/{{ hood.slug }}/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Things to do in {{ hood.name }}, Vancouver",
+    "description": "{{ hood.metaDescription }}",
+    "url": "{{ site.url }}/neighbourhoods/{{ hood.slug }}/",
+    "about": {
+      "@type": "Place",
+      "name": "{{ hood.name }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vancouver",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
+    "isPartOf": { "@type": "WebSite", "name": "{{ site.title }}", "url": "{{ site.url }}" }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Vancouver Community Directory", "item": "{{ site.url }}/" },
+      { "@type": "ListItem", "position": 2, "name": "Neighbourhoods", "item": "{{ site.url }}/neighbourhoods/" },
+      { "@type": "ListItem", "position": 3, "name": "{{ hood.name }}", "item": "{{ site.url }}/neighbourhoods/{{ hood.slug }}/" }
+    ]
+  }
+  </script>
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="prose-hero-wrap">
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/neighbourhoods/">Neighbourhoods</a> <span>&rsaquo;</span>
+        <span class="breadcrumb-current">{{ hood.name }}</span>
+      </div>
+      <h1 class="cat-title">Things to do in {{ hood.name }}</h1>
+      <p class="cat-desc">{{ hood.tagline }}</p>
+    </div>
+  </div>
+
+  <div class="page-content prose-content">
+    <p>{{ hood.intro }}</p>
+    {%- for para in hood.character %}
+    <p>{{ para }}</p>
+    {%- endfor %}
+
+    {%- if groupTotal > 0 %}
+    <h2>Communities in {{ hood.name }}</h2>
+    <p>{{ groupTotal }} group{{ "s" if groupTotal != 1 }} in the directory meet or are based around {{ hood.name }} — here they are, by category.</p>
+    {%- for c in matched %}
+    <div class="hood-cat">
+      <h3><a href="/{{ c.slug }}/">{{ c.title }}</a></h3>
+      <ul class="hood-group-list">
+        {%- for g in c.groups %}
+        <li>
+          <a href="/{{ c.slug }}/#{{ g.name | mdAnchor }}">{{ g.name }}</a>
+          {%- if g.description %} — {{ g.description | truncate(110) }}{% endif %}
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+    {%- endfor %}
+    {%- endif %}
+
+    <h2>Ready to show up?</h2>
+    <p>The whole point of this directory is that the next step is small: pick one, note the day, and go. If nothing here fits, {{ hood.name }} is close enough to the rest of the city that you can <a href="/">browse every category</a> and find something a short ride away.</p>
+    <p>New to Vancouver? Start with the <a href="/start-here/">most welcoming groups</a>, or read <a href="/blog/how-to-make-friends-in-vancouver/">how to make friends in Vancouver</a> — the short version is: pick something recurring and go three times.</p>
+
+    <p class="hood-other">More neighbourhoods:
+      {%- for n in neighbourhoods %}{% if n.slug != hood.slug %} <a href="/neighbourhoods/{{ n.slug }}/">{{ n.name }}</a>{% if not loop.last %} ·{% endif %}{% endif %}{% endfor %}
+    </p>
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

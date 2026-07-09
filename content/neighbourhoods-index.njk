@@ -1,0 +1,56 @@
+---
+layout: false
+permalink: /neighbourhoods/
+eleventyExcludeFromCollections: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "partials/head.njk" %}
+  <title>Vancouver Neighbourhoods — Where to Find Community | {{ site.title }}</title>
+  <meta name="description" content="Find groups, clubs, and things to do by Vancouver neighbourhood — Kitsilano, East Vancouver, Mount Pleasant and more. Community, block by block.">
+  <meta property="og:title" content="Vancouver Neighbourhoods — Where to Find Community">
+  <meta property="og:description" content="Find groups, clubs, and things to do by Vancouver neighbourhood.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/neighbourhoods/">
+  <meta property="og:image" content="{{ site.url }}/og-image.png">
+  <link rel="canonical" href="{{ site.url }}/neighbourhoods/">
+</head>
+<body class="category-page">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{% include "partials/topbar.njk" %}
+<main id="main-content">
+  <div class="cat-hero">
+    <div class="start-hero-wrap">
+      <div class="breadcrumbs">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <span class="breadcrumb-current">Neighbourhoods</span>
+      </div>
+      <h1 class="cat-title">Community, by neighbourhood</h1>
+      <p class="cat-desc">Vancouver is really a stack of neighbourhoods, each with its own social character. Here's where to find your people, block by block.</p>
+    </div>
+  </div>
+
+  <div class="start-here-content">
+    <div class="start-groups">
+      {%- for n in neighbourhoods %}
+      <a href="/neighbourhoods/{{ n.slug }}/" class="start-group-card" data-umami-event="click-neighbourhood" data-umami-event-hood="{{ n.slug }}">
+        <span class="start-group-name">{{ n.name }}</span>
+        <span class="start-group-desc">{{ n.tagline }}</span>
+      </a>
+      {%- endfor %}
+    </div>
+    <div class="start-browse-more">
+      <p>Don't see yours yet? The directory is city-wide — most groups welcome anyone who shows up, wherever you live.</p>
+      <div class="start-browse-links">
+        <a href="/" class="start-browse-link">Browse all categories</a>
+        <a href="/free/" class="start-browse-link start-browse-link-muted">Free things to do</a>
+      </div>
+    </div>
+  </div>
+
+  {% include "partials/footer.njk" %}
+</main>
+{% include "partials/scripts.njk" %}
+</body>
+</html>

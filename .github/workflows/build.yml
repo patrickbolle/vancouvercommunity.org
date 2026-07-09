@@ -11,6 +11,7 @@ on:
       - 'static/**'
       - 'eleventy.config.js'
       - 'package.json'
+      - 'workers/**'
   pull_request:
     paths:
       - 'content/**'
@@ -20,6 +21,7 @@ on:
       - 'static/**'
       - 'eleventy.config.js'
       - 'package.json'
+      - 'workers/**'
 
 jobs:
   build:
@@ -34,6 +36,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Test submission formatter
+        run: node workers/submit/format.test.mjs
 
       - name: Build site
         run: npx @11ty/eleventy
