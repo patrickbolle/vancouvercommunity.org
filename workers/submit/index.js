@@ -1,4 +1,5 @@
 // Cloudflare Worker for community submissions & edits -> GitHub Pull Requests
+// Deploys from main (Cloudflare Workers git integration).
 
 import {
   formatSubmissionEntry,
