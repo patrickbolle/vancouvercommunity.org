@@ -7,3 +7,4 @@ node_modules/
 *.jpg
 *.jpeg
 !static/**
+link-report.md

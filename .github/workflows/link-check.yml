@@ -1,0 +1,45 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: "0 16 * * 1" # Mondays 16:00 UTC (~8am Vancouver)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check outbound links
+        run: node scripts/check-links.mjs || true
+
+      - name: Open or update issue on broken links
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q "^## Broken" link-report.md; then
+            existing=$(gh issue list --state open --search "Broken links report in:title" --json number --jq '.[0].number // empty')
+            if [ -n "$existing" ]; then
+              echo "Updating issue #$existing"
+              gh issue edit "$existing" --body-file link-report.md
+            else
+              echo "Creating new issue"
+              gh issue create --title "🔗 Broken links report" --body-file link-report.md
+            fi
+          else
+            echo "No high-confidence broken links."
+            existing=$(gh issue list --state open --search "Broken links report in:title" --json number --jq '.[0].number // empty')
+            if [ -n "$existing" ]; then
+              gh issue comment "$existing" --body "All links resolve cleanly again — closing." || true
+              gh issue close "$existing" || true
+            fi
+          fi
