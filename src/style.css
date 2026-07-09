@@ -2459,6 +2459,62 @@ textarea.form-input { resize: vertical; }
   font-weight: 700;
 }
 
+/* Advertise page — conversion elements */
+.advertise-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin: 4px 0 12px;
+  padding: 18px 22px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.advertise-stat { display: flex; flex-direction: column; }
+.advertise-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.7em;
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.advertise-stat span { font-size: 0.85em; color: var(--text-secondary); }
+
+.advertise-mockup { margin: 16px 0 8px; }
+.advertise-mockup .sponsor-card-hero {
+  width: 100%;
+  max-width: 420px;
+}
+.advertise-mockup-cap {
+  margin: 10px 0 0;
+  font-size: 0.85em;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.advertise-tier { display: flex; flex-direction: column; }
+.advertise-cta {
+  margin-top: auto;
+  display: inline-block;
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 9px 18px;
+  background: var(--accent);
+  color: var(--text-on-accent) !important;
+  border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none !important;
+  transition: background 0.15s, transform 0.15s;
+}
+.advertise-cta:hover { background: var(--accent-hover); }
+.advertise-cta:active { transform: scale(0.98); }
+.advertise-note {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-top: 14px;
+}
+
 /* ========================================
    RELATED CATEGORIES — internal links at category page bottom
    ======================================== */
