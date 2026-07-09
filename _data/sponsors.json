@@ -1,5 +1,5 @@
 {
-  "_docs": "Category sponsors. Each listing renders a labeled 'Community sponsor' card at the top of its category page. Fields: category (file slug, e.g. 'pottery-ceramics'), name, description (1-2 sentences, written in the site's voice), url, where (optional neighbourhood), cta (optional link text, defaults to 'Visit'). Sold via /advertise/. Keep it to one sponsor per category.",
+  "_docs": "Sponsors. 'listings' = per-category sponsors, each rendering a labeled 'Community sponsor' card atop its category page (fields: category (file slug), name, description, url, where (optional), cta (optional, defaults 'Visit')); one per category. 'homepage' = optional single site-wide partner on the homepage (same fields minus category). Empty category slots and an empty homepage slot auto-render a labeled 'open' placeholder linking to /advertise/. Sold via /advertise/.",
   "_example": {
     "category": "pottery-ceramics",
     "name": "Example Clay Studio",
@@ -8,5 +8,6 @@
     "where": "Mount Pleasant",
     "cta": "See class times"
   },
+  "homepage": null,
   "listings": []
 }

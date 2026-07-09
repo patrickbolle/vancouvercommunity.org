@@ -118,6 +118,29 @@ permalink: /
   </section>
   {%- endif %}
 
+  {%- if sponsors.homepage and sponsors.homepage.name %}
+  <section class="hp-section">
+    <div class="sponsor-card sponsor-card-wide">
+      <span class="sponsor-card-label">Community partner</span>
+      <div class="group-card-header"><h2>{{ sponsors.homepage.name }}</h2></div>
+      <p class="group-card-desc">{{ sponsors.homepage.description }}</p>
+      {%- if sponsors.homepage.where %}
+      <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsors.homepage.where }}</span></div>
+      {%- endif %}
+      <a href="{{ sponsors.homepage.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="homepage">{{ sponsors.homepage.cta or "Visit" }} &rarr;</a>
+    </div>
+  </section>
+  {%- else %}
+  <section class="hp-section">
+    <a href="/advertise/" class="sponsor-card sponsor-card-wide sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="homepage">
+      <span class="sponsor-card-label">Community partner &middot; slot open</span>
+      <div class="group-card-header"><h2>Reach everyone starting their search here</h2></div>
+      <p class="group-card-desc">This is the front door — the most-visited page on the directory. One partner at a time, clearly labeled, right where Vancouver looks for things to do. Sponsors keep the whole directory free.</p>
+      <span class="sponsor-card-link">Become a partner &rarr;</span>
+    </a>
+  </section>
+  {%- endif %}
+
   <section class="hp-section" id="categories">
     <p class="hp-section-title">Browse {{ totalGroups }}+ groups</p>
     {%- for group in groups %}

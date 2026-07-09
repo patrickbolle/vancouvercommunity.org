@@ -2352,17 +2352,63 @@ textarea.form-input { resize: vertical; }
   padding: 0;
   margin: 0;
 }
-.sponsor-slot-note {
-  grid-column: 1 / -1;
-  margin-top: 8px;
+.sponsor-card-link {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 2px;
+}
+
+/* Wide variant — homepage partner slot spans its section */
+.sponsor-card-wide {
+  max-width: none;
+}
+
+/* Hero variant — sponsor sits in the category hero aside (prime placement) */
+.sponsor-card-hero {
+  width: 340px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  max-width: 340px;
+  background: var(--bg-card);
+}
+.sponsor-card-hero.sponsor-card-open { background: transparent; }
+@media (max-width: 900px) {
+  .sponsor-card-hero { width: 100%; max-width: none; }
+}
+
+/* Slim facts line under the category description (freed the hero aside) */
+.cat-facts-inline {
   font-size: 0.85em;
   color: var(--text-muted);
+  margin: 10px 0 0;
 }
-.sponsor-slot-note a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.cat-facts-inline strong { color: var(--text-secondary); font-weight: 600; }
+.cat-facts-inline a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+/* Open/available state — an empty slot that sells itself. Warm dashed
+   placeholder styled like a real sponsor card so a business can picture it. */
+.sponsor-card-open {
+  background: transparent;
+  border-style: dashed;
+  border-left-width: 3px;
+  border-color: var(--accent-underline);
+  border-left-color: var(--accent);
+  text-decoration: none !important;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
 }
+.sponsor-card-open:visited { color: inherit; }
+.sponsor-card-open:hover {
+  background: var(--bg-warm);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.sponsor-card-open .sponsor-card-label { color: var(--text-muted); }
+.sponsor-card-open:hover .sponsor-card-label { color: var(--accent); }
+.sponsor-card-open .group-card-header h2 { color: var(--text-secondary); font-weight: 500; }
+.sponsor-card-open:hover .group-card-header h2 { color: var(--text); }
+.sponsor-card-open .sponsor-card-link { transition: transform 0.15s; }
+.sponsor-card-open:hover .sponsor-card-link { transform: translateX(3px); }
 
 .advertise-tiers {
   display: grid;
@@ -2453,45 +2499,6 @@ textarea.form-input { resize: vertical; }
 /* ========================================
    DESIGN BATCH — category facts, post TOC
    ======================================== */
-.cat-facts {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 22px;
-  width: 320px;
-  flex-shrink: 0;
-  align-self: center;
-}
-.cat-facts-row {
-  margin: 0 0 8px;
-  font-size: 0.9em;
-  color: var(--text-secondary);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: baseline;
-}
-.cat-facts-stat strong {
-  font-family: var(--font-display);
-  font-size: 1.25em;
-  font-weight: 600;
-  color: var(--text);
-}
-.cat-facts-sep { color: var(--text-muted); }
-.cat-facts-note {
-  margin: 0;
-  font-size: 0.82em;
-  line-height: 1.5;
-  color: var(--text-muted);
-}
-.cat-facts-note a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-@media (max-width: 900px) {
-  .cat-facts { width: 100%; align-self: stretch; }
-}
 
 .post-toc {
   background: var(--bg-warm);
