@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Tech & Startup"
-description: "39 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver's largest category."
+description: "40 tech and startup groups — founder circles, dev meetups, AI nights, cybersecurity, and more. Vancouver's largest category."
 emoji: "💼"
 group: work-tech
 order: 1
@@ -78,10 +78,6 @@ order: 1
 ## Cloud Native Vancouver
 - **What:** Official CNCF chapter for Kubernetes, containers, cloud-native tech. Technical deep-dives, passionate community
 - **Find it:** [lu.ma/cloudnativevan](https://lu.ma/cloudnativevan)
-
-## Vancouver Cloud Events
-- **What:** AWS, Azure, and GCP events aggregated in one place. Cloud Summit, meetups across all major cloud platforms
-- **Find it:** [lu.ma/VancouverCloud](https://lu.ma/VancouverCloud)
 
 ## Novus
 - **What:** Community of founders and builders working on impactful projects. High-caliber, impact-focused, scale-minded

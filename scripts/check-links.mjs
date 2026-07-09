@@ -19,6 +19,10 @@ const TIMEOUT_MS = 15000;
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/124.0 Safari/537.36";
+// A deliberately DIFFERENT signature, used only to double-check a 404 before
+// flagging it. Bot-hostile sites (e.g. some .gov pages) hand back different
+// codes to different clients — if the two disagree, the "404" isn't reliable.
+const UA_ALT = "curl/8.4.0";
 
 // ── Collect { category, group, url } from every "Find it" line ──────────
 
@@ -51,7 +55,7 @@ function collectLinks() {
 
 // ── Check a single URL ──────────────────────────────────────────────────
 
-async function fetchOnce(url, method) {
+async function fetchOnce(url, method, ua = UA) {
   const ctrl = new AbortController();
   const t = setTimeout(() => ctrl.abort(), TIMEOUT_MS);
   try {
@@ -59,7 +63,7 @@ async function fetchOnce(url, method) {
       method,
       redirect: "follow",
       signal: ctrl.signal,
-      headers: { "User-Agent": UA, Accept: "*/*" },
+      headers: { "User-Agent": ua, Accept: "*/*" },
     });
     return { status: res.status };
   } finally {
@@ -77,10 +81,10 @@ async function fetchOnce(url, method) {
 // ever counts as broken, so the auto-filed issue stays trustworthy.
 const BOT_BLOCKED = new Set([401, 403, 405, 406, 408, 409, 429, 451, 999]);
 
-async function getStatus(url) {
+async function getStatus(url, ua = UA) {
   // GET (not HEAD — many servers mishandle HEAD and 404 it falsely).
   try {
-    const { status } = await fetchOnce(url, "GET");
+    const { status } = await fetchOnce(url, "GET", ua);
     return status;
   } catch (e) {
     return e.name || "network-error";
@@ -94,12 +98,14 @@ async function checkUrl(url) {
   if (s >= 200 && s < 400) return { state: "ok", status: s };
   if (BOT_BLOCKED.has(s) || s >= 500) return { state: "skipped", status: s };
   if (s === 404 || s === 410) {
-    // Confirm a dead link on a second GET before flagging it.
-    const s2 = await getStatus(url);
+    // Re-check with a DIFFERENT client signature. Bot-hostile hosts (some
+    // .gov pages) return 404 to one client and 403 to another — if the two
+    // disagree, the "404" isn't trustworthy, so downgrade to verify-by-hand.
+    const s2 = await getStatus(url, UA_ALT);
     if (s2 === 404 || s2 === 410) return { state: "broken", status: s2 };
     if (typeof s2 === "number" && s2 >= 200 && s2 < 400)
       return { state: "ok", status: s2 };
-    return { state: "unreachable", status: s2 };
+    return { state: "unreachable", status: `404→${s2}` };
   }
   return { state: "unreachable", status: s }; // other 4xx: ambiguous
 }

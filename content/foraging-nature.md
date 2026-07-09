@@ -29,7 +29,7 @@ order: 3
 
 ## A Taste of Nature
 - **What:** Daily eco-tours through Stanley Park, "Forest to Table Cuisine"
-- **Find it:** [destinationvancouver.com/listings/a-taste-of-nature](https://www.destinationvancouver.com/listings/a-taste-of-nature/56116/)
+- **Find it:** [atasteofnature.ca](https://www.atasteofnature.ca)
 
 ## Deerholme Farm Forages
 - **What:** Wild food forages for mushrooms and plants. Educational, hands-on, Vancouver Island day trips
