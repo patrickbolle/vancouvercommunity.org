@@ -1,5 +1,15 @@
 // Cloudflare Worker for community submissions & edits -> GitHub Pull Requests
 
+import {
+  formatSubmissionEntry,
+  insertEntry,
+  hasDuplicateName,
+  sanitizeInline,
+  sanitizeBlock,
+  sanitizeName,
+  normalizeUrl,
+} from "./format.js";
+
 const GITHUB_REPO = "patrickbolle/vancouvercommunity.org";
 const DEFAULT_BRANCH = "main";
 
@@ -122,41 +132,7 @@ function normalizeCategoryKey(raw) {
   return raw.toLowerCase().replace(/[^a-z0-9-]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
 }
 
-// --- Formatting ---
-
-function formatSubmissionEntry(data) {
-  let entry = `\n## ${data.name}\n`;
-  entry += `- **What:** ${data.description}\n`;
-
-  if (data.vibe) {
-    entry += `- **Vibe:** ${data.vibe}\n`;
-  }
-  if (data.location) {
-    entry += `- **Where:** ${data.location}\n`;
-  }
-  if (data.link) {
-    entry += `- **Find it:** [${data.link.replace(/^https?:\/\//, '')}](${data.link})\n`;
-  }
-  if (data.additional) {
-    entry += `- **Notes:** ${data.additional}\n`;
-  }
-
-  return entry;
-}
-
-function insertEntry(content, entry) {
-  // Find the --- divider that precedes a Venues/Resources section
-  const dividerPattern = /\n---\s*\n+## (?:Venues|Resources|Venues & (?:Resources|Spaces))/;
-  const match = content.match(dividerPattern);
-
-  if (match) {
-    const insertPos = match.index;
-    return content.slice(0, insertPos) + "\n" + entry + content.slice(insertPos);
-  }
-
-  // No divider — append to end
-  return content.trimEnd() + "\n" + entry;
-}
+// (Formatting/sanitization helpers live in ./format.js and are unit-tested.)
 
 // --- Route handlers ---
 
@@ -206,10 +182,21 @@ async function handleSubmit(data, env, rid) {
     return handleUncategorizedSubmission(data, env, rid);
   }
 
-  log(rid, "info", `Processing submission`, { name: data.name, category: categoryKey });
+  // Normalize the display name once, up front — everything downstream
+  // (heading, branch, duplicate check, PR title) uses the clean version.
+  const cleanName = sanitizeName(data.name);
+  if (!cleanName) {
+    return new Response(JSON.stringify({
+      error: "Please provide a group name."
+    }), { status: 400, headers: corsHeaders });
+  }
+
+  log(rid, "info", `Processing submission`, { name: cleanName, category: categoryKey });
 
   const timestamp = Date.now();
-  const safeName = data.name.toLowerCase().replace(/[^a-z0-9]/g, '-').slice(0, 30);
+  const safeName =
+    cleanName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 30) ||
+    "group";
   const branchName = `submission/${safeName}-${timestamp}`;
 
   // Get base branch SHA
@@ -236,16 +223,19 @@ async function handleSubmit(data, env, rid) {
 
   // Check for duplicates — match group name (case-insensitive) or URL
   if (currentContent) {
-    const contentLower = currentContent.toLowerCase();
-    const nameLower = data.name.toLowerCase();
-    const isDuplicateName = contentLower.includes(`## ${nameLower}`);
-    const isDuplicateLink = data.link && currentContent.includes(data.link.replace(/\/$/, ''));
+    const isDuplicateName = hasDuplicateName(currentContent, cleanName);
+    const normUrl = normalizeUrl(data.link);
+    const isDuplicateLink =
+      normUrl &&
+      currentContent
+        .toLowerCase()
+        .includes((normUrl.host + normUrl.pathname).replace(/\/$/, "").toLowerCase());
 
     if (isDuplicateName || isDuplicateLink) {
       const match = isDuplicateName ? "name" : "link";
-      log(rid, "info", `Duplicate detected`, { name: data.name, match });
+      log(rid, "info", `Duplicate detected`, { name: cleanName, match });
       return new Response(JSON.stringify({
-        error: `It looks like "${data.name}" might already be listed in this category. If this is a different group, try changing the name slightly.`
+        error: `It looks like "${cleanName}" might already be listed in this category. If this is a different group, try changing the name slightly.`
       }), { status: 409, headers: corsHeaders });
     }
   }
@@ -264,28 +254,40 @@ async function handleSubmit(data, env, rid) {
   await githubApi(`/repos/${GITHUB_REPO}/contents/${fileName}`, env, {
     method: "PUT",
     body: JSON.stringify({
-      message: `Add ${data.name} to ${categoryKey}`,
+      message: `Add ${cleanName} to ${categoryKey}`,
       content: encodeBase64(updatedContent),
       branch: branchName,
       ...(fileSha && { sha: fileSha })
     })
   }, rid);
 
-  // Create PR
+  // Create PR — sanitize every interpolated field so the PR body can't be
+  // broken or abused by hostile input.
+  const normLink = normalizeUrl(data.link);
+  const f = {
+    category: sanitizeInline(data.category, 60),
+    description: sanitizeBlock(data.description),
+    vibe: sanitizeInline(data.vibe),
+    link: normLink ? normLink.href : "",
+    location: sanitizeInline(data.location, 160),
+    additional: sanitizeBlock(data.additional),
+    cost: sanitizeInline(data.cost, 60),
+    availability: sanitizeInline(data.availability, 60),
+  };
   const prBody = `## New Community Submission
 
-**Name:** ${data.name}
-**Category:** ${data.category}
+**Name:** ${cleanName}
+**Category:** ${f.category}
 
 **Description:**
-${data.description}
+${f.description}
 
-${data.vibe ? `**Vibe/Atmosphere:** ${data.vibe}` : ''}
-${data.link ? `**Website/Link:** ${data.link}` : ''}
-${data.location ? `**Location:** ${data.location}` : ''}
-${data.additional ? `**Additional Info:** ${data.additional}` : ''}
-${data.cost ? `**Cost:** ${data.cost}` : ''}
-${data.availability ? `**Who can join:** ${data.availability}` : ''}
+${f.vibe ? `**Vibe/Atmosphere:** ${f.vibe}` : ''}
+${f.link ? `**Website/Link:** ${f.link}` : ''}
+${f.location ? `**Location:** ${f.location}` : ''}
+${f.additional ? `**Additional Info:** ${f.additional}` : ''}
+${f.cost ? `**Cost:** ${f.cost}` : ''}
+${f.availability ? `**Who can join:** ${f.availability}` : ''}
 
 ---
 *Submitted via vancouvercommunity.org*
@@ -294,7 +296,7 @@ ${data.availability ? `**Who can join:** ${data.availability}` : ''}
   const pr = await githubApi(`/repos/${GITHUB_REPO}/pulls`, env, {
     method: "POST",
     body: JSON.stringify({
-      title: `Add ${data.name} to ${data.category}`,
+      title: `Add ${cleanName} to ${f.category}`,
       body: prBody,
       head: branchName,
       base: DEFAULT_BRANCH
@@ -331,16 +333,24 @@ async function handleEdit(data, env, rid) {
 
   log(rid, "info", `Processing edit suggestion`, { category: categoryKey });
 
+  const summary = sanitizeBlock(data.summary);
+  if (!summary) {
+    return new Response(JSON.stringify({
+      error: "Please describe what should change."
+    }), { status: 400, headers: corsHeaders });
+  }
+  const submittedBy = sanitizeInline(data.name, 80);
+
   // Create a GitHub issue instead of replacing the file
   const issueBody = `## Edit Suggestion
 
-**Category:** [${data.category}](https://vancouvercommunity.org/${categoryKey}/)
+**Category:** [${categoryKey}](https://vancouvercommunity.org/${categoryKey}/)
 **File:** \`${fileName}\`
 
 ### What should change
-${data.summary}
+${summary}
 
-${data.name ? `**Submitted by:** ${data.name}` : ''}
+${submittedBy ? `**Submitted by:** ${submittedBy}` : ''}
 
 ---
 *Submitted via vancouvercommunity.org*
@@ -383,15 +393,18 @@ async function handleVerify(data, env, rid) {
   log(rid, "info", `Issue verification`, { group: data.group, category: data.category });
 
   const categoryKey = normalizeCategoryKey(data.category);
+  const group = sanitizeInline(data.group, 120) || "Unknown group";
+  const reportedUrl = normalizeUrl(data.url);
+  const detail = sanitizeBlock(data.detail);
 
   const issueBody = `## Link Verification Report
 
-**Group:** ${data.group}
+**Group:** ${group}
 **Category:** [${categoryKey}](https://vancouvercommunity.org/${categoryKey}/)
-**URL:** ${data.url || 'N/A'}
+**URL:** ${reportedUrl ? reportedUrl.href : 'N/A'}
 
 ### Issue reported
-${data.detail || 'No details provided'}
+${detail || 'No details provided'}
 
 ---
 *Reported by a visitor via link verification*
@@ -400,7 +413,7 @@ ${data.detail || 'No details provided'}
   const issue = await githubApi(`/repos/${GITHUB_REPO}/issues`, env, {
     method: "POST",
     body: JSON.stringify({
-      title: `Link issue: ${data.group}`,
+      title: `Link issue: ${group}`,
       body: issueBody,
       labels: ["link-verification"]
     })
@@ -413,19 +426,30 @@ ${data.detail || 'No details provided'}
 
 // POST /submit with unknown category — create a triage issue
 async function handleUncategorizedSubmission(data, env, rid) {
+  const name = sanitizeName(data.name) || "Untitled";
+  const normLink = normalizeUrl(data.link);
+  const u = {
+    category: sanitizeInline(data.category, 60),
+    description: sanitizeBlock(data.description),
+    link: normLink ? normLink.href : "",
+    location: sanitizeInline(data.location, 160),
+    vibe: sanitizeInline(data.vibe),
+    cost: sanitizeInline(data.cost, 60),
+    availability: sanitizeInline(data.availability, 60),
+  };
   const issueBody = `## New Submission — Needs Category
 
-**Name:** ${data.name}
-**Submitted category:** ${data.category}
+**Name:** ${name}
+**Submitted category:** ${u.category}
 
 **Description:**
-${data.description}
+${u.description}
 
-${data.link ? `**Website/Link:** ${data.link}` : ''}
-${data.location ? `**Location:** ${data.location}` : ''}
-${data.vibe ? `**Vibe:** ${data.vibe}` : ''}
-${data.cost ? `**Cost:** ${data.cost}` : ''}
-${data.availability ? `**Who can join:** ${data.availability}` : ''}
+${u.link ? `**Website/Link:** ${u.link}` : ''}
+${u.location ? `**Location:** ${u.location}` : ''}
+${u.vibe ? `**Vibe:** ${u.vibe}` : ''}
+${u.cost ? `**Cost:** ${u.cost}` : ''}
+${u.availability ? `**Who can join:** ${u.availability}` : ''}
 
 ---
 *Submitted via vancouvercommunity.org — category not matched, needs triage*
@@ -434,7 +458,7 @@ ${data.availability ? `**Who can join:** ${data.availability}` : ''}
   const issue = await githubApi(`/repos/${GITHUB_REPO}/issues`, env, {
     method: "POST",
     body: JSON.stringify({
-      title: `New submission: ${data.name} (needs category)`,
+      title: `New submission: ${name} (needs category)`,
       body: issueBody,
       labels: ["submission-triage"]
     })
