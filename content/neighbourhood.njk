@@ -89,7 +89,7 @@ eleventyExcludeFromCollections: true
       <ul class="hood-group-list">
         {%- for g in c.groups %}
         <li>
-          <a href="/{{ c.slug }}/#{{ g.name | mdAnchor }}">{{ g.name }}</a>
+          <a href="/{{ c.slug }}/#{{ g.name | mdAnchor }}" data-group data-g-name="{{ g.name }}" data-g-desc="{{ g.description }}" data-g-cat="{{ c.title }}" data-g-slug="{{ c.slug }}"{% if g.url %} data-g-url="{{ g.url }}"{% endif %}{% if g.location %} data-g-where="{{ g.location }}"{% endif %}>{{ g.name }}</a>
           {%- if g.description %} — {{ g.description | truncate(110) }}{% endif %}
         </li>
         {%- endfor %}

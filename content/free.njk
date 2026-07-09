@@ -91,7 +91,7 @@ eleventyExcludeFromCollections: true
       <h2 class="start-section-title"><a href="/{{ cat.fileSlug }}/">{{ cat.data.title }}</a></h2>
       <div class="start-groups">
         {%- for item in catFree %}
-        <a href="/{{ cat.fileSlug }}/#{{ item.name | mdAnchor }}" class="start-group-card" data-umami-event="click-free-group" data-umami-event-category="{{ cat.fileSlug }}">
+        <a href="/{{ cat.fileSlug }}/#{{ item.name | mdAnchor }}" class="start-group-card" data-umami-event="click-free-group" data-umami-event-category="{{ cat.fileSlug }}" data-group data-g-name="{{ item.name }}" data-g-desc="{{ item.description }}" data-g-cat="{{ cat.data.title }}" data-g-slug="{{ cat.fileSlug }}"{% if item.url %} data-g-url="{{ item.url }}"{% endif %}{% if item.location %} data-g-where="{{ item.location }}"{% endif %} data-g-badge="Free">
           <span class="start-group-name">{{ item.name }}</span>
           <span class="start-group-desc">{{ item.description | truncate(120) }}</span>
         </a>
