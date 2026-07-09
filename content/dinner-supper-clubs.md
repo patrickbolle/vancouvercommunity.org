@@ -12,7 +12,7 @@ order: 1
 
 ## DayOfUs - Dinner with Strangers
 - **What:** Weekly curated dinners — you + 5 strangers at a surprise restaurant. Algorithm-matched based on interests, casual, low-pressure
-- **Find it:** [Eventbrite](https://www.eventbrite.com/e/dinner-with-strangers-curated-dinner-meetup-in-vancouver-registration-1709285481889)
+- **Find it:** [dayofus.com/events/vancouver](https://www.dayofus.com/events/vancouver)
 
 ## Timeleft
 - **What:** International app, weekly dinners with strangers. Algorithm-matched, launched in Vancouver May 2024

@@ -92,10 +92,6 @@ order: 3
 - **What:** Cycling clubs and resources in BC
 - **Find it:** [bikehub.ca](https://bikehub.ca)
 
-## HoopMaps
-- **What:** App for finding pickup basketball games
-- **Find it:** [App Store](https://apps.apple.com/app/hoop-maps-find-pickup-basketball-games/id1144928566)
-
 ## ClimbFind
 - **What:** Find climbing partners and groups
 - **Find it:** [climbfind.com](https://climbfind.com)
