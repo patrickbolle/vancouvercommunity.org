@@ -2686,6 +2686,7 @@ body::before {
   backdrop-filter: blur(2px);
 }
 .group-modal.visible { opacity: 1; }
+.group-modal:focus { outline: none; }
 .group-modal-inner {
   background: var(--bg-card);
   border: 1px solid var(--border);

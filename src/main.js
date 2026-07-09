@@ -542,6 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
     m.setAttribute("role", "dialog");
     m.setAttribute("aria-modal", "true");
     m.setAttribute("aria-label", g.name || "Group details");
+    m.setAttribute("tabindex", "-1");
 
     var html = '<div class="group-modal-inner">';
     html += '<button class="group-modal-close" aria-label="Close">&times;</button>';
@@ -567,7 +568,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     m.querySelector(".group-modal-close").addEventListener("click", close);
     m.addEventListener("click", function (e) { if (e.target === m) close(); });
-    m.querySelector(".group-modal-close").focus();
+    // Move focus into the dialog itself (not the close button) so no focus
+    // outline box appears around the × on open; keyboard nav still works.
+    m.focus();
     if (typeof umami !== "undefined") umami.track("group-modal", { group: g.name });
   };
 
