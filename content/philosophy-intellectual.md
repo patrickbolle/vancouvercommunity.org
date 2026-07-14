@@ -10,10 +10,6 @@ order: 2
 
 # 🤔 Philosophy / Intellectual Discussion
 
-## Vancouver Philosophy Salon
-- **What:** Philosophical dialogue and friendly debate. Wide variety of topics, Plato to Buddha
-- **Find it:** [meetup.com/vancouver-philosophy-salon](https://meetup.com/vancouver-philosophy-salon)
-
 ## Shy Philosophers
 - **What:** Safe space to discuss philosophy. "Feel safe and converse philosophy with new people freely"
 - **Find it:** [meetup.com/shyphilosophers](https://meetup.com/shyphilosophers)
