@@ -41,7 +41,3 @@ order: 1
 ## Mender
 - **What:** Men's groups directory
 - **Find it:** [mender.ca/groups](https://mender.ca/groups/)
-
-## Vancouver Men's Therapy Groups
-- **What:** Professional facilitated group therapy. Mental health focused, structured sessions
-- **Find it:** [mender.ca/groups](https://mender.ca/groups/) | [ManKind Project BC](https://bc.canada.mkp.org/find-a-mens-group/)
