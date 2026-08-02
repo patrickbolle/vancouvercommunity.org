@@ -27,10 +27,6 @@ order: 3
 - **Cost:** ~$46/person
 - **Find it:** [swallowtail.ca](https://swallowtail.ca/)
 
-## A Taste of Nature
-- **What:** Daily eco-tours through Stanley Park, "Forest to Table Cuisine"
-- **Find it:** [atasteofnature.ca](https://www.atasteofnature.ca)
-
 ## Deerholme Farm Forages
 - **What:** Wild food forages for mushrooms and plants. Educational, hands-on, Vancouver Island day trips
 - **Find it:** [deerholme.com/foraging](https://www.deerholme.com/foraging/)
