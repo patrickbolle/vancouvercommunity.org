@@ -23,10 +23,6 @@ order: 8
 - **What:** Astrology, self-development
 - **Find it:** [meetup.com/find/ca--vancouver/astrology](https://www.meetup.com/find/ca--vancouver/astrology/)
 
-## Spiritual Development, Meditation & Mysticism Events
-- **What:** Spirit rituals, unique spiritual expression, mystical paths. Meditation and spiritual development classes
-- **Find it:** [meetup.com/SpiRitual-Artistry](https://www.meetup.com/SpiRitual-Artistry/)
-
 ## Moon Circles Vancouver
 - **What:** Full moon and new moon gatherings. Women's circles, intention setting
 - **Find it:** [Eventbrite moon circle Vancouver](https://www.eventbrite.ca/d/canada--vancouver/moon-circle/) (various facilitators)
