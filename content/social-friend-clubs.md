@@ -84,3 +84,6 @@ order: 2
 - **What:** LGBTQ+ swimming club. Positive, inclusive space, especially trans-friendly
 - **Find it:** Search "English Bay Swim Club Vancouver"
 
+## Nikkei Social
+- **What:** Nikkei Social is a Vancouver social club for Japanese, Nikkei, and anyone who loves the Japanese culture. We wanted to create a community that feels natural, intentional and fun. Expect great venues, good conversations, and thoughtful hosting so the vibe stays warm and inclusive. Not a language exchange or anime focused. English first by default. Japanese always welcome.
+- **Find it:** [instagram.com/nikkeisocial](https://www.instagram.com/nikkeisocial)
