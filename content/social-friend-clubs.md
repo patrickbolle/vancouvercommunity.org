@@ -84,3 +84,6 @@ order: 2
 - **What:** LGBTQ+ swimming club. Positive, inclusive space, especially trans-friendly
 - **Find it:** Search "English Bay Swim Club Vancouver"
 
+## 🌍 Chill & Cruise
+- **What:** 🌍 Chill & Cruise is a fun and friendly WhatsApp community for jokes, conversations, games, banter and good vibes. Meet new people, make friends and enjoy your time with us. No boring energy! 🔥😂
+- **Find it:** [chat.whatsapp.com/Khp08p0wkNx6xIsb90L4G1](https://chat.whatsapp.com/Khp08p0wkNx6xIsb90L4G1)
