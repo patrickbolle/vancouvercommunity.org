@@ -37,7 +37,3 @@ order: 1
 ---
 
 ## Venues & Resources
-
-## Mender
-- **What:** Men's groups directory
-- **Find it:** [mender.ca/groups](https://mender.ca/groups/)
