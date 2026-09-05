@@ -77,6 +77,13 @@ order: 1
 - **What:** Studio and location photo sessions with models. Develop your artistic vision, non-judgmental
 - **Find it:** [meetup.com/Fine-Art-Photography-Sessions-with-Kate-Snig](https://meetup.com/Fine-Art-Photography-Sessions-with-Kate-Snig)
 
+
+## Creative Gatherings by Understory
+- **What:** A brand new meet up group for expressing human creativity in it's multi-forms. Hosting events that merge introspection, artistic practice, and connection with others. Curated for the curious and creative.
+
+What is under the story?
+- **Find it:** [instagram.com/understory.experiences](https://www.instagram.com/understory.experiences/)
+
 ---
 
 ## Venues & Spaces
