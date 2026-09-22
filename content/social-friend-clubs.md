@@ -87,3 +87,7 @@ order: 2
 ## Nikkei Social
 - **What:** Nikkei Social is a Vancouver social club for Japanese, Nikkei, and anyone who loves the Japanese culture. We wanted to create a community that feels natural, intentional and fun. Expect great venues, good conversations, and thoughtful hosting so the vibe stays warm and inclusive. Not a language exchange or anime focused. English first by default. Japanese always welcome.
 - **Find it:** [instagram.com/nikkeisocial](https://www.instagram.com/nikkeisocial)
+
+## Choose Well Club
+- **What:** Monthly women's wellness brunches. Each month, we focus on a different aspect of women's health by inviting industry experts to come and deliver a workshop so women can be connected to the information they can trust. Brunch is always included, and is a chance to connect with other women from the Vancouver area.
+- **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
