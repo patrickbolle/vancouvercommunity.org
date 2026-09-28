@@ -25,3 +25,7 @@ order: 1
 ## A Moveable Feast Supper Club
 - **What:** French wine bar inspired dinners. "Between strangers and soon-to-be friends"
 - **Find it:** [Eventbrite](https://www.eventbrite.com/e/a-moveable-feast-supper-club-tickets-1918910465859)
+
+## The Artisans supper Club
+- **What:** Secret supper clubs with curated fine dining set up and place to meet new people and make friends. Engage in activities as cake painting and games
+- **Find it:** [instagram.com/theartisanssupperclub](https://www.instagram.com/theartisanssupperclub/)
