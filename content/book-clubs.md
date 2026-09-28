@@ -11,7 +11,7 @@ order: 1
 # 📚 Book Clubs & Reading
 
 <div class="category-banner">
-📖 Looking for a small book club in your neighbourhood? <a href="https://cuento.app" target="_blank" rel="noopener" data-umami-event="click-cuento-banner">Cuento</a> matches you with 5–6 local readers based on your taste — meet at a nearby café, no big groups.
+📖 Looking for a small book club in your neighbourhood? <a href="https://cuento.app" target="_blank" rel="noopener" data-umami-event="click-cuento-banner">Cuento</a> matches you into a circle of 4–8 readers in your neighbourhood, based on what you actually read. No big groups.
 </div>
 
 ## Silent Book Club
@@ -46,3 +46,8 @@ order: 1
 ## Vancouver Fantasy & Sci-Fi Group
 - **What:** This group is for people who love sci-fi, fantasy, anime, and speculative stories, but want to talk about them like adults. We discuss books, films, anime, TV, and short fiction through the big human questions underneath: freedom, technology, power, loneliness, identity, memory, fear, home, and what people become under pressure. No trivia sludge, no lore-flexing, no fandom gatekeeping. Story as a machine for ideas.
 - **Find it:** [meetup.com/vancouver-fantasy-scifi-meetup-group](https://www.meetup.com/vancouver-fantasy-scifi-meetup-group/)
+
+## Cuento
+- **What:** Small neighbourhood reading circles of 4–8 people, matched by reading taste. One intro email, then the circle picks its own books, café, and schedule
+- **Cost:** Free to join; $15 only when a circle is found
+- **Find it:** [Vancouver book clubs by neighbourhood](https://cuento.app/vancouver)

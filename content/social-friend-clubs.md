@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Social & Friend Clubs"
-description: "20 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more."
+description: "21 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more."
 emoji: "🤝"
 group: social
 order: 2
@@ -91,3 +91,7 @@ order: 2
 ## Choose Well Club
 - **What:** Monthly women's wellness brunches. Each month, we focus on a different aspect of women's health by inviting industry experts to come and deliver a workshop so women can be connected to the information they can trust. Brunch is always included, and is a chance to connect with other women from the Vancouver area.
 - **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
+
+## Cuento
+- **What:** Get matched with 4–8 neighbours who read like you do, then meet at a local café. A low-pressure way to make friends through books
+- **Find it:** [small neighbourhood book clubs in Vancouver](https://cuento.app/vancouver)
