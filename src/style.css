@@ -2777,3 +2777,126 @@ body::before {
 .group-modal-more:hover { color: var(--accent); }
 /* Cards that open the modal get a pointer + subtle affordance */
 [data-group] { cursor: pointer; }
+
+/* ========================================
+   CUENTO PROMO — Patrick's reading-circle project (copy in _data/cuento.js)
+   feature: large card (homepage, start here, reading-type categories)
+   compact: one-line strip (other categories, neighbourhoods, blog posts)
+   ======================================== */
+.cuento-promo {
+  grid-column: 1 / -1;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-secondary);
+}
+.cuento-promo-label {
+  font-size: 0.68em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+}
+
+.cuento-promo-feature {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 28px;
+}
+.cuento-promo-main { flex: 1; min-width: 0; max-width: 640px; }
+.cuento-promo-feature .cuento-promo-label { margin: 0 0 6px; }
+.cuento-promo .cuento-promo-heading {
+  font-family: var(--font-display);
+  font-size: 1.45em;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text);
+  margin: 0 0 8px;
+  padding: 0;
+  border: none;
+  cursor: default;
+}
+.cuento-promo .cuento-promo-heading:hover { color: var(--text); }
+.cuento-promo-body {
+  font-size: 0.95em;
+  line-height: 1.6;
+  margin: 0;
+}
+.cuento-promo-price {
+  font-size: 0.88em;
+  font-weight: 500;
+  color: var(--text);
+  margin: 10px 0 0;
+}
+.cuento-promo-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.cuento-promo a.cuento-promo-btn,
+.cuento-promo a.cuento-promo-btn:visited {
+  display: inline-block;
+  padding: 11px 20px;
+  background: var(--accent);
+  color: var(--text-on-accent);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.92em;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.cuento-promo a.cuento-promo-btn:hover {
+  background: var(--accent-hover);
+  color: var(--text-on-accent);
+  text-decoration: none;
+}
+.cuento-promo-btn:focus-visible,
+.cuento-promo-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.cuento-promo-domain {
+  font-size: 0.78em;
+  color: var(--text-muted);
+}
+
+.cuento-promo-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 20px;
+  font-size: 0.9em;
+  line-height: 1.6;
+}
+.cuento-promo-compact .cuento-promo-text { margin: 0; max-width: none; }
+.cuento-promo-compact .cuento-promo-label { display: block; margin-bottom: 2px; }
+.cuento-promo a.cuento-promo-link,
+.cuento-promo a.cuento-promo-link:visited {
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.cuento-promo a.cuento-promo-link:hover { color: var(--accent-hover); }
+
+/* Placement wrappers */
+.cuento-promo-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 32px;
+}
+.prose-content .cuento-promo { margin: 36px 0 28px; }
+
+@media (max-width: 700px) {
+  .cuento-promo-feature { flex-direction: column; align-items: stretch; gap: 18px; padding: 20px; }
+  .cuento-promo .cuento-promo-heading { font-size: 1.25em; }
+  .cuento-promo-btn { display: block; text-align: center; }
+  .cuento-promo-action { align-items: stretch; }
+  .cuento-promo-domain { text-align: center; }
+  .cuento-promo-compact { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .cuento-promo-wrap { padding: 0 16px 28px; }
+}

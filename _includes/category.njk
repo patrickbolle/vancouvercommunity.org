@@ -51,7 +51,7 @@
             "@type": "Organization",
             "name": "{{ item.name | replace('"', '\\"') }}"{% if item.description %},
             "description": "{{ item.description | replace('"', '\\"') }}"{% endif %}{% if item.url %},
-            "url": "{{ item.url }}"{% endif %}{% if item.location %},
+            "url": "{{ item.url | safe }}"{% endif %}{% if item.location %},
             "location": {
               "@type": "Place",
               "address": {
@@ -157,9 +157,20 @@
     </div>
   </div>
 
+  {%- set cuentoCat = cuento.categories[page.fileSlug] %}
   <div class="category-entries">
+    {%- if cuentoCat %}
+    {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = cuentoCat.heading %}{% set promoBody = cuentoCat.body %}
+    {% include "partials/cuento-promo.njk" %}
+    {%- endif %}
     {{ content | stripH1 | cardify | safe }}
   </div>
+  {%- if not cuentoCat %}
+  <div class="cuento-promo-wrap">
+    {%- set promoVariant = "compact" %}{% set promoPlacement = "category-" + page.fileSlug %}
+    {% include "partials/cuento-promo.njk" %}
+  </div>
+  {%- endif %}
 
   {%- set relatedCats = [] %}
   {%- for cat in collections.categories %}

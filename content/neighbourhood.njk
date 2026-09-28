@@ -98,6 +98,9 @@ eleventyExcludeFromCollections: true
     {%- endfor %}
     {%- endif %}
 
+    {%- set promoVariant = "compact" %}{% set promoPlacement = "neighbourhood-" + hood.slug %}
+    {% include "partials/cuento-promo.njk" %}
+
     <h2>Ready to show up?</h2>
     <p>The whole point of this directory is that the next step is small: pick one, note the day, and go. If nothing here fits, {{ hood.name }} is close enough to the rest of the city that you can <a href="/">browse every category</a> and find something a short ride away.</p>
     <p>New to Vancouver? Start with the <a href="/start-here/">most welcoming groups</a>, or read <a href="/blog/how-to-make-friends-in-vancouver/">how to make friends in Vancouver</a> — the short version is: pick something recurring and go three times.</p>

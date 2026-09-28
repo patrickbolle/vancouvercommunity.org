@@ -41,6 +41,10 @@ Some people come for the books; some come for the argument. If that's you:
 
 **[VPL Book Clubs](/book-clubs/#vpl-book-clubs)** — Vancouver Public Library runs free book clubs at branches across the city. They're welcoming, well-organized, and cost nothing. If you want something dependable and no-commitment, start here. (The library is also a goldmine for [starting your own group](/blog/start-a-group/) — the meeting rooms are free.)
 
+## If you want a small circle close to home
+
+Big book clubs can feel like a crowd. **[{{ cuento.name }}]({{ cuento.links.blogBookClubs }})** takes the other approach: it matches you with 4 to 8 neighbours who love the same books, and your circle meets at a local café. Free to join. $15 only when we find your circle. (Full disclosure: I built it, for the same reason I built this directory.)
+
 ## How to actually stick with one
 
 The secret to book clubs — and to [making friends in Vancouver](/blog/how-to-make-friends-in-vancouver/) generally — is repetition. The first meetup you'll feel like an outsider. By the third, you're a regular and someone's saved you a seat. Almost everyone quits after one visit, which is exactly why almost everyone stays lonely. Pick one, put the next three dates in your calendar, and just keep showing up.
