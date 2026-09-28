@@ -18,6 +18,11 @@ order: 3
 - **What:** Mushroom identification, events, community. Connect with local mycology enthusiasts
 - **Find it:** [mushroomsofbc.com](https://mushroomsofbc.com/) | Facebook: "Vancouver Mycological Society"
 
+
+## Roots on the Roof
+- **What:** Roots on the Roof is a student-led AMS club at UBC, working to connect students with how our food is grown through hands-on learning in our rooftop garden space.
+- **Find it:** [rootsontheroof.ca](https://rootsontheroof.ca/)
+
 ---
 
 ## Venues & Resources
