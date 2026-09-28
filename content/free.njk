@@ -54,7 +54,7 @@ eleventyExcludeFromCollections: true
             "@type": "Organization",
             "name": "{{ item.name | replace('"', '\\"') }}",
             "description": "{{ item.description | replace('"', '\\"') }}"{% if item.url %},
-            "url": "{{ item.url }}"{% endif %}
+            "url": "{{ item.url | safe }}"{% endif %}
           }
         }
         {%- endif %}
