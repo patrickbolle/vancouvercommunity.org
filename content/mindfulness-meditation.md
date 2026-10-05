@@ -59,6 +59,18 @@ order: 2
 - **What:** Meditation for fulfilled living. Abundance, health, love, inner success
 - **Find it:** [meetup.com/be-yoga-meditation-vancouver](https://meetup.com/be-yoga-meditation-vancouver)
 
+
+## Lightwork Meditation
+- **What:** Lightwork Meditation is a welcoming community offering meditation, energy healing and spiritual development for people in Vancouver and beyond.
+
+We offer free introductory meditation events for anyone curious about meditation, as well as Lightwork Level 1 class series for beginners and experienced meditators alike. Level 1 is typically a 7-week series where you learn practical meditation and energy-awareness techniques to support greater ease, clarity, grounding and resilience in everyday life.
+
+We also offer free community events, including a weekly online Healing Space and occasional pop-up Healing Space events, where anyone is welcome to experience a simple 15-minute energy healing.
+
+Our events and classes are offered online, with some in-person offerings in the Vancouver area. No prior meditation experience is needed to get started.
+
+- **Find it:** [lightwork.ca](https://www.lightwork.ca/)
+
 ---
 
 ## Venues & Resources
