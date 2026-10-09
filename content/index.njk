@@ -126,6 +126,10 @@ permalink: /
       </div>
 
       <aside class="col-side">
+        {#- The sister-site ad sits first so it's visible without scrolling. #}
+        {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
+        {% include "partials/mutuals-promo.njk" %}
+
         {%- if recentGroups.length > 0 %}
         <section class="panel">
           <h2 class="panel-title">Recently added</h2>
@@ -140,22 +144,28 @@ permalink: /
         </section>
         {%- endif %}
 
+        {#- A short, hand-picked list (most-searched in Search Console) with short names; the rest live on /blog/. #}
+        {%- set homeGuides = [
+          ["how-to-make-friends-in-vancouver", "How to make friends in Vancouver"],
+          ["best-book-clubs-in-vancouver", "The best book clubs"],
+          ["things-to-do-alone-in-vancouver", "Things to do alone"],
+          ["hiking-clubs-in-vancouver", "Hiking clubs"],
+          ["supper-clubs-dinner-with-strangers-vancouver", "Supper clubs and dinner with strangers"],
+          ["writing-groups-in-vancouver", "Writing groups"]
+        ] %}
         <section class="panel">
           <h2 class="panel-title">Guides</h2>
-          <ul class="panel-body link-list link-list-tight">
-            {%- for post in collections.posts | reverse %}
-            {%- if post.fileSlug != "welcome" %}
-            <li><a href="{{ post.url }}" data-umami-event="click-guide" data-umami-event-source="homepage">{{ post.data.title }}</a></li>
-            {%- endif %}
-            {%- endfor %}
-          </ul>
+          <div class="panel-body">
+            <ul class="link-list link-list-tight">
+              {%- for g in homeGuides %}
+              <li><a href="/blog/{{ g[0] }}/" data-umami-event="click-guide" data-umami-event-source="homepage">{{ g[1] }}</a></li>
+              {%- endfor %}
+            </ul>
+            <p class="panel-links"><a href="/blog/">All {{ collections.posts.length - 1 }} guides &rarr;</a></p>
+          </div>
         </section>
 
-        {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
-        {% include "partials/mutuals-promo.njk" %}
-
         {% include "partials/newsletter.njk" %}
-
       </aside>
     </div>
   </div>
