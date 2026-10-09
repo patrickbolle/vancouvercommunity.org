@@ -4,7 +4,7 @@
   <div class="frame masthead-inner">
     <a href="/" class="wordmark" aria-label="Vancouver Community home"><img class="wordmark-mark" src="/favicon.svg" width="32" height="32" alt="">vancouver<span class="wordmark-soft">community</span></a>
     <div class="masthead-side">
-      <p class="masthead-tag">Groups, clubs and meetups in Vancouver<span class="masthead-stats">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</span></p>
+      <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
       <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
     </div>
   </div>

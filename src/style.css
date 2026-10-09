@@ -112,8 +112,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .wordmark-small .wordmark-soft { color: #5a7566; }
 /* Right side of the masthead: what this is, how big it is, and Surprise me. */
 .masthead-side { display: flex; align-items: center; gap: 20px; }
-.masthead-tag { text-align: right; color: #e8eee9; font-size: var(--fs-base); line-height: 1.4; }
-.masthead-stats { display: block; color: #b9cbbf; font-size: var(--fs-sm); }
+.masthead-tag { color: #b9cbbf; font-size: var(--fs-sm); white-space: nowrap; }
 .masthead-surprise {
   flex: none;
   padding: 6px 12px;
