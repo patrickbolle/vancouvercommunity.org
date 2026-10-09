@@ -110,7 +110,25 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .wordmark-mark { width: 32px; height: 32px; flex: none; margin-right: 10px; image-rendering: pixelated; }
 .wordmark-soft { color: #b9cbbf; margin-left: 0.25em; }
 .wordmark-small .wordmark-soft { color: #5a7566; }
-.masthead-surprise { display: none; }
+/* Right side of the masthead: what this is, how big it is, and Surprise me. */
+.masthead-side { display: flex; align-items: center; gap: 20px; }
+.masthead-tag { text-align: right; color: #e8eee9; font-size: var(--fs-base); line-height: 1.4; }
+.masthead-stats { display: block; color: #b9cbbf; font-size: var(--fs-sm); }
+.masthead-surprise {
+  flex: none;
+  padding: 6px 12px;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--masthead);
+  background: #f6f4ee;
+  border: 1px solid;
+  border-color: #fff #8fa597 #8fa597 #fff;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #142219;
+}
+.masthead-surprise:hover { background: #fff; }
+/* Below 900px the tagline would wrap into a block; keep just the wordmark and button. */
+@media (max-width: 899px) { .masthead-tag { display: none; } }
 .tab-short { display: none; }
 
 .tabs { background: var(--surface); border-bottom: 1px solid var(--line); }
@@ -520,19 +538,8 @@ textarea.form-input { resize: vertical; }
   .tabs-inner { gap: 18px; overflow: visible; }
   .tab-wide-only, .tab-long { display: none; }
   .tab-short { display: inline; }
-  .masthead-surprise {
-    display: block;
-    flex: none;
-    padding: 5px 9px;
-    font-size: var(--fs-base);
-    font-weight: 700;
-    color: var(--masthead);
-    background: #f6f4ee;
-    border: 1px solid;
-    border-color: #fff #8fa597 #8fa597 #fff;
-    border-radius: 2px;
-    box-shadow: 1px 1px 0 #142219;
-  }
+  .masthead-tag { display: none; }
+
   .tab { padding: 8px 0 7px; }
   /* Panels in the main column run edge to edge to give text the full width. */
   /* Roomier tap targets for list links (about 32px rows instead of 22px). */

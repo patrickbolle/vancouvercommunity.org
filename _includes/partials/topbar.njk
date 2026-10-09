@@ -1,7 +1,12 @@
+{%- set mastheadGroups = 0 %}
+{%- for cat in collections.categories %}{% set mastheadGroups = mastheadGroups + cat.data.groupCount %}{% endfor %}
 <header class="masthead">
   <div class="frame masthead-inner">
     <a href="/" class="wordmark" aria-label="Vancouver Community home"><img class="wordmark-mark" src="/favicon.svg" width="32" height="32" alt="">vancouver<span class="wordmark-soft">community</span></a>
-    <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
+    <div class="masthead-side">
+      <p class="masthead-tag">Groups, clubs and meetups in Vancouver<span class="masthead-stats">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</span></p>
+      <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
+    </div>
   </div>
 </header>
 <nav class="tabs" aria-label="Sections">
@@ -11,6 +16,5 @@
     <a href="/submit/" class="tab">Add a group</a>
     <a href="/blog/" class="tab tab-wide-only">Blog</a>
     <a href="/about/" class="tab tab-wide-only">About</a>
-    <button type="button" class="tab tab-button tab-wide-only" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="tabs">Surprise me</button>
   </div>
 </nav>
