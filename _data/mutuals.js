@@ -36,9 +36,6 @@ const pitch =
   name +
   " matches Vancouver readers into small neighbourhood book clubs: 4 to 8 people nearby who love the same kinds of books.";
 
-// Contextual copy for category pages. Categories listed here get the large
-// promo at the top of the page. Every other category gets the compact promo
-// near the bottom.
 // The approved mutuals headline and the three steps, from mutuals.fm.
 const headline = "A Vancouver book club you'll look forward to.";
 const steps = [
@@ -48,7 +45,7 @@ const steps = [
 ];
 
 // Contextual copy for category pages. Categories listed here get the large
-// promo at the top of the page; every other category gets the compact promo.
+// promo right after the listings; every other category gets the compact promo.
 // `heading` replaces the headline; `lead` is one optional sentence before the
 // steps. Keep leads short and don't restate the steps.
 const categories = {

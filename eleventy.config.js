@@ -195,10 +195,7 @@ module.exports = function (eleventyConfig) {
         }
 
         // Dense listing: the name is the link; place, size and cost sit inline after it.
-        // Same rule the categories collection uses for `free`, so the
-        // "Free only" filter always agrees with the free count.
-        var isFree = /\bfree\b/i.test(cost) || /\bfree\b/i.test(desc.replace(/<[^>]+>/g, ""));
-        var c = '<div class="group-card" id="' + id + '"' + (isFree ? " data-free" : "") + ">";
+        var c = '<div class="group-card" id="' + id + '">';
         c += '<div class="group-card-header">';
         c += url
           ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
