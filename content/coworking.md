@@ -5,6 +5,10 @@ title: "Coworking"
 description: "9 coworking spaces — from boutique living-room vibes to social-impact hubs and creative studios. Day passes available."
 emoji: "💻"
 group: work-tech
+seoTitle: "{n} Coworking Spaces in Vancouver with Community ({year})"
+seoDescription: "{n} coworking spaces in Vancouver with real community: boutique living-room spaces, social-impact hubs and creative studios. Day passes available."
+listNoun: "coworking spaces"
+seoHeading: "Coworking Spaces in Vancouver"
 order: 2
 ---
 

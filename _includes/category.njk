@@ -10,15 +10,23 @@
   {%- else -%}
     {%- set metaTitle = title + " in Vancouver" -%}
   {%- endif -%}
-  <title>{{ metaTitle }} ({% buildYear %}){% if (metaTitle | length) <= 34 %} | {{ site.shortTitle }}{% endif %}</title>
-  <meta name="description" content="{{ description }} Updated {% buildDateHuman %}.">
-  <meta property="og:title" content="{{ metaTitle }}">
+  {#- Optional front matter overrides, written from Search Console queries:
+      seoTitle / seoDescription ({n} = group count, {year} = build year), seoHeading (the h1). -#}
+  {%- if seoTitle -%}
+    {%- set pageTitle = seoTitle | replace("{n}", listingCount) | replace("{year}", buildYear) -%}
+  {%- else -%}
+    {%- set pageTitle = metaTitle + " (" + buildYear + ")" -%}
+  {%- endif -%}
+  {%- set pageDescription = (seoDescription | replace("{n}", listingCount)) if seoDescription else description -%}
+  <title>{{ pageTitle }}{% if (pageTitle | length) <= 41 %} | {{ site.shortTitle }}{% endif %}</title>
+  <meta name="description" content="{{ pageDescription }} Updated {% buildDateHuman %}.">
+  <meta property="og:title" content="{{ pageTitle }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}/{{ page.fileSlug }}/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ metaTitle }}">
+  <meta name="twitter:title" content="{{ pageTitle }}">
   <meta name="twitter:description" content="{{ description }}">
   <meta name="twitter:image" content="{{ site.url }}/og-image.png">
   <link rel="canonical" href="{{ site.url }}/{{ page.fileSlug }}/">
@@ -123,7 +131,7 @@
     </p>
     <div class="columns">
       <div class="col-main">
-        <h1 class="page-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
+        <h1 class="page-title">{% if seoHeading %}{{ seoHeading }}{% else %}{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver{% endif %}</h1>
         <p class="page-lede">{{ description }}</p>
         {%- set guideSlug = guides[page.fileSlug] %}
         {%- if guideSlug %}
@@ -150,7 +158,7 @@
         {%- endif %}
 
         <section class="panel">
-          <h2 class="panel-title">{{ listingCount }} {{ title | lower }}{% if not titleHasGroupWord %} group{% if listingCount != 1 %}s{% endif %}{% endif %}</h2>
+          <h2 class="panel-title">{{ listingCount }} {% if listNoun %}{{ listNoun }}{% else %}{{ title | lower }}{% if not titleHasGroupWord %} group{% if listingCount != 1 %}s{% endif %}{% endif %}{% endif %}</h2>
           <div class="panel-body category-entries">
             {{ content | stripH1 | cardify | safe }}
           </div>

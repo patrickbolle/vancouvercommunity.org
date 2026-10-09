@@ -5,6 +5,10 @@ title: "Dance"
 description: "11 places to dance — free salsa at Robson Square, bachata socials, West Coast Swing nights, and studios. No partner needed."
 emoji: "💃"
 group: mind-body
+seoTitle: "Robson Square Salsa & {n} Dance Socials in Vancouver"
+seoDescription: "Free Sunday salsa at Robson Square, plus bachata socials, West Coast Swing nights and studios: {n} places to dance in Vancouver. No partner needed."
+listNoun: "places to dance"
+seoHeading: "Dance Socials in Vancouver: Salsa, Bachata & Swing"
 order: 5
 ---
 

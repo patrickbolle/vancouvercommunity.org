@@ -5,6 +5,10 @@ title: "Sauna & Cold Plunge"
 description: "3 community groups plus Nordic spas, wood-fired saunas, and free ocean dips at Kits Beach."
 emoji: "🧊"
 group: outdoor
+seoTitle: "Sauna & Cold Plunge in Vancouver: Where to Go ({year})"
+seoDescription: "Where to sauna and cold plunge in Vancouver: wood-fired saunas, Nordic spas, free ocean dips at Kits Beach and the community groups that run them."
+listNoun: "saunas, plunges & groups"
+seoHeading: "Sauna & Cold Plunge in Vancouver"
 order: 6
 ---
 

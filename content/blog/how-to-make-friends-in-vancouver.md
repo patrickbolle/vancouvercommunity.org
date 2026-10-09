@@ -1,10 +1,14 @@
 ---
 layout: post
 tags: post
-title: "How to make friends in Vancouver (a practical guide)"
-description: "Why Vancouver feels hard to crack, what actually works, and 40+ categories of groups where you can find your people — most of them free."
+title: "How to make friends in Vancouver (and where to meet people)"
+description: "Is it hard to make friends in Vancouver? Why the city feels hard to crack, what actually works, and where to meet people: 40+ kinds of groups, most free."
 date: 2026-07-05
 faq:
+  - q: "Is it hard to make friends in Vancouver?"
+    a: "It can be. Vancouver regularly tops lists of lonely cities, and many newcomers say it takes a year or more to build a circle. It gets much easier once you join something that meets every week, because friendships here grow out of seeing the same people again and again."
+  - q: "Where can I meet new people in Vancouver?"
+    a: "Recurring groups are the best place: run clubs, book clubs, supper clubs, hiking groups, language exchanges, board game nights and volunteer shifts. This directory lists 250+ of them across 40 categories, most free and beginner-friendly."
   - q: "Why is it so hard to make friends in Vancouver?"
     a: "People here are friendly but busy, social circles formed years ago, and the city's default plan is 'let's grab coffee sometime' — which never happens. The fix is recurring groups: seeing the same faces every week does the work that one-off plans can't."
   - q: "How do I make friends in Vancouver as an adult in my 30s or 40s?"

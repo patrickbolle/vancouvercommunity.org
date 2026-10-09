@@ -245,6 +245,8 @@ module.exports = function (eleventyConfig) {
     return new Date().toISOString();
   });
 
+  eleventyConfig.addGlobalData("buildYear", String(new Date().getFullYear()));
+
   eleventyConfig.addShortcode("buildYear", function () {
     return String(new Date().getFullYear());
   });

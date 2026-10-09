@@ -5,6 +5,10 @@ title: "Maker Spaces"
 description: "3 maker communities plus shared workshops — 3D printing, laser cutting, woodworking, and a tool lending library."
 emoji: "🔧"
 group: work-tech
+seoTitle: "Maker Spaces in Vancouver: Workshops & Tools ({year})"
+seoDescription: "Maker spaces in Vancouver: hackerspaces, shared workshops for 3D printing, laser cutting and woodworking, repair cafés and a tool library."
+listNoun: "maker spaces"
+seoHeading: "Maker Spaces in Vancouver"
 order: 3
 ---
 
