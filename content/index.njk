@@ -10,7 +10,7 @@ permalink: /
 <html lang="en">
 <head>
   {% include "partials/head.njk" %}
-  <title>Vancouver Community Directory — {{ totalGroups }}+ Groups, Clubs & Meetups (2026)</title>
+  <title>{{ totalGroups }}+ Groups, Clubs & Meetups in Vancouver ({% buildYear %})</title>
   <meta name="description" content="{{ site.description }}">
   <meta property="og:title" content="Vancouver Community Directory — Find Your People">
   <meta property="og:description" content="{{ site.description }}">
@@ -139,6 +139,17 @@ permalink: /
           </ul>
         </section>
         {%- endif %}
+
+        <section class="panel">
+          <h2 class="panel-title">Guides</h2>
+          <ul class="panel-body link-list link-list-tight">
+            {%- for post in collections.posts | reverse %}
+            {%- if post.fileSlug != "welcome" %}
+            <li><a href="{{ post.url }}" data-umami-event="click-guide" data-umami-event-source="homepage">{{ post.data.title }}</a></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </section>
 
         {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
         {% include "partials/mutuals-promo.njk" %}

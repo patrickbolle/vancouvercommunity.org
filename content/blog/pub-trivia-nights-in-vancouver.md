@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "The best pub trivia nights in Vancouver"
-description: "Where to find pub trivia in Vancouver — weekly quiz nights across the city, free geeky trivia, Saturday options, and burger-and-beer deals. Grab a team (or show up solo) and play."
+description: "Where to find pub trivia in Vancouver: weekly quiz nights across the city, free geeky trivia and Saturday options. Grab a team, or show up solo."
 date: 2026-07-09
 faq:
   - q: "Where is there pub trivia in Vancouver?"

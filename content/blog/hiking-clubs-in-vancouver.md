@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "Hiking clubs and groups in Vancouver (for every pace)"
-description: "Beginner-friendly, social, and serious hiking clubs in Vancouver — free adventure crews, transit-accessible hikes, slow-paced groups, seniors' clubs, and century-old mountaineering societies."
+description: "Beginner-friendly, social and serious hiking clubs in Vancouver: free adventure crews, transit-accessible hikes and slow-paced groups."
 date: 2026-07-09
 faq:
   - q: "How do I find a hiking group in Vancouver?"

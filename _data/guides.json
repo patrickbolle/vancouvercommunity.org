@@ -1,0 +1,13 @@
+{
+  "_docs": "Category slug -> blog post slug. Category pages link to their guide under the intro, and the guide gets a contextual internal link from the page people actually land on.",
+  "book-clubs": "best-book-clubs-in-vancouver",
+  "board-games": "board-game-cafes-and-groups-in-vancouver",
+  "creative-art": "creative-and-art-groups-in-vancouver",
+  "cycling": "cycling-clubs-in-vancouver",
+  "hiking-outdoors": "hiking-clubs-in-vancouver",
+  "social-friend-clubs": "how-to-make-friends-in-vancouver",
+  "language-exchange": "language-exchange-vancouver",
+  "pub-trivia": "pub-trivia-nights-in-vancouver",
+  "sauna-cold-plunge": "sauna-and-cold-plunge-in-vancouver",
+  "dinner-supper-clubs": "supper-clubs-dinner-with-strangers-vancouver"
+}

@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "Sauna and cold plunge in Vancouver (community heat and cold)"
-description: "Where to sauna and cold plunge in Vancouver — wood-fired mobile saunas, free community ocean plunges, Nordic spas, and sauna-plus-run clubs. Find the hot-and-cold ritual and the people who love it."
+description: "Where to sauna and cold plunge in Vancouver: wood-fired mobile saunas, free ocean plunges, Nordic spas and sauna-plus-run clubs."
 date: 2026-07-09
 faq:
   - q: "Where can I cold plunge in Vancouver?"

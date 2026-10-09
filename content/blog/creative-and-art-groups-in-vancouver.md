@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "Creative and art groups in Vancouver (draw, sketch, make friends)"
-description: "Drawing circles, urban sketching meetups, drink-and-draws, neurodivergent art collectives, and side-project communities in Vancouver — welcoming, mostly beginner-friendly, no talent required."
+description: "Drawing circles, urban sketching, drink-and-draws and art collectives in Vancouver. Welcoming, mostly beginner-friendly, no talent required."
 date: 2026-07-09
 faq:
   - q: "Where can I join an art or drawing group in Vancouver?"

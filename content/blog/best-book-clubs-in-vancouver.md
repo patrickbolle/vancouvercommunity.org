@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "The best book clubs in Vancouver (for every kind of reader)"
-description: "Silent book clubs, women's reading circles, sci-fi and fantasy groups, library clubs — a guide to finding a Vancouver book club you'll actually keep going to."
+description: "Silent book clubs, women's reading circles, sci-fi groups and library clubs: a guide to finding a Vancouver book club you'll keep going to."
 date: 2026-07-09
 faq:
   - q: "How do I find a book club in Vancouver?"

@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "Cycling clubs and group rides in Vancouver"
-description: "Road, gravel, and social cycling clubs in Vancouver — no-pressure community rides, women and 2SLGBTQIA+ groups, race teams, coffee rides, and clubs that have run since the 1970s."
+description: "Road, gravel and social cycling clubs in Vancouver: no-pressure group rides, women and 2SLGBTQIA+ groups, coffee rides and race teams."
 date: 2026-07-09
 faq:
   - q: "How do I find a cycling club in Vancouver?"

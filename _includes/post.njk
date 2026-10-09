@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   {% include "partials/head.njk" %}
-  <title>{{ title }} | {{ site.title }}</title>
+  <title>{{ title }}{% if (title | length) <= 38 %} | {{ site.shortTitle }}{% endif %}</title>
   <meta name="description" content="{{ description or title }}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description or title }}">

@@ -10,8 +10,8 @@
   {%- else -%}
     {%- set metaTitle = title + " in Vancouver" -%}
   {%- endif -%}
-  <title>{{ metaTitle }} (2026) | {{ site.title }}</title>
-  <meta name="description" content="{{ description }} Updated March 2026.">
+  <title>{{ metaTitle }} ({% buildYear %}){% if (metaTitle | length) <= 34 %} | {{ site.shortTitle }}{% endif %}</title>
+  <meta name="description" content="{{ description }} Updated {% buildDateHuman %}.">
   <meta property="og:title" content="{{ metaTitle }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:type" content="website">
@@ -125,6 +125,12 @@
       <div class="col-main">
         <h1 class="page-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
         <p class="page-lede">{{ description }}</p>
+        {%- set guideSlug = guides[page.fileSlug] %}
+        {%- if guideSlug %}
+        {%- for post in collections.posts %}{% if post.fileSlug == guideSlug %}
+        <p class="page-guide">Our guide: <a href="{{ post.url }}" data-umami-event="click-guide" data-umami-event-category="{{ page.fileSlug }}">{{ post.data.title }}</a></p>
+        {%- endif %}{% endfor %}
+        {%- endif %}
         <ul class="page-actions">
           <li><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a></li>
           <li><button type="button" class="link-button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button></li>

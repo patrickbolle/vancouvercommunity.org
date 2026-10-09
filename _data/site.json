@@ -1,6 +1,7 @@
 {
   "url": "https://vancouvercommunity.org",
   "title": "Vancouver Community Directory",
-  "description": "Browse 35+ categories of groups, clubs, and meetups in Vancouver, BC — from run clubs and book clubs to underground DJ sets and philosophy circles. Free, community-built, and updated regularly.",
-  "analyticsId": "ce0a9531-1032-4e43-a3a6-5c93cf9513f6"
+  "description": "Find your people in Vancouver: 250+ clubs, groups and meetups in 40 categories, from run clubs and book clubs to supper clubs. Free, updated weekly.",
+  "analyticsId": "ce0a9531-1032-4e43-a3a6-5c93cf9513f6",
+  "shortTitle": "Vancouver Community"
 }

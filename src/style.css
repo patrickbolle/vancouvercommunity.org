@@ -173,6 +173,8 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 
 .page-title { font-size: var(--fs-xl); margin-bottom: 8px; }
 .page-lede { font-size: var(--fs-base); color: var(--ink-2); margin-bottom: 14px; }
+.page-guide { margin: -6px 0 14px; }
+.page-guide a { font-weight: 700; }
 .page-actions { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 16px; }
 .page-actions [hidden] { display: none; }
 
