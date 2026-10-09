@@ -18,7 +18,7 @@ order: 5
 - **What:** FREE outdoor salsa/bachata
 - **When:** Summer (July-August), Sundays
 - **Where:** Robson Square
-- **Note:** Free beginner lesson at 3pm
+- **Note:** The first 30 minutes are a free beginner lesson. No partner needed
 - **Find it:** [bazadance.org/salsa-bachata-robson-square](https://www.bazadance.org/salsa-bachata-robson-square)
 
 ## Rueda de la Vida - Friday Free Community Salsa/Bachata

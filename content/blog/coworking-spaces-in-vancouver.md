@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: post
-title: "Coworking spaces in Vancouver: how to pick one for community"
+title: "Coworking spaces in Vancouver: picking one for community"
 description: "How to choose a Vancouver coworking space for people, not just a desk: the kinds of spaces, trying a day pass, and how to actually meet people there."
 date: 2026-10-09
 faq:
