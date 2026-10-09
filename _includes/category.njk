@@ -157,18 +157,18 @@
     </div>
   </div>
 
-  {%- set cuentoCat = cuento.categories[page.fileSlug] %}
+  {%- set mutualsCat = mutuals.categories[page.fileSlug] %}
   <div class="category-entries">
-    {%- if cuentoCat %}
-    {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = cuentoCat.heading %}{% set promoBody = cuentoCat.body %}
-    {% include "partials/cuento-promo.njk" %}
+    {%- if mutualsCat %}
+    {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.body %}
+    {% include "partials/mutuals-promo.njk" %}
     {%- endif %}
     {{ content | stripH1 | cardify | safe }}
   </div>
-  {%- if not cuentoCat %}
-  <div class="cuento-promo-wrap">
+  {%- if not mutualsCat %}
+  <div class="mutuals-promo-wrap">
     {%- set promoVariant = "compact" %}{% set promoPlacement = "category-" + page.fileSlug %}
-    {% include "partials/cuento-promo.njk" %}
+    {% include "partials/mutuals-promo.njk" %}
   </div>
   {%- endif %}
 

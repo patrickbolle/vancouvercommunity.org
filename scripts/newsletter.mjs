@@ -6,8 +6,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { createRequire } from "node:module";
 
-// Expands {{ cuento.* }} tokens in markdown (see _data/cuento.js).
-const cuento = createRequire(import.meta.url)("../_data/cuento.js");
+// Expands {{ mutuals.* }} tokens in markdown (see _data/mutuals.js).
+const mutuals = createRequire(import.meta.url)("../_data/mutuals.js");
 
 const BUTTONDOWN_API = "https://api.buttondown.com/v1";
 const API_KEY = process.env.BUTTONDOWN_API_KEY;
@@ -44,7 +44,7 @@ function getRecentChanges() {
   for (const [group, category] of adds) {
     let description = "";
     try {
-      const content = cuento.expand(readFileSync(join(CONTENT_DIR, `${category}.md`), "utf-8"));
+      const content = mutuals.expand(readFileSync(join(CONTENT_DIR, `${category}.md`), "utf-8"));
       const re = new RegExp(`^## ${group.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\n(?:[\\s\\S]*?)\\*\\*What:\\*\\* (.+?)$`, "m");
       const m = content.match(re);
       if (m) description = m[1];
@@ -67,7 +67,7 @@ function getSpotlightCategory() {
   const week = Math.ceil(((now - start) / 86400000 + start.getDay() + 1) / 7);
   const file = files[week % files.length];
 
-  const content = cuento.expand(readFileSync(join(CONTENT_DIR, file), "utf-8"));
+  const content = mutuals.expand(readFileSync(join(CONTENT_DIR, file), "utf-8"));
   const frontmatter = content.match(/^---\n([\s\S]*?)\n---/);
   if (!frontmatter) return null;
 

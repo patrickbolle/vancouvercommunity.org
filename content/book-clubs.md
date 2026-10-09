@@ -43,7 +43,7 @@ order: 1
 - **What:** This group is for people who love sci-fi, fantasy, anime, and speculative stories, but want to talk about them like adults. We discuss books, films, anime, TV, and short fiction through the big human questions underneath: freedom, technology, power, loneliness, identity, memory, fear, home, and what people become under pressure. No trivia sludge, no lore-flexing, no fandom gatekeeping. Story as a machine for ideas.
 - **Find it:** [meetup.com/vancouver-fantasy-scifi-meetup-group](https://www.meetup.com/vancouver-fantasy-scifi-meetup-group/)
 
-## {{ cuento.name }}
-- **What:** Matches Vancouver neighbours into small reading circles of 4 to 8 people who love the same books. Each circle meets at a local café. Joining costs nothing; you pay $15 only when a circle is found for you
-- **Cost:** $15 when matched
-- **Find it:** [{{ cuento.domain }}/vancouver]({{ cuento.links.listingBookClubs }})
+## {{ mutuals.name }}
+- **What:** Matches Vancouver readers into small neighbourhood book clubs of 4 to 8 people who love the same kinds of books, then introduces you by email. No cost to sign up; you pay $15 only when your group is ready
+- **Cost:** $15 when your group is ready
+- **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingBookClubs }})

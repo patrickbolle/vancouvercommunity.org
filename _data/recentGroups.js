@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
-const cuento = require("./cuento.js");
+const mutuals = require("./mutuals.js");
 
 // Recently added groups — update this list when new groups are merged.
 // The build enriches each entry with description and category title from the markdown.
 const recent = [
-  { name: cuento.name, categorySlug: "book-clubs" },
+  { name: mutuals.name, categorySlug: "book-clubs" },
   { name: "Vancouver Curiosity Club", categorySlug: "philosophy-intellectual" },
   { name: "Infer Vancouver", categorySlug: "tech-startup" },
   { name: "Bad Climbers Club", categorySlug: "climbing" },
@@ -17,7 +17,7 @@ module.exports = function () {
   return recent.map((entry) => {
     const filePath = path.join("content", entry.categorySlug + ".md");
     if (!fs.existsSync(filePath)) return null;
-    const raw = cuento.expand(fs.readFileSync(filePath, "utf-8"));
+    const raw = mutuals.expand(fs.readFileSync(filePath, "utf-8"));
 
     const frontmatter = raw.match(/^---[\s\S]*?---/);
     const titleMatch = frontmatter && frontmatter[0].match(/title:\s*"(.+?)"/);

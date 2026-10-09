@@ -1,0 +1,27 @@
+{#- mutuals promo block. All copy and links come from _data/mutuals.js.
+    Set before including:
+      promoVariant   "feature" (large card) or "compact" (one-line strip)
+      promoPlacement utm_campaign / analytics label, e.g. "homepage"
+      promoHeading   optional heading (feature only)
+      promoBody      optional body text (feature only)
+-#}
+{%- set promoHref = mutuals.link(promoPlacement) %}
+{%- if promoVariant == "compact" %}
+<aside class="mutuals-promo mutuals-promo-compact" aria-label="{{ mutuals.name }}, neighbourhood book clubs">
+  <p class="mutuals-promo-text"><span class="mutuals-promo-label">{{ mutuals.label }}</span> {{ mutuals.compactText }} {{ mutuals.price }}</p>
+  <a href="{{ promoHref }}" class="mutuals-promo-link" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="{{ promoPlacement }}">Visit {{ mutuals.domain }} <span aria-hidden="true">&rarr;</span></a>
+</aside>
+{%- else %}
+<aside class="mutuals-promo mutuals-promo-feature" aria-label="{{ mutuals.name }}, neighbourhood book clubs">
+  <div class="mutuals-promo-main">
+    <p class="mutuals-promo-label">{{ mutuals.label }}</p>
+    <h2 class="mutuals-promo-heading">{{ promoHeading or mutuals.tagline }}</h2>
+    <p class="mutuals-promo-body">{{ promoBody or mutuals.pitch }}</p>
+    <p class="mutuals-promo-price">{{ mutuals.price }}</p>
+  </div>
+  <div class="mutuals-promo-action">
+    <a href="{{ promoHref }}" class="mutuals-promo-btn" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="{{ promoPlacement }}">{{ mutuals.cta }} <span aria-hidden="true">&rarr;</span></a>
+    <span class="mutuals-promo-domain">{{ mutuals.name }} &middot; {{ mutuals.domain }}</span>
+  </div>
+</aside>
+{%- endif %}

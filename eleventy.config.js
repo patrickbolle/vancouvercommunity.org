@@ -1,7 +1,7 @@
 const markdownItAnchor = require("markdown-it-anchor");
 const fs = require("fs");
 const path = require("path");
-const cuento = require("./_data/cuento.js");
+const mutuals = require("./_data/mutuals.js");
 
 module.exports = function (eleventyConfig) {
   // --- Passthrough copies (preserves existing URL paths) ---
@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig) {
         // Add referral parameter to external links
         try {
           const url = new URL(href);
-          // Links with their own UTM params (e.g. Cuento) keep them untouched.
+          // Links with their own UTM params (e.g. mutuals) keep them untouched.
           if (!url.searchParams.has("ref") && !url.searchParams.has("utm_source")) {
             url.searchParams.set("ref", "vancouvercommunity.org");
             tokens[idx].attrSet("href", url.toString());
@@ -54,8 +54,8 @@ module.exports = function (eleventyConfig) {
       .sort((a, b) => (a.data.order || 999) - (b.data.order || 999));
 
     for (const cat of cats) {
-      // expand() resolves {{ cuento.* }} tokens (see _data/cuento.js)
-      const raw = cuento.expand(fs.readFileSync(cat.inputPath, "utf-8"));
+      // expand() resolves {{ mutuals.* }} tokens (see _data/mutuals.js)
+      const raw = mutuals.expand(fs.readFileSync(cat.inputPath, "utf-8"));
       // Strip frontmatter
       const body = raw.replace(/^---[\s\S]*?---\s*/, "");
       const beforeHr = body.split(/^---$/m)[0];

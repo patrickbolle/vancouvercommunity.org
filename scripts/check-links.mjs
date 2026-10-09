@@ -12,8 +12,8 @@ import { readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createRequire } from "node:module";
 
-// Expands {{ cuento.* }} tokens in markdown (see _data/cuento.js).
-const cuento = createRequire(import.meta.url)("../_data/cuento.js");
+// Expands {{ mutuals.* }} tokens in markdown (see _data/mutuals.js).
+const mutuals = createRequire(import.meta.url)("../_data/mutuals.js");
 
 const CONTENT_DIR = join(process.cwd(), "content");
 const CONCURRENCY = 6;
@@ -35,7 +35,7 @@ function collectLinks() {
   const files = readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
   for (const file of files) {
     const category = file.replace(/\.md$/, "");
-    const raw = cuento.expand(readFileSync(join(CONTENT_DIR, file), "utf-8")).replace(
+    const raw = mutuals.expand(readFileSync(join(CONTENT_DIR, file), "utf-8")).replace(
       /^---[\s\S]*?---\s*/,
       ""
     );
