@@ -92,7 +92,7 @@ order: 2
 - **What:** Monthly women's wellness brunches. Each month, we focus on a different aspect of women's health by inviting industry experts to come and deliver a workshop so women can be connected to the information they can trust. Brunch is always included, and is a chance to connect with other women from the Vancouver area.
 - **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
 
-## {{ cuento.name }}
-- **What:** A low-pressure way to make friends through books. Get matched with 4 to 8 neighbours who love the same books, then meet at a local café. Joining costs nothing; you pay $15 only when a circle is found for you
-- **Cost:** $15 when matched
-- **Find it:** [{{ cuento.domain }}/vancouver]({{ cuento.links.listingSocial }})
+## {{ mutuals.name }}
+- **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. Free to join; you pay $15 only when your group is ready
+- **Cost:** $15 when your group is ready
+- **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingSocial }})

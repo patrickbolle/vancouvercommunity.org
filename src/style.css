@@ -2779,18 +2779,18 @@ body::before {
 [data-group] { cursor: pointer; }
 
 /* ========================================
-   CUENTO PROMO — Patrick's reading-circle project (copy in _data/cuento.js)
+   MUTUALS PROMO — Patrick's neighbourhood book club project (copy in _data/mutuals.js)
    feature: large card (homepage, start here, reading-type categories)
    compact: one-line strip (other categories, neighbourhoods, blog posts)
    ======================================== */
-.cuento-promo {
+.mutuals-promo {
   grid-column: 1 / -1;
   background: var(--bg-warm);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text-secondary);
 }
-.cuento-promo-label {
+.mutuals-promo-label {
   font-size: 0.68em;
   font-weight: 600;
   text-transform: uppercase;
@@ -2798,15 +2798,15 @@ body::before {
   color: var(--accent);
 }
 
-.cuento-promo-feature {
+.mutuals-promo-feature {
   display: flex;
   align-items: center;
   gap: 32px;
   padding: 24px 28px;
 }
-.cuento-promo-main { flex: 1; min-width: 0; max-width: 640px; }
-.cuento-promo-feature .cuento-promo-label { margin: 0 0 6px; }
-.cuento-promo .cuento-promo-heading {
+.mutuals-promo-main { flex: 1; min-width: 0; max-width: 640px; }
+.mutuals-promo-feature .mutuals-promo-label { margin: 0 0 6px; }
+.mutuals-promo .mutuals-promo-heading {
   font-family: var(--font-display);
   font-size: 1.45em;
   font-weight: 400;
@@ -2817,27 +2817,27 @@ body::before {
   border: none;
   cursor: default;
 }
-.cuento-promo .cuento-promo-heading:hover { color: var(--text); }
-.cuento-promo-body {
+.mutuals-promo .mutuals-promo-heading:hover { color: var(--text); }
+.mutuals-promo-body {
   font-size: 0.95em;
   line-height: 1.6;
   margin: 0;
 }
-.cuento-promo-price {
+.mutuals-promo-price {
   font-size: 0.88em;
   font-weight: 500;
   color: var(--text);
   margin: 10px 0 0;
 }
-.cuento-promo-action {
+.mutuals-promo-action {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
   flex-shrink: 0;
 }
-.cuento-promo a.cuento-promo-btn,
-.cuento-promo a.cuento-promo-btn:visited {
+.mutuals-promo a.mutuals-promo-btn,
+.mutuals-promo a.mutuals-promo-btn:visited {
   display: inline-block;
   padding: 11px 20px;
   background: var(--accent);
@@ -2848,22 +2848,22 @@ body::before {
   text-decoration: none;
   transition: background 0.15s;
 }
-.cuento-promo a.cuento-promo-btn:hover {
+.mutuals-promo a.mutuals-promo-btn:hover {
   background: var(--accent-hover);
   color: var(--text-on-accent);
   text-decoration: none;
 }
-.cuento-promo-btn:focus-visible,
-.cuento-promo-link:focus-visible {
+.mutuals-promo-btn:focus-visible,
+.mutuals-promo-link:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
-.cuento-promo-domain {
+.mutuals-promo-domain {
   font-size: 0.78em;
   color: var(--text-muted);
 }
 
-.cuento-promo-compact {
+.mutuals-promo-compact {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2872,31 +2872,31 @@ body::before {
   font-size: 0.9em;
   line-height: 1.6;
 }
-.cuento-promo-compact .cuento-promo-text { margin: 0; max-width: none; }
-.cuento-promo-compact .cuento-promo-label { display: block; margin-bottom: 2px; }
-.cuento-promo a.cuento-promo-link,
-.cuento-promo a.cuento-promo-link:visited {
+.mutuals-promo-compact .mutuals-promo-text { margin: 0; max-width: none; }
+.mutuals-promo-compact .mutuals-promo-label { display: block; margin-bottom: 2px; }
+.mutuals-promo a.mutuals-promo-link,
+.mutuals-promo a.mutuals-promo-link:visited {
   flex-shrink: 0;
   font-weight: 600;
   color: var(--accent);
   white-space: nowrap;
 }
-.cuento-promo a.cuento-promo-link:hover { color: var(--accent-hover); }
+.mutuals-promo a.mutuals-promo-link:hover { color: var(--accent-hover); }
 
 /* Placement wrappers */
-.cuento-promo-wrap {
+.mutuals-promo-wrap {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px 32px;
 }
-.prose-content .cuento-promo { margin: 36px 0 28px; }
+.prose-content .mutuals-promo { margin: 36px 0 28px; }
 
 @media (max-width: 700px) {
-  .cuento-promo-feature { flex-direction: column; align-items: stretch; gap: 18px; padding: 20px; }
-  .cuento-promo .cuento-promo-heading { font-size: 1.25em; }
-  .cuento-promo-btn { display: block; text-align: center; }
-  .cuento-promo-action { align-items: stretch; }
-  .cuento-promo-domain { text-align: center; }
-  .cuento-promo-compact { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .cuento-promo-wrap { padding: 0 16px 28px; }
+  .mutuals-promo-feature { flex-direction: column; align-items: stretch; gap: 18px; padding: 20px; }
+  .mutuals-promo .mutuals-promo-heading { font-size: 1.25em; }
+  .mutuals-promo-btn { display: block; text-align: center; }
+  .mutuals-promo-action { align-items: stretch; }
+  .mutuals-promo-domain { text-align: center; }
+  .mutuals-promo-compact { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .mutuals-promo-wrap { padding: 0 16px 28px; }
 }

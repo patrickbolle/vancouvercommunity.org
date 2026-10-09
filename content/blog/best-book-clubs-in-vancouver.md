@@ -41,9 +41,9 @@ Some people come for the books; some come for the argument. If that's you:
 
 **[VPL Book Clubs](/book-clubs/#vpl-book-clubs)** — Vancouver Public Library runs free book clubs at branches across the city. They're welcoming, well-organized, and cost nothing. If you want something dependable and no-commitment, start here. (The library is also a goldmine for [starting your own group](/blog/start-a-group/) — the meeting rooms are free.)
 
-## If you want a small circle close to home
+## If you want a small book club close to home
 
-Big book clubs can feel like a crowd. **[{{ cuento.name }}]({{ cuento.links.blogBookClubs }})** takes the other approach: it matches you with 4 to 8 neighbours who love the same books, and your circle meets at a local café. Free to join. $15 only when we find your circle. (Full disclosure: I built it, for the same reason I built this directory.)
+Big book clubs can feel like a crowd. **[{{ mutuals.name }}]({{ mutuals.links.blogBookClubs }})** takes the other approach: it matches you with 4 to 8 neighbours who love the same kinds of books, then introduces you by email. Free to join. $15 only when your group is ready. (Full disclosure: I built it, for the same reason I built this directory.)
 
 ## How to actually stick with one
 
