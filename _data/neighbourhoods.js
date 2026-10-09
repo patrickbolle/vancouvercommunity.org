@@ -55,4 +55,36 @@ module.exports = [
       "It's walkable, it's central, and it's the part of town where \"want to come to a thing on Main?\" is a complete sentence. If you want to be near everything and everyone, start here.",
     ],
   },
+  {
+    slug: "north-shore",
+    name: "North Vancouver",
+    aliases:
+      "north vancouver, north van, north shore, lonsdale, lynn valley, deep cove, west vancouver, west van",
+    tagline: "Mountains at the end of the street, and a SeaBus ride from downtown.",
+    metaDescription:
+      "Things to do and people to meet on the North Shore: North Vancouver and West Vancouver clubs, outdoor groups, writing circles and meetups, from Vancouver's community directory.",
+    intro:
+      "The North Shore is Vancouver with the mountains pulled closer. North and West Vancouver sit across Burrard Inlet, a short SeaBus ride from downtown, with trailheads, forest and ocean a few minutes from almost any front door.",
+    character: [
+      "Life here leans outdoors. Grouse, Seymour and Cypress are right there, and Lynn Canyon and Deep Cove are local walks rather than day trips. A lot of North Shore social life starts on a trail and ends at a coffee shop.",
+      "It is quieter and more spread out than the city side, with more families and fewer late nights. That makes recurring groups matter more, not less. When you can't bump into people on a dense block, a weekly club is how you keep seeing the same faces.",
+      "Lonsdale is the closest thing to a main street, and Lonsdale Quay is where the SeaBus lands. If you live here, check the North Shore groups first. If you don't, most of them are one boat ride away.",
+    ],
+  },
+  {
+    slug: "downtown",
+    name: "Downtown Vancouver",
+    aliases:
+      "downtown, yaletown, coal harbour, west end, davie, denman, english bay, robson",
+    tagline: "Thousands of neighbours on every block, and the seawall out the door.",
+    metaDescription:
+      "Things to do and people to meet in Downtown Vancouver and the West End: clubs, dance socials, karaoke, run clubs and meetups, from Vancouver's community directory.",
+    intro:
+      "Downtown and the West End are the densest part of the city: towers, old walk-ups, the seawall, Stanley Park and English Bay all within a short walk. It is also where many newcomers land first.",
+    character: [
+      "Density cuts both ways. You are surrounded by people all day and can still go weeks without a real conversation. Downtown is where the lonely-in-a-crowd feeling hits hardest, and where a standing weekly plan helps most.",
+      "The good news is that almost everything is walkable. Robson Square, the Davie Village, Yaletown and the West End's long, leafy streets put a lot within reach of a short walk home. Davie Street is also the heart of Vancouver's 2SLGBTQIA+ community.",
+      "If you live downtown, start with groups you can walk to. Small, regular, nearby things are what turn a busy neighbourhood into your neighbourhood.",
+    ],
+  },
 ];
