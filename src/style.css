@@ -588,11 +588,17 @@ textarea.form-input { resize: vertical; }
   padding: 6px var(--panel-pad);
   margin: 0;
 }
-.mutuals-promo-main { padding: 0 0 2px; }
-.mutuals-promo .mutuals-promo-heading { font-size: var(--fs-lg); margin: 10px var(--panel-pad) 4px; }
-.mutuals-promo-body, .mutuals-promo-price { margin: 0 var(--panel-pad) 8px; color: var(--ink-2); }
-.mutuals-promo-price { font-size: var(--fs-sm); color: var(--ink-muted); }
-.mutuals-promo-action { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; padding: 4px var(--panel-pad) 12px; }
+.mutuals-promo-main { padding: 12px var(--panel-pad) 0; }
+/* A small lockup in mutuals' own brand: the four-dot mark and lowercase wordmark. */
+.mutuals-promo-brand { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: var(--fs-base); color: #3d312c; margin-bottom: 6px; }
+.mutuals-mark { width: 16px; height: 16px; fill: #3d312c; flex: none; }
+.mutuals-promo-tld { font-weight: 400; color: var(--ink-muted); margin-left: -6px; }
+.mutuals-promo .mutuals-promo-heading { font-size: var(--fs-lg); margin: 0 0 6px; }
+.mutuals-promo-body { color: var(--ink-2); margin-bottom: 6px; }
+.mutuals-promo-steps { margin: 0 0 4px; padding-left: 20px; color: var(--ink-2); }
+.mutuals-promo-steps li { padding: 2px 0; }
+.mutuals-promo-steps li::marker { font-weight: 700; color: var(--masthead); }
+.mutuals-promo-action { padding: 8px var(--panel-pad) 12px; }
 .mutuals-promo a.mutuals-promo-btn, .mutuals-promo a.mutuals-promo-btn:visited {
   display: inline-block;
   padding: 6px 12px;
@@ -607,7 +613,7 @@ textarea.form-input { resize: vertical; }
 }
 .mutuals-promo a.mutuals-promo-btn:hover { background: var(--masthead-deep); }
 .mutuals-promo a.mutuals-promo-btn:active { transform: translate(1px, 1px); box-shadow: none; }
-.mutuals-promo-domain { font-size: var(--fs-sm); color: var(--ink-muted); }
+.mutuals-promo-price { font-size: var(--fs-sm); color: var(--ink-muted); margin-top: 6px; }
 /* compact variant: the label (inside the paragraph) becomes the title bar */
 .mutuals-promo-compact { padding-bottom: 12px; }
 .mutuals-promo-compact .mutuals-promo-text { margin: 0; padding: 0 var(--panel-pad); color: var(--ink-2); }

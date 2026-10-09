@@ -145,7 +145,7 @@
         {%- endif %}
 
         {%- if mutualsCat %}
-        {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.body %}
+        {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.lead %}
         {% include "partials/mutuals-promo.njk" %}
         {%- endif %}
 
