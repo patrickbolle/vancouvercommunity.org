@@ -14,15 +14,17 @@ permalink: /submit/
 <a href="#main-content" class="skip-link">Skip to content</a>
 {% include "partials/topbar.njk" %}
 <main id="main-content">
-  <div class="cat-hero">
-    <div class="prose-hero-wrap">
-      <h1 class="cat-title">Submit a Group</h1>
-      <p class="cat-desc">Know a community, club, or meetup in Vancouver that should be listed here? This directory is community-built — your suggestion helps everyone.</p>
-    </div>
-  </div>
-  <div class="page-content">
+  <div class="frame page">
+  <h1 class="page-title">Submit a group</h1>
+  <p class="page-lede">Know a community, club or meetup in Vancouver that should be listed here? This directory is community-built. Your suggestion helps everyone.</p>
+  <div class="columns">
+  <div class="col-main">
+  <section class="panel">
+  <h2 class="panel-title">Group details</h2>
+  <div class="panel-body">
 
   <form id="submit-form" class="form submit-form">
+    <p class="form-note">Fields marked * are required.</p>
     <div class="form-row">
       <div class="form-field">
         <label class="form-label" for="submit-name">Group name *</label>
@@ -67,7 +69,7 @@ permalink: /submit/
       </div>
     </div>
     <button class="form-submit" type="submit">Submit group</button>
-    <p class="form-status" id="form-status"></p>
+    <p class="form-status" id="form-status" role="status"></p>
   </form>
 
   <script>
@@ -75,7 +77,11 @@ permalink: /submit/
     e.preventDefault();
     const status = document.getElementById('form-status');
     const btn = e.target.querySelector('button');
+    const btnLabel = btn.textContent;
+    if (btn.disabled) return;
     btn.disabled = true;
+    status.className = 'form-status';
+    status.textContent = '';
     btn.textContent = 'Submitting...';
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
@@ -96,13 +102,32 @@ permalink: /submit/
       }
     } catch (err) {
       status.className = 'form-status error';
-      status.textContent = 'Error: ' + err.message;
+      status.textContent = err instanceof TypeError
+        ? 'Could not reach the server. Check your connection and try again, or email vancouver@bolle.co.'
+        : err.message + ' Your answers are still here. Try again?';
     }
     btn.disabled = false;
-    btn.textContent = 'Submit';
+    btn.textContent = btnLabel;
   });
   </script>
+    </div>
+  </section>
   </div>
+
+  <aside class="col-side">
+    <section class="panel">
+      <h2 class="panel-title">What gets listed</h2>
+      <div class="panel-body">
+        <p>The test: <em>"If I'm into this, can I go here and find my people?"</em></p>
+        <p><strong>Yes:</strong> clubs, meetups, studios with a community, venues that host niche community nights, classes where you meet like-minded people.</p>
+        <p><strong>No:</strong> one-off events, shops, general city listings.</p>
+        <p class="panel-note">I review every submission and add new groups weekly.</p>
+      </div>
+    </section>
+  </aside>
+  </div>
+  </div>
+
   {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}

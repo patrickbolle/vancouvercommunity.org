@@ -1,43 +1,20 @@
-<nav class="topbar" id="topbar">
-  <div class="topbar-inner">
-    <a href="/" class="topbar-logo"><span class="topbar-logo-van">Vancouver</span> <span class="topbar-logo-com">Community</span></a>
-    <div class="topbar-actions">
-      <div class="topbar-browse" id="topbar-browse">
-        <button class="topbar-browse-btn" aria-expanded="false" aria-controls="topbar-dropdown">Browse <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="topbar-dropdown" id="topbar-dropdown" role="menu">
-          <div class="topbar-dropdown-grid">
-            {%- for group in groups %}
-            <div class="topbar-dropdown-group">
-              <p class="topbar-dropdown-group-label">{{ group.label | ampEscape | safe }}</p>
-              <div class="topbar-dropdown-list">
-                {%- for cat in collections.categories %}
-                {%- if cat.data.group == group.key %}
-                <a href="/{{ cat.fileSlug }}/" role="menuitem" data-umami-event="click-browse" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}{% if cat.data.listingCount > 0 %} <span class="browse-count">{{ cat.data.listingCount }}</span>{% endif %}</a>
-                {%- endif %}
-                {%- endfor %}
-              </div>
-            </div>
-            {%- endfor %}
-          </div>
-        </div>
-      </div>
-      <a href="/about/" class="topbar-link" data-umami-event="click-about" data-umami-event-source="topbar">About</a>
-      <a href="/submit/" class="topbar-cta" data-umami-event="click-submit-cta" data-umami-event-source="topbar">Submit a group</a>
-      <button class="topbar-hamburger" id="topbar-hamburger" aria-expanded="false" aria-label="Menu">
-        <svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M1 1h18M1 7h18M1 13h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-      </button>
+{%- set mastheadGroups = 0 %}
+{%- for cat in collections.categories %}{% set mastheadGroups = mastheadGroups + cat.data.groupCount %}{% endfor %}
+<header class="masthead">
+  <div class="frame masthead-inner">
+    <a href="/" class="wordmark" aria-label="Vancouver Community home"><img class="wordmark-mark" src="/favicon.svg" width="32" height="32" alt="">vancouver<span class="wordmark-soft">community</span></a>
+    <div class="masthead-side">
+      <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
+      <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
     </div>
   </div>
-  <div class="topbar-mobile-menu" id="topbar-mobile-menu">
-    <div class="topbar-mobile-inner">
-      <a href="/" class="topbar-mobile-link">Home</a>
-      <a href="/#categories" class="topbar-mobile-link">Browse categories</a>
-      <a href="/start-here/" class="topbar-mobile-link">New to Vancouver</a>
-      <a href="/free/" class="topbar-mobile-link">Free things to do</a>
-      <a href="/neighbourhoods/" class="topbar-mobile-link">By neighbourhood</a>
-      <a href="/submit/" class="topbar-mobile-link">Submit a group</a>
-      <a href="/blog/" class="topbar-mobile-link">Blog</a>
-      <a href="/about/" class="topbar-mobile-link">About</a>
-    </div>
+</header>
+<nav class="tabs" aria-label="Sections">
+  <div class="frame tabs-inner">
+    <a href="/" class="tab">Directory</a>
+    <a href="/start-here/" class="tab">New <span class="tab-long">to Vancouver</span><span class="tab-short">here</span></a>
+    <a href="/submit/" class="tab">Add a group</a>
+    <a href="/blog/" class="tab tab-wide-only">Blog</a>
+    <a href="/about/" class="tab tab-wide-only">About</a>
   </div>
 </nav>

@@ -110,6 +110,11 @@ eleventyExcludeFromCollections: true
     </p>
   </div>
 
+  <div class="page-sponsor">
+    {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "neighbourhood" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach people looking for things to do in this neighbourhood. Clearly labelled, one sponsor at a time." %}
+    {% include "partials/sponsor-card.njk" %}
+  </div>
+
   {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}

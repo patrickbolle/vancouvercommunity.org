@@ -70,111 +70,86 @@ permalink: /
 {% include "partials/topbar.njk" %}
 
 <main id="main-content">
-  <div class="hp-hero">
-    <div class="hp-hero-wrap">
-    <div class="hp-hero-inner">
-      <h1 class="hp-lede">Find your <span class="hand-underline">people</span> in Vancouver.</h1>
-      <p class="hp-desc">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces, and more. Browse, click through, show up.</p>
-      <div class="hp-search">
-        <svg class="hp-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M16 16l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <input type="text" id="homepage-group-search" class="hp-search-input" placeholder="Search {{ totalGroups }}+ groups — try &quot;hiking&quot;, &quot;chess&quot;, &quot;supper club&quot;…" autocomplete="off" data-umami-event="homepage-search">
+  <div class="frame page">
+    <div class="columns">
+      <div class="col-main">
+        <h1 class="page-title">Find your people in Vancouver.</h1>
+        <p class="page-lede">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces and more. Browse, click through, show up.</p>
+
+        <form class="search" role="search" id="homepage-search-form">
+          <label for="homepage-group-search" class="visually-hidden">Search the directory</label>
+          <input type="search" id="homepage-group-search" class="search-input" placeholder="Search {{ totalGroups }}+ groups: hiking, chess, supper club…" autocomplete="off" data-umami-event="homepage-search">
+          <button type="submit" class="search-btn">Search</button>
+        </form>
+        <p class="search-popular">Popular:
+          <a href="/run-clubs/">run clubs</a> &middot;
+          <a href="/book-clubs/">book clubs</a> &middot;
+          <a href="/dinner-supper-clubs/">supper clubs</a> &middot;
+          <a href="/hiking-outdoors/">hiking</a> &middot;
+          <a href="/free/">free things</a>
+        </p>
+        <div id="search-results" class="search-results" style="display:none"></div>
+
+        <div id="homepage-browse-content">
+          <section class="panel" id="categories">
+            <h2 class="panel-title">Browse {{ totalGroups }}+ groups</h2>
+            <div class="panel-body directory">
+              {%- for group in groups %}
+              <div class="directory-group" id="group-{{ group.key }}">
+                <h3 class="directory-heading"><img class="pixel-icon" src="/icons/{{ group.key }}.svg" width="16" height="16" alt="">{{ group.label | ampEscape | safe }}</h3>
+                <ul class="directory-list">
+                  {%- for cat in collections.categories %}
+                  {%- if cat.data.group == group.key %}
+                  <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
+                  {%- endif %}
+                  {%- endfor %}
+                </ul>
+              </div>
+              {%- endfor %}
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2 class="panel-title">A note from Patrick</h2>
+            <div class="panel-body note">
+              <img src="/patrick-face.jpg" alt="Patrick Bollenbach" class="note-photo" width="56" height="56" loading="lazy">
+              <p>Vancouver can feel like a hard city to make friends. I built this directory to help.</p>
+              <p>I add new groups every week. Know one I'm missing? <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage-note">Tell me about it</a>.</p>
+              <p class="panel-links"><a href="/about/">Why I made this &rarr;</a></p>
+            </div>
+          </section>
+
+          {%- set sponsorData = sponsors.homepage %}{% set sponsorSlot = "homepage" %}{% set sponsorDemo = false %}
+          {%- set sponsorPitch = "This is the front door of the directory. One partner at a time, clearly labelled, right where Vancouver looks for things to do." %}
+          {% include "partials/sponsor-card.njk" %}
+        </div>
       </div>
-      <div class="hp-actions">
-        <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage">Add a group</a>
-        <span class="hp-sep">&middot;</span>
-        <button type="button" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="homepage">Surprise me</button>
-      </div>
-      <div id="search-results" class="search-results" style="display:none"></div>
+
+      <aside class="col-side">
+        {%- if recentGroups.length > 0 %}
+        <section class="panel">
+          <h2 class="panel-title">Recently added</h2>
+          <ul class="panel-body link-list">
+            {%- for group in recentGroups %}
+            <li>
+              <a href="/{{ group.categorySlug }}/#{{ group.name | mdAnchor }}" data-umami-event="click-recent-group" data-group data-g-name="{{ group.name }}" data-g-desc="{{ group.description }}" data-g-cat="{{ group.categoryTitle }}" data-g-slug="{{ group.categorySlug }}"{% if group.url %} data-g-url="{{ group.url }}"{% endif %}{% if group.location %} data-g-where="{{ group.location }}"{% endif %}>{{ group.name }}</a>
+              <span class="link-list-note">in {{ group.categoryTitle }}</span>
+            </li>
+            {%- endfor %}
+          </ul>
+        </section>
+        {%- endif %}
+
+        {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
+        {% include "partials/mutuals-promo.njk" %}
+
+        {% include "partials/newsletter.njk" %}
+
+      </aside>
     </div>
-    <div class="hp-hero-newsletter">
-      <p class="hp-hero-nl-heading">The Vancouver roundup</p>
-      <p class="hp-hero-nl-desc">A weekly email with the newest groups added to the directory, plus community picks.</p>
-      <form class="newsletter-form" data-umami-event="newsletter-signup">
-        <input type="email" class="newsletter-input" placeholder="your@email.com" required aria-label="Email address">
-        <button type="submit" class="newsletter-btn">Subscribe</button>
-      </form>
-      <span class="newsletter-status"></span>
-      <p class="hp-hero-nl-note">Free. No spam. Unsubscribe anytime.</p>
-    </div>
-    </div><!-- end hp-hero-wrap -->
   </div>
 
-  <div id="homepage-browse-content">
-
-  {%- if recentGroups.length > 0 %}
-  <section class="hp-section">
-    <p class="hp-section-title">Recently added</p>
-    <div class="recent-groups">
-      {%- for group in recentGroups %}
-      {%- if loop.index <= 4 %}
-      <a href="/{{ group.categorySlug }}/#{{ group.name | mdAnchor }}" class="recent-group" data-umami-event="click-recent-group" data-group data-g-name="{{ group.name }}" data-g-desc="{{ group.description }}" data-g-cat="{{ group.categoryTitle }}" data-g-slug="{{ group.categorySlug }}"{% if group.url %} data-g-url="{{ group.url }}"{% endif %}{% if group.location %} data-g-where="{{ group.location }}"{% endif %}>
-        <span class="recent-group-tag">New</span>
-        <span class="recent-group-name">{{ group.name }}</span>
-        <span class="recent-group-desc">{{ group.description | truncate(80) }}</span>
-      </a>
-      {%- endif %}
-      {%- endfor %}
-    </div>
-  </section>
-  {%- endif %}
-
-  <section class="hp-section">
-    {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
-    {% include "partials/mutuals-promo.njk" %}
-  </section>
-
-  {%- if sponsors.homepage and sponsors.homepage.name %}
-  <section class="hp-section">
-    <div class="sponsor-card sponsor-card-wide">
-      <span class="sponsor-card-label">Community partner</span>
-      <div class="group-card-header"><h2>{{ sponsors.homepage.name }}</h2></div>
-      <p class="group-card-desc">{{ sponsors.homepage.description }}</p>
-      {%- if sponsors.homepage.where %}
-      <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsors.homepage.where }}</span></div>
-      {%- endif %}
-      <a href="{{ sponsors.homepage.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="homepage">{{ sponsors.homepage.cta or "Visit" }} &rarr;</a>
-    </div>
-  </section>
-  {%- else %}
-  <section class="hp-section">
-    <a href="/advertise/" class="sponsor-card sponsor-card-wide sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="homepage">
-      <span class="sponsor-card-label">Community partner &middot; slot open</span>
-      <div class="group-card-header"><h2>Reach everyone starting their search here</h2></div>
-      <p class="group-card-desc">This is the front door — the most-visited page on the directory. One partner at a time, clearly labeled, right where Vancouver looks for things to do. Sponsors keep the whole directory free.</p>
-      <span class="sponsor-card-link">Become a partner &rarr;</span>
-    </a>
-  </section>
-  {%- endif %}
-
-  <section class="hp-section" id="categories">
-    <p class="hp-section-title">Browse {{ totalGroups }}+ groups</p>
-    {%- for group in groups %}
-    <div class="hp-cat-group" id="group-{{ group.key }}">
-      <a href="#group-{{ group.key }}" class="hp-cat-group-label">{{ group.label | ampEscape | safe }}</a>
-      <div class="hp-cat-grid">
-        {%- for cat in collections.categories %}
-        {%- if cat.data.group == group.key %}
-        <a href="/{{ cat.fileSlug }}/" class="hp-cat-card" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">
-          <span class="hp-cat-card-top">
-            <span class="hp-cat-name">{{ cat.data.title }}</span>
-            {% if cat.data.listingCount > 0 %}<span class="hp-cat-count">{{ cat.data.listingCount }}</span>{% endif %}
-          </span>
-          <span class="hp-cat-desc">{{ cat.data.description | truncate(140) }}</span>
-        </a>
-        {%- endif %}
-        {%- endfor %}
-      </div>
-    </div>
-    {%- endfor %}
-  </section>
-
-  <button class="hp-show-all-cats" id="show-all-cats">Show all categories</button>
-
   {% include "partials/footer.njk" %}
-
-  </div><!-- end #homepage-browse-content -->
-
-
 </main>
 <script>
 var _searchGroups = [

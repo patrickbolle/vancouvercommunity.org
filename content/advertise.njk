@@ -43,14 +43,10 @@ eleventyExcludeFromCollections: true
     <p>Not a banner. A featured card at the top of your category page — the same clean style as everything else on the site, so it reads as a recommendation, not an ad. Here's exactly how it looks:</p>
 
     <div class="advertise-mockup">
-      <div class="sponsor-card sponsor-card-hero">
-        <span class="sponsor-card-label">Community sponsor</span>
-        <div class="group-card-header"><h2>Clayground Studio</h2></div>
-        <p class="group-card-desc">Drop-in wheel nights and 6-week beginner courses in Mount Pleasant. First class is on us.</p>
-        <div class="group-card-meta"><span class="group-card-where">&#128205; Mount Pleasant</span></div>
-        <span class="group-card-link">See class times &rarr;</span>
-      </div>
-      <p class="advertise-mockup-cap">An example — your name, a short description you approve, and one link. Always marked "Community sponsor."</p>
+      {%- set sponsorData = { name: "Clayground Studio", where: "Mount Pleasant", description: "Drop-in wheel nights and 6-week beginner courses. First class is on us.", cta: "See class times" } %}
+      {%- set sponsorSlot = "advertise-example" %}{% set sponsorDemo = true %}
+      {% include "partials/sponsor-card.njk" %}
+      <p class="advertise-mockup-cap">An example — your name, a short description you approve, and one link. Always marked "Community sponsor" and "Ad."</p>
     </div>
 
     <h2>Where it shows</h2>
@@ -78,6 +74,7 @@ eleventyExcludeFromCollections: true
         <a class="advertise-cta" href="mailto:vancouver@bolle.co?subject=Newsletter%20classified" data-umami-event="click-advertise-email" data-umami-event-tier="newsletter">Book an issue &rarr;</a>
       </div>
     </div>
+    <p class="advertise-note">Also available: the <strong>homepage partner</strong> slot, and a <strong>guide pages</strong> sponsor shown on Start here, Free things to do, Neighbourhoods, the blog and About. <a href="mailto:vancouver@bolle.co?subject=Sponsorship%20placements" data-umami-event="click-advertise-email" data-umami-event-tier="other">Ask for pricing</a>.</p>
     <p class="advertise-note">Run a business tied to a whole neighbourhood — a Kitsilano studio, an East Van space? Ask about sponsoring a <a href="/neighbourhoods/">neighbourhood page</a> too.</p>
 
     <h2>Who's actually visiting</h2>

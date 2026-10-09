@@ -23,47 +23,53 @@ permalink: /about/
 <a href="#main-content" class="skip-link">Skip to content</a>
 {% include "partials/topbar.njk" %}
 <main id="main-content">
-  <div class="cat-hero">
-    <div class="prose-hero-wrap">
-      <h1 class="cat-title">About Vancouver Community</h1>
-      <p class="cat-desc">A free, community-built directory of {{ totalGroups }}+ clubs, meetups, and groups in Vancouver.</p>
-    </div>
-  </div>
-
-  <div class="about-content page-content">
-    <div class="about-layout">
-      <div class="about-main">
-        <section class="about-section">
-          <h2>Why I built this</h2>
-          <p>After nearly a decade of traveling — 60+ countries, living out of a backpack — I got to see what community looks like in cities all over the world. Run clubs in Berlin, language exchanges in Buenos Aires, climbing groups in Taipei. People finding their people everywhere I went.</p>
-          <p>When I moved to Vancouver, I heard the stereotype: it's a lonely city, hard to break into. I found that reputation to be mostly earned. But I also found that hundreds of communities were already here — run clubs, craft nights, board game groups, climbing crews — quietly doing their thing, just hard to find.</p>
-          <p>So I started searching them out for myself. Then I started keeping a list. Then I figured: why not make this available to everyone? That list became this directory — {{ totalGroups }}+ groups, all free to browse.</p>
+  <div class="frame page">
+    <h1 class="page-title">About Vancouver Community</h1>
+    <p class="page-lede">A free, community-built directory of {{ totalGroups }}+ clubs, meetups and groups in Vancouver.</p>
+    <div class="columns">
+      <div class="col-main">
+        <section class="panel">
+          <h2 class="panel-title">Why I built this</h2>
+          <div class="panel-body prose">
+            <p>After nearly a decade of traveling — 60+ countries, living out of a backpack — I got to see what community looks like in cities all over the world. Run clubs in Berlin, language exchanges in Buenos Aires, climbing groups in Taipei. People finding their people everywhere I went.</p>
+            <p>When I moved to Vancouver, I heard the stereotype: it's a lonely city, hard to break into. I found that reputation to be mostly earned. But I also found that hundreds of communities were already here — run clubs, craft nights, board game groups, climbing crews — quietly doing their thing, just hard to find.</p>
+            <p>So I started searching them out for myself. Then I started keeping a list. Then I figured: why not make this available to everyone? That list became this directory — {{ totalGroups }}+ groups, all free to browse.</p>
+          </div>
         </section>
-
-        <section class="about-section">
-          <h2>How this works</h2>
-          <p>Anyone can <a href="/submit/">submit a group</a>. I review submissions and add new ones weekly. The whole thing is community-built — most of the best entries came from people who wanted to share something they love.</p>
+        <section class="panel">
+          <h2 class="panel-title">How this works</h2>
+          <div class="panel-body prose">
+            <p>Anyone can <a href="/submit/">submit a group</a>. I review submissions and add new ones weekly. The whole thing is community-built — most of the best entries came from people who wanted to share something they love.</p>
+          </div>
         </section>
-
-        <section class="about-section">
-          <h2>Get in touch</h2>
-          <p><a href="mailto:vancouver@bolle.co">vancouver@bolle.co</a></p>
+        <section class="panel">
+          <h2 class="panel-title">Get in touch</h2>
+          <div class="panel-body prose">
+            <p><a href="mailto:vancouver@bolle.co">vancouver@bolle.co</a></p>
+          </div>
         </section>
       </div>
 
-      <aside class="about-sidebar">
-        <img src="/patrick.jpg" alt="Patrick Bollenbach" class="about-sidebar-photo" loading="lazy">
-        <h3>Patrick Bollenbach</h3>
-        <p>Software developer in Vancouver. Spent a decade as a digital nomad across 60+ countries before putting down roots here.</p>
-        <div class="about-projects">
-          <h4>Other projects</h4>
-          <ul>
-            <li><a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">runclubs.ca</a> — Canada's run club directory</li>
-            <li><a href="https://recipekit.com?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Recipe Kit</a> — Recipe cards for Shopify</li>
-            <li><a href="{{ mutuals.link('about') }}" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="about">{{ mutuals.name }}</a> — {{ mutuals.tagline }}</li>
+      <aside class="col-side">
+        <section class="panel">
+          <h2 class="panel-title">Who keeps this list</h2>
+          <div class="panel-body">
+            <img src="/patrick-face.jpg" alt="Patrick Bollenbach" class="profile-photo" loading="lazy">
+            <p><strong>Patrick Bollenbach</strong></p>
+            <p>Software developer in Vancouver. Spent a decade as a digital nomad across 60+ countries before putting down roots here.</p>
+            <p class="panel-links"><a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">bollenbach.ca</a></p>
+          </div>
+        </section>
+        <section class="panel">
+          <h2 class="panel-title">Other projects</h2>
+          <ul class="panel-body link-list">
+            <li><a href="https://runclubs.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">runclubs.ca</a><span class="link-list-note">Canada's run club directory</span></li>
+            <li><a href="https://recipekit.com?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer">Recipe Kit</a><span class="link-list-note">Recipe cards for Shopify</span></li>
+            <li><a href="{{ mutuals.link('about') }}" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="about">{{ mutuals.name }}</a><span class="link-list-note">{{ mutuals.tagline }}</span></li>
           </ul>
-        </div>
-        <a href="https://bollenbach.ca?ref=vancouvercommunity" target="_blank" rel="noopener noreferrer" class="about-sidebar-blog">bollenbach.ca</a>
+        </section>
+        {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "about" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
+        {% include "partials/sponsor-card.njk" %}
       </aside>
     </div>
   </div>

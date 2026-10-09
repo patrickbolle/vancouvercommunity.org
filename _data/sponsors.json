@@ -1,5 +1,5 @@
 {
-  "_docs": "Sponsors. 'listings' = per-category sponsors, each rendering a labeled 'Community sponsor' card atop its category page (fields: category (file slug), name, description, url, where (optional), cta (optional, defaults 'Visit')); one per category. 'homepage' = optional single site-wide partner on the homepage (same fields minus category). Empty category slots and an empty homepage slot auto-render a labeled 'open' placeholder linking to /advertise/. Sold via /advertise/.",
+  "_docs": "Sponsors. 'listings' = per-category sponsors, each rendering a labeled 'Community sponsor' card atop its category page (fields: category (file slug), name, description, url, where (optional), cta (optional, defaults 'Visit')); one per category. 'homepage' = optional single site-wide partner on the homepage (same fields minus category). Empty category slots and an empty homepage slot auto-render a labeled 'open' placeholder linking to /advertise/. Sold via /advertise/. 'pages' = optional sponsor shown on the guide pages (Start here, Free, Neighbourhoods, Blog, About); empty renders the open placeholder there too.",
   "_example": {
     "category": "pottery-ceramics",
     "name": "Example Clay Studio",
@@ -9,5 +9,6 @@
     "cta": "See class times"
   },
   "homepage": null,
+  "pages": null,
   "listings": []
 }

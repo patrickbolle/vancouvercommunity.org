@@ -61,27 +61,36 @@
 <a href="#main-content" class="skip-link">Skip to content</a>
 {% include "partials/topbar.njk" %}
 <main id="main-content">
-  <div class="cat-hero">
-    <div class="prose-hero-wrap">
-      <p class="post-meta-top"><a href="/blog/">Blog</a> &middot; {{ date | readableDate }}</p>
-      <h1 class="cat-title">{{ title }}</h1>
-      {% if description %}<p class="cat-desc">{{ description }}</p>{% endif %}
-    </div>
-  </div>
+  <div class="frame page">
+    <p class="breadcrumbs"><a href="/blog/">Blog</a> &rsaquo; <span class="breadcrumb-current">{{ date | readableDate }}</span></p>
+    <h1 class="page-title">{{ title }}</h1>
+    {% if description %}<p class="page-lede">{{ description }}</p>{% endif %}
+    <div class="columns">
+      <div class="col-main">
+        <article class="panel">
+          <div class="panel-body prose post-body">
+            {{ content | safe }}
+          </div>
+        </article>
+        {%- set promoVariant = "compact" %}{% set promoPlacement = "blog-" + page.fileSlug %}
+        {% include "partials/mutuals-promo.njk" %}
+      </div>
+      <aside class="col-side">
+        <nav class="panel post-toc" id="post-toc" aria-label="On this page" hidden>
+          <h2 class="panel-title">On this page</h2>
+          <ol class="panel-body"></ol>
+        </nav>
+{%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "blog" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
+        {% include "partials/sponsor-card.njk" %}
 
-  <div class="page-content prose-content">
-    <nav class="post-toc" id="post-toc" aria-label="On this page" hidden>
-      <p class="post-toc-title">On this page</p>
-      <ol></ol>
-    </nav>
-    {{ content | safe }}
-    {%- set promoVariant = "compact" %}{% set promoPlacement = "blog-" + page.fileSlug %}
-    {% include "partials/mutuals-promo.njk" %}
+        {% include "partials/newsletter.njk" %}
+      </aside>
+    </div>
   </div>
   <script>
   (function () {
     var toc = document.getElementById('post-toc');
-    var heads = document.querySelectorAll('.prose-content > h2[id]');
+    var heads = document.querySelectorAll('.post-body > h2[id]');
     if (!toc || heads.length < 4) return;
     var list = toc.querySelector('ol');
     heads.forEach(function (h) {

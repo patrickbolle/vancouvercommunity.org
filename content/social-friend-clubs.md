@@ -95,4 +95,4 @@ order: 2
 ## {{ mutuals.name }}
 - **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready
-- **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingSocial }})
+- **Find it:** [{{ mutuals.domain }}]({{ mutuals.links.listingSocial }})

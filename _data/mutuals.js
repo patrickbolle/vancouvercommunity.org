@@ -31,7 +31,7 @@ function link(placement, path) {
   return url + (path || "/") + "?" + params.toString();
 }
 
-const price = "Free to join. $15 when your group is ready. No subscription.";
+const price = "Free to join · $15 when your group is ready · no subscription";
 const pitch =
   name +
   " matches Vancouver readers into small neighbourhood book clubs: 4 to 8 people nearby who love the same kinds of books.";
@@ -39,38 +39,38 @@ const pitch =
 // Contextual copy for category pages. Categories listed here get the large
 // promo at the top of the page. Every other category gets the compact promo
 // near the bottom.
+// The approved mutuals headline and the three steps, from mutuals.fm.
+const headline = "A Vancouver book club you'll look forward to.";
+const steps = [
+  "Tell it a few books you love.",
+  "It matches you with 4 to 8 nearby readers who like the same books, from Kits to East Van.",
+  "You get introduced by email and pick your first book together.",
+];
+
+// Contextual copy for category pages. Categories listed here get the large
+// promo at the top of the page; every other category gets the compact promo.
+// `heading` replaces the headline; `lead` is one optional sentence before the
+// steps. Keep leads short and don't restate the steps.
 const categories = {
   "book-clubs": {
     heading: "Want a book club close to home?",
-    body:
-      name +
-      " matches you with 4 to 8 readers in your neighbourhood who love the same kinds of books, then introduces you by email.",
+    lead: "",
   },
   "social-friend-clubs": {
     heading: "Make friends through books",
-    body:
-      "A small group that meets again and again is one of the easiest ways to get to know people. " +
-      name +
-      " matches you with 4 to 8 neighbours who love the same kinds of books.",
+    lead: "A small group that meets again and again is one of the easiest ways to get to know people.",
   },
   writing: {
     heading: "Read with your neighbours, too",
-    body:
-      "Good writers read a lot. " +
-      name +
-      " matches you with 4 to 8 people nearby who love the same kinds of books.",
+    lead: "Good writers read a lot.",
   },
   "philosophy-intellectual": {
     heading: "Prefer your big ideas in book form?",
-    body:
-      name +
-      " matches you with 4 to 8 neighbours who love the same kinds of books, so you have people to talk them through with.",
+    lead: "Big ideas are better with people to talk them through.",
   },
   "poetry-spoken-word": {
     heading: "A book club near you",
-    body:
-      name +
-      " matches you with 4 to 8 neighbours who love the same kinds of books.",
+    lead: "",
   },
 };
 
@@ -81,10 +81,13 @@ const mutuals = {
   link,
   price,
   pitch,
+  headline,
+  steps,
   tagline: "Small neighbourhood book clubs in Vancouver",
   cta: "Find my book club",
   // Honest disclosure: mutuals is Patrick's own project.
-  label: "From the maker of this directory",
+  // Honest but short: say plainly that it is connected to this directory.
+  label: "Our sister site",
   compactText:
     "Looking for a small, regular group? " +
     name +
@@ -92,8 +95,8 @@ const mutuals = {
   categories,
   // Pre-built links for markdown content (keyed by placement).
   links: {
-    listingBookClubs: link("listing-book-clubs", "/vancouver"),
-    listingSocial: link("listing-social-friend-clubs", "/vancouver"),
+    listingBookClubs: link("listing-book-clubs"),
+    listingSocial: link("listing-social-friend-clubs"),
     blogBookClubs: link("blog-best-book-clubs"),
   },
 };

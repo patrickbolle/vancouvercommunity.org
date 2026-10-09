@@ -49,6 +49,11 @@ eleventyExcludeFromCollections: true
     </div>
   </div>
 
+  <div class="page-sponsor">
+    {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "neighbourhoods" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
+    {% include "partials/sponsor-card.njk" %}
+  </div>
+
   {% include "partials/footer.njk" %}
 </main>
 {% include "partials/scripts.njk" %}
