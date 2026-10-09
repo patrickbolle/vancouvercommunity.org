@@ -19,7 +19,7 @@ order: 5
 - **When:** Summer (July-August), Sundays
 - **Where:** Robson Square
 - **Note:** Free beginner lesson at 3pm
-- **Find it:** [sundayafternoonsalsa.com](https://sundayafternoonsalsa.com/)
+- **Find it:** [bazadance.org/salsa-bachata-robson-square](https://www.bazadance.org/salsa-bachata-robson-square)
 
 ## Rueda de la Vida - Friday Free Community Salsa/Bachata
 - **What:** Free outdoor Latin dance

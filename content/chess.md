@@ -2,11 +2,11 @@
 layout: category
 tags: category
 title: "Chess"
-description: "6 places to play chess in Vancouver — cozy cafe drop-ins, park games, and rated tournaments."
+description: "6 places to play chess in Vancouver — cozy café drop-ins, social chess nights, and rated tournaments."
 emoji: "♟️"
 group: intellectual
 seoTitle: "{n} Chess Clubs in Vancouver: Where to Play ({year})"
-seoDescription: "{n} chess clubs and places to play in Vancouver: cozy café drop-ins, park games and rated tournaments. All levels welcome."
+seoDescription: "{n} chess clubs and places to play in Vancouver: cozy café drop-ins, social chess nights and rated tournaments. All levels welcome."
 listNoun: "chess clubs"
 seoHeading: "Chess Clubs in Vancouver"
 order: 3

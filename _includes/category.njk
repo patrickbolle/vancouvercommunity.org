@@ -17,17 +17,18 @@
   {%- else -%}
     {%- set pageTitle = metaTitle + " (" + buildYear + ")" -%}
   {%- endif -%}
-  {%- set pageDescription = (seoDescription | replace("{n}", listingCount)) if seoDescription else description -%}
+  {%- set liveDescription = description | liveCount(listingCount, groupCount) -%}
+  {%- set pageDescription = (seoDescription | replace("{n}", listingCount)) if seoDescription else liveDescription -%}
   <title>{{ pageTitle }}{% if (pageTitle | length) <= 41 %} | {{ site.shortTitle }}{% endif %}</title>
   <meta name="description" content="{{ pageDescription }} Updated {% buildDateHuman %}.">
   <meta property="og:title" content="{{ pageTitle }}">
-  <meta property="og:description" content="{{ description }}">
+  <meta property="og:description" content="{{ pageDescription }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}/{{ page.fileSlug }}/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ pageTitle }}">
-  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:description" content="{{ pageDescription }}">
   <meta name="twitter:image" content="{{ site.url }}/og-image.png">
   <link rel="canonical" href="{{ site.url }}/{{ page.fileSlug }}/">
   <script type="application/ld+json">
@@ -132,7 +133,7 @@
     <div class="columns">
       <div class="col-main">
         <h1 class="page-title">{% if seoHeading %}{{ seoHeading }}{% else %}{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver{% endif %}</h1>
-        <p class="page-lede">{{ description }}</p>
+        <p class="page-lede">{{ liveDescription }}</p>
         {%- set guideSlug = guides[page.fileSlug] %}
         {%- if guideSlug %}
         {%- for post in collections.posts %}{% if post.fileSlug == guideSlug %}

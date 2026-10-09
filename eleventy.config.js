@@ -131,6 +131,7 @@ module.exports = function (eleventyConfig) {
       year: "numeric",
       month: "long",
       day: "numeric",
+      timeZone: "UTC",
     });
   });
 
@@ -139,6 +140,25 @@ module.exports = function (eleventyConfig) {
     if (!content) return content;
     return content.replace(/^<h1[^>]*>.*?<\/h1>\s*/i, "");
   });
+
+  // --- Helper: link a listing's location to its neighbourhood page ---
+  // Uses the same aliases as the neighbourhood pages, so "(Kits)" on Run Clubs
+  // links to /neighbourhoods/kitsilano/. First match only; plain text otherwise.
+  const hoods = require("./_data/neighbourhoods.js");
+  const hoodPatterns = hoods.map((h) => ({
+    slug: h.slug,
+    re: new RegExp(
+      "\\b(" + String(h.aliases).split(",").map((a) => a.trim()).filter(Boolean)
+        .map((a) => a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|") + ")\\b", "i"),
+  }));
+  function linkNeighbourhood(where) {
+    for (const h of hoodPatterns) {
+      if (h.re.test(where)) {
+        return where.replace(h.re, (m) => '<a href="/neighbourhoods/' + h.slug + '/">' + m + "</a>");
+      }
+    }
+    return where;
+  }
 
   // --- Filter: transform h2+ul group entries into card layout ---
   eleventyConfig.addFilter("cardify", function (content) {
@@ -183,7 +203,7 @@ module.exports = function (eleventyConfig) {
         c += url
           ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
           : "<h3>" + name + "</h3>";
-        if (where) c += '<span class="group-card-where">(' + where + ")</span>";
+        if (where) c += '<span class="group-card-where">(' + linkNeighbourhood(where) + ")</span>";
         if (size) c += '<span class="group-card-size">' + size + "</span>";
         if (badge) c += '<span class="group-card-badge">' + badge + "</span>";
         c += "</div>";
@@ -193,6 +213,17 @@ module.exports = function (eleventyConfig) {
         return c;
       }
     );
+  });
+
+  // --- Filter: keep the leading count in a category description true ---
+  // Descriptions open with a hand-typed number ("9 book clubs ...") that drifts
+  // as groups are added or removed. "N things plus venues" counts groups only;
+  // otherwise it counts every listing.
+  eleventyConfig.addFilter("liveCount", function (text, listingCount, groupCount) {
+    if (!text) return text;
+    return String(text).replace(/^\d+(?=\s)/, function () {
+      return / plus /i.test(text) ? String(groupCount) : String(listingCount);
+    });
   });
 
   // --- Filter: anchor ID matching markdown-it-anchor's default slugify ---
