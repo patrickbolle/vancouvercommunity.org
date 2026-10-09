@@ -3,4 +3,10 @@ layout: false
 permalink: /search-data.json
 eleventyExcludeFromCollections: true
 ---
-[{% for cat in collections.categories %}{% for item in cat.data.groupItems %}{n:"{{ item.name | replace('"', '\\"') | safe }}",d:"{{ item.description | replace('"', '\\"') | truncate(120) | safe }}",c:"{{ cat.data.title | safe }}",s:"{{ cat.fileSlug }}",id:"{{ item.name | mdAnchor }}",u:"{{ item.url | safe }}",w:"{{ item.location | replace('"', '\\"') | safe }}",b:"{% if item.free %}Free{% endif %}"}{% if not loop.last %},{% endif %}{% endfor %}{% if not loop.last %},{% endif %}{% endfor %}]
+{%- set rows = [] -%}
+{%- for cat in collections.categories -%}
+  {%- for item in cat.data.groupItems -%}
+    {%- set _ = rows.push({ n: item.name, d: item.description | truncate(120), c: cat.data.title, s: cat.fileSlug, id: item.name | mdAnchor, u: item.url, w: item.location, b: ("Free" if item.free else "") }) -%}
+  {%- endfor -%}
+{%- endfor -%}
+{{ rows | dump | safe }}

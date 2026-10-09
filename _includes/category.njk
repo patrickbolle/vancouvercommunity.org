@@ -114,84 +114,97 @@
     {%- if item.free %}{% set freeInCat = freeInCat + 1 %}{% endif %}
   {%- endfor %}
 
-  <div class="cat-hero">
-    <div class="cat-hero-wrap">
-      <div class="cat-hero-main">
-        <div class="breadcrumbs">
-          <a href="/">Home</a> <span>&rsaquo;</span>
-          {% if groupLabel %}<a href="/#group-{{ groupKey }}">{{ groupLabel }}</a> <span>&rsaquo;</span>{% endif %}
-          <span class="breadcrumb-current">{{ title }}</span>
-        </div>
-        <h1 class="cat-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
-        <p class="cat-desc">{{ description }}</p>
-        <p class="cat-facts-inline">
-          <strong>{{ listingCount }}</strong> listed{% if freeInCat > 0 %} &middot; <strong>{{ freeInCat }}</strong> free{% endif %} &middot; updated {% buildDateHuman %} &middot; <a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">get new ones by email</a>
-        </p>
-        <div class="cat-actions">
-          <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a>
-          <span class="hp-sep">&middot;</span>
-          <button type="button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button>
-          <span class="hp-sep">&middot;</span>
-          <button type="button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button>
-          <span id="page-views" class="cat-views"></span>
-        </div>
-      </div>
-      {%- if sponsor %}
-      <div class="sponsor-card sponsor-card-hero">
-        <span class="sponsor-card-label">Community sponsor</span>
-        <div class="group-card-header"><h2>{{ sponsor.name }}</h2></div>
-        <p class="group-card-desc">{{ sponsor.description }}</p>
-        {%- if sponsor.where %}
-        <div class="group-card-meta"><span class="group-card-where">&#128205; {{ sponsor.where }}</span></div>
-        {%- endif %}
-        <a href="{{ sponsor.url }}" class="group-card-link" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a>
-      </div>
-      {%- else %}
-      <a href="/advertise/" class="sponsor-card sponsor-card-hero sponsor-card-open" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">
-        <span class="sponsor-card-label">Sponsor slot &middot; open</span>
-        <div class="group-card-header"><h2>Your {{ title | lower }} business here</h2></div>
-        <p class="group-card-desc">Reach people searching for {{ title | lower }} in Vancouver this week. Community groups stay free; sponsors keep it that way.</p>
-        <span class="sponsor-card-link">Feature it &middot; from $39/mo &rarr;</span>
-      </a>
-      {%- endif %}
-    </div>
-  </div>
-
   {%- set mutualsCat = mutuals.categories[page.fileSlug] %}
-  <div class="category-entries">
-    {%- if mutualsCat %}
-    {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.body %}
-    {% include "partials/mutuals-promo.njk" %}
-    {%- endif %}
-    {{ content | stripH1 | cardify | safe }}
-  </div>
-  {%- if not mutualsCat %}
-  <div class="mutuals-promo-wrap">
-    {%- set promoVariant = "compact" %}{% set promoPlacement = "category-" + page.fileSlug %}
-    {% include "partials/mutuals-promo.njk" %}
-  </div>
-  {%- endif %}
+  <div class="frame page">
+    <p class="breadcrumbs">
+      <a href="/">Directory</a> &rsaquo;
+      {% if groupLabel %}<a href="/#group-{{ groupKey }}">{{ groupLabel }}</a> &rsaquo;{% endif %}
+      <span class="breadcrumb-current">{{ title }}</span>
+    </p>
+    <div class="columns">
+      <div class="col-main">
+        <h1 class="page-title">{{ title }}{% if not titleHasGroupWord %} Groups{% endif %} in Vancouver</h1>
+        <p class="page-lede">{{ description }}</p>
+        <ul class="page-actions">
+          <li><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a></li>
+          <li><button type="button" class="link-button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button></li>
+          <li><button type="button" class="link-button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button></li>
+          <li class="free-filter" hidden><button type="button" class="link-button" id="free-filter" aria-pressed="false" data-umami-event="click-free-filter" data-umami-event-category="{{ page.fileSlug }}">Free only</button></li>
+        </ul>
 
-  {%- set relatedCats = [] %}
-  {%- for cat in collections.categories %}
-    {%- if cat.data.group == groupKey and cat.fileSlug != page.fileSlug and relatedCats.length < 4 %}
-      {%- set relatedCats = relatedCats.concat([cat]) %}
-    {%- endif %}
-  {%- endfor %}
-  {%- if relatedCats.length %}
-  <section class="related-cats">
-    <p class="hp-section-title">More ways to meet people</p>
-    <div class="start-groups">
-      {%- for cat in relatedCats %}
-      <a href="/{{ cat.fileSlug }}/" class="start-group-card" data-umami-event="click-related-category" data-umami-event-category="{{ cat.fileSlug }}">
-        <span class="start-group-name">{{ cat.data.title }}</span>
-        <span class="start-group-desc">{{ cat.data.description | truncate(100) }}</span>
-      </a>
-      {%- endfor %}
+        {#- Paid placement: top of the main column at every width (the advertise page promises "above the fold"). #}
+        {%- if sponsor %}
+        <section class="panel sponsor-panel">
+          <h2 class="panel-title">Community sponsor</h2>
+          <div class="panel-body">
+            <p class="sponsor-name"><a href="{{ sponsor.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.name }}</a>{% if sponsor.where %} <span class="group-card-where">({{ sponsor.where }})</span>{% endif %}</p>
+            <p>{{ sponsor.description }}</p>
+            <p class="panel-links"><a href="{{ sponsor.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a></p>
+          </div>
+        </section>
+        {%- endif %}
+
+        {%- if mutualsCat %}
+        {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.body %}
+        {% include "partials/mutuals-promo.njk" %}
+        {%- endif %}
+
+        <section class="panel">
+          <h2 class="panel-title">{{ listingCount }} {{ title | lower }}{% if not titleHasGroupWord %} group{% if listingCount != 1 %}s{% endif %}{% endif %}</h2>
+          <div class="panel-body category-entries">
+            {{ content | stripH1 | cardify | safe }}
+          </div>
+        </section>
+      </div>
+
+      <aside class="col-side">
+        <section class="panel">
+          <h2 class="panel-title">About this list</h2>
+          <div class="panel-body">
+            <table class="details">
+              {% if groupLabel %}<tr><th scope="row">Section</th><td>{{ groupLabel }}</td></tr>{% endif %}
+              <tr><th scope="row">Listed</th><td>{{ listingCount }}</td></tr>
+              {% if freeInCat > 0 %}<tr><th scope="row">Free</th><td>{{ freeInCat }}</td></tr>{% endif %}
+              <tr><th scope="row">Updated</th><td>{% buildDateHuman %}</td></tr>
+              <tr><th scope="row">Traffic</th><td><span id="page-views">&ndash;</span></td></tr>
+            </table>
+            <p class="panel-links"><a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">Get new ones by email &rarr;</a></p>
+          </div>
+        </section>
+
+        {%- if not sponsor %}
+        <section class="panel sponsor-panel sponsor-panel-open">
+          <h2 class="panel-title">Sponsor slot &middot; open</h2>
+          <div class="panel-body">
+            <p>Reach people looking for {{ title | lower }} in Vancouver this week. Community groups stay free; sponsors keep it that way.</p>
+            <p class="panel-links"><a href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">Feature your business, from $39/mo &rarr;</a></p>
+          </div>
+        </section>
+        {%- endif %}
+
+        {%- if groupKey %}
+        <section class="panel">
+          <h2 class="panel-title">More in {{ groupLabel }}</h2>
+          <div class="panel-body">
+            <ul class="link-list link-list-tight">
+              {%- for cat in collections.categories %}
+              {%- if cat.data.group == groupKey and cat.fileSlug != page.fileSlug %}
+              <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-related-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
+              {%- endif %}
+              {%- endfor %}
+            </ul>
+            <p class="panel-links">New in town? <a href="/start-here/">Start here</a> &middot; <a href="/blog/how-to-make-friends-in-vancouver/">How to make friends</a></p>
+          </div>
+        </section>
+        {%- endif %}
+
+        {%- if not mutualsCat %}
+        {%- set promoVariant = "compact" %}{% set promoPlacement = "category-" + page.fileSlug %}
+        {% include "partials/mutuals-promo.njk" %}
+        {%- endif %}
+      </aside>
     </div>
-    <p class="related-cats-more">New in town? <a href="/start-here/">Start here</a> &middot; Feeling stuck? Read <a href="/blog/how-to-make-friends-in-vancouver/">how to make friends in Vancouver</a>.</p>
-  </section>
-  {%- endif %}
+  </div>
 
   {% include "partials/footer.njk" %}
 </main>
@@ -213,7 +226,7 @@
       </div>
       <input type="hidden" name="category" id="edit-category">
       <button class="form-submit" type="submit">Send suggestion</button>
-      <span class="form-status" id="edit-status"></span>
+      <span class="form-status" id="edit-status" role="status"></span>
     </form>
   </div>
 </div>
@@ -264,7 +277,9 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
     } else throw new Error(result.error || 'Something went wrong');
   } catch (err) {
     status.className = 'form-status error';
-    status.textContent = 'Could not send — try emailing directly.';
+    status.textContent = 'Could not send. Try again, or email vancouver@bolle.co.';
+    btn.disabled = false;
+    btn.textContent = 'Send suggestion';
   }
 });
 </script>

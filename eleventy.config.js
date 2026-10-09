@@ -174,34 +174,20 @@ module.exports = function (eleventyConfig) {
           if (/\bfree\b/.test(plainDesc)) badge = "Free";
         }
 
-        var c = '<div class="group-card" id="' + id + '">';
+        // Dense listing: the name is the link; place, size and cost sit inline after it.
+        // Same rule the categories collection uses for `free`, so the
+        // "Free only" filter always agrees with the free count.
+        var isFree = /\bfree\b/i.test(cost) || /\bfree\b/i.test(desc.replace(/<[^>]+>/g, ""));
+        var c = '<div class="group-card" id="' + id + '"' + (isFree ? " data-free" : "") + ">";
         c += '<div class="group-card-header">';
-        c += "<h2>" + name + "</h2>";
-        if (badge)
-          c += '<span class="group-card-badge">' + badge + "</span>";
+        c += url
+          ? '<h2><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h2>"
+          : "<h2>" + name + "</h2>";
+        if (where) c += '<span class="group-card-where">(' + where + ")</span>";
+        if (size) c += '<span class="group-card-size">' + size + "</span>";
+        if (badge) c += '<span class="group-card-badge">' + badge + "</span>";
         c += "</div>";
         if (desc) c += '<p class="group-card-desc">' + desc + "</p>";
-        var metas = [];
-        if (where)
-          metas.push(
-            '<span class="group-card-where">\u{1F4CD} ' + where + "</span>"
-          );
-        if (size) metas.push('<span class="group-card-size">' + size + "</span>");
-        if (metas.length)
-          c += '<div class="group-card-meta">' + metas.join("") + "</div>";
-        if (url) {
-          var linkLabel = "Visit";
-          try {
-            var host = new URL(url).hostname.replace(/^www\./, "");
-            if (host.length <= 28) linkLabel = host;
-          } catch (e) {}
-          c +=
-            '<a href="' +
-            url +
-            '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' +
-            linkLabel +
-            " \u2192</a>";
-        }
         c += '<a class="anchor" href="#' + id + '">#</a>';
         c += "</div>";
         return c;

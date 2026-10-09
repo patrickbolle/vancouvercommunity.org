@@ -74,6 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var oldMain = document.querySelector('main');
     if (newMain && oldMain) {
       oldMain.replaceWith(newMain);
+      // Parsed scripts never run on their own; recreate them so page logic
+      // inside <main> (e.g. the submit form handler) works after a swap.
+      newMain.querySelectorAll('script').forEach(function(old) {
+        if (old.type && old.type !== 'text/javascript' && old.type !== 'module') return;
+        var s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
     }
 
     // Swap title
@@ -116,8 +124,10 @@ document.addEventListener('DOMContentLoaded', function() {
       window.scrollTo(0, 0);
     }
 
-    // Re-init page behaviors
+    // Re-init page behaviors (the new path, since pushState hasn't run yet)
+    window._navPath = href;
     initPage();
+    window._navPath = null;
 
     // Update page views from cached stats
     if (window._statsData) {
@@ -132,6 +142,57 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Page behaviors (run on load + after each swap) ---
 
   function initPage() {
+    initPageBehaviors();
+    markTabs(window._navPath || window.location.pathname);
+  }
+
+  // Mark the current section tab (the tab bar sits outside the swapped <main>).
+  // Takes the path explicitly: during a swap, location still shows the old page.
+  // Category pages have no tab of their own, so they fall back to Directory.
+  function markTabs(path) {
+    var tabs = document.querySelectorAll('.tabs a.tab');
+    var match = null;
+    tabs.forEach(function(tab) {
+      var href = tab.getAttribute('href');
+      if (href !== '/' && path.indexOf(href) === 0) match = tab;
+    });
+    if (!match) match = tabs[0];
+    tabs.forEach(function(tab) {
+      if (tab === match) tab.setAttribute('aria-current', 'page');
+      else tab.removeAttribute('aria-current');
+    });
+  }
+
+  function initPageBehaviors() {
+
+    // "Free only" filter on category pages
+    var freeBtn = document.getElementById('free-filter');
+    if (freeBtn && !freeBtn._bound && document.querySelector('.group-card[data-free]')) {
+      freeBtn._bound = true;
+      freeBtn.parentElement.hidden = false;
+      freeBtn.addEventListener('click', function() {
+        var on = freeBtn.getAttribute('aria-pressed') !== 'true';
+        freeBtn.setAttribute('aria-pressed', on);
+        freeBtn.textContent = on ? 'Show all' : 'Free only';
+        document.querySelectorAll('.group-card:not([data-free])').forEach(function(card) { card.hidden = on; });
+      });
+    }
+
+    // Search button: run the live search now and move focus to the first result
+    var searchForm = document.getElementById('homepage-search-form');
+    if (searchForm && !searchForm._bound) {
+      searchForm._bound = true;
+      searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var input = document.getElementById('homepage-group-search');
+        input.dispatchEvent(new Event('input'));
+        setTimeout(function() {
+          var first = document.querySelector('#search-results a');
+          if (first) first.focus(); else input.focus();
+        }, 250);
+      });
+    }
+
     // Make entire group card clickable — open the group's visit link
     document.querySelectorAll('.group-card').forEach(function(card) {
       if (card._bound) return;
@@ -141,8 +202,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (visitLink && h2) {
         card.style.cursor = 'pointer';
         function activateCard(e) {
-          // Don't intercept clicks on the anchor permalink
-          if (e.target.closest('.anchor')) return;
+          // Real links handle themselves (the outbound handler below opens group links)
+          if (e.target.closest('a')) return;
           window.open(visitLink.href, '_blank', 'noopener');
           var category = window.location.pathname.replace(/^\/|\/$/g, '');
           var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
@@ -281,7 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
               (g.b ? ' data-g-badge="' + escapeHtml(g.b) + '"' : '') + '>';
             html += '<span class="search-result-name">' + escapeHtml(g.n) + '</span>';
             html += '<span class="search-result-desc">' + escapeHtml(g.d) + '</span>';
-            html += '<span class="search-result-cat">' + g.c + '</span>';
+            html += '<span class="search-result-cat">' + escapeHtml(g.c) + '</span>';
             html += '</a>';
           });
           html += '</div>';
