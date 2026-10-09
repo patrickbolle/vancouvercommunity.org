@@ -2,9 +2,13 @@
 layout: category
 tags: category
 title: "Coworking"
-description: "9 coworking spaces — from boutique living-room vibes to social-impact hubs and creative studios. Day passes available."
+description: "9 coworking spaces — from boutique living-room vibes to social-impact hubs and creative studios. Ask each one about day passes."
 emoji: "💻"
 group: work-tech
+seoTitle: "{n} Coworking Spaces in Vancouver with Community ({year})"
+seoDescription: "{n} coworking spaces in Vancouver with real community: boutique living-room spaces, social-impact hubs and creative studios. Ask each one about day passes."
+listNoun: "coworking spaces"
+seoHeading: "Coworking Spaces in Vancouver"
 order: 2
 ---
 

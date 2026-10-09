@@ -5,6 +5,10 @@ title: "Karaoke"
 description: "8 karaoke spots across Vancouver — private suites, coffee-shop sing-alongs, and bars with a stage. No talent required."
 emoji: "🎙️"
 group: social
+seoTitle: "Karaoke in Vancouver: Private Rooms, Bars & Nights ({year})"
+seoDescription: "{n} karaoke spots in Vancouver: private karaoke rooms, bars with a stage, weekly karaoke nights and coffee-shop sing-alongs. No talent required."
+listNoun: "karaoke spots"
+seoHeading: "Karaoke in Vancouver: Private Rooms, Bars & Nights"
 order: 4
 ---
 

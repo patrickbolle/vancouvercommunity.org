@@ -5,6 +5,10 @@ title: "Mindfulness & Meditation"
 description: "11 sitting groups across Buddhist, secular, and wellness traditions. Most welcome beginners and meet weekly."
 emoji: "🪷"
 group: mind-body
+seoTitle: "{n} Meditation Groups & Classes in Vancouver ({year})"
+seoDescription: "{n} meditation groups and classes in Vancouver across Buddhist, secular and wellness traditions. Most welcome beginners and meet weekly."
+listNoun: "meditation groups & classes"
+seoHeading: "Meditation Groups & Classes in Vancouver"
 order: 2
 ---
 

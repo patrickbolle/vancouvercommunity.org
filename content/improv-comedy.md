@@ -5,6 +5,10 @@ title: "Improv & Comedy"
 description: "10 improv classes, comedy shows, and open mics — including the birthplace of TheatreSports. Beginners welcome."
 emoji: "🎭"
 group: intellectual
+seoTitle: "Improv Classes & Comedy in Vancouver ({year})"
+seoDescription: "Improv classes, comedy shows and open mics in Vancouver, including the birthplace of TheatreSports. {n} places to start, beginners welcome."
+listNoun: "improv & comedy spots"
+seoHeading: "Improv Classes & Comedy in Vancouver"
 order: 5
 ---
 

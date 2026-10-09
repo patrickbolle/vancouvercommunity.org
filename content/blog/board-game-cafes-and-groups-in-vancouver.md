@@ -2,7 +2,7 @@
 layout: post
 tags: post
 title: "Board game cafés and groups in Vancouver"
-description: "Where to play board games and meet people in Vancouver — no-play-fee game cafés, downtown meetups, social deduction nights, and inclusive 2SLGBTQIA+ gaming groups. Drop in, no experience needed."
+description: "Where to play board games and meet people in Vancouver: no-play-fee game cafés, downtown meetups and inclusive 2SLGBTQIA+ gaming groups."
 date: 2026-07-09
 faq:
   - q: "Where can I play board games in Vancouver?"

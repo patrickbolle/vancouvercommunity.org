@@ -5,6 +5,10 @@ title: "Dance"
 description: "11 places to dance — free salsa at Robson Square, bachata socials, West Coast Swing nights, and studios. No partner needed."
 emoji: "💃"
 group: mind-body
+seoTitle: "Robson Square Salsa & {n} Dance Socials in Vancouver"
+seoDescription: "Free Sunday salsa at Robson Square, plus bachata socials, West Coast Swing nights and studios: {n} places to dance in Vancouver. No partner needed."
+listNoun: "places to dance"
+seoHeading: "Dance Socials in Vancouver: Salsa, Bachata & Swing"
 order: 5
 ---
 
@@ -14,8 +18,8 @@ order: 5
 - **What:** FREE outdoor salsa/bachata
 - **When:** Summer (July-August), Sundays
 - **Where:** Robson Square
-- **Note:** Free beginner lesson at 3pm
-- **Find it:** [sundayafternoonsalsa.com](https://sundayafternoonsalsa.com/)
+- **Note:** The first 30 minutes are a free beginner lesson. No partner needed
+- **Find it:** [bazadance.org/salsa-bachata-robson-square](https://www.bazadance.org/salsa-bachata-robson-square)
 
 ## Rueda de la Vida - Friday Free Community Salsa/Bachata
 - **What:** Free outdoor Latin dance

@@ -5,6 +5,10 @@ title: "Social & Friend Clubs"
 description: "21 ways to make friends in Vancouver — park hangs, brunch meetups, wine nights, dodgeball leagues, and more."
 emoji: "🤝"
 group: social
+seoTitle: "Social Clubs in Vancouver: {n} Ways to Meet People ({year})"
+seoDescription: "Social clubs in Vancouver and where to meet people: {n} friend clubs and meetups, from park hangs and brunch meetups to dodgeball leagues."
+listNoun: "social & friend clubs"
+seoHeading: "Social Clubs in Vancouver: Where to Meet People"
 order: 2
 ---
 
