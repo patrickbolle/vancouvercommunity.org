@@ -147,7 +147,7 @@ Apply this test: *"If I'm interested in X, can I go here and find my people?"*
 - **Pricing** is on `/advertise/` (`content/advertise.njk`): $39/mo or $350/yr per category, $25/issue newsletter classified. Homepage and guide-page slots: "ask for pricing". Sold by email (vancouver@bolle.co).
 - **Newsletter classifieds** live in `_data/classifieds.json` (see `_docs` in the file). The weekly newsletter script (`scripts/newsletter.mjs`) includes the first active listing per issue, clearly labeled as paid; entries expire via their `until` date. Preview with `node scripts/newsletter.mjs --dry-run`.
 - Community groups are never charged — sponsorships are for businesses (studios, gyms, shops, venues) only, and must pass the same "can I find my people here?" test. Sponsorship never buys, changes, or removes a regular listing.
-- **mutuals** (mutuals.fm, Patrick's neighbourhood book club site) is promoted as "Our sister site". All copy and links come from `_data/mutuals.js`; every link goes to the mutuals.fm homepage with a per-placement `utm_campaign`. Don't write "free" in its listing copy — the free filter would count it.
+- **mutuals** (mutuals.fm, Patrick's neighbourhood book club site) is promoted as "Our sister site". All copy and links come from `_data/mutuals.js`; every link goes to the mutuals.fm homepage with a per-placement `utm_campaign`. Don't write "free" in its listing copy — the /free/ page would count it. On category pages, the large promo sits below the listings.
 
 ## SEO
 

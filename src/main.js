@@ -231,21 +231,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function initPageBehaviors() {
 
-    // "Free only" filter on category pages
-    var freeBtn = document.getElementById('free-filter');
-    if (freeBtn && !freeBtn._bound && document.querySelector('.group-card[data-free]')) {
-      freeBtn._bound = true;
-      freeBtn.parentElement.hidden = false;
-      freeBtn.addEventListener('click', function() {
-        var on = freeBtn.getAttribute('aria-pressed') !== 'true';
-        freeBtn.setAttribute('aria-pressed', on);
-        document.querySelectorAll('.group-card:not([data-free])').forEach(function(card) { card.hidden = on; });
-        var shown = document.querySelectorAll('.group-card:not([hidden])').length;
-        var noun = shown === 1 ? ' group' : ' groups';
-        window.announce(on ? 'Showing ' + shown + ' free' + noun : 'Showing all ' + shown + noun);
-      });
-    }
-
     // Search button: run the live search now and move focus to the first result
     var searchForm = document.getElementById('homepage-search-form');
     if (searchForm && !searchForm._bound) {

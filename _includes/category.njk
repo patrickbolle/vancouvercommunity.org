@@ -118,10 +118,6 @@
   {%- for s in sponsors.listings %}
     {%- if s.category == page.fileSlug %}{% set sponsor = s %}{% endif %}
   {%- endfor %}
-  {%- set freeInCat = 0 %}
-  {%- for item in groupItems %}
-    {%- if item.free %}{% set freeInCat = freeInCat + 1 %}{% endif %}
-  {%- endfor %}
 
   {%- set mutualsCat = mutuals.categories[page.fileSlug] %}
   <div class="frame page">
@@ -141,10 +137,7 @@
         {%- endif %}{% endfor %}
         {%- endif %}
         <ul class="page-actions">
-          <li><a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="{{ page.fileSlug }}">Add a group</a></li>
           <li><button type="button" class="link-button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button></li>
-          <li><button type="button" class="link-button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button></li>
-          <li class="free-filter" hidden><button type="button" class="link-button" id="free-filter" aria-pressed="false" data-umami-event="click-free-filter" data-umami-event-category="{{ page.fileSlug }}">Free only</button></li>
         </ul>
 
         {#- Paid placement: top of the main column at every width (the advertise page promises "above the fold"). #}
@@ -153,17 +146,19 @@
         {% include "partials/sponsor-card.njk" %}
         {%- endif %}
 
-        {%- if mutualsCat %}
-        {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.lead %}
-        {% include "partials/mutuals-promo.njk" %}
-        {%- endif %}
-
         <section class="panel">
           <h2 class="panel-title">{{ listingCount }} {% if listNoun %}{{ listNoun }}{% else %}{{ title | lower }}{% if not titleHasGroupWord %} group{% if listingCount != 1 %}s{% endif %}{% endif %}{% endif %}</h2>
           <div class="panel-body category-entries">
             {{ content | stripH1 | cardify | safe }}
+            <p class="panel-links">Know someone who'd like this list? <button type="button" class="link-button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button></p>
           </div>
         </section>
+
+        {#- Listings come first; the contextual mutuals card follows them. #}
+        {%- if mutualsCat %}
+        {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.lead %}
+        {% include "partials/mutuals-promo.njk" %}
+        {%- endif %}
       </div>
 
       <aside class="col-side">
@@ -171,10 +166,7 @@
           <h2 class="panel-title">About this list</h2>
           <div class="panel-body">
             <table class="details">
-              {% if groupLabel %}<tr><th scope="row">Section</th><td>{{ groupLabel }}</td></tr>{% endif %}
-              <tr><th scope="row">Listed</th><td>{{ listingCount }}</td></tr>
-              {% if freeInCat > 0 %}<tr><th scope="row">Free</th><td>{{ freeInCat }}</td></tr>{% endif %}
-              <tr><th scope="row">Updated</th><td>{% buildDateHuman %}</td></tr>
+              {#- Count, section and date already show in the lede, breadcrumb and masthead. #}
               <tr><th scope="row">Traffic</th><td><span id="page-views">&ndash;</span></td></tr>
             </table>
           </div>
@@ -186,7 +178,7 @@
 
         {%- if not sponsor %}
         {%- set sponsorData = null %}{% set sponsorSlot = page.fileSlug %}{% set sponsorDemo = false %}
-        {%- set sponsorPitch = "Reach people looking for " + (title | lower) + " in Vancouver this week. One sponsor per category, from $39/month." %}
+        {%- set sponsorPitch = "One sponsor per category, from $39/month." %}
         {% include "partials/sponsor-card.njk" %}
         {%- endif %}
 
