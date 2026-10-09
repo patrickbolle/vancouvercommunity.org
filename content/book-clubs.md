@@ -44,6 +44,6 @@ order: 1
 - **Find it:** [meetup.com/vancouver-fantasy-scifi-meetup-group](https://www.meetup.com/vancouver-fantasy-scifi-meetup-group/)
 
 ## {{ mutuals.name }}
-- **What:** Matches Vancouver readers into small neighbourhood book clubs of 4 to 8 people who love the same kinds of books, then introduces you by email. Free to join; you pay $15 only when your group is ready
+- **What:** Matches Vancouver readers into small neighbourhood book clubs of 4 to 8 people who love the same kinds of books, then introduces you by email. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready
 - **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingBookClubs }})

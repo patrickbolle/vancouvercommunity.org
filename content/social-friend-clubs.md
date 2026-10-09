@@ -93,6 +93,6 @@ order: 2
 - **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
 
 ## {{ mutuals.name }}
-- **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. Free to join; you pay $15 only when your group is ready
+- **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready
 - **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingSocial }})
