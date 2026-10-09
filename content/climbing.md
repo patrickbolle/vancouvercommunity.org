@@ -35,6 +35,11 @@ order: 4
 - **What:** Climbers who don't take it too seriously. Supportive community with discounted meet-ups and workshops — holds space for women and GNC folks
 - **Find it:** [thebadacademy.com/clubs/bad-climbers-club](https://www.thebadacademy.com/clubs/bad-climbers-club)
 
+
+## Tilted Climbing and Fitness
+- **What:** Vancouver's only 24hr access bouldering gym!
+- **Find it:** [tiltedclimbing.ca](https://tiltedclimbing.ca/)
+
 ---
 
 ## Venues & Spaces
