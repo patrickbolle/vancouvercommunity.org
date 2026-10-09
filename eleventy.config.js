@@ -181,8 +181,8 @@ module.exports = function (eleventyConfig) {
         var c = '<div class="group-card" id="' + id + '"' + (isFree ? " data-free" : "") + ">";
         c += '<div class="group-card-header">';
         c += url
-          ? '<h2><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h2>"
-          : "<h2>" + name + "</h2>";
+          ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
+          : "<h3>" + name + "</h3>";
         if (where) c += '<span class="group-card-where">(' + where + ")</span>";
         if (size) c += '<span class="group-card-size">' + size + "</span>";
         if (badge) c += '<span class="group-card-badge">' + badge + "</span>";
@@ -250,6 +250,18 @@ module.exports = function (eleventyConfig) {
       month: "long",
       year: "numeric",
     });
+  });
+
+  // --- Transform: every link that opens a new tab says so (WCAG G201) ---
+  eleventyConfig.addTransform("newTabNotice", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(
+      /(<a\b[^>]*\btarget="_blank"[^>]*>)([\s\S]*?)(<\/a>)/g,
+      function (m, open, inner, close) {
+        if (inner.indexOf("opens in new tab") !== -1) return m;
+        return open + inner + '<span class="visually-hidden"> (opens in new tab)</span>' + close;
+      }
+    );
   });
 
   // --- Watch targets ---

@@ -1,3 +1,60 @@
+// ── Accessibility helpers (shared by every dialog and status message) ──
+// a11yDialog: while a modal is open, everything else is inert and Tab loops
+// inside it. announce(): one polite live region for screen-reader updates.
+window.a11yDialog = (function () {
+  var active = null;
+  function focusables(el) {
+    return Array.prototype.filter.call(
+      el.querySelectorAll('a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea, [tabindex]:not([tabindex="-1"])'),
+      function (n) { return n.offsetParent !== null; }
+    );
+  }
+  document.addEventListener('keydown', function (e) {
+    if (!active || e.key !== 'Tab') return;
+    var f = focusables(active);
+    if (!f.length) { e.preventDefault(); return; }
+    var first = f[0], last = f[f.length - 1], cur = document.activeElement;
+    if (e.shiftKey && (cur === first || cur === active)) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && cur === last) { e.preventDefault(); first.focus(); }
+  });
+  function release() {
+    active = null;
+    document.querySelectorAll('[data-a11y-inert]').forEach(function (n) {
+      n.inert = false;
+      n.removeAttribute('data-a11y-inert');
+    });
+  }
+  return {
+    open: function (el) {
+      release();
+      active = el;
+      Array.prototype.forEach.call(document.body.children, function (n) {
+        if (n === el || n.contains(el) || n.tagName === 'SCRIPT' || n.id === 'a11y-live' || n.inert) return;
+        n.inert = true;
+        n.setAttribute('data-a11y-inert', '');
+      });
+    },
+    close: function (el) { if (!el || el === active) release(); },
+    release: release
+  };
+})();
+
+window.announce = function (text) {
+  var r = document.getElementById('a11y-live');
+  if (!r) {
+    r = document.createElement('div');
+    r.id = 'a11y-live';
+    r.className = 'visually-hidden';
+    r.setAttribute('role', 'status');
+    r.setAttribute('aria-live', 'polite');
+    document.body.appendChild(r);
+  }
+  // Clear first so repeating the same message is announced again.
+  r.textContent = '';
+  setTimeout(function () { r.textContent = text; }, 50);
+};
+if (document.body && !document.getElementById('a11y-live')) window.announce('');
+
 document.addEventListener('DOMContentLoaded', function() {
   initPage();
 
@@ -68,6 +125,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function swap(html, href, hash) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
+
+    // Links inside a dialog (e.g. "See all", "Take me there") navigate in place:
+    // close any open dialog and release the inert page before swapping.
+    ['group-modal', 'surprise-modal'].forEach(function(id) {
+      var d = document.getElementById(id);
+      if (d) d.remove();
+    });
+    document.body.classList.remove('modal-open');
+    window.a11yDialog.release();
 
     // Swap main content
     var newMain = doc.querySelector('main');
@@ -173,8 +239,10 @@ document.addEventListener('DOMContentLoaded', function() {
       freeBtn.addEventListener('click', function() {
         var on = freeBtn.getAttribute('aria-pressed') !== 'true';
         freeBtn.setAttribute('aria-pressed', on);
-        freeBtn.textContent = on ? 'Show all' : 'Free only';
         document.querySelectorAll('.group-card:not([data-free])').forEach(function(card) { card.hidden = on; });
+        var shown = document.querySelectorAll('.group-card:not([hidden])').length;
+        var noun = shown === 1 ? ' group' : ' groups';
+        window.announce(on ? 'Showing ' + shown + ' free' + noun : 'Showing all ' + shown + noun);
       });
     }
 
@@ -198,15 +266,17 @@ document.addEventListener('DOMContentLoaded', function() {
       if (card._bound) return;
       card._bound = true;
       var visitLink = card.querySelector('.group-card-link');
-      var h2 = card.querySelector('h2');
+      var h2 = card.querySelector('h3');
       if (visitLink && h2) {
         card.style.cursor = 'pointer';
         function activateCard(e) {
           // Real links handle themselves (the outbound handler below opens group links)
           if (e.target.closest('a')) return;
+          // Selecting text in a description is not a request to open the site
+          if (String(window.getSelection && window.getSelection()).trim()) return;
           window.open(visitLink.href, '_blank', 'noopener');
           var category = window.location.pathname.replace(/^\/|\/$/g, '');
-          var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
+          var groupName = h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
           setTimeout(function() { showVerifyToast(groupName, visitLink.href, category); }, 600);
         }
         card.addEventListener('click', activateCard);
@@ -229,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
               if (e.target.tagName === 'A') return;
               window.open(extLink.href, '_blank', 'noopener');
               var category = window.location.pathname.replace(/^\/|\/$/g, '');
-              var groupName = h2.textContent.replace(/\s*#\s*$/, '').trim();
+              var groupName = h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
               setTimeout(function() { showVerifyToast(groupName, extLink.href, category); }, 600);
             }
             h2.addEventListener('click', activateH2);
@@ -329,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           if (matches.length === 0) {
             resultsEl.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>.</p>';
+            window.announce('No groups found');
             return;
           }
 
@@ -347,6 +418,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
           html += '</div>';
           resultsEl.innerHTML = html;
+          window.announce(matches.length + (matches.length === 1 ? ' group' : ' groups') + ' found');
         }, 150);
 
         if (q.length >= 2) {
@@ -414,8 +486,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (card && link.classList.contains('group-card-link')) {
       e.preventDefault();
       window.open(link.href, '_blank', 'noopener');
-      var h2 = card.querySelector('h2');
-      var groupName = h2 ? h2.textContent.replace(/\s*#\s*$/, '').trim() : '';
+      var h2 = card.querySelector('h3');
+      var groupName = h2 ? h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim() : '';
       if (groupName) {
         var category = window.location.pathname.replace(/^\/|\/$/g, '');
         setTimeout(function() { showVerifyToast(groupName, link.href, category); }, 600);
@@ -432,7 +504,7 @@ document.addEventListener('DOMContentLoaded', function() {
     while (el && el.previousElementSibling) {
       el = el.previousElementSibling;
       if (el.tagName === 'H2') {
-        groupName = el.textContent.replace(/\s*#\s*$/, '').trim();
+        groupName = el.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
         break;
       }
     }
@@ -462,8 +534,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var toast = document.createElement('div');
     toast.id = 'verify-toast';
     toast.className = 'verify-toast';
-    toast.setAttribute('role', 'dialog');
-    toast.setAttribute('aria-label', 'Link verification for ' + groupName);
+    toast.setAttribute('role', 'region');
+    toast.setAttribute('aria-label', 'Check this listing: ' + groupName);
     toast.innerHTML =
       '<div class="verify-toast-inner">' +
         '<p class="verify-toast-question">Anything wrong with <strong>' + safeName + '</strong>?</p>' +
@@ -474,12 +546,13 @@ document.addEventListener('DOMContentLoaded', function() {
           '<button class="verify-btn verify-btn-dismiss" aria-label="Dismiss">&times;</button>' +
         '</div>' +
         '<div class="verify-toast-detail" style="display:none">' +
-          '<input type="text" class="verify-detail-input" placeholder="e.g. link is broken, wrong meeting time, group shut down">' +
+          '<input type="text" class="verify-detail-input" aria-label="What is wrong with ' + safeName.replace(/"/g, '&quot;') + '?" placeholder="e.g. link is broken, wrong meeting time, group shut down">' +
           '<button class="verify-btn verify-btn-send">Send</button>' +
         '</div>' +
       '</div>';
 
     document.body.appendChild(toast);
+    window.announce('Anything wrong with ' + groupName + '? Options are at the bottom of the page.');
 
     // Animate in
     requestAnimationFrame(function() {
@@ -585,6 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!m) return;
     m.classList.remove("visible");
     document.body.classList.remove("modal-open");
+    window.a11yDialog.close(m);
     setTimeout(function () { if (m.parentNode) m.remove(); }, 180);
     if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
   }
@@ -616,7 +690,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (g.where) html += '<p class="group-modal-where">\uD83D\uDCCD ' + esc(g.where) + '</p>';
     html += '<div class="group-modal-actions">';
     if (g.url) {
-      html += '<a class="group-modal-visit" href="' + esc(g.url) + '" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link" data-umami-event-url="' + esc(domain) + '">Visit' + (domain ? " " + esc(domain) : "") + ' \u2192</a>';
+      html += '<a class="group-modal-visit" href="' + esc(g.url) + '" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link" data-umami-event-url="' + esc(domain) + '">Visit' + (domain ? " " + esc(domain) : "") + ' \u2192<span class="visually-hidden"> (opens in new tab)</span></a>';
     }
     if (g.slug) {
       html += '<a class="group-modal-more" href="/' + esc(g.slug) + '/">See all ' + esc(g.cat || "in this category") + '</a>';
@@ -631,6 +705,7 @@ document.addEventListener('DOMContentLoaded', function() {
     m.addEventListener("click", function (e) { if (e.target === m) close(); });
     // Move focus into the dialog itself (not the close button) so no focus
     // outline box appears around the × on open; keyboard nav still works.
+    window.a11yDialog.open(m);
     m.focus();
     if (typeof umami !== "undefined") umami.track("group-modal", { group: g.name });
   };

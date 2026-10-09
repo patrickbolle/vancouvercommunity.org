@@ -216,6 +216,7 @@
     <h2 id="edit-modal-title" class="edit-modal-title">Suggest an edit</h2>
     <p class="edit-modal-desc">What needs to change? A closed group, wrong link, new info — anything helps.</p>
     <form id="edit-form" class="form">
+      <p class="form-note">Fields marked * are required.</p>
       <div class="form-field">
         <label class="form-label" for="edit-summary">What should change? *</label>
         <textarea class="form-input" id="edit-summary" name="summary" required rows="4" placeholder="e.g. Social Run Club meets on Tuesdays now, not Wednesdays. New website: ..."></textarea>
@@ -241,12 +242,14 @@ function openEditModal(category) {
   document.getElementById('edit-category').value = category;
   modal.style.display = 'block';
   document.body.classList.add('modal-open');
+  if (window.a11yDialog) a11yDialog.open(modal);
   var closeBtn = modal.querySelector('.edit-modal-close');
   if (closeBtn) closeBtn.focus();
 }
 function closeEditModal() {
   document.getElementById('edit-modal').style.display = 'none';
   document.body.classList.remove('modal-open');
+  if (window.a11yDialog) a11yDialog.close(document.getElementById('edit-modal'));
   if (_editOpener) { _editOpener.focus(); _editOpener = null; }
 }
 document.getElementById('edit-modal').addEventListener('click', (e) => { if (e.target.id === 'edit-modal' && Date.now() - _editOpenedAt > 300) closeEditModal(); });

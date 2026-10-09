@@ -16,7 +16,7 @@ function goRandom() {
   }
   var g = groups[Math.floor(Math.random() * groups.length)];
   var existing = document.getElementById('surprise-modal');
-  if (existing) existing.remove();
+  if (existing) { existing.remove(); if (window.a11yDialog) a11yDialog.release(); }
   if (window._surpriseKey) document.removeEventListener('keydown', window._surpriseKey);
   var modal = document.createElement('div');
   modal.id = 'surprise-modal';
@@ -39,16 +39,19 @@ function goRandom() {
   document.body.appendChild(modal);
   requestAnimationFrame(function() { modal.classList.add('visible'); });
   var opener = document.activeElement;
-  function close() {
+  function close(restoreFocus) {
     modal.remove();
     document.removeEventListener('keydown', onKey);
-    if (opener && opener.focus) opener.focus();
+    if (window.a11yDialog) a11yDialog.close(modal);
+    if (restoreFocus !== false && opener && opener.focus) opener.focus();
   }
   function onKey(e) { if (e.key === 'Escape') close(); }
   window._surpriseKey = onKey;
   document.addEventListener('keydown', onKey);
   modal.addEventListener('click', function(e) { if (e.target === modal) close(); });
   modal.querySelector('.surprise-close').onclick = close;
+  modal.querySelector('.surprise-go').addEventListener('click', function() { close(false); });
+  if (window.a11yDialog) a11yDialog.open(modal);
   modal.querySelector('.surprise-go').focus();
   if (typeof umami !== 'undefined') umami.track('surprise', { group: g.n });
 }
@@ -84,8 +87,8 @@ if (!window._statsLoaded) {
       if (totalCounter && totalViews) {
         // An old-web hit counter: one boxed digit per place, padded to seven.
         var digits = String(totalViews).padStart(7, "0").split("");
-        totalCounter.setAttribute("aria-label", totalViews.toLocaleString() + " visits so far");
-        totalCounter.innerHTML = '<span aria-hidden="true">You are visitor </span><span class="odometer" aria-hidden="true">' +
+        totalCounter.innerHTML = '<span class="visually-hidden">' + totalViews.toLocaleString() + ' visits so far</span>' +
+          '<span aria-hidden="true">You are visitor </span><span class="odometer" aria-hidden="true">' +
           digits.map(function(d) { return "<span>" + d + "</span>"; }).join("") + "</span>";
         totalCounter.hidden = false;
       }
