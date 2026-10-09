@@ -80,6 +80,9 @@
           <h2 class="panel-title">On this page</h2>
           <ol class="panel-body"></ol>
         </nav>
+{%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "blog" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
+        {% include "partials/sponsor-card.njk" %}
+
         {% include "partials/newsletter.njk" %}
       </aside>
     </div>

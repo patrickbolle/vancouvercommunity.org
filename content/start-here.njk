@@ -79,6 +79,9 @@ permalink: /start-here/
           </ul>
         </section>
 
+{%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "start-here" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Newcomers start here. Put your business in front of people building a life in Vancouver." %}
+        {% include "partials/sponsor-card.njk" %}
+
         {%- set promoVariant = "feature" %}{% set promoPlacement = "start-here" %}{% set promoHeading = "Make friends through books" %}{% set promoBody = "" %}
         {% include "partials/mutuals-promo.njk" %}
 

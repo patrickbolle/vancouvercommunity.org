@@ -28,8 +28,7 @@ function link(placement, path) {
     utm_medium: "referral",
     utm_campaign: placement || "site",
   });
-  // Default to the Vancouver page: every reader here is in Vancouver.
-  return url + (path || "/vancouver") + "?" + params.toString();
+  return url + (path || "/") + "?" + params.toString();
 }
 
 const price = "Free to join · $15 when your group is ready · no subscription";
@@ -41,10 +40,10 @@ const pitch =
 // promo at the top of the page. Every other category gets the compact promo
 // near the bottom.
 // The approved mutuals headline and the three steps, from mutuals.fm.
-const headline = "Find a book club you'll look forward to.";
+const headline = "A Vancouver book club you'll look forward to.";
 const steps = [
   "Tell it a few books you love.",
-  "It finds 4 to 8 readers in your neighbourhood with the same taste.",
+  "It matches you with 4 to 8 nearby readers who like the same books, from Kits to East Van.",
   "You get introduced by email and pick your first book together.",
 ];
 
@@ -96,8 +95,8 @@ const mutuals = {
   categories,
   // Pre-built links for markdown content (keyed by placement).
   links: {
-    listingBookClubs: link("listing-book-clubs", "/vancouver"),
-    listingSocial: link("listing-social-friend-clubs", "/vancouver"),
+    listingBookClubs: link("listing-book-clubs"),
+    listingSocial: link("listing-social-friend-clubs"),
     blogBookClubs: link("blog-best-book-clubs"),
   },
 };

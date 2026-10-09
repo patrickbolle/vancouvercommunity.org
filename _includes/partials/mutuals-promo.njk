@@ -13,7 +13,7 @@
 <aside class="mutuals-promo mutuals-promo-feature" aria-label="{{ mutuals.name }}, neighbourhood book clubs">
   <p class="mutuals-promo-label">{{ mutuals.label }}</p>
   <div class="mutuals-promo-main">
-    <p class="mutuals-promo-brand"><svg class="mutuals-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="3.6"/><circle cx="19" cy="12" r="3.6"/><circle cx="12" cy="19" r="3.6"/><circle cx="5" cy="12" r="3.6"/></svg><span class="mutuals-promo-wordmark">{{ mutuals.name }}</span><span class="mutuals-promo-tld">.fm/vancouver</span></p>
+    <p class="mutuals-promo-brand"><a href="{{ promoHref }}" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="{{ promoPlacement }}-logo"><svg class="mutuals-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="5" r="3.6"/><circle cx="19" cy="12" r="3.6"/><circle cx="12" cy="19" r="3.6"/><circle cx="5" cy="12" r="3.6"/></svg><span class="mutuals-promo-wordmark">{{ mutuals.name }}</span><span class="mutuals-promo-tld">.fm</span></a></p>
     <h2 class="mutuals-promo-heading">{{ promoHeading or mutuals.headline }}</h2>
     {%- if promoBody %}
     <p class="mutuals-promo-body">{{ promoBody }}</p>

@@ -46,4 +46,4 @@ order: 1
 ## {{ mutuals.name }}
 - **What:** Matches Vancouver readers into small neighbourhood book clubs of 4 to 8 people who love the same kinds of books, then introduces you by email. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready
-- **Find it:** [{{ mutuals.domain }}/vancouver]({{ mutuals.links.listingBookClubs }})
+- **Find it:** [{{ mutuals.domain }}]({{ mutuals.links.listingBookClubs }})

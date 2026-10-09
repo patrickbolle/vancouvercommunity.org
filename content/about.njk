@@ -68,6 +68,8 @@ permalink: /about/
             <li><a href="{{ mutuals.link('about') }}" target="_blank" rel="noopener" data-umami-event="click-mutuals" data-umami-event-source="about">{{ mutuals.name }}</a><span class="link-list-note">{{ mutuals.tagline }}</span></li>
           </ul>
         </section>
+        {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "about" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
+        {% include "partials/sponsor-card.njk" %}
       </aside>
     </div>
   </div>

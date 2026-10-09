@@ -134,14 +134,8 @@
 
         {#- Paid placement: top of the main column at every width (the advertise page promises "above the fold"). #}
         {%- if sponsor %}
-        <section class="panel sponsor-panel">
-          <h2 class="panel-title">Community sponsor</h2>
-          <div class="panel-body">
-            <p class="sponsor-name"><a href="{{ sponsor.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.name }}</a>{% if sponsor.where %} <span class="group-card-where">({{ sponsor.where }})</span>{% endif %}</p>
-            <p>{{ sponsor.description }}</p>
-            <p class="panel-links"><a href="{{ sponsor.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ page.fileSlug }}">{{ sponsor.cta or "Visit" }} &rarr;</a></p>
-          </div>
-        </section>
+        {%- set sponsorData = sponsor %}{% set sponsorSlot = page.fileSlug %}{% set sponsorDemo = false %}
+        {% include "partials/sponsor-card.njk" %}
         {%- endif %}
 
         {%- if mutualsCat %}
@@ -173,13 +167,9 @@
         </section>
 
         {%- if not sponsor %}
-        <section class="panel sponsor-panel sponsor-panel-open">
-          <h2 class="panel-title">Sponsor slot &middot; open</h2>
-          <div class="panel-body">
-            <p>Reach people looking for {{ title | lower }} in Vancouver this week. Community groups stay free; sponsors keep it that way.</p>
-            <p class="panel-links"><a href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ page.fileSlug }}">Feature your business, from $39/mo &rarr;</a></p>
-          </div>
-        </section>
+        {%- set sponsorData = null %}{% set sponsorSlot = page.fileSlug %}{% set sponsorDemo = false %}
+        {%- set sponsorPitch = "Reach people looking for " + (title | lower) + " in Vancouver this week. One sponsor per category, from $39/month." %}
+        {% include "partials/sponsor-card.njk" %}
         {%- endif %}
 
         {%- if groupKey %}

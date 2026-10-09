@@ -576,7 +576,7 @@ textarea.form-input { resize: vertical; }
   border: 1px solid var(--line);
   box-shadow: 2px 2px 0 var(--line);
 }
-.col-main > .mutuals-promo, .col-main > .sponsor-panel { margin-bottom: 16px; }
+.col-main > .mutuals-promo { margin-bottom: 16px; }
 .mutuals-promo-label {
   font-family: var(--sans);
   font-size: var(--fs-base);
@@ -591,6 +591,8 @@ textarea.form-input { resize: vertical; }
 .mutuals-promo-main { padding: 12px var(--panel-pad) 0; }
 /* A small lockup in mutuals' own brand: the four-dot mark and lowercase wordmark. */
 .mutuals-promo-brand { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: var(--fs-base); color: #3d312c; margin-bottom: 6px; }
+.mutuals-promo-brand a { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; }
+.mutuals-promo-brand a:hover .mutuals-promo-wordmark { text-decoration: underline; text-underline-offset: 2px; }
 .mutuals-mark { width: 16px; height: 16px; fill: #3d312c; flex: none; }
 .mutuals-promo-tld { font-weight: 400; color: var(--ink-muted); margin-left: -6px; }
 .mutuals-promo .mutuals-promo-heading { font-size: var(--fs-lg); margin: 0 0 6px; }
@@ -621,22 +623,44 @@ textarea.form-input { resize: vertical; }
 .mutuals-promo-compact .mutuals-promo-link { display: inline-block; margin: 6px var(--panel-pad) 0; }
 .col-main > .mutuals-promo-compact { margin-top: 16px; }
 
-/* ---------- sponsor slots ---------- */
-.sponsor-name { font-weight: 700; }
-.sponsor-panel-open .panel-body { color: var(--ink-2); }
-/* static example card on /advertise/ */
-.sponsor-card {
-  display: block;
+/* ---------- sponsor slots (partial: sponsor-card.njk) ---------- */
+.sponsor-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.sponsor-tag {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink-muted);
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 2px 2px 0 var(--line);
-  padding: 10px var(--panel-pad) 12px;
-  text-decoration: none;
-  color: var(--ink);
+  padding: 0 5px;
+  line-height: 1.5;
 }
-.sponsor-card-label { display: block; font-size: var(--fs-sm); color: var(--ink-muted); margin-bottom: 4px; }
-.sponsor-card .group-card-header h2 { font-family: var(--serif); font-size: var(--fs-lg); }
-.sponsor-card .group-card-link { display: inline-block; margin-top: 6px; }
+.sponsor-name { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; line-height: 1.3; }
+.sponsor-where { font-size: var(--fs-sm); color: var(--ink-muted); }
+.sponsor-desc { color: var(--ink-2); margin-top: 4px; }
+/* Cream bevelled button: clearly a button, but quieter than the site's own green ones */
+.sponsor a.sponsor-btn, .sponsor a.sponsor-btn:visited, .sponsor span.sponsor-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-weight: 700;
+  color: var(--ink);
+  background: #ebe6d9;
+  border: 1px solid;
+  border-color: #fffdf6 #8a8370 #8a8370 #fffdf6;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #6b665d;
+  text-decoration: none;
+}
+.sponsor a.sponsor-btn:hover { background: #f3efe4; }
+.sponsor a.sponsor-btn:active { transform: translate(1px, 1px); box-shadow: none; }
+/* Open slot: a dashed "your ad here" box, like a classified waiting to be filled */
+.sponsor-open-box { border: 1px dashed #b9b19c; background: #faf7ef; padding: 10px 12px; }
+.sponsor-open .sponsor-name { color: var(--ink-2); }
+.sponsor-open-link { display: inline-block; margin-top: 6px; }
+.col-main > .sponsor, .col-main .sponsor + .panel, .page-content > .sponsor, .start-here-content > .sponsor { margin-bottom: 16px; }
+.advertise-mockup .sponsor { max-width: 380px; }
+.page-sponsor { max-width: var(--frame); margin: 0 auto 32px; padding: 0 var(--gutter); }
+.page-sponsor .sponsor { max-width: 640px; }
 
 /* ---------- group detail modal (built in main.js) ---------- */
 .group-modal {
@@ -778,3 +802,4 @@ textarea.form-input { resize: vertical; }
 .advertise-tier-price { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; }
 .advertise-note { font-size: var(--fs-sm); color: var(--ink-muted); }
 .advertise-stat strong { display: block; font-family: var(--serif); font-size: var(--fs-lg); }
+.prose-content .panel-title, .prose .panel-title { margin-top: 0; }

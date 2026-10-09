@@ -119,24 +119,9 @@ permalink: /
             </div>
           </section>
 
-          {%- if sponsors.homepage and sponsors.homepage.name %}
-          <section class="panel sponsor-panel">
-            <h2 class="panel-title">Community partner</h2>
-            <div class="panel-body">
-              <p class="sponsor-name"><a href="{{ sponsors.homepage.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="homepage">{{ sponsors.homepage.name }}</a>{% if sponsors.homepage.where %} <span class="group-card-where">({{ sponsors.homepage.where }})</span>{% endif %}</p>
-              <p>{{ sponsors.homepage.description }}</p>
-              <p class="panel-links"><a href="{{ sponsors.homepage.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="homepage">{{ sponsors.homepage.cta or "Visit" }} &rarr;</a></p>
-            </div>
-          </section>
-          {%- else %}
-          <section class="panel sponsor-panel sponsor-panel-open">
-            <h2 class="panel-title">Community partner &middot; slot open</h2>
-            <div class="panel-body">
-              <p>This is the front door of the directory. One partner at a time, clearly labelled, right where Vancouver looks for things to do. Sponsors keep the whole directory free.</p>
-              <p class="panel-links"><a href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="homepage">Become a partner &rarr;</a></p>
-            </div>
-          </section>
-          {%- endif %}
+          {%- set sponsorData = sponsors.homepage %}{% set sponsorSlot = "homepage" %}{% set sponsorDemo = false %}
+          {%- set sponsorPitch = "This is the front door of the directory. One partner at a time, clearly labelled, right where Vancouver looks for things to do." %}
+          {% include "partials/sponsor-card.njk" %}
         </div>
       </div>
 
