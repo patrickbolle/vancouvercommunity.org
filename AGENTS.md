@@ -4,7 +4,7 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ## Project Overview
 
-A community directory for Vancouver, BC — a static site listing 35+ categories of local groups, clubs, and meetups. Content lives in markdown files in `content/`; Eleventy (11ty) converts them to HTML pages in `site/` (gitignored).
+A community directory for Vancouver, BC — a static site listing 40 categories of local groups, clubs, and meetups. Content lives in markdown files in `content/`; Eleventy (11ty) converts them to HTML pages in `site/` (gitignored).
 
 ## Build & Dev
 
@@ -23,7 +23,8 @@ The dev server watches all files (markdown, CSS, templates, JS) and auto-rebuild
 - Each `.md` file has YAML frontmatter with `title`, `description`, `emoji`, `group`, and `order`
 - `eleventy.config.js` is the build configuration
 - `_includes/` contains Nunjucks layout templates
-- `_data/` contains shared data (site config, group definitions)
+- `_data/` contains shared data: `site.json`, `groups.json` (sections, in display order), `sponsors.json`, `mutuals.js` (sister-site promo copy and links), `guides.json` (category → blog guide), `neighbourhoods.js`, `recentGroups.js`
+- `_includes/partials/` holds shared pieces: `topbar.njk` (masthead + tabs), `footer.njk`, `sponsor-card.njk`, `mutuals-promo.njk`, `newsletter.njk`
 - `src/style.css` is the external stylesheet → served at `/_build/style.css`
 - `src/main.js` is shared JavaScript → served at `/_build/main.js`
 - `static/` contains static assets (favicon, etc.) → copied to site root
@@ -136,9 +137,36 @@ Apply this test: *"If I'm interested in X, can I go here and find my people?"*
 - PR descriptions should be 1-3 sentences explaining what and why
 - Link to the triggering issue in the PR body when applicable: `Resolves #123`
 
+## Monetization
+
+- **Sponsors** live in `_data/sponsors.json` (see `_docs`/`_example`). Every slot renders through `_includes/partials/sponsor-card.njk`: a "Community sponsor" panel with an **Ad** tag, `rel="sponsored"` on the link. An empty slot shows a dashed "Your business here" box linking to `/advertise/`.
+  - `listings` — one sponsor per category. A paid sponsor sits at the top of the main column, above the listings, at every width (the advertise page promises "above the fold"). Open category slots sit in the sidebar.
+  - `homepage` — one partner on the homepage.
+  - `pages` — one sponsor shown on the guide pages: Start here, Free, Neighbourhoods, the blog, About. No slots on Submit or Newsletter.
+- **The example on `/advertise/` uses the same partial**, so it always matches what sponsors get.
+- **Pricing** is on `/advertise/` (`content/advertise.njk`): $39/mo or $350/yr per category, $25/issue newsletter classified. Homepage and guide-page slots: "ask for pricing". Sold by email (vancouver@bolle.co).
+- **Newsletter classifieds** live in `_data/classifieds.json` (see `_docs` in the file). The weekly newsletter script (`scripts/newsletter.mjs`) includes the first active listing per issue, clearly labeled as paid; entries expire via their `until` date. Preview with `node scripts/newsletter.mjs --dry-run`.
+- Community groups are never charged — sponsorships are for businesses (studios, gyms, shops, venues) only, and must pass the same "can I find my people here?" test. Sponsorship never buys, changes, or removes a regular listing.
+- **mutuals** (mutuals.fm, Patrick's neighbourhood book club site) is promoted as "Our sister site". All copy and links come from `_data/mutuals.js`; every link goes to the mutuals.fm homepage with a per-placement `utm_campaign`. Don't write "free" in its listing copy — the free filter would count it.
+
+## SEO
+
+Titles and descriptions were matched to Search Console queries (Oct 2026). Keep these in place:
+
+- **Category front matter overrides** (optional): `seoTitle`, `seoDescription`, `seoHeading` (the h1), `listNoun` (the listings panel label). `{n}` becomes the live listing count and `{year}` the build year. Write them in the words people search ("chess clubs", "coworking spaces"), not "groups".
+- **Default titles** lead with the keyword ("18 Run Clubs in Vancouver (2026)") and add "| Vancouver Community" only when the title stays around 60 characters. Keep meta descriptions under ~155 characters.
+- **Counts and dates are never typed by hand.** The leading number in a category `description` is rewritten from the real listings at build time (`liveCount` filter: "N things plus venues" counts groups only). The year and "Updated <month>" come from the build date.
+- **Guides:** `_data/guides.json` maps a category to its blog guide; the category page links to it under the intro. The homepage lists a short, hand-picked set in `content/index.njk`.
+- **Neighbourhood links:** a listing's location that matches a neighbourhood alias in `_data/neighbourhoods.js` links to that neighbourhood page automatically.
+- **New guides** (`content/blog/*.md`): only facts from the directory's own listings or a checked official source; link groups to their exact anchors (copy the `id` from the built category page); include a `faq` list in front matter for FAQ schema.
+
 ## Deployment
 
 Cloudflare Pages builds the site on push (`npm run build`) and deploys from `site/`. The `site/` directory is gitignored — never commit built output. The GitHub Action in `.github/workflows/build.yml` runs the build as a CI check only.
+
+## Link maintenance
+
+`scripts/check-links.mjs` verifies every group's `**Find it:**` URL. Run locally with `node scripts/check-links.mjs` (writes `link-report.md`, gitignored). It classifies each link: **broken** (clean 404/410 — safe to fix/remove), **unreachable** (network error/timeout — verify by hand; may be a slow or bot-hostile but live site), or **skipped** (host blocks bots — Instagram/Meetup/etc., not a signal). The `.github/workflows/link-check.yml` Action runs it weekly (Mondays) and opens/updates a single "Broken links report" issue when clean-404 links appear, closing it when they're all resolved.
 
 ## External Services
 
@@ -162,6 +190,13 @@ Anti-references (explicitly avoid):
 - Slick SaaS (gradients, hero sections, "designed to convert")
 - Reddit/forum UI (dense, cluttered)
 - City government sites (cold, bureaucratic)
+
+### Visual system (Oct 2026 redesign)
+An early-web bulletin board: forest-green masthead with a pixel-art logo and treeline, plain tabs, boxed panels with title bars, dense underlined link lists, Georgia headings, Verdana text. No web fonts.
+- **Every page uses the same parts**: `.frame.page`, `.page-title`/`.page-lede`, `.columns` (`.col-main` + `.col-side`), `.panel` with `.panel-title` and `.panel-body`, `.link-list`. Don't add one-off page components.
+- **Four type sizes only**: `--fs-sm`, `--fs-base`, `--fs-lg`, `--fs-xl` (rem). Panel padding uses `--panel-pad`, page edges `--gutter`.
+- **Pixel art in three places only**: the logo (`static/favicon.svg`), the masthead treeline, the section icons (`static/icons/`). Hard 1px edges and 2px offset shadows elsewhere; no pixel fonts, no animation.
+- **Accessibility helpers in `src/main.js`**: `a11yDialog.open/close` (makes the page inert and loops Tab — use it for any new modal) and `announce()` (one polite live region for status updates). A build transform adds "(opens in new tab)" to every `target="_blank"` link. Keep visible focus (cream on the masthead), field borders at 3:1 or more, and links underlined.
 
 ### Design Principles
 1. **Feel made by a person, not a product team.** Personal voice, slight warmth in the details.
