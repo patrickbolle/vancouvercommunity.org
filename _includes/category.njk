@@ -177,9 +177,12 @@
               <tr><th scope="row">Updated</th><td>{% buildDateHuman %}</td></tr>
               <tr><th scope="row">Traffic</th><td><span id="page-views">&ndash;</span></td></tr>
             </table>
-            <p class="panel-links"><a href="/newsletter/" data-umami-event="click-newsletter-page" data-umami-event-source="{{ page.fileSlug }}">Get new ones by email &rarr;</a></p>
           </div>
         </section>
+
+        {#- Category pages are where most visitors land; the signup lived in the
+            category hero until July 2026, and signups stopped when it moved out. #}
+        {% include "partials/newsletter.njk" %}
 
         {%- if not sponsor %}
         {%- set sponsorData = null %}{% set sponsorSlot = page.fileSlug %}{% set sponsorDemo = false %}
