@@ -75,6 +75,11 @@ Our events and classes are offered online, with some in-person offerings in the 
 
 - **Find it:** [lightwork.ca](https://www.lightwork.ca/)
 
+
+## Vancouver Meditation Life
+- **What:** Vancouver Meditation Life is a charitable meditation centre dedicated to promoting mental wellness, inner peace, and a healthier way of life. We offer guided meditation classes and programs for the community, helping people reduce stress, let go of negative thoughts, and develop a more positive outlook on life. Our programs are welcoming and accessible to people of all backgrounds, whether they are new to meditation or have previous experience.
+- **Find it:** [meditationlife.ca](http://meditationlife.ca)
+
 ---
 
 ## Venues & Resources
