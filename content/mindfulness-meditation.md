@@ -75,6 +75,17 @@ Our events and classes are offered online, with some in-person offerings in the 
 
 - **Find it:** [lightwork.ca](https://www.lightwork.ca/)
 
+
+## Vancouver Meditation Life
+- **What:** Vancouver Meditation Life is a registered Canadian charity running a guided meditation centre near Commercial Drive. We offer a 7-Level Mind Cleansing meditation method — live guided sessions that help people let go of stress, anxiety, and overthinking and return to their true, peaceful mind.
+
+Newcomers can join our Free Intro Meditation every Saturday and Sunday, 11 AM–12 PM, in person at the centre or online, plus free community classes during the week (meditation, tai chi, wellness workshops). Members can attend unlimited guided sessions, in person and online.
+
+Everyone is welcome — no experience needed.
+
+📍 1682 E 12th Ave, Vancouver · meditationlife.ca · (604) 516-0709
+- **Find it:** [meditationlife.ca](http://meditationlife.ca)
+
 ---
 
 ## Venues & Resources
