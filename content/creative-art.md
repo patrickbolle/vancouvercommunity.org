@@ -84,6 +84,11 @@ order: 1
 What is under the story?
 - **Find it:** [instagram.com/understory.experiences](https://www.instagram.com/understory.experiences/)
 
+
+## Wreath Making Workshops
+- **What:** We are hosting a series of wreath making Workshops throughout November and December 2026. The workshops are all taking place at Slice of Life Gallery in Vancouver.
+- **Find it:** [eventbrite.ca/e/wreath-making-workshop-tickets-1998400323162?aff=oddtdtcreator&keep_tld=true](https://www.eventbrite.ca/e/wreath-making-workshop-tickets-1998400323162?aff=oddtdtcreator&keep_tld=true)
+
 ---
 
 ## Venues & Spaces
