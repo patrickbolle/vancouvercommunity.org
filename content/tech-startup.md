@@ -172,6 +172,11 @@ order: 1
 - **What:** AI engineering meetup slash speaker series - focused around developers working with LLMs.
 - **Find it:** [infervan.com](https://infervan.com/)
 
+
+## 4 Launch Crew
+- **What:** An online community for people in British Columbia, including Vancouver, who are interested in business, fitness and meeting driven people. Members meet online once a week to share business ideas and check in on their progress, and follow shared workouts between meetings. You do not need an established business to join. This is a paid monthly membership from 4 Hour Launch. It is online rather than an in-person Vancouver meetup; enquire through the website for the schedule, membership price and joining details.
+- **Find it:** [4hourlaunch.com/#contact](https://4hourlaunch.com/#contact)
+
 ---
 
 ## Venues & Resources
