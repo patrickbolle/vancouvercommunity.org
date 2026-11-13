@@ -29,10 +29,6 @@ order: 5
 - **When:** 7:30pm
 - **Find it:** [eastsidecrafthouse.com](https://eastsidecrafthouse.com/saturday-night-trivia-vancouver)
 
-## The Butcher & Bullock Trivia
-- **What:** Pub trivia with burger & beer specials. $16 burger & beer, $5 Jameson
-- **Find it:** 911 W Pender St, Downtown
-
 ## Amazing Brentwood Tuesday Trivia
 - **What:** Free trivia covering geeky topics. Film, TV, video games, science, teams up to 6
 - **Find it:** [theamazingbrentwood.com](https://theamazingbrentwood.com/) | Food court
