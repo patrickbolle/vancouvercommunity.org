@@ -40,10 +40,6 @@ order: 1
 - **Size:** 3,600+ subscribers, 200+ adventures/year
 - **Find it:** [wanderung.ca](https://wanderung.ca/)
 
-## Common Ground Run Club
-- **What:** Weekly social runs
-- **Find it:** [joincommonground.com](https://joincommonground.com/)
-
 ## Lululemon Run Club
 - **What:** Free weekly runs from Lululemon stores. All paces welcome, often includes post-run stretching
 - **Where:** Various locations (Robson, Kits, etc.)
