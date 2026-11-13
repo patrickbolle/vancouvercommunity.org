@@ -84,6 +84,10 @@ order: 1
 - **What:** Community worth running for. Bringing runners through curated runs, races, and coaching.
 - **Find it:** [kaminorunning.ca](https://www.kaminorunning.ca/)
 
+## Saunter Run Club
+- **What:** Relaxed, all-pace social runs followed by coffee and conversation at Saunter Coffee
+- **Find it:** [instagram.com/saunter.runclub](https://www.instagram.com/saunter.runclub/)
+
 ---
 
 ## Venues & Resources
