@@ -5,12 +5,12 @@ const mutuals = require("./mutuals.js");
 // Recently added groups — update this list when new groups are merged.
 // The build enriches each entry with description and category title from the markdown.
 const recent = [
+  { name: "Hybred Culture Club", categorySlug: "run-clubs" },
   { name: "Saunter Run Club", categorySlug: "run-clubs" },
   { name: "Vanhikers", categorySlug: "hiking-outdoors" },
   { name: mutuals.name, categorySlug: "book-clubs" },
   { name: "Vancouver Curiosity Club", categorySlug: "philosophy-intellectual" },
   { name: "Infer Vancouver", categorySlug: "tech-startup" },
-  { name: "Bad Climbers Club", categorySlug: "climbing" },
 ];
 
 module.exports = function () {
