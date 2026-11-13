@@ -81,6 +81,10 @@ order: 2
 - **What:** Student-run outdoor adventures. Open to community, affordable trips
 - **Find it:** [go.sfss.ca/clubs/38/info](https://go.sfss.ca/clubs/38/info)
 
+## Vanhikers
+- **What:** Weekly hikes and road trips
+- **Find it:** [vanhikers.ca](https://vanhikers.ca)
+
 ---
 
 ## Venues & Resources
