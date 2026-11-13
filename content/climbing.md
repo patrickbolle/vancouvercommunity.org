@@ -64,3 +64,6 @@ order: 4
 - **What:** University climbing wall open to public. Affordable, beginner-friendly
 - **Find it:** [sfu.ca/recreation/climbing](https://www.sfu.ca/recreation/climbing.html)
 
+## Tilted Climbing and Fitness
+- **What:** Bouldering gym with 24-hour member access
+- **Find it:** [tiltedclimbing.ca](https://tiltedclimbing.ca/)
