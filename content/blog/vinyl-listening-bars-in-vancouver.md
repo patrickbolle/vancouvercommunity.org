@@ -41,7 +41,7 @@ This is the easiest way to meet people who love the same band you do. You don't 
 
 ## Record shops worth a visit
 
-Record shops aren't bars, but they are where vinyl people gather. Go on a Saturday, flip through the bins, and you'll end up in a chat about a pressing you've never heard of.
+Record shops are where vinyl people gather. Go on a Saturday, flip through the bins, and you'll end up in a chat about a pressing you've never heard of.
 
 - **[Zulu Records](/vinyl-listening-bars/#zulu-records)** is a Vancouver legend at 1972 W 4th Ave in Kitsilano. It has listening stations, a huge selection and an in-house turntable refurbisher. Handy if your old deck needs some love.
 - **[Red Cat Records](/vinyl-listening-bars/#red-cat-records)** is an independent record store at 4386 Main St.
@@ -50,7 +50,7 @@ Record shops aren't bars, but they are where vinyl people gather. Go on a Saturd
 
 ## How to turn records into friends
 
-Vinyl can feel like a solo hobby. You, your headphones, your shelf. But it doesn't have to be.
+Vinyl can feel like a solo hobby. You, your headphones, your shelf. It's more fun with company.
 
 Pick one spot and become a regular. Go to the same pop-up twice in a month. Go to the next listening party at the same shop. Ask the person beside you what they're digging for. Record people love to talk about records, and the second conversation is always easier than the first. That rule is the core of my guide to [making friends in Vancouver](/blog/how-to-make-friends-in-vancouver/).
 
