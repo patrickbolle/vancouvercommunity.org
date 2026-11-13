@@ -44,7 +44,7 @@ order: 3
 
 ## Langara Makerspace
 - **What:** 3D printers, sewing machines, workshops. Open to everyone, hands-on learning
-- **Find it:** [langara.ca/campus-facilities/makerspace](https://langara.ca/campus-facilities/makerspace/index.html)
+- **Find it:** [iweb.langara.ca/makerspace](https://iweb.langara.ca/makerspace/)
 
 ## Emily Carr University Digital Fabrication Lab
 - **What:** Access to fabrication tools for students and community. Creative, art-focused making
