@@ -10,7 +10,7 @@ faq:
   - q: "Can I go to trivia night alone in Vancouver?"
     a: "Yes — teams almost always need an extra brain, and hosts are used to folding in solo players. Turning up alone and joining a short-handed team is a low-pressure, reliable way to meet people."
   - q: "Is there free pub trivia in Vancouver?"
-    a: "Yes, several trivia nights are free to play (some with prizes and food-and-drink specials). Free geeky-topic trivia covering film, TV, video games, and science is a favourite for teams of friends."
+    a: "Yes, several trivia nights are free to play (some with prizes). Free geeky-topic trivia covering film, TV, video games, and science is a favourite for teams of friends."
   - q: "Is there trivia on Saturdays in Vancouver?"
     a: "Most trivia runs on weeknights, but there is at least one Saturday-night option in Vancouver if the weekend suits you better."
 ---
@@ -23,7 +23,6 @@ Here's where to play across the city. Every listing below is real and active, fr
 
 - **[IQ 2000 Trivia](/pub-trivia/)** is Vancouver's premier pub trivia host — theatrical, funny, and running nights across multiple venues.
 - **Vancouver Trivia Party** does quiz nights plus fundraisers and corporate events.
-- **The Butcher & Bullock Trivia** pairs the quiz with burger-and-beer specials (a $16 burger & beer, $5 Jameson) — downtown and dependable.
 
 ## Free and niche
 
