@@ -1,0 +1,14 @@
+{#- One image banner. Data comes from _data/banners.json; an empty slot renders nothing.
+    Set before including:
+      bannerData   the banner object, or null
+      bannerSlot   analytics label, e.g. "sidebar" or "run-clubs"
+      bannerSize   "wide" (mid-list, 4:1) or "box" (sidebar, 6:5)
+-#}
+{%- if bannerData and bannerData.image %}
+<aside class="banner banner-{{ bannerSize }}" aria-label="Advertisement">
+  <p class="banner-label"><span class="sponsor-tag">Ad</span></p>
+  <a class="banner-link" href="{{ bannerData.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="banner-click" data-umami-event-slot="{{ bannerSlot }}" data-umami-event-name="{{ bannerData.name }}">
+    <img src="{{ bannerData.image }}" alt="{{ bannerData.alt or bannerData.name }}" {% if bannerSize == "wide" %}width="600" height="150"{% else %}width="300" height="250"{% endif %} loading="lazy" decoding="async">
+  </a>
+</aside>
+{%- endif %}

@@ -624,6 +624,17 @@ textarea.form-input { resize: vertical; }
 .mutuals-promo-compact .mutuals-promo-link { display: inline-block; margin: 6px var(--panel-pad) 0; }
 .col-main > .mutuals-promo-compact { margin-top: 16px; }
 
+/* ---------- banner ads (partial: banner.njk) ---------- */
+.banner { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.banner-label { line-height: 1; }
+.banner-link { display: block; border: 1px solid var(--line); box-shadow: 2px 2px 0 var(--line); line-height: 0; }
+.banner-link:focus-visible { outline-offset: 2px; }
+.banner img { display: block; width: 100%; height: auto; }
+.banner-wide { margin: 12px 0; }
+.category-entries > .banner-wide { margin: 0; padding: 12px var(--panel-pad); border-bottom: 1px solid var(--line-soft); }
+.banner-wide .banner-link { width: 100%; max-width: 600px; }
+.banner-box .banner-link { width: 100%; max-width: 300px; }
+
 /* ---------- sponsor slots (partial: sponsor-card.njk) ---------- */
 .sponsor-title { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .sponsor-tag {
@@ -792,6 +803,15 @@ textarea.form-input { resize: vertical; }
   padding: 10px var(--panel-pad);
 }
 .advertise-mockup { max-width: 520px; }
+.advertise-banners { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; max-width: none; }
+.advertise-banner-demo {
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  border: 1px dashed #b9b19c; background: #faf7ef; color: var(--ink-2);
+  font-family: var(--serif); font-weight: 700;
+}
+.advertise-banner-demo span { font-family: inherit; font-weight: 400; font-size: var(--fs-sm); color: var(--ink-muted); }
+.advertise-banner-wide { width: 100%; max-width: 400px; aspect-ratio: 4 / 1; }
+.advertise-banner-box { width: 180px; aspect-ratio: 6 / 5; }
 .advertise-mockup-cap { font-size: var(--fs-sm); color: var(--ink-muted); }
 .advertise-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .advertise-tier {
