@@ -1,6 +1,7 @@
 {
   "_docs": "Category slug -> blog post slug. Category pages link to their guide under the intro, and the guide gets a contextual internal link from the page people actually land on.",
   "book-clubs": "best-book-clubs-in-vancouver",
+  "philosophy-intellectual": "philosophy-clubs-in-vancouver",
   "board-games": "board-game-cafes-and-groups-in-vancouver",
   "creative-art": "creative-and-art-groups-in-vancouver",
   "cycling": "cycling-clubs-in-vancouver",
