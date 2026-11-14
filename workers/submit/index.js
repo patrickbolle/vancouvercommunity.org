@@ -37,6 +37,7 @@ const CATEGORY_FILES = {
   "pickleball": "content/pickleball.md",
   "more-sports": "content/more-sports.md",
   "pottery-ceramics": "content/pottery-ceramics.md",
+  "knitting-crafts": "content/knitting-crafts.md",
   "yoga-wellness": "content/yoga-wellness.md",
   "sauna-cold-plunge": "content/sauna-cold-plunge.md",
   "ski-snowboard": "content/ski-snowboard.md",
