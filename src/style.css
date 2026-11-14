@@ -305,7 +305,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .search-results-grid { background: var(--surface); border: 1px solid var(--line); }
 .search-result-card {
   display: block;
-  padding: 14px var(--panel-pad) 15px;
+  padding: 12px var(--panel-pad);
   border-bottom: 1px solid var(--line-soft);
   text-decoration: none;
 }
@@ -337,10 +337,14 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   border-bottom: 1px solid var(--line-soft);
 }
 .group-card:hover { background: #faf7ef; }
-.group-card-header { display: flex; align-items: baseline; gap: 4px 8px; flex-wrap: wrap; }
-.group-card h3 { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; color: var(--ink); }
+.group-card-header { display: flex; align-items: baseline; gap: 8px; }
+.group-card h3 { flex: 1; min-width: 0; font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; color: var(--ink); }
 .group-card h3 a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
-.group-card-where, .group-card-size { font-size: var(--fs-base); color: var(--ink-muted); }
+.group-card:hover h3 a { color: var(--link-hover); }
+.group-card-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px; margin-top: 2px; color: var(--ink-2); }
+.group-card-when { font-weight: 700; color: var(--ink); }
+.group-card-where, .group-card-size { color: var(--ink-2); }
+.group-card-sep { color: var(--ink-muted); }
 .group-card-badge {
   font-size: var(--fs-sm);
   color: var(--success);
@@ -348,12 +352,13 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   padding: 0 4px;
   line-height: 1.5;
 }
-.group-card-desc { color: var(--ink-2); margin-top: 4px; line-height: 1.65; }
+.group-card-desc { color: var(--ink-2); margin-top: 4px; }
+.group-card-note { margin-top: 4px; font-size: var(--fs-sm); color: var(--ink-muted); }
 .group-card:target { background: #fbf3d5; }
 
 /* Group card: When and Cost tags, and the Share link.
    Tags are plain boxes like the Free badge, in ink colours.
-   Share sits at the right end of the header row (it wraps to its own line on narrow screens). */
+   Share sits at the right end of the name row, in muted ink so the name stays the link people see. */
 .group-card-tag {
   font-size: var(--fs-sm);
   color: var(--ink-2);
@@ -362,12 +367,13 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   padding: 0 4px;
   line-height: 1.5;
 }
-.group-card-share {
-  margin-left: auto;
+.group-card-share, .group-card-share:visited {
+  flex: none;
   font-size: var(--fs-sm);
   white-space: nowrap;
+  color: var(--ink-muted);
 }
-.group-card-share:visited { color: var(--link); }
+.group-card-share:hover { color: var(--link-hover); }
 
 /* Section headings inside a category file (e.g. "Venues & Resources") */
 .category-entries > h2 {
@@ -573,8 +579,6 @@ textarea.form-input { resize: vertical; }
 /* ---------- Small screens ---------- */
 @media (max-width: 760px) {
   :root { --panel-pad: var(--gutter); }
-  .group-card { padding-top: 12px; padding-bottom: 13px; }
-  .group-card h3 { font-size: var(--fs-lg); }
   .columns { grid-template-columns: minmax(0, 1fr); }
   .masthead-inner { min-height: 52px; }
   .masthead-inner { gap: 10px; }

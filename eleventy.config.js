@@ -3,6 +3,15 @@ const fs = require("fs");
 const path = require("path");
 const mutuals = require("./_data/mutuals.js");
 
+// "Free" means the activity is free, not "alcohol-free", "feel free" or "first visit free".
+function isFreeText(text) {
+  const t = String(text || "").replace(/<[^>]+>/g, "").toLowerCase();
+  if (!/(^|[^-\w])free\b(?!-)/.test(t)) return false;
+  if (/\bfeel free\b/.test(t)) return false;
+  if (/\bfirst\b[^.]{0,40}\bfree\b|\bfree (trial|first)\b/.test(t) && !/^\s*free\b/.test(t)) return false;
+  return true;
+}
+
 module.exports = function (eleventyConfig) {
   // --- Passthrough copies (preserves existing URL paths) ---
   eleventyConfig.addPassthroughCopy({ "src/style.css": "_build/style.css" });
@@ -80,9 +89,7 @@ module.exports = function (eleventyConfig) {
         const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
         const costMatch = section.match(/\*\*Cost:\*\*\s*(.+)/);
         const whenMatch = section.match(/\*\*When:\*\*\s*(.+)/);
-        const free =
-          /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
-          /\bfree\b/i.test(whatMatch ? whatMatch[1] : "");
+        const free = costMatch ? isFreeText(costMatch[1]) : isFreeText(whatMatch ? whatMatch[1] : "");
         return {
           name,
           description: whatMatch ? whatMatch[1].trim() : "",
@@ -112,9 +119,7 @@ module.exports = function (eleventyConfig) {
           location: whereMatch ? whereMatch[1].trim() : "",
           when: whenMatch ? whenMatch[1].trim() : "",
           cost: costMatch ? costMatch[1].trim() : "",
-          free:
-            /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
-            /\bfree\b/i.test(whatMatch ? whatMatch[1] : ""),
+          free: costMatch ? isFreeText(costMatch[1]) : isFreeText(whatMatch ? whatMatch[1] : ""),
         };
       }).filter(
         (g) =>
@@ -204,41 +209,65 @@ module.exports = function (eleventyConfig) {
         var when = (fields["when"] || "").replace(/<[^>]+>/g, "");
         var cost = (fields["cost"] || "").replace(/<[^>]+>/g, "");
         var size = (fields["size"] || "").replace(/<[^>]+>/g, "");
+        var place = (fields["place"] || "").replace(/<[^>]+>/g, "");
+        var notes = fields["notes"] || "";
         var findIt = fields["find it"] || "";
         var urlM = findIt.match(/href="([^"]+)"/);
         var url = urlM ? urlM[1] : "";
+        // Text after the main link ("| 1972 W 4th Ave", "(Wednesdays 6pm)", a second link) is kept as a note.
+        var findExtra = findIt.replace(/^[\s\S]*?<\/a>/, "").replace(/^[\s|·,–—-]+/, "").trim();
+        if (findExtra === findIt.trim()) findExtra = "";
+
+        // Short place for the meta row: an optional Place field, else the first part
+        // of Where ("Kitsilano Community Centre, 2690 Larch St" -> "Kitsilano Community Centre").
+        // The full Where shows as a small address line when it differs.
+        if (!place && where) {
+          var parts = where.replace(/\s*\([^)]*\)/g, "").split(/\s*,\s*/).filter(Boolean);
+          if (parts.length && /^\d/.test(parts[0])) place = parts.length > 1 ? parts[parts.length - 1] : where;
+          else if (parts.length && parts[0].length <= 34) place = parts[0];
+          else place = where;
+        }
 
         // "Free" comes from the Cost field or the description. A Cost that
         // isn't free ("$15 drop-in") shows as its own plain tag instead.
         var badge = "";
         var price = "";
         if (cost) {
-          if (/\bfree\b/i.test(cost)) badge = cost;
+          if (isFreeText(cost) && cost.length <= 12) badge = cost;
           else price = cost;
-        } else {
-          var plainDesc = desc.replace(/<[^>]+>/g, "").toLowerCase();
-          if (/\bfree\b/.test(plainDesc)) badge = "Free";
+        } else if (isFreeText(desc)) {
+          badge = "Free";
         }
         var plainName = name.replace(/<[^>]+>/g, "");
 
-        // Dense listing: the name is the link; place, time, cost and size sit
-        // inline after it. "Share" ends the row. Without JS it is a plain
-        // #anchor link, so it is also the card's permalink.
+        // Three rows: name + Share; when · place · cost; description. Then quiet extras:
+        // the full address (when it was shortened) and any notes.
+        // Share is a plain #anchor link without JS, so it is also the card's permalink.
         var c = '<div class="group-card" id="' + id + '">';
         c += '<div class="group-card-header">';
         c += url
           ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
           : "<h3>" + name + "</h3>";
-        if (where) c += '<span class="group-card-where">(' + linkNeighbourhood(where) + ")</span>";
-        if (when) c += '<span class="group-card-tag"><span class="visually-hidden">When: </span>' + when + "</span>";
-        if (price) c += '<span class="group-card-tag"><span class="visually-hidden">Cost: </span>' + price + "</span>";
-        if (badge) c += '<span class="group-card-badge">' + badge + "</span>";
-        if (size) c += '<span class="group-card-size">' + size + "</span>";
         c += '<a class="group-card-share" href="#' + id + '" onclick="return shareGroup(this)"' +
           ' data-umami-event="click-share" data-umami-event-source="card" data-umami-event-group="' + plainName + '">' +
           '<span class="group-card-share-label">Share</span><span class="visually-hidden"> ' + plainName + "</span></a>";
         c += "</div>";
+        var meta = [];
+        if (when) meta.push('<span class="group-card-when"><span class="visually-hidden">When: </span>' + when + "</span>");
+        if (place) meta.push('<span class="group-card-where"><span class="visually-hidden">Where: </span>' + linkNeighbourhood(place) + "</span>");
+        if (size) meta.push('<span class="group-card-size">' + size + "</span>");
+        var tags = "";
+        if (price) tags += '<span class="group-card-tag"><span class="visually-hidden">Cost: </span>' + price + "</span>";
+        if (badge) tags += '<span class="group-card-badge">' + badge + "</span>";
+        if (meta.length || tags) {
+          c += '<p class="group-card-meta">' + meta.join('<span class="group-card-sep" aria-hidden="true"> · </span>') + tags + "</p>";
+        }
         if (desc) c += '<p class="group-card-desc">' + desc + "</p>";
+        var extras = [];
+        if (where && where !== place) extras.push(place && where.indexOf(place) === 0 ? where : linkNeighbourhood(where));
+        if (notes) extras.push(notes);
+        if (findExtra) extras.push(findExtra);
+        if (extras.length) c += '<p class="group-card-note">' + extras.join(" · ") + "</p>";
         c += "</div>";
         return c;
       }
