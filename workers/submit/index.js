@@ -27,6 +27,7 @@ const CATEGORY_FILES = {
   "language-exchange": "content/language-exchange.md",
   "hiking-outdoors": "content/hiking-outdoors.md",
   "cycling": "content/cycling.md",
+  "paddling-sailing": "content/paddling-sailing.md",
   "dance": "content/dance.md",
   "improv-comedy": "content/improv-comedy.md",
   "music-open-mic": "content/music-open-mic.md",
