@@ -2,11 +2,11 @@
 layout: post
 tags: post
 title: "Vinyl listening bars in Vancouver: bars, shops and parties"
-description: "Where to listen to records in Vancouver: Lala's vinyl bar on Cambie, Doze Hifi pop-ups, Neptoon listening parties and the record shops worth a visit."
+description: "Where to listen to records in Vancouver: Bar Gobo, Amber, Lala and more listening bars, Doze Hifi pop-ups, Neptoon parties and the best record shops."
 date: 2026-11-13
 faq:
   - q: "Is there a vinyl listening bar in Vancouver?"
-    a: "Yes. Lala is a 40-seat vinyl listening bar in the basement of June restaurant at 3305 Cambie St. Doze Hifi is a travelling vinyl pop-up with vintage speakers, with disco and house on Saturdays and jazz, soul and funk on Sundays. The Vancouver Community Directory lists both on its vinyl page."
+    a: "Yes, several. Bar Gobo (237 Union St, Chinatown) plays all vinyl on a custom analogue system. Amber (99 Powell St, Gastown) plays vinyl only on vintage hi-fi. Lala is a 40-seat vinyl bar in the basement of June at 3305 Cambie St. Bleach Listening Room is at 611 Gore Ave, and Osteria Otto pairs Italian food with hi-fi vinyl at 151 E 8th Ave."
   - q: "Do I need a reservation for Lala?"
     a: "When Lala opened, Scout Magazine reported limited online reservations through Resy and said walk-ins are always welcome. Check June's Instagram, @juneoncambie, for the latest."
   - q: "Where are album listening parties in Vancouver?"
@@ -17,15 +17,19 @@ faq:
 
 There's something about listening to a record with other people. Nobody skips a track. Nobody checks their phone between songs. You hear an album the way the band meant it, start to finish, and then someone turns to you and says, "That second side, though."
 
-Vancouver has a small, lovely vinyl scene. There's a proper listening bar, a pop-up that travels, a record shop that throws parties, and a handful of stores where you can lose an afternoon. Here's where to go, sorted by the kind of night you want. Every spot below comes from [the directory's vinyl page](/vinyl-listening-bars/).
+Vancouver has a small, lovely vinyl scene. There are real listening bars in Chinatown, Gastown and Mount Pleasant, a pop-up that travels, a record shop that throws parties, and a handful of stores where you can lose an afternoon. Here's where to go, sorted by the kind of night you want. Every spot below comes from [the directory's vinyl page](/vinyl-listening-bars/).
 
 ## If you want a listening bar
 
-**[Lala (at June Restaurant)](/vinyl-listening-bars/#lala-(at-june-restaurant))** is a 40-seat vinyl listening bar in the basement of June, at 3305 Cambie St. The listing sums it up as a "living room listening to records," and that's exactly the feeling. It's relaxed and curated.
+**[Bar Gobo](/vinyl-listening-bars/#bar-gobo)** at 237 Union St in Chinatown was one of the first listening bars in the city. Its house rule is "all vinyl, all the time," played on a custom analogue system. When the [Georgia Straight](https://www.straight.com/food/ranking-three-vancouver-listening-lounges-by-sound-snacks-sips-and-scene) ranked three listening lounges in August 2026, it gave Bar Gobo top marks for sound. The music is clear, and you can still hear the person beside you.
 
-When it opened, [Scout Magazine](https://scoutmagazine.ca/june-introduces-lala-a-new-vinyl-listening-bar/) reported that rotating DJs spin vinyl seven nights a week. It also said there are a few reservations on Resy, and walk-ins are always welcome. Things change, so check June's Instagram before you go.
+**[Amber](/vinyl-listening-bars/#amber)** opened in July 2026 at 99 Powell St in Gastown. It takes its cue from Japanese kissa bars: vinyl only, on vintage hi-fi, with cocktails and a raw bar. The Straight picked it as the best night out of the three, partly because everyone seemed to be talking to everyone else. Good news if you came to meet people.
 
-If you've been searching for a vinyl bar in Vancouver, this is the one to try first.
+**[Lala (at June Restaurant)](/vinyl-listening-bars/#lala-(at-june-restaurant))** is a 40-seat vinyl bar in the basement of June, at 3305 Cambie St. The listing sums it up as a "living room listening to records." When it opened, [Scout Magazine](https://scoutmagazine.ca/june-introduces-lala-a-new-vinyl-listening-bar/) reported DJs spinning vinyl seven nights a week, a few reservations on Resy, and walk-ins always welcome.
+
+**[Bleach Listening Room](/vinyl-listening-bars/#bleach-listening-room)** at 611 Gore Ave in Chinatown is the most casual of the bunch. It's run by Bleach Studios, with communal tables and a young, creative crowd. The schedule changes, so check their Instagram each week.
+
+**[Osteria Otto](/vinyl-listening-bars/#osteria-otto)** is a dinner pick. It's an Italian restaurant in an old house at 151 E 8th Ave, just off Main, inspired by Japanese listening bars. Curated vinyl plays on a hi-fi system while you eat pasta and linger.
 
 ## If you want a pop-up
 

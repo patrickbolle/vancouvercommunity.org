@@ -20,8 +20,28 @@ order: 2
 
 ## Lala (at June Restaurant)
 - **What:** 40-seat vinyl listening bar. "Living room listening to records" — relaxed, curated
-- **Where:** Basement of June restaurant
+- **Where:** Basement of June, 3305 Cambie St
 - **Find it:** [Scout Magazine](https://scoutmagazine.ca/june-introduces-lala-a-new-vinyl-listening-bar/)
+
+## Bar Gobo
+- **What:** Hi-fi wine bar. "All vinyl, all the time" on a custom analogue sound system, with natural wine and small plates
+- **Where:** 237 Union St, Chinatown
+- **Find it:** [bargobo.com](https://bargobo.com/)
+
+## Amber
+- **What:** Japanese kissa-style listening bar. Vinyl only on vintage hi-fi, with cocktails and a raw bar. Social, chatty room
+- **Where:** 99 Powell St, Gastown
+- **Find it:** [amber99.com](https://amber99.com/)
+
+## Bleach Listening Room
+- **What:** Casual listening room from Bleach Studios. Communal tables and a young, creative crowd. Schedule posted weekly on Instagram
+- **Where:** 611 Gore Ave, Chinatown
+- **Find it:** [bleachstudios.xyz/pages/listening-room](https://bleachstudios.xyz/pages/listening-room)
+
+## Osteria Otto
+- **What:** Italian restaurant inspired by Japanese listening bars. Curated vinyl on a hi-fi system in an old house off Main
+- **Where:** 151 E 8th Ave, Mount Pleasant
+- **Find it:** [osteria-otto.com](https://osteria-otto.com/)
 
 ## Doze Hifi
 - **What:** Travelling vinyl pop-up with rotating vintage speakers. Saturdays disco/house, Sundays jazz/soul/funk
