@@ -7,14 +7,15 @@ eleventyExcludeFromCollections: true
 {%- for cat in collections.categories %}
   {%- set totalGroups = totalGroups + cat.data.groupCount %}
 {%- endfor %}
+{%- set formUrl = "https://tally.so/r/dbaRVr" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   {% include "partials/head.njk" %}
-  <title>Sponsor the Directory | {{ site.shortTitle }}</title>
-  <meta name="description" content="Put your studio, shop, or business in front of people actively looking for community in Vancouver. Simple, honest sponsorships that keep the directory free.">
-  <meta property="og:title" content="Sponsor the Vancouver Community Directory">
-  <meta property="og:description" content="Reach people actively looking for community in Vancouver. Simple, honest sponsorships that keep the directory free.">
+  <title>Advertise on Vancouver Community | {{ site.shortTitle }}</title>
+  <meta name="description" content="Sponsor a category page, a banner or the weekly newsletter on Vancouver Community. From $25. Every paid spot is labelled Ad.">
+  <meta property="og:title" content="Advertise on Vancouver Community">
+  <meta property="og:description" content="Put your studio, shop or space in front of people looking for groups and classes in Vancouver. Every paid spot is labelled Ad.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ site.url }}/advertise/">
   <meta property="og:image" content="{{ site.url }}/og-image.png">
@@ -24,102 +25,132 @@ eleventyExcludeFromCollections: true
 <a href="#main-content" class="skip-link">Skip to content</a>
 {% include "partials/topbar.njk" %}
 <main id="main-content">
-  <div class="cat-hero">
-    <div class="start-hero-wrap">
-      <h1 class="cat-title">Reach people the moment they're looking for you.</h1>
-      <p class="cat-desc">Someone searching <em>"pottery classes vancouver"</em> is exactly who a pottery studio wants — and they land here. A sponsorship puts your business at the top of that page, clearly labeled, in the directory's own warm voice. It's advertising that doesn't feel like advertising.</p>
-    </div>
-  </div>
+  <div class="frame page">
+    <p class="breadcrumbs">
+      <a href="/">Directory</a> &rsaquo;
+      <span class="breadcrumb-current">Advertise</span>
+    </p>
+    <h1 class="page-title">Advertise on Vancouver Community</h1>
+    <p class="page-lede">People find this site when they search for things like <em>“run clubs vancouver”</em> or <em>“pottery classes vancouver”</em>. If you run a studio, shop or space where people meet, a sponsorship puts you on the page they land on. It's also how I keep the directory free.</p>
 
-  <div class="page-content prose-content">
+    <div class="columns">
+      <div class="col-main">
 
-    <div class="advertise-stats">
-      <div class="advertise-stat"><strong>~3,800</strong><span>visits a month, and climbing</span></div>
-      <div class="advertise-stat"><strong>{{ collections.categories.length }}</strong><span>niche categories</span></div>
-      <div class="advertise-stat"><strong>~100%</strong><span>from people actively searching</span></div>
-    </div>
+        <section class="panel">
+          <h2 class="panel-title">Who visits</h2>
+          <div class="panel-body">
+            <p>Most people come from Google. They search for things like <em>“board game cafe vancouver”</em> or <em>“how to make friends in vancouver”</em>. They live here, and they want something to join.</p>
+            <table class="details advertise-stats">
+              <tbody>
+                <tr><th scope="row">Categories</th><td>{{ collections.categories.length }}</td></tr>
+                <tr><th scope="row">Groups listed</th><td>{{ totalGroups }}+</td></tr>
+                <tr><th scope="row">Visits</th><td>About 3,800 in October 2026</td></tr>
+                <tr><th scope="row">Page views</th><td>About 11,000 in October 2026</td></tr>
+              </tbody>
+            </table>
+            <p class="panel-note">Ask me and I'll send the latest numbers for the page you want.</p>
+          </div>
+        </section>
 
-    <h2>This is what you get</h2>
-    <p>Two ways to show up. A <strong>sponsor card</strong> sits at the top of your category page, in the same style as everything else on the site. Here's exactly how it looks:</p>
+        <section class="panel advertise-tier">
+          <h2 class="panel-title">Category sponsor</h2>
+          <div class="panel-body">
+            <p class="advertise-price">$39/month <span>or $350/year</span></p>
+            <ul class="link-list">
+              <li>Your card at the top of one category page, above the listings.</li>
+              <li>One sponsor per category.</li>
+              <li>I welcome you in the weekly newsletter when you start.</li>
+            </ul>
+            {%- set sponsorData = { name: "Clayground Studio", where: "Mount Pleasant", description: "Drop-in wheel nights and 6-week beginner courses. First class is on us.", cta: "See class times" } %}
+            {%- set sponsorSlot = "advertise-example" %}{% set sponsorDemo = true %}
+            {%- set sponsorCaption = "An example. You send a short description and one link, and I check them. The card always says “Community sponsor” and “Ad”." %}
+            {% include "partials/sponsor-card.njk" %}
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category">Claim a category &rarr;</a>
+          </div>
+        </section>
 
-    <div class="advertise-mockup">
-      {%- set sponsorData = { name: "Clayground Studio", where: "Mount Pleasant", description: "Drop-in wheel nights and 6-week beginner courses. First class is on us.", cta: "See class times" } %}
-      {%- set sponsorSlot = "advertise-example" %}{% set sponsorDemo = true %}
-      {% include "partials/sponsor-card.njk" %}
-      <p class="advertise-mockup-cap">An example — your name, a short description you approve, and one link. Always marked "Community sponsor" and "Ad."</p>
-    </div>
+        <section class="panel advertise-tier">
+          <h2 class="panel-title">Category banner</h2>
+          <div class="panel-body">
+            <p class="advertise-price">$25/month <span>or $250/year</span></p>
+            <ul class="link-list">
+              <li>Your own image between the listings on one category page.</li>
+              <li>One banner per category.</li>
+            </ul>
+            <figure class="advertise-figure">
+              <div class="advertise-banner-demo advertise-banner-wide" aria-hidden="true">Your banner</div>
+              <figcaption class="panel-note">Category banner at real size: 600 &times; 150 on the page. Send a 1200 &times; 300 PNG or JPG, or ask and I'll make a simple one. It's labelled “Ad”.</figcaption>
+            </figure>
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category-banner">Book a banner &rarr;</a>
+          </div>
+        </section>
 
-    <p>A <strong>banner</strong> is your own image. Put one between the listings on a category page, or in the sidebar on every page.</p>
-    <div class="advertise-mockup advertise-banners" aria-hidden="true">
-      <div class="advertise-banner-demo advertise-banner-wide">Category banner<br><span>1200&times;300 image</span></div>
-      <div class="advertise-banner-demo advertise-banner-box">Sidebar banner<br><span>600&times;500 image</span></div>
-    </div>
-    <p class="advertise-mockup-cap">Banners are always marked "Ad". Send a PNG or JPG, or ask and I'll make a simple one in the site's style.</p>
+        <section class="panel advertise-tier">
+          <h2 class="panel-title">Sidebar banner</h2>
+          <div class="panel-body">
+            <p class="advertise-price">$79/month</p>
+            <ul class="link-list">
+              <li>Your image in the sidebar of every category page and guide, the blog, the homepage, Start here and About.</li>
+              <li>The most-seen spot on the site.</li>
+              <li>One advertiser at a time.</li>
+            </ul>
+            <figure class="advertise-figure">
+              <div class="advertise-banner-demo advertise-banner-box" aria-hidden="true">Your banner</div>
+              <figcaption class="panel-note">Sidebar banner at real size: 300 &times; 250 on the page. Send a 600 &times; 500 PNG or JPG. It's labelled “Ad”.</figcaption>
+            </figure>
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="sidebar-banner">Book the sidebar &rarr;</a>
+          </div>
+        </section>
 
-    <h2>Where it shows</h2>
-    <div class="advertise-tiers">
-      <div class="advertise-tier">
-        <h3>Category sponsor</h3>
-        <p class="advertise-tier-price">$39/month <span>or $350/year</span></p>
-        <ul>
-          <li>Top of one category page, in the <strong>prime spot above the fold</strong> — the first thing a searcher sees</li>
-          <li>Reaches the exact people searching for your niche in Vancouver this week</li>
-          <li>One sponsor per category, ever. No bidding wars, no rotation</li>
-          <li>A welcome mention in the weekly newsletter when you start</li>
-        </ul>
-        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category">Claim a category &rarr;</a>
+        <section class="panel advertise-tier">
+          <h2 class="panel-title">Newsletter classified</h2>
+          <div class="panel-body">
+            <p class="advertise-price">$25/issue</p>
+            <ul class="link-list">
+              <li>A short listing in the weekly <a href="/newsletter/">Vancouver roundup</a>, labelled as paid.</li>
+              <li>One per issue. First come, first served.</li>
+            </ul>
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="newsletter">Book an issue &rarr;</a>
+          </div>
+        </section>
+
+        <section class="panel advertise-tier">
+          <h2 class="panel-title">Homepage and guide pages</h2>
+          <div class="panel-body">
+            <p class="advertise-price">Ask me for a price</p>
+            <ul class="link-list">
+              <li><strong>Homepage partner:</strong> one business on the homepage.</li>
+              <li><strong>Guide pages:</strong> one sponsor on Start here, Free things to do, Neighbourhoods, the blog and About.</li>
+              <li><strong>Neighbourhood pages:</strong> good for a business tied to one area, like a Kitsilano studio or an East Van space.</li>
+            </ul>
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="other">Ask about pricing &rarr;</a>
+          </div>
+        </section>
+
       </div>
-      <div class="advertise-tier">
-        <h3>Category banner</h3>
-        <p class="advertise-tier-price">$25/month <span>or $250/year</span></p>
-        <ul>
-          <li>Your image between the listings on one category page</li>
-          <li>Seen by everyone who scrolls the list</li>
-          <li>One banner per category</li>
-        </ul>
-        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category-banner">Book a banner &rarr;</a>
-      </div>
-      <div class="advertise-tier">
-        <h3>Sidebar banner</h3>
-        <p class="advertise-tier-price">$79/month</p>
-        <ul>
-          <li>Your image in the sidebar of every category page, guide, the homepage and Start here</li>
-          <li>The widest reach on the site, about 11,000 page views a month</li>
-          <li>One advertiser at a time</li>
-        </ul>
-        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="sidebar-banner">Book the sidebar &rarr;</a>
-      </div>
-      <div class="advertise-tier">
-        <h3>Newsletter feature</h3>
-        <p class="advertise-tier-price">$25/issue</p>
-        <ul>
-          <li>A short, clearly-marked classified in the weekly <a href="/newsletter/">Vancouver roundup</a></li>
-          <li>Written like the rest of the email — a neighbourly tip, not ad copy</li>
-          <li>Goes to engaged subscribers who opted in for exactly this</li>
-          <li>One per issue, first come first served</li>
-        </ul>
-        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="newsletter">Book an issue &rarr;</a>
+
+      <div class="col-side">
+        <section class="panel">
+          <h2 class="panel-title">How to start</h2>
+          <div class="panel-body">
+            <p>Fill in the short form, or email me at <a href="mailto:vancouver@bolle.co?subject=Sponsoring%20the%20directory" data-umami-event="click-advertise-email" data-umami-event-tier="general">vancouver@bolle.co</a>. Tell me what you run and which spot you'd like.</p>
+            <p>I'll reply within a couple of days. You get a simple monthly invoice, and you can cancel anytime.</p>
+            <a class="advertise-cta" href="{{ formUrl }}" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="general">Fill in the form &rarr;</a>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2 class="panel-title">House rules</h2>
+          <ul class="panel-body link-list">
+            <li><strong>A place to meet people.</strong> Classes, drop-ins, leagues, events and spaces. Your business has to pass the “can I find my people here?” test.</li>
+            <li><strong>Always labelled.</strong> Every paid spot says “Ad”.</li>
+            <li><strong>Listings stay the same.</strong> A sponsorship never adds, changes or removes a regular listing.</li>
+            <li><strong>Groups are always free.</strong> Run a club? <a href="/submit/">Submit it here</a>.</li>
+            <li><strong>I can say no.</strong> If a sponsorship doesn't work for readers, I'll end it and refund you.</li>
+          </ul>
+        </section>
       </div>
     </div>
-    <p class="advertise-note">Also available: the <strong>homepage partner</strong> slot, and a <strong>guide pages</strong> sponsor shown on Start here, Free things to do, Neighbourhoods, the blog and About. <a href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="other">Ask for pricing</a>.</p>
-    <p class="advertise-note">Run a business tied to a whole neighbourhood — a Kitsilano studio, an East Van space? Ask about sponsoring a <a href="/neighbourhoods/">neighbourhood page</a> too.</p>
-
-    <h2>Who's actually visiting</h2>
-    <p>Nobody lands here by accident. Almost every visitor arrives from a Google search like <em>"run clubs vancouver"</em>, <em>"board game cafe vancouver"</em>, or <em>"how to make friends in vancouver"</em> — high intent, local, and specific. The busiest category pages each draw hundreds of these targeted visitors a year, and the homepage draws the most of all. It's a small, warm audience, but every one of them is looking for something a business like yours provides.</p>
-    <p>Community groups are always listed free — that never changes. Sponsorships are simply how the businesses that host this city's communities keep the directory free for everyone else.</p>
-
-    <h2>The house rules</h2>
-    <ul>
-      <li><strong>Relevant only.</strong> Your business should be somewhere a person could genuinely meet people — classes, drop-ins, leagues, events, spaces. If it doesn't pass the "can I find my people here?" test, it's not a fit.</li>
-      <li><strong>Always labeled.</strong> Sponsored placements say so, plainly. That honesty is why the audience trusts the page your ad sits on.</li>
-      <li><strong>Editorial stays editorial.</strong> Sponsoring never buys a regular listing, changes one, or removes a competitor.</li>
-      <li><strong>I can say no</strong> (and refund you) if it's not working for readers.</li>
-    </ul>
-
-    <h2>How to start</h2>
-    <p><a href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="general">Fill in the short form</a> with what you run and which spot fits, or email <a href="mailto:vancouver@bolle.co?subject=Sponsoring%20the%20directory" data-umami-event="click-advertise-email" data-umami-event-tier="general">vancouver@bolle.co</a>. I'll reply within a couple of days with the current traffic numbers for that exact page and get you set up — a simple monthly invoice, cancel anytime.</p>
-    <p>Not a business, just a group? <a href="/submit/">Submit it here</a> — free, always.</p>
-
   </div>
 
   {% include "partials/footer.njk" %}

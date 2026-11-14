@@ -721,7 +721,6 @@ textarea.form-input { resize: vertical; }
 .sponsor-open .sponsor-name { color: var(--ink-2); }
 .sponsor-open-link { display: inline-block; margin-top: 6px; }
 .col-main > .sponsor, .col-main .sponsor + .panel, .page-content > .sponsor, .start-here-content > .sponsor { margin-bottom: 16px; }
-.advertise-mockup .sponsor { max-width: 380px; }
 .page-sponsor { max-width: var(--frame); margin: 0 auto 32px; padding: 0 var(--gutter); }
 .page-sponsor .sponsor { max-width: 640px; }
 
@@ -845,35 +844,40 @@ textarea.form-input { resize: vertical; }
 }
 .newsletter-page-note { font-size: var(--fs-sm); color: var(--ink-muted); }
 
-.advertise-stats { display: flex; flex-wrap: wrap; gap: 12px; }
-.advertise-stat {
-  flex: 1 1 140px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  box-shadow: 2px 2px 0 var(--line);
-  padding: 10px var(--panel-pad);
-}
-.advertise-mockup { max-width: 520px; }
-.advertise-banners { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; max-width: none; }
+/* ---------- advertise page: each offer is a panel ---------- */
+.advertise-stats { margin-top: 10px; }
+.advertise-tier .panel-body > * + * { margin-top: 10px; }
+.advertise-price { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; }
+.advertise-price span { font-family: var(--sans); font-size: var(--fs-sm); font-weight: 400; color: var(--ink-muted); margin-left: 4px; }
+/* Examples of each placement, at the size they show on the site. */
+.advertise-figure figcaption { margin-top: 6px; max-width: 600px; }
+.advertise-figure .sponsor { max-width: 380px; }
+/* The example card sits inside a panel: keep its own border on phones. */
+.advertise-figure .panel { margin-left: 0; margin-right: 0; border: 1px solid var(--line); }
 .advertise-banner-demo {
-  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-  border: 1px dashed #b9b19c; background: #faf7ef; color: var(--ink-2);
+  display: flex; justify-content: center; align-items: center;
+  width: 100%;
+  border: 1px dashed #b9b19c; background: #faf7ef; color: var(--ink-muted);
   font-family: var(--serif); font-weight: 700;
 }
-.advertise-banner-demo span { font-family: inherit; font-weight: 400; font-size: var(--fs-sm); color: var(--ink-muted); }
-.advertise-banner-wide { width: 100%; max-width: 400px; aspect-ratio: 4 / 1; }
-.advertise-banner-box { width: 180px; aspect-ratio: 6 / 5; }
-.advertise-mockup-cap { font-size: var(--fs-sm); color: var(--ink-muted); }
-.advertise-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.advertise-tier {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  box-shadow: 2px 2px 0 var(--line);
-  padding: 12px var(--panel-pad);
+.advertise-banner-wide { max-width: 600px; aspect-ratio: 4 / 1; }
+.advertise-banner-box { max-width: 300px; aspect-ratio: 6 / 5; }
+/* Same cream bevel as the sponsor card's button. */
+a.advertise-cta, a.advertise-cta:visited {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  font-weight: 700;
+  color: var(--ink);
+  background: #ebe6d9;
+  border: 1px solid;
+  border-color: #fffdf6 #8a8370 #8a8370 #fffdf6;
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 #6b665d;
+  text-decoration: none;
 }
-.advertise-tier-price { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; }
-.advertise-note { font-size: var(--fs-sm); color: var(--ink-muted); }
-.advertise-stat strong { display: block; font-family: var(--serif); font-size: var(--fs-lg); }
+a.advertise-cta:hover { background: #f3efe4; }
+a.advertise-cta:active { transform: translate(1px, 1px); box-shadow: none; }
 .prose-content .panel-title, .prose .panel-title { margin-top: 0; }
 
 /* =====================================================================
