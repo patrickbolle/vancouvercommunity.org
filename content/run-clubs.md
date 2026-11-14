@@ -20,15 +20,18 @@ order: 1
 
 ## Striderz Run Club
 - **What:** Free social runs and walks, track nights, outdoor adventures. Community-first, optional training programs
+- **Cost:** Free
 - **Find it:** [striderz.com](https://striderz.com/)
 
 ## Flight Crew (Vancouver Running Company)
 - **What:** Free group and community runs
+- **Cost:** Free
 - **Where:** Kits
 - **Find it:** [vanrunco.com/pages/flight-crew](https://vanrunco.com/pages/flight-crew)
 
 ## NEOS Run Club
-- **What:** Saturday morning runs at David Lam Park. "More than just a run club — a community"
+- **What:** Runs at David Lam Park. "More than just a run club — a community"
+- **When:** Saturday mornings
 - **Find it:** [runclubs.ca/vancouver/neos-run-club](https://runclubs.ca/vancouver/neos-run-club)
 
 ## Vancouver Frontrunners
@@ -42,6 +45,8 @@ order: 1
 
 ## Lululemon Run Club
 - **What:** Free weekly runs from Lululemon stores. All paces welcome, often includes post-run stretching
+- **When:** Weekly
+- **Cost:** Free
 - **Where:** Various locations (Robson, Kits, etc.)
 - **Find it:** [Lululemon Robson Store](https://shop.lululemon.com/stores/ca/vancouver/robson) (Wednesdays 6pm)
 
@@ -69,6 +74,7 @@ order: 1
 
 ## One Run Club
 - **What:** Weekly runs with 2,000+ check-ins. Active community, regular Wednesday runs
+- **When:** Wednesdays
 - **Find it:** [heylo.com/g/one-run-club](https://www.heylo.com/g/9e4c8397-7474-47f7-a3a5-63617206c5d2)
 
 ## M2M Running (Miles to Marathon)
@@ -79,6 +85,8 @@ order: 1
 
 ## November Project Vancouver
 - **What:** Free outdoor fitness community, includes running. Early morning workouts, high energy
+- **When:** Early mornings
+- **Cost:** Free
 - **Find it:** [november-project.com](https://november-project.com/)
 
 ## Kamino Run Club
@@ -95,7 +103,8 @@ order: 1
 
 ## Ambleside parkrun
 - **What:** A free, friendly 5K every week, run by volunteers. Walk, jog, run, volunteer or cheer. Register once before your first visit
-- **When:** Saturdays, 9am
+- **Cost:** Free
+- **When:** Saturdays 9am
 - **Where:** Ambleside Park, West Vancouver
 - **Find it:** [parkrun.ca/ambleside](https://www.parkrun.ca/ambleside/)
 

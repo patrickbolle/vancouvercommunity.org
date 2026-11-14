@@ -26,22 +26,27 @@ added: 2026-11-14
 - **Find it:** [gwcseedlibrary.wordpress.com](https://gwcseedlibrary.wordpress.com/)
 
 ## Grandview Garden Club
-- **What:** Monthly guest speakers for Grandview gardeners. Bring your ideas, questions and garden worries. $4 drop-in
+- **What:** Guest speakers for Grandview gardeners. Bring your ideas, questions and garden worries. $4 drop-in
+- **When:** Monthly
+- **Cost:** $4 drop-in
 - **Where:** Britannia Senior 55+ Centre
 - **Find it:** [grandviewgardenclub.blogspot.com](https://grandviewgardenclub.blogspot.com/)
 
 ## New Westminster Horticultural Society
 - **What:** Club for sharing garden knowledge and meeting other keen gardeners since 1934. Monthly speaker meetings, plant sale and garden tour. "Anyone, anywhere is welcome to join"
+- **When:** Monthly
 - **Where:** Centennial Lodge, Queen's Park, New Westminster
 - **Find it:** [newwesthortsociety.org](https://www.newwesthortsociety.org/)
 
 ## Alpine Garden Club of BC
 - **What:** Club for alpine and rare hardy plants. Monthly meetings with a speaker, coffee and treats, plus a members' seed exchange. Plant-nerd friendly
+- **When:** Monthly
 - **Where:** Floral Hall, VanDusen Botanical Garden
 - **Find it:** [agc-bc.ca](https://www.agc-bc.ca/)
 
 ## Vancouver Rose Society
 - **What:** Rose lovers meeting since 1949. Monthly evening talks, and members open their own gardens to each other
+- **When:** Monthly, evenings
 - **Where:** Floral Hall, VanDusen Botanical Garden
 - **Find it:** [vancouverrosesociety.org](https://vancouverrosesociety.org/)
 
@@ -56,7 +61,8 @@ added: 2026-11-14
 - **Find it:** [sharingfarm.ca/volunteer](https://www.sharingfarm.ca/volunteer)
 
 ## Edible Garden Project
-- **What:** Builds community in neighbourhood farms and gardens on the North Shore. Drop-in volunteering Wednesday mornings, April to October. All skill levels, no registration needed
+- **What:** Builds community in neighbourhood farms and gardens on the North Shore. Drop-in volunteering. All skill levels, no registration needed
+- **When:** Wednesday mornings, April–October
 - **Where:** Loutet Farm, North Vancouver
 - **Find it:** [ediblegardenproject.com/volunteer](https://ediblegardenproject.com/volunteer/)
 

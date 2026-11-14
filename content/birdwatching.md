@@ -15,19 +15,23 @@ order: 6
 - **Find it:** [naturevancouver.ca/birding](https://naturevancouver.ca/birding/)
 
 ## VARC (Vancouver Avian Research Centre)
-- **What:** Monthly guided bird walks. Learn local bird ID with experts
+- **What:** Guided bird walks. Learn local bird ID with experts
+- **When:** Monthly
 - **Find it:** [birdvancouver.com/guided-bird-walks](https://www.birdvancouver.com/guided-bird-walks/)
 
 ## Stanley Park Ecology - Birding with Me
 - **What:** Free guided bird walks. Celebrates diversity in bird and human communities
+- **Cost:** Free
 - **Find it:** [stanleyparkecology.ca](https://stanleyparkecology.ca/education/birding-with-me/)
 
 ## Greater Vancouver Bird Celebration
 - **What:** 2-week series every May — workshops, walks, talks, exhibitions (all free)
+- **Cost:** Free
 - **Find it:** [destinationvancouver.com](https://www.destinationvancouver.com/inspirations/bird-watching)
 
 ## Delta Naturalists Casual Birders (DNCB)
-- **What:** Weekly bird walks, mostly weekday mornings. Friendly, welcoming to newcomers
+- **What:** Bird walks. Friendly, welcoming to newcomers
+- **When:** Weekly, mostly weekday mornings
 - **Find it:** [dncb.wordpress.com](https://dncb.wordpress.com/)
 
 ## BC Young Birders Program

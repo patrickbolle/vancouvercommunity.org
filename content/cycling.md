@@ -43,7 +43,8 @@ order: 3
 - **Find it:** [gastowncycling.com](https://gastowncycling.com/) | [Instagram](https://instagram.com/gastowncycling)
 
 ## CoffeeOutside YVR
-- **What:** Inclusive Friday morning bike group. Community-focused, bring your coffee
+- **What:** Inclusive bike group. Community-focused, bring your coffee
+- **When:** Friday mornings
 - **Find it:** [Instagram](https://instagram.com/coffeeoutsideyvr)
 
 ## Kits Social Run Club (also cycling)

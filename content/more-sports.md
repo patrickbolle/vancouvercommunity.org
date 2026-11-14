@@ -55,6 +55,7 @@ order: 7
 
 ## Vancouver Racquets Club
 - **What:** Non-profit squash and badminton club. Friday night squash drop-in for every level (guests welcome) and a women's drop-in on Wednesdays
+- **When:** Friday nights, Wednesdays (women's)
 - **Where:** Hillcrest Park (4867 Ontario St)
 - **Find it:** [vrc.bc.ca](https://vrc.bc.ca/squash/squash-programs)
 

@@ -20,6 +20,7 @@ order: 3
 
 ## Repair Cafés Vancouver
 - **What:** Free community repair events. Fix things instead of throwing them away, learn repair skills
+- **Cost:** Free
 - **Find it:** [spec.bc.ca/waste/repair-cafe](https://spec.bc.ca/waste/repair-cafe/) | [Facebook](https://www.facebook.com/mvrepaircafes/)
 
 ## Vancouver Tool Library

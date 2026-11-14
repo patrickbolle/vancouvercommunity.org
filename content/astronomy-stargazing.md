@@ -29,7 +29,9 @@ order: 7
 
 
 ## Starry Nights Star Parties
-- **What:** Free, all-ages star parties at SFU Burnaby's Trottier Observatory every Friday night (weather permitting). Check their social feeds before heading out — the last Friday of each month is online only.
+- **What:** Free, all-ages star parties at SFU Burnaby's Trottier Observatory (weather permitting). Check their social feeds before heading out — the last Friday of each month is online only.
+- **When:** Friday nights
+- **Cost:** Free
 - **Find it:** [sfu.ca/science/community/trottier-observatory---courtyard/starry-nights.html](https://www.sfu.ca/science/community/trottier-observatory---courtyard/starry-nights.html)
 
 ---
@@ -46,4 +48,5 @@ order: 7
 
 ## Gordon Southam Observatory
 - **What:** Free public observing at Vanier Park (weather permitting). Casual drop-in stargazing, run by RASC volunteers
+- **Cost:** Free
 - **Find it:** [spacecentre.ca](https://www.spacecentre.ca/) | [RASC Vancouver](https://rasc-vancouver.com/)

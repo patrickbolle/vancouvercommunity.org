@@ -55,10 +55,12 @@ order: 2
 
 ## Y Adventure Kommunity (YAK)
 - **What:** Free adventure club - hiking, paddle boarding, biking, bouldering, camping. Make new friends through outdoor activities
+- **Cost:** Free
 - **Find it:** [meetup.com/y-adventure](https://meetup.com/y-adventure)
 
 ## Take a Hike! Vancouver (Facebook)
 - **What:** One of the most active hiking groups, weekly hikes. All skill levels, group chats for young adults and socializing
+- **When:** Weekly
 - **Find it:** [facebook.com/groups/97461647231](https://facebook.com/groups/97461647231)
 
 ## Slow Hikers Vancouver (Facebook)
@@ -70,7 +72,8 @@ order: 2
 - **Find it:** [facebook.com/groups/689466651389187](https://facebook.com/groups/689466651389187)
 
 ## Let's Adventure Vancouver (Instagram)
-- **What:** Weekly outdoor stranger meetups. Hikes, cold plunges, paddling — welcoming to all
+- **What:** Outdoor stranger meetups. Hikes, cold plunges, paddling — welcoming to all
+- **When:** Weekly
 - **Find it:** [@letsadventurevan](https://instagram.com/letsadventurevan)
 
 ## Golden Age Hiking Club
@@ -82,7 +85,8 @@ order: 2
 - **Find it:** [go.sfss.ca/clubs/38/info](https://go.sfss.ca/clubs/38/info)
 
 ## Vanhikers
-- **What:** Weekly hikes and road trips
+- **What:** Hikes and road trips
+- **When:** Weekly
 - **Find it:** [vanhikers.ca](https://vanhikers.ca)
 
 ---
@@ -95,4 +99,6 @@ order: 2
 
 ## Pitch n Putt Player's Club
 - **What:** We host a PnP tournament every other week in Vancouver, $5 buy in with cash prizes. Come on out!
+- **When:** Every other week
+- **Cost:** $5 buy-in
 - **Find it:** [www.instagram.com/pitchnputtplayersclub/](https://www.instagram.com/pitchnputtplayersclub/)

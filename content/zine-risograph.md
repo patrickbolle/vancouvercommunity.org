@@ -32,6 +32,7 @@ order: 6
 
 ## Moniker Press Riso 101 Workshops
 - **What:** Online workshops for riso printing beginners. $60 sliding scale, 3-3.5 hours, no prior knowledge needed
+- **Cost:** $60 sliding scale
 - **Find it:** [monikerpress.ca/workshops](https://www.monikerpress.ca/workshops/)
 
 ## Lucky's Books and Comics

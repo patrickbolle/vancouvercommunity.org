@@ -12,7 +12,8 @@ order: 1
 
 ## Lululemon Summer Yoga Series
 - **What:** FREE outdoor yoga classes
-- **When:** Summer (July-August)
+- **Cost:** Free
+- **When:** July–August
 - **Where:** Jack Poole Plaza (Wed), Kits Beach, Lower Lonsdale (Tue)
 - **Find it:** [destinationvancouver.com](https://www.destinationvancouver.com/inspirations/outdoors/lululemon-vancouver-summer-yoga-series)
 
@@ -28,8 +29,9 @@ order: 1
 - **Find it:** [meetup.com/vancouver-laughter-meetup](https://www.meetup.com/vancouver-laughter-meetup/)
 
 ## Stanley Park Yoga in the Park
-- **What:** By-donation outdoor yoga for all levels on the Acre Lawn, run by the Stanley Park Ecology Society. Suggested donation $5
-- **When:** Thursday evenings, May to August
+- **What:** By-donation outdoor yoga for all levels on the Acre Lawn, run by the Stanley Park Ecology Society
+- **Cost:** By donation, $5 suggested
+- **When:** Thursday evenings, May–August
 - **Where:** Stanley Park
 - **Find it:** [stanleypark.org](https://www.stanleypark.org/events/yoga-in-the-park)
 

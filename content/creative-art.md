@@ -16,7 +16,8 @@ order: 1
 - **Find it:** [drawaroundvancouver.com](https://drawaroundvancouver.com)
 
 ## Van Sketch Club
-- **What:** Saturday afternoon social sketching
+- **What:** Social sketching
+- **When:** Saturday afternoons
 - **Find it:** [meetup.com/vansketchclub](https://meetup.com/vansketchclub)
 
 ## Sketchup (East Van Brewing)
@@ -30,7 +31,8 @@ order: 1
 - **Find it:** [creativepulse.co](https://creativepulse.co)
 
 ## CreativeMornings Vancouver
-- **What:** Monthly morning talks
+- **What:** Morning talks
+- **When:** Monthly
 - **Where:** Vancouver Art Gallery
 - **Cost:** Free
 - **Find it:** [creativemornings.com/cities/van](https://creativemornings.com/cities/van)
@@ -61,11 +63,12 @@ order: 1
 
 ## Atelier
 - **What:** Community for working on side projects together. Embroidery, coding, music, building — anything goes
-- **When:** Sundays 12-3pm at UBC, Tuesdays 6-9pm in Vancouver
+- **When:** Sundays 12–3pm at UBC, Tuesdays 6–9pm in Vancouver
 - **Find it:** [lu.ma/atelier.place](https://lu.ma/atelier.place)
 
 ## AI Film Club
-- **What:** Monthly screenings exploring AI in film and VFX. Creative tech intersection, community-driven
+- **What:** Screenings exploring AI in film and VFX. Creative tech intersection, community-driven
+- **When:** Monthly
 - **Find it:** Events via [lu.ma/vancouver-ai](https://lu.ma/vancouver-ai)
 
 ## The Artist's Way Vancouver

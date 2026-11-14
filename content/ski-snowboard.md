@@ -27,6 +27,7 @@ added: 2026-11-14
 
 ## Nordic Wrecks (Valley Outdoor Association)
 - **What:** Cross-country ski and snowshoe trips, now the Nordic group of the Valley Outdoor Association. Monthly socials with trip sign-ups
+- **When:** Monthly socials
 - **Where:** Pinetree Community Centre, Coquitlam
 - **Find it:** [nordicwrecks.org](https://nordicwrecks.org/)
 

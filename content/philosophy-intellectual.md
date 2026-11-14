@@ -16,7 +16,7 @@ order: 2
 
 ## Practical Philosophy Club
 - **What:** Philosophy discussions, no expertise required
-- **When:** Weekly in-person meetups
+- **When:** Weekly
 - **Find it:** [meetup.com/practical-philosophy](https://meetup.com/practical-philosophy) | [practicalphilosophy.club](https://practicalphilosophy.club/)
 
 ## Mind Matters: A Book Club for Big Ideas

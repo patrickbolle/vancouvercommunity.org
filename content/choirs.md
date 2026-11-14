@@ -16,7 +16,8 @@ added: 2026-11-14
 # 🎼 Choirs & Singing
 
 ## Out in Harmony
-- **What:** 2SLGBTQIA+ and friends choir, singing since 1990. No auditions, no experience needed, and cost is never a barrier. Tuesday evenings, September to June
+- **What:** 2SLGBTQIA+ and friends choir, singing since 1990. No auditions, no experience needed, and cost is never a barrier
+- **When:** Tuesday evenings, September–June
 - **Where:** St. Margaret's Cedar Cottage, 1530 East 22nd Ave
 - **Find it:** [outinharmony.org](https://outinharmony.org/join_us/)
 
@@ -31,11 +32,13 @@ added: 2026-11-14
 
 ## Chorus Studio
 - **What:** Four weekly adult choirs singing pop, indie, R&B, gospel and musical theatre. No auditions, open to anyone 16+, queer- and trans-friendly
+- **When:** Weekly
 - **Where:** 101-2468 Scotia St, Mount Pleasant
 - **Find it:** [thechorusstudio.com](https://www.thechorusstudio.com/choirs)
 
 ## Joyful Voice Community Choir
-- **What:** Downtown community choir where anyone is welcome. No audition or choir experience needed, "just bring your love of singing." Monday evenings
+- **What:** Downtown community choir where anyone is welcome. No audition or choir experience needed, "just bring your love of singing."
+- **When:** Monday evenings
 - **Where:** St. Paul's Anglican Church, Jervis and Pendrell
 - **Find it:** [joyfulvoice.ca](https://joyfulvoice.ca/)
 
@@ -45,11 +48,13 @@ added: 2026-11-14
 
 ## Willan Choir
 - **What:** Big community choir of about 80 singers doing classical music. No audition. Tuesday evenings, with a concert at the end of each term
+- **When:** Tuesday evenings
 - **Where:** VCC Broadway campus
 - **Find it:** [vcc.ca/programscourses/willan-choir](https://www.vcc.ca/programscourses/willan-choir/)
 
 ## Simple Gifts Community Choir
-- **What:** Unauditioned choir for new and experienced singers. Love songs, swing, gospel and folk. Tuesday evenings
+- **What:** Unauditioned choir for new and experienced singers. Love songs, swing, gospel and folk
+- **When:** Tuesday evenings
 - **Where:** Holy Cross Japanese Anglican Church hall, 4580 Walden St
 - **Find it:** [gottasing.ca](https://gottasing.ca/simple-gifts-community-choir/)
 
@@ -58,12 +63,14 @@ added: 2026-11-14
 - **Find it:** [vancouverpops.com/choir](https://www.vancouverpops.com/choir)
 
 ## My Pop Choir Vancouver-Burnaby
-- **What:** "No Auditions, No Stress, A Pop Choir For Everyone!" Low-pressure pop choir for adults. Tuesday evenings
+- **What:** "No Auditions, No Stress, A Pop Choir For Everyone!" Low-pressure pop choir for adults
+- **When:** Tuesday evenings
 - **Where:** Deer Lake United Church, 5135 Sperling Ave, Burnaby
 - **Find it:** [mypopchoir.com/burnaby](https://www.mypopchoir.com/burnaby)
 
 ## CoJa Classic Rock Choir
 - **What:** Classic rock choir for adults of all levels, even if you only sing in the shower. "No Audition. Just Rock." Monday nights, with a concert each term
+- **When:** Monday nights
 - **Where:** St. Andrew's United Church, 1044 St Georges Ave, North Vancouver
 - **Find it:** [cojamusic.com](https://cojamusic.com/classic-rock-choir/)
 

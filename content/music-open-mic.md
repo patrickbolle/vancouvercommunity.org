@@ -12,7 +12,7 @@ order: 7
 
 ## Vancouver Open Mic Meetup Group
 - **What:** Open mic nights
-- **When:** First Saturday of each month at Fairview Revival Time
+- **When:** First Saturday of the month at Fairview Revival Time
 - **Find it:** [meetup.com/vancouver-open-mic-meetup-group](https://meetup.com/vancouver-open-mic-meetup-group)
 
 ## Amajammer Vancouver
@@ -29,6 +29,7 @@ order: 7
 
 ## Trees Organic Coffee Open Mic
 - **What:** Open mic Thursdays, live music Fridays
+- **When:** Thursdays
 - **Where:** Granville Street
 - **Find it:** [treescoffee.com/open-mic](https://treescoffee.com/open-mic/)
 

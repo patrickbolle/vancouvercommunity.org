@@ -28,6 +28,7 @@ order: 4
 
 ## Celebrities Nightclub Sunday Karaoke
 - **What:** Vancouver's oldest gay bar hosts karaoke Sundays. Fun, inclusive, great atmosphere
+- **When:** Sundays
 - **Find it:** [celebritiesnightclub.com](https://www.celebritiesnightclub.com/) | 1022 Davie St
 
 ## SWITCH Karaoke
@@ -42,4 +43,5 @@ order: 4
 
 ## Union Latinos Karaoke Thursdays
 - **What:** Karaoke nights with Latin vibe. First 10 singers win free Colombian hot dog
+- **When:** Thursdays
 - **Find it:** [unionlatinosrestaurant.com](https://www.unionlatinosrestaurant.com/)

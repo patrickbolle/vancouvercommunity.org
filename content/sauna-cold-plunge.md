@@ -24,6 +24,7 @@ order: 6
 
 ## Cold Plunge Vancouver
 - **What:** Groups organizing ocean and lake cold plunges. Free, outdoor, community-led
+- **Cost:** Free
 - **Find it:** [Cold Plunge Crew (Facebook)](https://www.facebook.com/p/Cold-Plunge-Crew-100067058136726/) | Kits Beach women's dips
 
 ---

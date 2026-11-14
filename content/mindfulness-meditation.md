@@ -24,7 +24,7 @@ order: 2
 
 ## Mountain Rain Zen Centre
 - **What:** Weekly silent sitting and walking meditation + Buddhist teaching
-- **When:** Every Wednesday
+- **When:** Wednesdays
 - **Where:** 2016 Wall St, Vancouver
 - **Find it:** [mountainrainzen.org](http://mountainrainzen.org/)
 
@@ -33,7 +33,8 @@ order: 2
 - **Find it:** [meditateinvancouver.org](https://meditateinvancouver.org)
 
 ## Vancouver Meditation Group (Self-Realization Fellowship)
-- **What:** Weekly group meditation
+- **What:** Group meditation
+- **When:** Weekly
 - **Where:** 173 West 6th Avenue
 - **Find it:** [vancouvermeditationgroup.org](https://vancouvermeditationgroup.org/)
 
@@ -78,7 +79,7 @@ Our events and classes are offered online, with some in-person offerings in the 
 ## Vancouver Meditation Life
 - **What:** Guided meditation centre run by a registered charity. Free intro sessions every Saturday and Sunday, 11am–12pm, in person or online, plus free weekday community classes. No experience needed
 - **Where:** 1682 E 12th Ave, near Commercial Drive
-- **When:** Intro sessions Sat & Sun 11am
+- **When:** Intro sessions Sat & Sun 11am–12pm
 - **Find it:** [meditationlife.ca](http://meditationlife.ca)
 
 ---

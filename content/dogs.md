@@ -17,17 +17,21 @@ added: 2026-11-14
 
 ## K9 Run
 - **What:** "A community for people who love being active with their dogs." Free, relaxed social dog runs for all dogs and experience levels, plus canicross events and races
+- **Cost:** Free
 - **Where:** Around Burnaby (Burnaby Lake, Deer Lake Park)
 - **Find it:** [k9run.ca/run-club](https://k9run.ca/run-club/)
 - **Notes:** Run dates are posted on Instagram [@thek9run](https://www.instagram.com/thek9run/)
 
 ## GVAD Monthly Dog Meetup
-- **What:** Free monthly dog meetup from the Greater Vancouver Association of the Deaf. For Deaf, hard of hearing, DeafBlind and hearing friends, families and dog lovers. Come with or without a dog
+- **What:** Free dog meetup from the Greater Vancouver Association of the Deaf. For Deaf, hard of hearing, DeafBlind and hearing friends, families and dog lovers. Come with or without a dog
+- **When:** Monthly
+- **Cost:** Free
 - **Where:** Dog parks around Coquitlam
 - **Find it:** [gvad.ca](https://gvad.ca/gvad-monthly-dog-meetup/)
 
 ## Dream Team Flyball Club
 - **What:** Recreational flyball club, running since 1998. Beginner practices Sunday mornings, rain or shine
+- **When:** Sunday mornings (beginners)
 - **Where:** Ioco Field, Port Moody
 - **Find it:** [dreamteamflyball.org](https://dreamteamflyball.org/)
 - **Notes:** Full for new dog-handler teams as of 2026. Join the email list for the next opening

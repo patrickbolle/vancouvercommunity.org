@@ -16,11 +16,12 @@ order: 1
 
 ## Rebel Book Club Vancouver
 - **What:** Thought-provoking reads and meaningful discussions
-- **When:** Last Tuesday of every month
+- **When:** Last Tuesday of the month
 - **Find it:** [rebelbook.club/cities/vancouver](https://rebelbook.club/cities/vancouver)
 
 ## The Gloss Book Club
 - **What:** Global book club for women. Same book globally, local meetups monthly
+- **When:** Monthly
 - **Find it:** [theglossbookclub.com/vancouver](https://theglossbookclub.com/vancouver)
 
 ## VPL Book Clubs
@@ -28,7 +29,8 @@ order: 1
 - **Find it:** [vpl.bibliocommons.com](https://vpl.bibliocommons.com/v2/events)
 
 ## Vancouver Women Who Read
-- **What:** Anti-book club where members read their own thought-provoking choices. Supportive community, monthly meetups
+- **What:** Anti-book club where members read their own thought-provoking choices. Supportive community
+- **When:** Monthly
 - **Find it:** [meetup.com/vancouver-women-who-read](https://meetup.com/vancouver-women-who-read)
 
 ## The Little Things Book and Movie Club
@@ -44,13 +46,14 @@ order: 1
 - **Find it:** [meetup.com/vancouver-fantasy-scifi-meetup-group](https://www.meetup.com/vancouver-fantasy-scifi-meetup-group/)
 
 ## LitBug Community Book Club
-- **What:** Reads biographies, fiction and non-fiction, then meets to talk books and socialize. Meets monthly or every two months, depending on the book
+- **What:** Reads biographies, fiction and non-fiction, then meets to talk books and socialize
+- **When:** Monthly or every two months
 - **Where:** Cafés around the Lower Mainland, often downtown
 - **Find it:** [meetup.com/litbug-community-book-club](https://www.meetup.com/litbug-community-book-club/)
 
 ## Vancouver Genre Book Club
 - **What:** Monthly book club for sci-fi and fantasy, with mystery, crime and horror too. Members suggest books on Discord. Run by Shindigs & Board Games with Friendly Folks
-- **When:** Thursdays, 6:30pm, about every 4 weeks
+- **When:** Thursdays 6:30pm, about every 4 weeks
 - **Where:** Mount Pleasant Library
 - **Find it:** [meetup.com/shindigs](https://www.meetup.com/shindigs/)
 

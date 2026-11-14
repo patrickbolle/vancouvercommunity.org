@@ -21,12 +21,15 @@ added: 2026-11-14
 - **Find it:** [yvrdungeonmasters.com](https://www.yvrdungeonmasters.com/)
 
 ## Wargamers of UBC
-- **What:** Free drop-in RPG night every Friday, open to everybody. D&D, Pathfinder, Call of Cthulhu, Blades in the Dark and more. Always looking for new players and GMs
+- **What:** Free drop-in RPG night, open to everybody. D&D, Pathfinder, Call of Cthulhu, Blades in the Dark and more. Always looking for new players and GMs
+- **When:** Fridays
+- **Cost:** Free
 - **Where:** NEST, UBC
 - **Find it:** [amsclubs.ca/wargamers-of-ubc](https://amsclubs.ca/wargamers-of-ubc/)
 
 ## Richmond Public Library Digital D&D
 - **What:** Weekly D&D for adults (18+) looking for a regular group. Volunteer Dungeon Masters, and library laptops make learning the rules a breeze. Registration required
+- **When:** Weekly
 - **Where:** Brighouse Branch, 7700 Minoru Gate, Richmond
 - **Find it:** [yourlibrary.bibliocommons.com](https://yourlibrary.bibliocommons.com/v2/events?q=dungeons)
 
@@ -46,6 +49,8 @@ added: 2026-11-14
 
 ## Hourglass Comics & Games
 - **What:** Ongoing Saturday D&D groups, one-shots, demo games for new players and DM workshops. $10 per session goes on a store gift card, and your first game is free
+- **When:** Saturdays
+- **Cost:** $10 per session
 - **Where:** 2625 Clarke St, Port Moody
 - **Find it:** [hourglasscomics.ca/games](https://hourglasscomics.ca/games/)
 
