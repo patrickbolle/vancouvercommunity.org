@@ -92,6 +92,12 @@ order: 1
 - **What:** Community running events and workouts
 - **Find it:** [linktr.ee/hybredcultureclub](https://linktr.ee/hybredcultureclub)
 
+## Ambleside parkrun
+- **What:** A free, friendly 5K every week, run by volunteers. Walk, jog, run, volunteer or cheer. Register once before your first visit
+- **When:** Saturdays, 9am
+- **Where:** Ambleside Park, West Vancouver
+- **Find it:** [parkrun.ca/ambleside](https://www.parkrun.ca/ambleside/)
+
 ---
 
 ## Venues & Resources
