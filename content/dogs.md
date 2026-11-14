@@ -10,6 +10,7 @@ seoDescription: "{n} dog meetups, social dog runs and dog sports clubs around Va
 listNoun: "dog groups"
 seoHeading: "Dog Meetups & Dog Sports Clubs in Vancouver"
 order: 8
+added: 2026-11-14
 ---
 
 # 🐕 Dogs

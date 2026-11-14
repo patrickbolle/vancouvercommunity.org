@@ -10,6 +10,7 @@ seoDescription: "{n} places for circus, juggling, hoop dance and acro yoga in Va
 listNoun: "circus & flow spots"
 seoHeading: "Circus, Juggling & Flow Arts in Vancouver"
 order: 9
+added: 2026-11-14
 ---
 
 # 🤹 Circus, Juggling & Flow Arts

@@ -10,6 +10,7 @@ seoDescription: "{n} community theatre companies, musical theatre groups and act
 listNoun: "theatre & acting groups"
 seoHeading: "Community Theatre & Acting in Vancouver"
 order: 8
+added: 2026-11-14
 ---
 
 # 🎬 Theatre & Acting
