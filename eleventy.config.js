@@ -79,6 +79,7 @@ module.exports = function (eleventyConfig) {
         const findMatch = section.match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
         const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
         const costMatch = section.match(/\*\*Cost:\*\*\s*(.+)/);
+        const whenMatch = section.match(/\*\*When:\*\*\s*(.+)/);
         const free =
           /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
           /\bfree\b/i.test(whatMatch ? whatMatch[1] : "");
@@ -87,6 +88,8 @@ module.exports = function (eleventyConfig) {
           description: whatMatch ? whatMatch[1].trim() : "",
           url: findMatch ? findMatch[1] : "",
           location: whereMatch ? whereMatch[1].trim() : "",
+          when: whenMatch ? whenMatch[1].trim() : "",
+          cost: costMatch ? costMatch[1].trim() : "",
           free,
         };
       }).filter((g) => g.name && g.description);
@@ -101,11 +104,14 @@ module.exports = function (eleventyConfig) {
         const findMatch = section.match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
         const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
         const costMatch = section.match(/\*\*Cost:\*\*\s*(.+)/);
+        const whenMatch = section.match(/\*\*When:\*\*\s*(.+)/);
         return {
           name,
           description: whatMatch ? whatMatch[1].trim() : "",
           url: findMatch ? findMatch[1] : "",
           location: whereMatch ? whereMatch[1].trim() : "",
+          when: whenMatch ? whenMatch[1].trim() : "",
+          cost: costMatch ? costMatch[1].trim() : "",
           free:
             /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
             /\bfree\b/i.test(whatMatch ? whatMatch[1] : ""),
@@ -195,31 +201,44 @@ module.exports = function (eleventyConfig) {
 
         var desc = fields["what"] || "";
         var where = (fields["where"] || "").replace(/<[^>]+>/g, "");
+        var when = (fields["when"] || "").replace(/<[^>]+>/g, "");
         var cost = (fields["cost"] || "").replace(/<[^>]+>/g, "");
         var size = (fields["size"] || "").replace(/<[^>]+>/g, "");
         var findIt = fields["find it"] || "";
         var urlM = findIt.match(/href="([^"]+)"/);
         var url = urlM ? urlM[1] : "";
 
-        // Detect "Free" from cost field or description
-        var badge = cost;
-        if (!badge) {
+        // "Free" comes from the Cost field or the description. A Cost that
+        // isn't free ("$15 drop-in") shows as its own plain tag instead.
+        var badge = "";
+        var price = "";
+        if (cost) {
+          if (/\bfree\b/i.test(cost)) badge = cost;
+          else price = cost;
+        } else {
           var plainDesc = desc.replace(/<[^>]+>/g, "").toLowerCase();
           if (/\bfree\b/.test(plainDesc)) badge = "Free";
         }
+        var plainName = name.replace(/<[^>]+>/g, "");
 
-        // Dense listing: the name is the link; place, size and cost sit inline after it.
+        // Dense listing: the name is the link; place, time, cost and size sit
+        // inline after it. "Share" ends the row. Without JS it is a plain
+        // #anchor link, so it is also the card's permalink.
         var c = '<div class="group-card" id="' + id + '">';
         c += '<div class="group-card-header">';
         c += url
           ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
           : "<h3>" + name + "</h3>";
         if (where) c += '<span class="group-card-where">(' + linkNeighbourhood(where) + ")</span>";
-        if (size) c += '<span class="group-card-size">' + size + "</span>";
+        if (when) c += '<span class="group-card-tag"><span class="visually-hidden">When: </span>' + when + "</span>";
+        if (price) c += '<span class="group-card-tag"><span class="visually-hidden">Cost: </span>' + price + "</span>";
         if (badge) c += '<span class="group-card-badge">' + badge + "</span>";
+        if (size) c += '<span class="group-card-size">' + size + "</span>";
+        c += '<a class="group-card-share" href="#' + id + '" onclick="return shareGroup(this)"' +
+          ' data-umami-event="click-share" data-umami-event-source="card" data-umami-event-group="' + plainName + '">' +
+          '<span class="group-card-share-label">Share</span><span class="visually-hidden"> ' + plainName + "</span></a>";
         c += "</div>";
         if (desc) c += '<p class="group-card-desc">' + desc + "</p>";
-        c += '<a class="anchor" href="#' + id + '">#</a>';
         c += "</div>";
         return c;
       }

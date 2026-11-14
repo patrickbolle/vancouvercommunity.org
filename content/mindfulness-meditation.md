@@ -78,6 +78,7 @@ Our events and classes are offered online, with some in-person offerings in the 
 ## Vancouver Meditation Life
 - **What:** Guided meditation centre run by a registered charity. Free intro sessions every Saturday and Sunday, 11am–12pm, in person or online, plus free weekday community classes. No experience needed
 - **Where:** 1682 E 12th Ave, near Commercial Drive
+- **When:** Intro sessions Sat & Sun 11am
 - **Find it:** [meditationlife.ca](http://meditationlife.ca)
 
 ---

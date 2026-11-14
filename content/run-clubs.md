@@ -74,6 +74,7 @@ order: 1
 ## M2M Running (Miles to Marathon)
 - **What:** Wednesday runs at 6:30pm, two locations
 - **Where:** Point Grey and Empire Track (PNE/Burnaby)
+- **When:** Wednesdays 6:30pm
 - **Find it:** [mile2marathon.com](https://mile2marathon.com/) | [Instagram](https://instagram.com/mile2marathon)
 
 ## November Project Vancouver

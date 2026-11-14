@@ -67,6 +67,8 @@ order: 1
 ## Group Name
 - **What:** Description. Community feel
 - **Where:** Location (optional)
+- **When:** Tuesdays 6:30pm (optional)
+- **Cost:** $15 drop-in (optional)
 - **Find it:** [link](url)
 
 ---
@@ -106,11 +108,15 @@ New entries go **above** the `---` / `## Venues` divider if one exists, otherwis
 - **What:** Description of what the group does. Community feel
 - **Vibe:** Atmosphere description (optional, only if provided)
 - **Where:** Location (optional, only if provided)
+- **When:** Tuesdays 6:30pm (optional, only if provided)
+- **Cost:** $15 drop-in (optional, only if provided)
 - **Find it:** [domain.com/path](https://domain.com/path)
 - **Notes:** Additional info (optional, only if provided)
 ```
 
 Omit optional fields entirely if not provided — don't leave blanks.
+
+**When** and **Cost** show as small tags on the group card, so keep them short: "Tuesdays 6:30pm", "First Saturday monthly", "$15 drop-in". Only use what the group itself states; never guess a time. A Cost with "free" in it shows the green Free badge. Any other Cost shows as written. With no Cost, "free" in the What line still gives the Free badge.
 
 Also update `_data/recentGroups.js`: add the new group to the top of the `recent` array and remove the oldest entry (keep 6 total).
 

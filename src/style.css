@@ -312,17 +312,25 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   line-height: 1.5;
 }
 .group-card-desc { color: var(--ink-2); margin-top: 4px; line-height: 1.65; }
-.group-card > .anchor {
-  position: absolute;
-  top: 16px;
-  right: var(--panel-pad);
-  font-size: var(--fs-sm);
-  color: var(--ink-muted);
-  text-decoration: none;
-  opacity: 0;
-}
-.group-card:hover > .anchor, .group-card > .anchor:focus { opacity: 1; }
 .group-card:target { background: #fbf3d5; }
+
+/* Group card: When and Cost tags, and the Share link.
+   Tags are plain boxes like the Free badge, in ink colours.
+   Share sits at the right end of the header row (it wraps to its own line on narrow screens). */
+.group-card-tag {
+  font-size: var(--fs-sm);
+  color: var(--ink-2);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 0 4px;
+  line-height: 1.5;
+}
+.group-card-share {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+.group-card-share:visited { color: var(--link); }
 
 /* Section headings inside a category file (e.g. "Venues & Resources") */
 .category-entries > h2 {
@@ -550,7 +558,7 @@ textarea.form-input { resize: vertical; }
   .search-input { max-width: none; }
   :root { --fs-xl: 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
-  .group-card > .anchor { display: none; }
+  .group-card-share { padding: 6px 0; } /* bigger tap target */
 }
 
 @media (max-width: 389px) {

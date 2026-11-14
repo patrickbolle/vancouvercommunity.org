@@ -46,6 +46,7 @@ order: 7
 
 ## Commercial Drive Legion Jam Sessions
 - **What:** Weekly jam every Thursday 7pm-11pm. Hosted by the Legionnaires, bring your instrument
+- **When:** Thursdays 7–11pm
 - **Find it:** [Facebook: Legion #179](https://www.facebook.com/Legion179/) | [BC Bands listing](https://bcbands.ca/venues/venue-commercial-drive-legion-179-vancouver/)
 
 ## Savoy Pub Open Mic
