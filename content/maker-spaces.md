@@ -42,10 +42,6 @@ order: 3
 - **What:** Woodworking to 3D printing to pottery
 - **Find it:** [makercube.ca](https://makercube.ca/)
 
-## Langara Makerspace
-- **What:** 3D printers, sewing machines, workshops. Open to everyone, hands-on learning
-- **Find it:** [iweb.langara.ca/makerspace](https://iweb.langara.ca/makerspace/)
-
 ## Emily Carr University Digital Fabrication Lab
 - **What:** Access to fabrication tools for students and community. Creative, art-focused making
 - **Find it:** [ecuad.ca/on-campus/shops-studios/digfab](https://www.ecuad.ca/on-campus/shops-studios/digfab)
