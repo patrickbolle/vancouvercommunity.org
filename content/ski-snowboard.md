@@ -6,6 +6,7 @@ description: "6 ski and snowboard groups plus the North Shore mountains — soci
 emoji: "🎿"
 group: outdoor
 order: 6.5
+added: 2026-11-14
 ---
 
 # 🎿 Ski & Snowboard

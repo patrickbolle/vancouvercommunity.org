@@ -10,6 +10,7 @@ seoDescription: "{n} public speaking groups in Vancouver: Toastmasters clubs for
 listNoun: "speaking groups"
 seoHeading: "Public Speaking Groups in Vancouver"
 order: 6
+added: 2026-11-14
 ---
 
 # 📣 Public Speaking

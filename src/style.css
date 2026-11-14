@@ -249,8 +249,15 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   border-radius: 2px;
 }
 
-.directory { columns: 3 190px; column-gap: 24px; }
-.directory-group { break-inside: avoid; padding-bottom: 14px; }
+/* Sections sit in a grid, not CSS columns, so opening one "+N more" only
+   grows its own row instead of reflowing every section. */
+.directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  column-gap: 24px;
+  align-items: start;
+}
+.directory-group { padding-bottom: 14px; min-width: 0; }
 .directory-heading {
   display: flex;
   align-items: center;
@@ -263,6 +270,36 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .pixel-icon { width: 16px; height: 16px; flex: none; image-rendering: pixelated; }
 .directory-list { list-style: none; }
 .directory-list li { padding: 2px 0; }
+
+/* ---------- Homepage directory: "+N more" and "Just added" ---------- */
+/* The <summary> reads as a plain underlined link; the native toggle keeps it keyboard-accessible. */
+.directory-more > summary {
+  display: inline-block;
+  padding: 2px 0;
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+  list-style: none;
+}
+.directory-more > summary::-webkit-details-marker { display: none; }
+.directory-more > summary::marker { content: ""; }
+.directory-more > summary:hover { color: var(--link-hover); }
+.directory-more-open,
+.directory-more[open] .directory-more-closed { display: none; }
+.directory-more[open] .directory-more-open { display: inline; }
+
+.directory-new {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.directory-new-title { font-size: var(--fs-base); }
+.directory-new-list { display: flex; flex-wrap: wrap; gap: 4px 14px; list-style: none; }
 
 .search-results { margin-bottom: 16px; }
 .search-results-grid { background: var(--surface); border: 1px solid var(--line); }
@@ -544,7 +581,8 @@ textarea.form-input { resize: vertical; }
   /* Panels in the main column run edge to edge to give text the full width. */
   /* Roomier tap targets for list links (about 32px rows instead of 22px). */
   .directory-list li, .link-list-tight li { padding: 0; }
-  .directory-list a, .link-list-tight a, .link-list a, .site-footer-links a,
+  .directory-more > summary { padding: 6px 0; }
+  .directory-list a, .directory-new-list a, .link-list-tight a, .link-list a, .site-footer-links a,
   .page-actions a, .page-actions .link-button, .search-popular a { display: inline-block; padding: 6px 0; }
   .col-main .panel, .col-main > .mutuals-promo { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); border-left: none; border-right: none; }
   .search-input { max-width: none; }

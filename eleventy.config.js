@@ -282,6 +282,29 @@ module.exports = function (eleventyConfig) {
     return str ? str.replace(/&/g, "&amp;") : str;
   });
 
+  // --- Homepage directory: section blocks and "New this week" ---
+  // Categories in one section, most listings first (ties keep site order).
+  eleventyConfig.addFilter("sectionCategories", function (categories, key) {
+    return categories
+      .filter((cat) => cat.data.group === key)
+      .map((cat, i) => ({ cat, i }))
+      .sort((a, b) => (b.cat.data.listingCount || 0) - (a.cat.data.listingCount || 0) || a.i - b.i)
+      .map((x) => x.cat);
+  });
+
+  // Categories with an `added: YYYY-MM-DD` front matter date within `days`
+  // of the build date, newest first.
+  eleventyConfig.addFilter("newCategories", function (categories, days) {
+    const now = Date.now();
+    const toTime = (v) => (v instanceof Date ? v.getTime() : Date.parse(String(v)));
+    return categories
+      .filter((cat) => cat.data.added)
+      .map((cat) => ({ cat, t: toTime(cat.data.added) }))
+      .filter((x) => !isNaN(x.t) && now - x.t <= days * 86400000)
+      .sort((a, b) => b.t - a.t)
+      .map((x) => x.cat);
+  });
+
   // --- Shortcode: current build date ---
   eleventyConfig.addShortcode("buildDate", function () {
     return new Date().toISOString();

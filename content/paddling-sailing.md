@@ -6,6 +6,7 @@ description: "10 sailing and paddling clubs plus Jericho Sailing Centre — co-o
 emoji: "⛵"
 group: outdoor
 order: 6.7
+added: 2026-11-14
 ---
 
 # ⛵ Paddling & Sailing

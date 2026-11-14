@@ -10,6 +10,7 @@ seoDescription: "{n} community choirs in Vancouver: no-audition choirs, pop and 
 listNoun: "choirs"
 seoHeading: "Community Choirs in Vancouver"
 order: 8
+added: 2026-11-14
 ---
 
 # 🎼 Choirs & Singing

@@ -10,6 +10,7 @@ seoDescription: "{n} knitting and crochet groups, knit nights, and weaving and s
 listNoun: "knitting groups"
 seoHeading: "Knitting Groups & Fibre Guilds in Vancouver"
 order: 9
+added: 2026-11-14
 ---
 
 # 🧶 Knitting & Fibre Crafts

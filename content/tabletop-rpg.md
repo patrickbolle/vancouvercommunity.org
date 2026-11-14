@@ -10,6 +10,7 @@ seoDescription: "{n} places to play D&D and tabletop RPGs in Vancouver: learn-to
 listNoun: "D&D groups"
 seoHeading: "D&D and Tabletop RPG Groups in Vancouver"
 order: 4.5
+added: 2026-11-14
 ---
 
 # 🐉 Tabletop RPG & D&D
