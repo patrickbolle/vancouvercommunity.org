@@ -37,6 +37,7 @@ module.exports = function () {
       /\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/
     );
     const whereMatch = sectionMatch[1].match(/\*\*Where:\*\*\s*(.+)/);
+    const whenMatch = sectionMatch[1].match(/\*\*When:\*\*\s*(.+)/);
 
     return {
       name: entry.name,
@@ -45,6 +46,7 @@ module.exports = function () {
       description: whatMatch[1].trim(),
       url: findMatch ? findMatch[1] : "",
       location: whereMatch ? whereMatch[1].trim() : "",
+      when: whenMatch ? whenMatch[1].trim() : "",
     };
   }).filter(Boolean);
 };

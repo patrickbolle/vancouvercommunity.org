@@ -730,6 +730,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (g.badge) html += '<span class="group-modal-badge">' + esc(g.badge) + '</span>';
     if (g.desc) html += '<p class="group-modal-desc">' + esc(g.desc) + '</p>';
     if (g.where) html += '<p class="group-modal-where">\uD83D\uDCCD ' + esc(g.where) + '</p>';
+    if (g.when) html += '<p class="group-modal-where">When: ' + esc(g.when) + '</p>';
+    if (g.cost) html += '<p class="group-modal-where">Cost: ' + esc(g.cost) + '</p>';
     html += '<div class="group-modal-actions">';
     if (g.url) {
       html += '<a class="group-modal-visit" href="' + esc(g.url) + '" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link" data-umami-event-url="' + esc(domain) + '">Visit' + (domain ? " " + esc(domain) : "") + ' \u2192<span class="visually-hidden"> (opens in new tab)</span></a>';
@@ -768,6 +770,8 @@ document.addEventListener('DOMContentLoaded', function() {
       slug: t.getAttribute("data-g-slug"),
       url: t.getAttribute("data-g-url"),
       where: t.getAttribute("data-g-where"),
+      when: t.getAttribute("data-g-when"),
+      cost: t.getAttribute("data-g-cost"),
       badge: t.getAttribute("data-g-badge")
     });
   }, true);

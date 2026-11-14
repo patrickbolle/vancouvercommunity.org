@@ -72,6 +72,25 @@ function sharePage(source, el) {
     });
   }
 }
+// Share one group card: its own #anchor URL, not the whole page.
+// Returns false to stop the anchor jump; true (no share or clipboard) lets the link work as a permalink.
+function shareGroup(el) {
+  var card = el.closest('.group-card');
+  if (!card || (!navigator.share && !navigator.clipboard)) return true;
+  var url = window.location.origin + window.location.pathname + '#' + card.id;
+  var label = el.querySelector('.group-card-share-label') || el;
+  var name = el.getAttribute('data-umami-event-group') || document.title;
+  if (navigator.share) {
+    navigator.share({ title: name, url: url }).catch(function() {});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      label.textContent = 'Link copied';
+      if (window.announce) window.announce('Link copied');
+      setTimeout(function() { label.textContent = 'Share'; }, 2000);
+    }).catch(function() { window.location.hash = card.id; });
+  }
+  return false;
+}
 if (!window._statsLoaded) {
   window._statsLoaded = true;
   fetch("https://vancouver-communities-stats.recipekit.workers.dev/")

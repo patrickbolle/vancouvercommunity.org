@@ -126,6 +126,9 @@ jobs:
                  tone of nearby entries. Example: "Weekly social runs from Kits Beach. All
                  paces welcome".
                - **Where:** only if the submission gave a location.
+               - **When:** only if the submission or the group's site states a regular
+                 day or time. Keep it short, e.g. "Tuesdays 6:30pm".
+               - **Cost:** only if stated, short, e.g. "$15 drop-in" or "Free".
                - **Find it:** [domain/path](full-url), as in nearby entries.
                - Leave out **Vibe** and **Notes** unless the submission clearly gives them.
                - Add no facts that the submission or the group's own site does not support.
