@@ -29,3 +29,7 @@ order: 1
 ## The Artisans supper Club
 - **What:** Secret supper clubs with curated fine dining set up and place to meet new people and make friends. Engage in activities as cake painting and games
 - **Find it:** [instagram.com/theartisanssupperclub](https://www.instagram.com/theartisanssupperclub/)
+
+## Vegan Meetup Vancouver
+- **What:** Vancouver's oldest veg social group on Meetup, running since 2002. Shared vegan dinners at local restaurants, sometimes with special menus made just for the group. Veg-curious people welcome
+- **Find it:** [meetup.com/vegvan](https://www.meetup.com/vegvan/)
