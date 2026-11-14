@@ -32,6 +32,7 @@ const CATEGORY_FILES = {
   "music-open-mic": "content/music-open-mic.md",
   "climbing": "content/climbing.md",
   "pickleball": "content/pickleball.md",
+  "more-sports": "content/more-sports.md",
   "pottery-ceramics": "content/pottery-ceramics.md",
   "yoga-wellness": "content/yoga-wellness.md",
   "sauna-cold-plunge": "content/sauna-cold-plunge.md",
