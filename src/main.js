@@ -55,7 +55,264 @@ window.announce = function (text) {
 };
 if (document.body && !document.getElementById('a11y-live')) window.announce('');
 
+// ── Group search (homepage box + masthead box on every other page) ──
+// One implementation for both. Every word must match, except filler words
+// like "group" or "vancouver". Spaces are ignored ("bird watching" finds
+// Birdwatching), and words of 5+ letters allow one typo ("frencg" finds French).
+window.vcSearch = (function () {
+  var CAP = 12; // results shown before "Show all N"
+
+  function normalize(str) {
+    return String(str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+  function withinOneEdit(a, b) {
+    if (Math.abs(a.length - b.length) > 1) return false;
+    var i = 0, j = 0, edits = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) { i++; j++; continue; }
+      if (++edits > 1) return false;
+      // Swapped neighbours ("excahnge") count as one typo
+      if (a.length === b.length && a[i] === b[j + 1] && a[i + 1] === b[j]) { i += 2; j += 2; continue; }
+      if (a.length > b.length) i++;
+      else if (b.length > a.length) j++;
+      else { i++; j++; }
+    }
+    return edits + (a.length - i) + (b.length - j) <= 1;
+  }
+  var FILLER = { a: 1, an: 1, the: 1, in: 1, for: 1, of: 1, and: 1, to: 1, near: 1, me: 1, vancouver: 1, group: 1, groups: 1, club: 1, clubs: 1, meetup: 1, meetups: 1, community: 1 };
+  function searchWords(q) {
+    var all = normalize(q).split(' ').filter(Boolean);
+    var kept = all.filter(function (w) { return !FILLER[w]; });
+    return kept.length ? kept : all;
+  }
+  function searchMatches(g, words, joined) {
+    if (!g._hay) {
+      g._hay = normalize(g.n + ' ' + g.d + ' ' + g.c);
+      g._flat = g._hay.replace(/ /g, '');
+      g._words = g._hay.split(' ');
+    }
+    if (joined.length > 3 && g._flat.indexOf(joined) !== -1) return true;
+    // Words match from their start ("run" finds "running", not "brunch")
+    return words.every(function (w) {
+      return g._words.some(function (hw) {
+        if (hw.indexOf(w) === 0) return true;
+        if (w.length < 5) return false;
+        return withinOneEdit(w, hw) || (hw.length > w.length && withinOneEdit(w, hw.slice(0, w.length)));
+      });
+    });
+  }
+  // Best first: the words in the group's name, then in its category, then anywhere
+  function searchScore(g, words) {
+    var name = ' ' + normalize(g.n) + ' ', cat = ' ' + normalize(g.c) + ' ';
+    var score = 0;
+    words.forEach(function (w) {
+      if (name.indexOf(' ' + w) !== -1) score += 2;
+      else if (cat.indexOf(' ' + w) !== -1) score += 1;
+    });
+    return score;
+  }
+  // Every matching group, best first (ties keep directory order).
+  function rank(groups, q) {
+    var words = searchWords(q);
+    if (!words.length) return [];
+    var joined = normalize(q).replace(/ /g, '');
+    return groups
+      .filter(function (g) { return searchMatches(g, words, joined); })
+      .map(function (g, i) { return { g: g, s: searchScore(g, words), i: i }; })
+      .sort(function (a, b) { return b.s - a.s || a.i - b.i; })
+      .map(function (m) { return m.g; });
+  }
+
+  // The homepage inlines the list; every other page fetches it once, on first use.
+  var pending = null;
+  function load() {
+    if (window._searchGroups && window._searchGroups.length) return Promise.resolve(window._searchGroups);
+    if (!pending) {
+      pending = fetch('/search-data.json')
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (data) { window._searchGroups = data; return data; })
+        .catch(function (err) { pending = null; throw err; });
+    }
+    return pending;
+  }
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function card(g, source) {
+    return '<a href="/' + esc(g.s) + '/#' + esc(g.id) + '" class="search-result-card" data-umami-event="click-search-result" data-umami-event-source="' + source + '"' +
+      ' data-group data-g-name="' + esc(g.n) + '" data-g-desc="' + esc(g.d) + '"' +
+      ' data-g-cat="' + esc(g.c) + '" data-g-slug="' + esc(g.s) + '"' +
+      (g.u ? ' data-g-url="' + esc(g.u) + '"' : '') +
+      (g.w ? ' data-g-where="' + esc(g.w) + '"' : '') +
+      (g.b ? ' data-g-badge="' + esc(g.b) + '"' : '') + '>' +
+      '<span class="search-result-name">' + esc(g.n) + '</span>' +
+      '<span class="search-result-desc">' + esc(g.d) + '</span>' +
+      '<span class="search-result-cat">' + esc(g.c) + '</span>' +
+      '</a>';
+  }
+  // Top CAP results, then a "Show all N" button that reveals the rest.
+  function render(el, list, source, showAll) {
+    if (!list.length) {
+      el.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>.</p>';
+      return;
+    }
+    var shown = showAll ? list : list.slice(0, CAP);
+    var html = '<div class="search-results-grid">' + shown.map(function (g) { return card(g, source); }).join('');
+    if (shown.length < list.length) {
+      html += '<button type="button" class="search-more">Show all ' + list.length + ' groups</button>';
+    }
+    el.innerHTML = html + '</div>';
+    var more = el.querySelector('.search-more');
+    if (more) more.addEventListener('click', function () {
+      render(el, list, source, true);
+      var next = el.querySelectorAll('.search-result-card')[CAP];
+      if (next) next.focus();
+      window.announce('Showing all ' + list.length + ' groups');
+    });
+  }
+  function countText(n) {
+    if (!n) return 'No groups found';
+    return n + (n === 1 ? ' group' : ' groups') + ' found' + (n > CAP ? ', showing the top ' + CAP : '');
+  }
+
+  // Wire a search box to its results element.
+  // o: { input, results, source ("homepage" | "masthead") }
+  function bind(o) {
+    var searchTimer = null, trackTimer = null, lastCount = 0;
+
+    // Runs the search. Resolves with the result list, or null if the box was
+    // cleared, changed while loading, or the list failed to load.
+    function run(immediate) {
+      var q = o.input.value.trim();
+      clearTimeout(searchTimer);
+      clearTimeout(trackTimer);
+      if (!q) {
+        o.results.hidden = true;
+        o.results.innerHTML = '';
+        return Promise.resolve(null);
+      }
+      // Track the settled query only (not every keystroke), with its result count,
+      // so zero-result searches show what the directory is missing.
+      if (q.length >= 3) {
+        trackTimer = setTimeout(function () {
+          if (typeof umami !== 'undefined') umami.track('search', { query: q.toLowerCase(), results: lastCount, empty: lastCount === 0, source: o.source });
+        }, 2000);
+      }
+      return new Promise(function (resolve) {
+        searchTimer = setTimeout(function () {
+          load().then(function (groups) {
+            if (o.input.value.trim() !== q) return resolve(null);
+            var list = rank(groups, q);
+            lastCount = list.length;
+            render(o.results, list, o.source, false);
+            o.results.hidden = false;
+            window.announce(countText(list.length));
+            resolve(list);
+          }, function () {
+            o.results.innerHTML = '<p class="search-empty">Search didn’t load. Check your connection and try again.</p>';
+            o.results.hidden = false;
+            window.announce('Search didn’t load');
+            resolve(null);
+          });
+        }, immediate ? 0 : 150);
+      });
+    }
+
+    o.input.addEventListener('input', function () { run(false); });
+
+    // Enter or the Search button: search now, then move focus to the first result.
+    var form = o.input.form;
+    if (form) form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      run(true).then(function (list) {
+        var first = list && list.length && o.results.querySelector('.search-result-card');
+        if (first) first.focus();
+      });
+    });
+
+    // Arrow keys: down from the box into the results, then between them;
+    // up from the first result goes back to the box.
+    function items() { return Array.prototype.slice.call(o.results.querySelectorAll('.search-result-card, .search-more')); }
+    o.input.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' || o.results.hidden) return;
+      var list = items();
+      if (list.length) { e.preventDefault(); list[0].focus(); }
+    });
+    o.results.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+      var list = items(), i = list.indexOf(document.activeElement);
+      if (i === -1) return;
+      e.preventDefault();
+      if (e.key === 'ArrowDown') { if (list[i + 1]) list[i + 1].focus(); }
+      else if (i === 0) o.input.focus();
+      else list[i - 1].focus();
+    });
+
+    return { run: run };
+  }
+
+  return {
+    normalize: normalize, words: searchWords, matches: searchMatches, score: searchScore,
+    rank: rank, load: load, render: render, bind: bind, CAP: CAP
+  };
+})();
+
+// Masthead search: a compact box on every page but the homepage, with a
+// dropdown of results. The header is never swapped, so this binds once.
+window.mastheadSearch = (function () {
+  var box, input, panel, refocusing = false;
+  function isOpen() { return !!panel && !panel.hidden; }
+  function reopen() { if (input.value.trim() && panel.innerHTML) panel.hidden = false; }
+  function close(returnFocus) {
+    if (!isOpen()) return;
+    panel.hidden = true;
+    if (returnFocus) { refocusing = true; input.focus(); refocusing = false; }
+  }
+  // The group popup a result opens takes focus; leave the dropdown open
+  // under it, so closing the popup can return focus to that result.
+  function popupOpen(target) {
+    return !!(document.getElementById('group-modal') || document.getElementById('surprise-modal') ||
+      (target && target.closest && target.closest('#group-modal, #surprise-modal')));
+  }
+  function init() {
+    box = document.getElementById('masthead-search');
+    if (!box || box._bound) return;
+    box._bound = true;
+    input = document.getElementById('masthead-search-input');
+    panel = document.getElementById('masthead-search-panel');
+    window.vcSearch.bind({ input: input, results: panel, source: 'masthead' });
+
+    // Fetch the list on first focus, so it's usually ready by the first keystroke.
+    input.addEventListener('focus', function () {
+      window.vcSearch.load().catch(function () {});
+      if (!refocusing) reopen();
+    });
+    // Down arrow on a closed box brings the last results back.
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown' && !isOpen()) { e.preventDefault(); reopen(); }
+    });
+    box.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen()) { e.preventDefault(); close(true); }
+    });
+    // Close when focus or a click leaves the search.
+    box.addEventListener('focusout', function () {
+      setTimeout(function () {
+        if (!box.contains(document.activeElement) && !popupOpen()) close(false);
+      }, 0);
+    });
+    // (A detached target is the "Show all" button, replaced as it reveals the rest.)
+    document.addEventListener('click', function (e) {
+      if (e.target.isConnected && !box.contains(e.target) && !popupOpen(e.target)) close(false);
+    });
+  }
+  return { init: init, close: close };
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
+  window.mastheadSearch.init();
+  initTabsMore();
   initPage();
 
   // --- Instant navigation: fetch HTML, swap only <main> ---
@@ -210,6 +467,39 @@ document.addEventListener('DOMContentLoaded', function() {
   function initPage() {
     initPageBehaviors();
     markTabs(window._navPath || window.location.pathname);
+    // The header outlives a page swap: shut its open menus.
+    window.mastheadSearch.close(false);
+    closeTabsMore(false);
+  }
+
+  // "More" tab (phones only): a small menu with the tabs that don't fit.
+  function closeTabsMore(returnFocus) {
+    var btn = document.querySelector('.tabs-more-btn');
+    var menu = document.getElementById('tabs-more-menu');
+    if (!btn || !menu || menu.hidden) return;
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    if (returnFocus) btn.focus();
+  }
+  function initTabsMore() {
+    var wrap = document.getElementById('tabs-more');
+    if (!wrap) return;
+    var btn = wrap.querySelector('.tabs-more-btn');
+    var menu = document.getElementById('tabs-more-menu');
+    btn.addEventListener('click', function() {
+      var open = menu.hidden;
+      menu.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    wrap.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !menu.hidden) { e.preventDefault(); closeTabsMore(true); }
+    });
+    wrap.addEventListener('focusout', function() {
+      setTimeout(function() { if (!wrap.contains(document.activeElement)) closeTabsMore(false); }, 0);
+    });
+    document.addEventListener('click', function(e) {
+      if (!wrap.contains(e.target)) closeTabsMore(false);
+    });
   }
 
   // Mark the current section tab (the tab bar sits outside the swapped <main>).
@@ -227,23 +517,28 @@ document.addEventListener('DOMContentLoaded', function() {
       if (tab === match) tab.setAttribute('aria-current', 'page');
       else tab.removeAttribute('aria-current');
     });
+    // Phones: Blog and About live under "More", so mark the match there too.
+    var inMore = false;
+    document.querySelectorAll('.tabs-more-menu a').forEach(function(a) {
+      var current = !!match && a.getAttribute('href') === match.getAttribute('href');
+      if (current) { a.setAttribute('aria-current', 'page'); inMore = true; }
+      else a.removeAttribute('aria-current');
+    });
+    var moreBtn = document.querySelector('.tabs-more-btn');
+    if (moreBtn) moreBtn.classList.toggle('is-current', inMore);
   }
 
   function initPageBehaviors() {
 
-    // Search button: run the live search now and move focus to the first result
-    var searchForm = document.getElementById('homepage-search-form');
-    if (searchForm && !searchForm._bound) {
-      searchForm._bound = true;
-      searchForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var input = document.getElementById('homepage-group-search');
-        input.dispatchEvent(new Event('input'));
-        setTimeout(function() {
-          var first = document.querySelector('#search-results a');
-          if (first) first.focus(); else input.focus();
-        }, 250);
-      });
+    // Homepage search: same engine as the masthead box (vcSearch, above).
+    // A ?q= (from the masthead box without JS, or a shared link) fills it in and runs it.
+    var groupSearch = document.getElementById('homepage-group-search');
+    var groupResults = document.getElementById('search-results');
+    if (groupSearch && groupResults && !groupSearch._bound) {
+      groupSearch._bound = true;
+      var homeSearch = window.vcSearch.bind({ input: groupSearch, results: groupResults, source: 'homepage' });
+      var startQuery = !window._navPath && new URLSearchParams(window.location.search).get('q');
+      if (startQuery) { groupSearch.value = startQuery; homeSearch.run(true); }
     }
 
     // Make entire group card clickable — open the group's visit link
@@ -350,125 +645,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileMenu && mobileMenu.classList.contains('open')) {
       mobileMenu.classList.remove('open');
       if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
-    }
-
-    // Homepage group search.
-    // Every word must match, except filler words like "group" or "vancouver". Spaces are ignored ("bird watching" finds Birdwatching),
-    // and words of 5+ letters allow one typo ("frencg" finds French).
-    function searchNormalize(str) {
-      return String(str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-    }
-    function withinOneEdit(a, b) {
-      if (Math.abs(a.length - b.length) > 1) return false;
-      var i = 0, j = 0, edits = 0;
-      while (i < a.length && j < b.length) {
-        if (a[i] === b[j]) { i++; j++; continue; }
-        if (++edits > 1) return false;
-        // Swapped neighbours ("excahnge") count as one typo
-        if (a.length === b.length && a[i] === b[j + 1] && a[i + 1] === b[j]) { i += 2; j += 2; continue; }
-        if (a.length > b.length) i++;
-        else if (b.length > a.length) j++;
-        else { i++; j++; }
-      }
-      return edits + (a.length - i) + (b.length - j) <= 1;
-    }
-    var SEARCH_FILLER = { a: 1, an: 1, the: 1, in: 1, for: 1, of: 1, and: 1, to: 1, near: 1, me: 1, vancouver: 1, group: 1, groups: 1, club: 1, clubs: 1, meetup: 1, meetups: 1, community: 1 };
-    function searchWords(q) {
-      var all = searchNormalize(q).split(' ').filter(Boolean);
-      var kept = all.filter(function(w) { return !SEARCH_FILLER[w]; });
-      return kept.length ? kept : all;
-    }
-    function searchMatches(g, words, joined) {
-      if (!g._hay) {
-        g._hay = searchNormalize(g.n + ' ' + g.d + ' ' + g.c);
-        g._flat = g._hay.replace(/ /g, '');
-        g._words = g._hay.split(' ');
-      }
-      if (joined.length > 3 && g._flat.indexOf(joined) !== -1) return true;
-      // Words match from their start ("run" finds "running", not "brunch")
-      return words.every(function(w) {
-        return g._words.some(function(hw) {
-          if (hw.indexOf(w) === 0) return true;
-          if (w.length < 5) return false;
-          return withinOneEdit(w, hw) || (hw.length > w.length && withinOneEdit(w, hw.slice(0, w.length)));
-        });
-      });
-    }
-    // Best first: the words in the group's name, then in its category, then anywhere
-    function searchScore(g, words) {
-      var name = ' ' + searchNormalize(g.n) + ' ', cat = ' ' + searchNormalize(g.c) + ' ';
-      var score = 0;
-      words.forEach(function(w) {
-        if (name.indexOf(' ' + w) !== -1) score += 2;
-        else if (cat.indexOf(' ' + w) !== -1) score += 1;
-      });
-      return score;
-    }
-
-    var groupSearch = document.getElementById('homepage-group-search');
-    if (groupSearch && !groupSearch._bound) {
-      groupSearch._bound = true;
-      var _searchDebounce = null;
-      var _trackDebounce = null;
-      var _lastResultCount = 0;
-
-      groupSearch.addEventListener('input', function() {
-        var q = this.value.trim().toLowerCase();
-        var words = searchWords(q);
-        var joined = searchNormalize(q).replace(/ /g, '');
-        var resultsEl = document.getElementById('search-results');
-        clearTimeout(_searchDebounce);
-        clearTimeout(_trackDebounce);
-
-        if (!q) {
-          if (resultsEl) { resultsEl.style.display = 'none'; resultsEl.innerHTML = ''; }
-          return;
-        }
-
-        _searchDebounce = setTimeout(function() {
-          var resultsEl = document.getElementById('search-results');
-          if (!resultsEl) return;
-          var groups = window._searchGroups || [];
-          var matches = words.length ? groups.filter(function(g) { return searchMatches(g, words, joined); }) : [];
-          matches = matches.map(function(g, i) { return { g: g, s: searchScore(g, words), i: i }; })
-            .sort(function(a, b) { return b.s - a.s || a.i - b.i; })
-            .map(function(m) { return m.g; });
-          _lastResultCount = matches.length;
-
-          resultsEl.style.display = '';
-
-          if (matches.length === 0) {
-            resultsEl.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>.</p>';
-            window.announce('No groups found');
-            return;
-          }
-
-          var html = '<div class="search-results-grid">';
-          matches.forEach(function(g) {
-            html += '<a href="/' + g.s + '/#' + g.id + '" class="search-result-card" data-umami-event="click-search-result"' +
-              ' data-group data-g-name="' + escapeHtml(g.n) + '" data-g-desc="' + escapeHtml(g.d) + '"' +
-              ' data-g-cat="' + escapeHtml(g.c) + '" data-g-slug="' + escapeHtml(g.s) + '"' +
-              (g.u ? ' data-g-url="' + escapeHtml(g.u) + '"' : '') +
-              (g.w ? ' data-g-where="' + escapeHtml(g.w) + '"' : '') +
-              (g.b ? ' data-g-badge="' + escapeHtml(g.b) + '"' : '') + '>';
-            html += '<span class="search-result-name">' + escapeHtml(g.n) + '</span>';
-            html += '<span class="search-result-desc">' + escapeHtml(g.d) + '</span>';
-            html += '<span class="search-result-cat">' + escapeHtml(g.c) + '</span>';
-            html += '</a>';
-          });
-          html += '</div>';
-          resultsEl.innerHTML = html;
-          window.announce(matches.length + (matches.length === 1 ? ' group' : ' groups') + ' found');
-        }, 150);
-
-        // Track the settled query only (not every keystroke), with its result count,
-        // so zero-result searches show what the directory is missing.
-        if (q.length >= 3) {
-          _trackDebounce = setTimeout(function() {
-            if (typeof umami !== 'undefined') umami.track('search', { query: q, results: _lastResultCount, empty: _lastResultCount === 0 });
-          }, 2000);
-        }
-      });
     }
 
     // Newsletter signup

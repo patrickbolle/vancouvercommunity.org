@@ -870,3 +870,94 @@ textarea.form-input { resize: vertical; }
 .advertise-note { font-size: var(--fs-sm); color: var(--ink-muted); }
 .advertise-stat strong { display: block; font-family: var(--serif); font-size: var(--fs-lg); }
 .prose-content .panel-title, .prose .panel-title { margin-top: 0; }
+
+/* =====================================================================
+   Site-wide search and the "More" tab (partial: topbar.njk, JS: main.js)
+   ===================================================================== */
+
+/* ---------- masthead search: every page but the homepage ---------- */
+/* Order in the bar: wordmark, Surprise me, search. On inner pages the search
+   takes the tagline's place; its placeholder carries the group count. */
+.masthead-side { margin-left: auto; }
+.masthead-search { position: relative; flex: 0 1 300px; min-width: 0; }
+.homepage .masthead-search { display: none; }
+body:not(.homepage) .masthead-tag { display: none; }
+.masthead-search-form { display: flex; gap: 6px; }
+.masthead-search-input { flex: 1; min-width: 0; max-width: none; }
+.masthead-search-btn { flex: none; }
+
+/* The results drop down under the box, over the page. */
+.masthead-search-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 60;
+  width: min(440px, calc(100vw - 2 * var(--gutter)));
+  max-height: min(70vh, 560px);
+  overflow-y: auto;
+  color: var(--ink);
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid #8a8370;
+  box-shadow: 2px 2px 0 rgba(43, 41, 37, 0.35);
+}
+.masthead-search-panel[hidden] { display: none; }
+.masthead-search-panel .search-results-grid,
+.masthead-search-panel .search-empty { border: none; }
+/* Undo the masthead's cream focus ring: the panel is cream too. Inset so the
+   scrolling panel can't clip it. */
+.masthead-search-panel :focus-visible { outline-color: var(--link); outline-offset: -3px; }
+
+/* ---------- "Show all N" (homepage and masthead results) ---------- */
+.search-more {
+  display: block;
+  width: 100%;
+  padding: 10px var(--panel-pad);
+  text-align: left;
+  font-weight: 700;
+  color: var(--link);
+  background: var(--panel-head);
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.search-more:hover { color: var(--link-hover); }
+.search-more:focus-visible { outline-offset: -3px; }
+
+/* ---------- "More" tab: Blog and About on phones ---------- */
+.tabs-more { display: none; position: relative; }
+.tabs-more-btn { line-height: inherit; }
+.tabs-more-btn.is-current {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom-color: var(--masthead);
+}
+.tabs-more-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 50;
+  min-width: 140px;
+  list-style: none;
+  padding: 4px 0;
+  background: var(--surface);
+  border: 1px solid #8a8370;
+  box-shadow: 2px 2px 0 var(--line);
+}
+.tabs-more-menu[hidden] { display: none; }
+.tabs-more-menu a { display: block; padding: 8px var(--panel-pad); }
+.tabs-more-menu a[aria-current="page"] { color: var(--ink); font-weight: 700; text-decoration: none; }
+
+@media (max-width: 760px) {
+  /* The search gets its own row under the wordmark and Surprise me. */
+  .masthead-inner { flex-wrap: wrap; row-gap: 8px; }
+  body:not(.homepage) .masthead-inner { padding-top: 8px; padding-bottom: 10px; }
+  .masthead-search { flex: 1 1 100%; }
+  .masthead-search-panel { left: 0; right: 0; width: auto; max-height: 60vh; }
+
+  .tabs-more { display: block; }
+}
+@media (max-width: 389px) {
+  .tabs-inner { gap: 14px; }
+}
