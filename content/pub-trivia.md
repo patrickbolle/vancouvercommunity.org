@@ -33,6 +33,32 @@ order: 5
 - **What:** Free trivia covering geeky topics. Film, TV, video games, science, teams up to 6
 - **Find it:** [theamazingbrentwood.com](https://theamazingbrentwood.com/) | Food court
 
+## Question Authority Trivia (Plot Twist Productions)
+- **What:** Comedy trivia nights run by local actors and comedians at about ten pubs and breweries, most nights of the week. A party disguised as a game night
+- **Where:** Bayside Lounge, King's Head, Morrissey, Score on Davie, Wolf & Hound, London Pub, Electric Bicycle Brewing, Wildeye Brewing (North Van) and more
+- **Find it:** [plottwist.ca/where-to-see-us](https://www.plottwist.ca/where-to-see-us)
+
+## Hero's Welcome Tuesday Trivia
+- **What:** IQ 2000 trivia every Tuesday at this Mount Pleasant pub. No cover, prizes for the top teams
+- **When:** Tuesdays, 7–9pm
+- **Find it:** [heros-welcome.com](https://www.heros-welcome.com/upcoming-events)
+
+## Strange Fellows Trivia Tuesdays
+- **What:** Strange Trivia hosted by Liz the Wiz in the brewery taproom near Commercial Drive. Clothing donations welcome
+- **When:** Tuesdays, 7–10pm
+- **Find it:** [strangefellowsbrewing.com](https://strangefellowsbrewing.com/portfolios/brewery-happenings-2/)
+
+## East Van Brewing Trivia Tuesdays
+- **What:** Weekly trivia hosted by DJ Storm in the brewery tasting room. Three-month seasons that end in a final
+- **When:** Tuesdays, 7–9pm
+- **Find it:** [eastvanbrewing.com](https://www.eastvanbrewing.com/trivia-tuesdays)
+
+## Woo Hoo! Classic Simpsons Trivia
+- **What:** Fifty questions on Simpsons seasons 1–9, plus three classic episodes. Teams of up to 6
+- **When:** Last Tuesday of the month, 7pm
+- **Where:** The Anza Club, Mount Pleasant
+- **Find it:** [linktr.ee/woohootriviavan](https://linktr.ee/woohootriviavan)
+
 ---
 
 ## 📋 Directories

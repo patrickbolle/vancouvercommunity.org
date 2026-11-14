@@ -26,6 +26,16 @@ order: 4
 - **What:** Our mission is to create and enable the creation of safer spaces for 2SLGBTQIA+ people and their allies in the Greater Vancouver Area to meet and socialize. We aim to enable the creation of and to provide virtual and physical spaces for events for players and participants to meet and play games, and to facilitate social events for the benefit of our members.
 - **Find it:** [www.vancouvergaymers.com/](https://www.vancouvergaymers.com/)
 
+## Meeple Leaf
+- **What:** Board game nights for all levels, with volunteer hosts who teach the games. Brings its own game library, or bring yours. Free Sunday gaming at the Anvil Centre
+- **Where:** Anvil Centre (New Westminster), Killarney Community Centre and more
+- **Find it:** [meetup.com/meeple-leaf](https://www.meetup.com/meeple-leaf/)
+
+## Vancouver Playtest
+- **What:** Plays and tests board game prototypes and gives friendly feedback. Come to play, or bring a game you're designing
+- **Where:** Rain City Games, downtown
+- **Find it:** [meetup.com/vancouver-playtest](https://www.meetup.com/vancouver-playtest/)
+
 ---
 
 ## Venues & Spaces
