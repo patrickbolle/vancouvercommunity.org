@@ -140,13 +140,14 @@ Apply this test: *"If I'm interested in X, can I go here and find my people?"*
 ## Monetization
 
 - **Sponsors** live in `_data/sponsors.json` (see `_docs`/`_example`). Every slot renders through `_includes/partials/sponsor-card.njk`: a "Community sponsor" panel with an **Ad** tag, `rel="sponsored"` on the link. An empty slot shows a dashed "Your business here" box linking to `/advertise/`.
-  - `listings` — one sponsor per category. A paid sponsor sits at the top of the main column, above the listings, at every width (the advertise page promises "above the fold"). Open category slots sit in the sidebar.
+  - `listings` — one sponsor per category. A paid sponsor sits at the top of the main column, above the listings, at every width (the advertise page promises "above the fold"). Open category slots sit in the sidebar, but only when no sidebar banner is set.
   - `homepage` — one partner on the homepage.
   - `pages` — one sponsor shown on the guide pages: Start here, Free, Neighbourhoods, the blog, About. No slots on Submit or Newsletter.
 - **The example on `/advertise/` uses the same partial**, so it always matches what sponsors get.
 - **Banners** live in `_data/banners.json` (see `_docs`), with images in `static/banners/`. They render through `_includes/partials/banner.njk`, labelled **Ad**, `rel="sponsored"`. Empty banner slots render nothing.
   - `category` — one image banner per category (1200×300), placed after the 4th listing on lists of 6 or more (`midBanner` filter).
   - `sidebar` — one site-wide image banner (600×500) in the right column of category pages, guides, the blog, the homepage, Start here and About.
+- **Category sidebar** shows at most one ad slot. The order is: More in <section>, About this list, newsletter, the ad slot, then the compact mutuals promo (only when the category has no feature mutuals promo). The ad slot is the sidebar banner if one is set. If not, it is the open "Your business here" card, and only when the category has no paid sponsor.
 - **Pricing** is on `/advertise/` (`content/advertise.njk`): sponsor card $39/mo or $350/yr per category, category banner $25/mo or $250/yr, sidebar banner $79/mo, $25/issue newsletter classified. Homepage and guide-page slots: "ask for pricing". Enquiries come in through the Tally form (tally.so/r/dbaRVr) or by email (vancouver@bolle.co).
 - **Newsletter classifieds** live in `_data/classifieds.json` (see `_docs` in the file). The weekly newsletter script (`scripts/newsletter.mjs`) includes the first active listing per issue, clearly labeled as paid; entries expire via their `until` date. Preview with `node scripts/newsletter.mjs --dry-run`.
 - Community groups are never charged — sponsorships are for businesses (studios, gyms, shops, venues) only, and must pass the same "can I find my people here?" test. Sponsorship never buys, changes, or removes a regular listing.
