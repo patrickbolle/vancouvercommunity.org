@@ -1,11 +1,17 @@
 {%- set mastheadGroups = 0 %}
 {%- for cat in collections.categories %}{% set mastheadGroups = mastheadGroups + cat.data.groupCount %}{% endfor %}
+{#- The current tab: "page" on the tab's own page, "true" inside its section
+    (a blog post, a category page). main.js updates it the same way after a swap. #}
+{%- set navPath = page.url or "/" %}
+{%- set tabMatch = "/" %}
+{%- for h in ["/start-here/", "/submit/", "/blog/", "/about/"] %}{% if navPath.indexOf(h) == 0 %}{% set tabMatch = h %}{% endif %}{% endfor %}
+{%- set tabCurrent = "page" if navPath == tabMatch else "true" %}
 <header class="masthead">
   <div class="frame masthead-inner">
     <a href="/" class="wordmark" aria-label="Vancouver Community home"><img class="wordmark-mark" src="/favicon.svg" width="32" height="32" alt="">vancouver<span class="wordmark-soft">community</span></a>
     <div class="masthead-side">
       <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
-      <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
+      <button type="button" class="masthead-surprise" onclick="goRandom(this)" aria-haspopup="dialog" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
     </div>
     {#- Search on every page but the homepage (CSS hides it there: the header
         stays put when main.js swaps pages, so it can't be left out of the markup).
@@ -13,7 +19,7 @@
     <div class="masthead-search" id="masthead-search">
       <form class="masthead-search-form" role="search" action="/" method="get">
         <label for="masthead-search-input" class="visually-hidden">Search the directory</label>
-        <input type="search" id="masthead-search-input" class="search-input masthead-search-input" name="q" placeholder="Search {{ mastheadGroups }} groups" autocomplete="off" aria-controls="masthead-search-panel">
+        <input type="search" id="masthead-search-input" class="search-input masthead-search-input" name="q" placeholder="Search {{ mastheadGroups }} groups" autocomplete="off" aria-controls="masthead-search-panel" aria-expanded="false">
         <button type="submit" class="search-btn masthead-search-btn">Search</button>
       </form>
       <div class="masthead-search-panel" id="masthead-search-panel" role="region" aria-label="Search results" hidden></div>
@@ -22,17 +28,17 @@
 </header>
 <nav class="tabs" aria-label="Sections">
   <div class="frame tabs-inner">
-    <a href="/" class="tab">Directory</a>
-    <a href="/start-here/" class="tab">New <span class="tab-long">to Vancouver</span><span class="tab-short">here</span></a>
-    <a href="/submit/" class="tab">Add a group</a>
-    <a href="/blog/" class="tab tab-wide-only">Blog</a>
-    <a href="/about/" class="tab tab-wide-only">About</a>
+    <a href="/" class="tab"{% if tabMatch == "/" %} aria-current="{{ tabCurrent }}"{% endif %}>Directory</a>
+    <a href="/start-here/" class="tab"{% if tabMatch == "/start-here/" %} aria-current="{{ tabCurrent }}"{% endif %}>New <span class="tab-long">to Vancouver</span><span class="tab-short">here</span></a>
+    <a href="/submit/" class="tab"{% if tabMatch == "/submit/" %} aria-current="{{ tabCurrent }}"{% endif %}>Add a group</a>
+    <a href="/blog/" class="tab tab-wide-only"{% if tabMatch == "/blog/" %} aria-current="{{ tabCurrent }}"{% endif %}>Blog</a>
+    <a href="/about/" class="tab tab-wide-only"{% if tabMatch == "/about/" %} aria-current="{{ tabCurrent }}"{% endif %}>About</a>
     {#- Phones only: Blog and About don't fit in the row, so they sit under "More". #}
     <div class="tabs-more" id="tabs-more">
-      <button type="button" class="tab tabs-more-btn" aria-expanded="false" aria-controls="tabs-more-menu">More<span aria-hidden="true"> &#9662;</span></button>
+      <button type="button" class="tab tabs-more-btn{% if tabMatch == "/blog/" or tabMatch == "/about/" %} is-current{% endif %}" aria-expanded="false" aria-controls="tabs-more-menu">More<span aria-hidden="true"> &#9662;</span></button>
       <ul class="tabs-more-menu" id="tabs-more-menu" hidden>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/about/">About</a></li>
+        <li><a href="/blog/"{% if tabMatch == "/blog/" %} aria-current="{{ tabCurrent }}"{% endif %}>Blog</a></li>
+        <li><a href="/about/"{% if tabMatch == "/about/" %} aria-current="{{ tabCurrent }}"{% endif %}>About</a></li>
       </ul>
     </div>
   </div>

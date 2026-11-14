@@ -142,7 +142,7 @@ window.vcSearch = (function () {
   }
   function card(g, source) {
     return '<a href="/' + esc(g.s) + '/#' + esc(g.id) + '" class="search-result-card" data-umami-event="click-search-result" data-umami-event-source="' + source + '"' +
-      ' data-group data-g-name="' + esc(g.n) + '" data-g-desc="' + esc(g.d) + '"' +
+      ' data-group aria-haspopup="dialog" data-g-name="' + esc(g.n) + '" data-g-desc="' + esc(g.d) + '"' +
       ' data-g-cat="' + esc(g.c) + '" data-g-slug="' + esc(g.s) + '"' +
       (g.u ? ' data-g-url="' + esc(g.u) + '"' : '') +
       (g.w ? ' data-g-where="' + esc(g.w) + '"' : '') +
@@ -155,7 +155,7 @@ window.vcSearch = (function () {
   // Top CAP results, then a "Show all N" button that reveals the rest.
   function render(el, list, source, showAll) {
     if (!list.length) {
-      el.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>.</p>';
+      el.innerHTML = '<p class="search-empty">Nothing yet — but you could <a href="/blog/start-a-group/">start one</a>, or <a href="/submit/">tell us about one</a>.</p>';
       return;
     }
     var shown = showAll ? list : list.slice(0, CAP);
@@ -180,7 +180,13 @@ window.vcSearch = (function () {
   // Wire a search box to its results element.
   // o: { input, results, source ("homepage" | "masthead") }
   function bind(o) {
-    var searchTimer = null, trackTimer = null, lastCount = 0;
+    var searchTimer = null, trackTimer = null, announceTimer = null, loadingTimer = null, lastCount = 0;
+
+    // Screen readers hear the count once typing settles, not on every keystroke.
+    function announceLater(text, immediate) {
+      clearTimeout(announceTimer);
+      announceTimer = setTimeout(function () { window.announce(text); }, immediate ? 0 : 700);
+    }
 
     // Runs the search. Resolves with the result list, or null if the box was
     // cleared, changed while loading, or the list failed to load.
@@ -188,6 +194,8 @@ window.vcSearch = (function () {
       var q = o.input.value.trim();
       clearTimeout(searchTimer);
       clearTimeout(trackTimer);
+      clearTimeout(announceTimer);
+      clearTimeout(loadingTimer);
       if (!q) {
         o.results.hidden = true;
         o.results.innerHTML = '';
@@ -202,18 +210,30 @@ window.vcSearch = (function () {
       }
       return new Promise(function (resolve) {
         searchTimer = setTimeout(function () {
+          // A slow connection: say so if the list isn't here after a moment.
+          var loaded = false;
+          loadingTimer = setTimeout(function () {
+            if (loaded || o.input.value.trim() !== q) return;
+            o.results.innerHTML = '<p class="search-empty">Loading groups…</p>';
+            o.results.hidden = false;
+          }, 250);
           load().then(function (groups) {
+            loaded = true;
+            clearTimeout(loadingTimer);
             if (o.input.value.trim() !== q) return resolve(null);
             var list = rank(groups, q);
             lastCount = list.length;
             render(o.results, list, o.source, false);
             o.results.hidden = false;
-            window.announce(countText(list.length));
+            announceLater(countText(list.length), immediate);
             resolve(list);
           }, function () {
+            loaded = true;
+            clearTimeout(loadingTimer);
+            if (o.input.value.trim() !== q) return resolve(null);
             o.results.innerHTML = '<p class="search-empty">Search didn’t load. Check your connection and try again.</p>';
             o.results.hidden = false;
-            window.announce('Search didn’t load');
+            announceLater('Search didn’t load', true);
             resolve(null);
           });
         }, immediate ? 0 : 150);
@@ -284,6 +304,11 @@ window.mastheadSearch = (function () {
     panel = document.getElementById('masthead-search-panel');
     window.vcSearch.bind({ input: input, results: panel, source: 'masthead' });
 
+    // aria-expanded follows the panel, whatever opens or closes it.
+    function syncExpanded() { input.setAttribute('aria-expanded', String(!panel.hidden)); }
+    syncExpanded();
+    if (window.MutationObserver) new MutationObserver(syncExpanded).observe(panel, { attributes: true, attributeFilter: ['hidden'] });
+
     // Fetch the list on first focus, so it's usually ready by the first keystroke.
     input.addEventListener('focus', function () {
       window.vcSearch.load().catch(function () {});
@@ -317,75 +342,83 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // --- Instant navigation: fetch HTML, swap only <main> ---
   var pageCache = {};
-  var navigating = false;
+  var navSeq = 0; // the latest click wins; earlier fetches are ignored
+  var currentPath = window.location.pathname;
 
-  // Prefetch into cache on hover
-  document.addEventListener('pointerenter', function(e) {
+  function fetchPage(path) {
+    if (!pageCache[path]) {
+      pageCache[path] = fetch(path)
+        .then(function(r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+        .catch(function(err) { delete pageCache[path]; throw err; });
+    }
+    return pageCache[path];
+  }
+
+  function prefetch(e) {
     if (!e.target || !e.target.closest) return;
     var link = e.target.closest('a[href^="/"]');
     if (!link || link.onclick || link.closest('form')) return;
-    var href = link.getAttribute('href');
-    if (href && !pageCache[href] && href !== window.location.pathname) {
-      pageCache[href] = fetch(href).then(function(r) { return r.text(); });
-    }
-  }, true);
+    var path = (link.getAttribute('href') || '').split('#')[0];
+    if (path && path.indexOf('?') === -1 && path !== window.location.pathname) fetchPage(path).catch(function() {});
+  }
+  // Prefetch into cache on hover, and on pointerdown as a safety net
+  document.addEventListener('pointerenter', prefetch, true);
+  document.addEventListener('pointerdown', prefetch, true);
 
-  // Also on pointerdown as safety net
-  document.addEventListener('pointerdown', function(e) {
-    var link = e.target.closest('a[href^="/"]');
-    if (!link || link.onclick || link.closest('form')) return;
-    var href = link.getAttribute('href');
-    if (href && !pageCache[href] && href !== window.location.pathname) {
-      pageCache[href] = fetch(href).then(function(r) { return r.text(); });
-    }
-  }, true);
+  // Fetch a page and swap it in. push: add a history entry (a click), or not (back/forward).
+  function navigate(path, hash, href, push) {
+    var seq = ++navSeq;
+    document.body.classList.add('is-navigating');
+    fetchPage(path).then(function(html) {
+      if (seq !== navSeq) return;
+      swap(html, path, hash);
+      if (push) {
+        history.pushState(null, '', href);
+        if (typeof umami !== 'undefined' && umami.track) {
+          umami.track(function(props) { return { ...props, url: href }; });
+        }
+      }
+    }).catch(function() {
+      if (seq !== navSeq) return;
+      window.location.href = href;
+    });
+  }
 
   // Intercept clicks on internal links
   document.addEventListener('click', function(e) {
+    if (e.defaultPrevented || e.button !== 0) return;
     var link = e.target.closest('a[href^="/"]');
-    if (!link || e.ctrlKey || e.metaKey || e.shiftKey) return;
+    if (!link || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+    if (link.target && link.target !== '_self') return;
+    if (link.hasAttribute('download')) return;
     var href = link.getAttribute('href');
-    if (!href || href.indexOf('#') === 0) return;
+    if (!href) return;
     // Extract path and hash separately
     var hashIdx = href.indexOf('#');
     var path = hashIdx >= 0 ? href.substring(0, hashIdx) : href;
     var hash = hashIdx >= 0 ? href.substring(hashIdx) : '';
-    if ((!path || path === window.location.pathname) && hash) return; // same-page anchor, let browser handle
-    if (!path || path === window.location.pathname) return;
+    if (path.indexOf('?') !== -1) return; // query pages (e.g. /?q=) load normally
+    if (!path || path === window.location.pathname) return; // same page: let the browser handle it
     if (link.onclick || link.closest('form')) return;
 
     e.preventDefault();
-    if (navigating) return;
-    navigating = true;
-
-    var promise = pageCache[path] || fetch(path).then(function(r) { return r.text(); });
-    pageCache[path] = promise;
-
-    promise.then(function(html) {
-      swap(html, path, hash);
-      history.pushState(null, '', href);
-      if (typeof umami !== 'undefined' && umami.track) {
-        umami.track(function(props) { return { ...props, url: href }; });
-      }
-      navigating = false;
-    }).catch(function() {
-      window.location.href = href;
-    });
+    navigate(path, hash, href, true);
   });
 
-  // Handle browser back/forward
+  // Handle browser back/forward (a hash change on the same page needs no swap)
   window.addEventListener('popstate', function() {
-    var href = window.location.pathname;
-    var promise = pageCache[href] || fetch(href).then(function(r) { return r.text(); });
-    promise.then(function(html) { swap(html, href); });
+    var path = window.location.pathname;
+    if (path === currentPath) return;
+    navigate(path, window.location.hash, path + window.location.search + window.location.hash, false);
   });
 
   function swap(html, href, hash) {
     var doc = new DOMParser().parseFromString(html, 'text/html');
+    currentPath = href;
 
     // Links inside a dialog (e.g. "See all", "Take me there") navigate in place:
     // close any open dialog and release the inert page before swapping.
-    ['group-modal', 'surprise-modal'].forEach(function(id) {
+    ['group-modal', 'surprise-modal', 'verify-toast'].forEach(function(id) {
       var d = document.getElementById(id);
       if (d) d.remove();
     });
@@ -410,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Swap title
     document.title = doc.title;
 
-    // Swap body class (homepage vs category-page)
+    // Swap body class (homepage vs category-page); this also ends is-navigating
     document.body.className = doc.body.className;
 
     // Swap the edit modal if present in new page
@@ -433,19 +466,21 @@ document.addEventListener('DOMContentLoaded', function() {
       s.remove();
     });
 
-    // Close topbar menus after navigation
-    var browseEl = document.getElementById('topbar-browse');
-    if (browseEl) browseEl.classList.remove('open');
-    var mobileMenu = document.getElementById('topbar-mobile-menu');
-    if (mobileMenu) mobileMenu.classList.remove('open');
-
-    // Scroll to hash target or top
-    var scrollTarget = hash && document.getElementById(hash.slice(1));
+    // Scroll to the hash target or the top, and move focus there, so keyboard
+    // and screen-reader users start on the new page, not on the old link.
+    var scrollTarget = null;
+    if (hash) { try { scrollTarget = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (err) {} }
+    var focusTarget = scrollTarget || document.querySelector('main h1');
     if (scrollTarget) {
       scrollTarget.scrollIntoView();
     } else {
       window.scrollTo(0, 0);
     }
+    if (focusTarget) {
+      if (!focusTarget.matches('a[href], button, input, select, textarea, [tabindex]')) focusTarget.setAttribute('tabindex', '-1');
+      focusTarget.focus({ preventScroll: true });
+    }
+    window.announce(document.title);
 
     // Re-init page behaviors (the new path, since pushState hasn't run yet)
     window._navPath = href;
@@ -505,6 +540,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Mark the current section tab (the tab bar sits outside the swapped <main>).
   // Takes the path explicitly: during a swap, location still shows the old page.
   // Category pages have no tab of their own, so they fall back to Directory.
+  // Same values as topbar.njk renders: "page" on the tab's own page,
+  // "true" on a page inside its section (a blog post, a category page).
   function markTabs(path) {
     var tabs = document.querySelectorAll('.tabs a.tab');
     var match = null;
@@ -513,15 +550,16 @@ document.addEventListener('DOMContentLoaded', function() {
       if (href !== '/' && path.indexOf(href) === 0) match = tab;
     });
     if (!match) match = tabs[0];
+    var value = match && path === match.getAttribute('href') ? 'page' : 'true';
     tabs.forEach(function(tab) {
-      if (tab === match) tab.setAttribute('aria-current', 'page');
+      if (tab === match) tab.setAttribute('aria-current', value);
       else tab.removeAttribute('aria-current');
     });
     // Phones: Blog and About live under "More", so mark the match there too.
     var inMore = false;
     document.querySelectorAll('.tabs-more-menu a').forEach(function(a) {
       var current = !!match && a.getAttribute('href') === match.getAttribute('href');
-      if (current) { a.setAttribute('aria-current', 'page'); inMore = true; }
+      if (current) { a.setAttribute('aria-current', value); inMore = true; }
       else a.removeAttribute('aria-current');
     });
     var moreBtn = document.querySelector('.tabs-more-btn');
@@ -557,95 +595,16 @@ document.addEventListener('DOMContentLoaded', function() {
           window.open(visitLink.href, '_blank', 'noopener');
           var category = window.location.pathname.replace(/^\/|\/$/g, '');
           var groupName = h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
-          setTimeout(function() { showVerifyToast(groupName, visitLink.href, category); }, 600);
+          setTimeout(function() { showVerifyToast(groupName, visitLink.href, category, visitLink); }, 600);
         }
         card.addEventListener('click', activateCard);
       }
     });
 
-    // Legacy: Make h2 titles clickable (non-card pages)
-    document.querySelectorAll('.content h2').forEach(function(h2) {
-      if (h2._bound || h2.closest('.group-card')) return;
-      h2._bound = true;
-      var sibling = h2.nextElementSibling;
-      while (sibling && sibling.tagName !== 'H2' && sibling.tagName !== 'HR') {
-        if (sibling.tagName === 'UL') {
-          var extLink = sibling.querySelector('a[href^="http"]');
-          if (extLink) {
-            h2.style.cursor = 'pointer';
-            h2.setAttribute('tabindex', '0');
-            h2.setAttribute('role', 'link');
-            function activateH2(e) {
-              if (e.target.tagName === 'A') return;
-              window.open(extLink.href, '_blank', 'noopener');
-              var category = window.location.pathname.replace(/^\/|\/$/g, '');
-              var groupName = h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
-              setTimeout(function() { showVerifyToast(groupName, extLink.href, category); }, 600);
-            }
-            h2.addEventListener('click', activateH2);
-            h2.addEventListener('keydown', function(e) {
-              if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateH2(e); }
-            });
-            break;
-          }
-        }
-        sibling = sibling.nextElementSibling;
-      }
+    // Group links and "Surprise me" buttons open a dialog
+    document.querySelectorAll('[data-group], [onclick^="goRandom"]').forEach(function(t) {
+      t.setAttribute('aria-haspopup', 'dialog');
     });
-
-    // Show all categories button (mobile)
-    var showAllBtn = document.getElementById('show-all-cats');
-    if (showAllBtn && !showAllBtn._bound) {
-      showAllBtn._bound = true;
-      showAllBtn.addEventListener('click', function() {
-        document.querySelectorAll('.hp-cat-group').forEach(function(g) { g.classList.add('show'); });
-        showAllBtn.style.display = 'none';
-      });
-    }
-
-    // Topbar Browse dropdown
-    var browseEl = document.getElementById('topbar-browse');
-    if (browseEl && !browseEl._bound) {
-      browseEl._bound = true;
-      var browseBtn = browseEl.querySelector('.topbar-browse-btn');
-      browseBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        var isOpen = browseEl.classList.toggle('open');
-        browseBtn.setAttribute('aria-expanded', isOpen);
-      });
-      // Close on outside click
-      document.addEventListener('click', function(e) {
-        if (!browseEl.contains(e.target)) {
-          browseEl.classList.remove('open');
-          browseBtn.setAttribute('aria-expanded', 'false');
-        }
-      });
-      // Close on Escape
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && browseEl.classList.contains('open')) {
-          browseEl.classList.remove('open');
-          browseBtn.setAttribute('aria-expanded', 'false');
-          browseBtn.focus();
-        }
-      });
-    }
-
-    // Topbar mobile hamburger
-    var hamburger = document.getElementById('topbar-hamburger');
-    var mobileMenu = document.getElementById('topbar-mobile-menu');
-    if (hamburger && mobileMenu && !hamburger._bound) {
-      hamburger._bound = true;
-      hamburger.addEventListener('click', function() {
-        var isOpen = mobileMenu.classList.toggle('open');
-        hamburger.setAttribute('aria-expanded', isOpen);
-      });
-    }
-
-    // Close mobile menu after page swap
-    if (mobileMenu && mobileMenu.classList.contains('open')) {
-      mobileMenu.classList.remove('open');
-      if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
-    }
 
     // Newsletter signup
     document.querySelectorAll('.newsletter-form').forEach(function(form) {
@@ -653,39 +612,51 @@ document.addEventListener('DOMContentLoaded', function() {
       form._bound = true;
       form.addEventListener('submit', function(e) {
         e.preventDefault();
+        // Busy guard instead of disabling the button, so focus stays on it.
+        if (form._busy) return;
         var input = form.querySelector('.newsletter-input');
         var btn = form.querySelector('.newsletter-btn');
-        var btnLabel = btn.textContent;
         // Status span might be inside the form's parent container (not inside the form itself)
         var container = form.closest('.hp-newsletter, .category-newsletter, .newsletter-card') || form.parentElement;
         var status = container.querySelector('.newsletter-status');
         var email = input.value.trim();
         if (!email) return;
-        btn.disabled = true;
+        function say(kind, text) {
+          if (status) {
+            status.className = 'newsletter-status' + (kind ? ' ' + kind : '');
+            status.textContent = text;
+          }
+          if (text) window.announce(text);
+        }
+        say('', '');
+        form._busy = true;
+        var btnLabel = btn.textContent;
+        btn.setAttribute('aria-disabled', 'true');
         btn.textContent = 'Subscribing...';
         var source = window.location.pathname.replace(/^\/|\/$/g, '') || 'homepage';
         fetch('https://vancouver-community-newsletter.recipekit.workers.dev/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email, source: source })
-        }).then(function(r) { return r.json(); }).then(function(data) {
-          if (data.success) {
-            if (status) {
-              status.className = 'newsletter-status success';
-              status.textContent = "You're in! We'll be in touch.";
-            }
+        }).then(function(r) {
+          // A non-JSON reply (an error page) counts as a server error.
+          return r.json().catch(function() { return {}; }).then(function(data) {
+            return { ok: r.ok, data: data || {} };
+          });
+        }).then(function(res) {
+          if (res.ok && res.data.success) {
+            say('success', "You're in! We'll be in touch.");
             input.value = '';
             if (typeof umami !== 'undefined') umami.track('newsletter-signup', { source: source });
           } else {
-            throw new Error(data.error || 'Something went wrong');
+            var serverMsg = typeof res.data.error === 'string' && res.data.error.trim();
+            say('error', serverMsg || 'Could not subscribe just now. Try again, or email vancouver@bolle.co.');
           }
-        }).catch(function(err) {
-          if (status) {
-            status.className = 'newsletter-status error';
-            status.textContent = err.message || 'Could not subscribe. Try again?';
-          }
-        }).finally(function() {
-          btn.disabled = false;
+        }, function() {
+          say('error', 'Could not reach the server. Check your connection and try again.');
+        }).then(function() {
+          form._busy = false;
+          btn.removeAttribute('aria-disabled');
           btn.textContent = btnLabel;
         });
       });
@@ -702,39 +673,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Card layout: "Visit →" links
     var card = link.closest('.group-card');
     if (card && link.classList.contains('group-card-link')) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
       e.preventDefault();
       window.open(link.href, '_blank', 'noopener');
       var h2 = card.querySelector('h3');
       var groupName = h2 ? h2.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim() : '';
       if (groupName) {
         var category = window.location.pathname.replace(/^\/|\/$/g, '');
-        setTimeout(function() { showVerifyToast(groupName, link.href, category); }, 600);
-      }
-      return;
-    }
-
-    // Legacy: "Find it" links (links inside list items in content)
-    var li = link.closest('li');
-    if (!li) return;
-
-    var groupName = '';
-    var el = li.closest('ul');
-    while (el && el.previousElementSibling) {
-      el = el.previousElementSibling;
-      if (el.tagName === 'H2') {
-        groupName = el.textContent.replace(/\s*\(opens in new tab\)/, '').replace(/\s*#\s*$/, '').trim();
-        break;
+        setTimeout(function() { showVerifyToast(groupName, link.href, category, link); }, 600);
       }
     }
-    if (!groupName) return;
-
-    e.preventDefault();
-    window.open(link.href, '_blank', 'noopener');
-
-    var category = window.location.pathname.replace(/^\/|\/$/g, '');
-    setTimeout(function() {
-      showVerifyToast(groupName, link.href, category);
-    }, 600);
   });
 
   function escapeHtml(str) {
@@ -743,15 +691,27 @@ document.addEventListener('DOMContentLoaded', function() {
     return el.innerHTML;
   }
 
-  function showVerifyToast(groupName, url, category) {
+  // One Escape listener for the toast, added once. It only closes the toast
+  // when nothing above it handled the key (an open dialog, the search panel).
+  document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape' || e.defaultPrevented) return;
+    var toast = document.getElementById('verify-toast');
+    if (!toast || toast._dismissed) return;
+    if (document.querySelector('#group-modal, #surprise-modal, .edit-modal[style*="block"]')) return;
+    dismissToast(toast);
+  });
+
+  // returnTo: where focus goes if it is inside the toast when the toast closes.
+  function showVerifyToast(groupName, url, category, returnTo) {
     // Remove any existing toast
     var existing = document.getElementById('verify-toast');
-    if (existing) existing.remove();
+    if (existing) { clearTimeout(existing._timer); existing.remove(); }
 
     var safeName = escapeHtml(groupName);
     var toast = document.createElement('div');
     toast.id = 'verify-toast';
     toast.className = 'verify-toast';
+    toast._returnTo = returnTo || null;
     toast.setAttribute('role', 'region');
     toast.setAttribute('aria-label', 'Check this listing: ' + groupName);
     toast.innerHTML =
@@ -759,14 +719,16 @@ document.addEventListener('DOMContentLoaded', function() {
         '<p class="verify-toast-question">Anything wrong with <strong>' + safeName + '</strong>?</p>' +
         '<p class="verify-toast-subtitle">Dead link, wrong info, closed group — anything helps.</p>' +
         '<div class="verify-toast-actions">' +
-          '<button class="verify-btn verify-btn-yes" data-status="active">Looks good</button>' +
-          '<button class="verify-btn verify-btn-no" data-status="issue">Report an issue</button>' +
-          '<button class="verify-btn verify-btn-dismiss" aria-label="Dismiss">&times;</button>' +
+          '<button type="button" class="verify-btn verify-btn-yes" data-status="active">Looks good</button>' +
+          '<button type="button" class="verify-btn verify-btn-no" data-status="issue">Report an issue</button>' +
+          '<button type="button" class="verify-btn verify-btn-dismiss" aria-label="Dismiss">&times;</button>' +
         '</div>' +
         '<div class="verify-toast-detail" style="display:none">' +
-          '<input type="text" class="verify-detail-input" aria-label="What is wrong with ' + safeName.replace(/"/g, '&quot;') + '?" placeholder="e.g. link is broken, wrong meeting time, group shut down">' +
-          '<button class="verify-btn verify-btn-send">Send</button>' +
+          '<input type="text" class="verify-detail-input" aria-label="What is wrong with ' + safeName.replace(/"/g, '&quot;') + '?" aria-describedby="verify-toast-hint" placeholder="e.g. link is broken, wrong meeting time, group shut down">' +
+          '<button type="button" class="verify-btn verify-btn-send">Send</button>' +
+          '<button type="button" class="verify-btn verify-btn-cancel">Cancel</button>' +
         '</div>' +
+        '<p class="verify-toast-subtitle verify-toast-hint" id="verify-toast-hint" hidden>Tell us what’s wrong first, or choose Cancel.</p>' +
       '</div>';
 
     document.body.appendChild(toast);
@@ -777,10 +739,17 @@ document.addEventListener('DOMContentLoaded', function() {
       toast.classList.add('visible');
     });
 
-    // Dismiss on X button
-    toast.querySelector('.verify-btn-dismiss').addEventListener('click', function() {
-      dismissToast(toast);
-    });
+    // Auto-dismiss after 15 seconds, unless the reader starts using the toast.
+    toast._timer = setTimeout(function() { dismissToast(toast); }, 15000);
+    function hold() { clearTimeout(toast._timer); }
+    toast.addEventListener('focusin', hold);
+    toast.addEventListener('pointerenter', hold);
+    toast.addEventListener('keydown', hold);
+    toast.addEventListener('click', hold);
+
+    // Dismiss on X button (and Cancel in the "Report an issue" view)
+    toast.querySelector('.verify-btn-dismiss').addEventListener('click', function() { dismissToast(toast); });
+    toast.querySelector('.verify-btn-cancel').addEventListener('click', function() { dismissToast(toast); });
 
     // "Looks good" — quick positive signal
     toast.querySelector('.verify-btn-yes').addEventListener('click', function() {
@@ -795,47 +764,66 @@ document.addEventListener('DOMContentLoaded', function() {
       toast.querySelector('.verify-detail-input').focus();
     });
 
+    var input = toast.querySelector('.verify-detail-input');
+    var hint = toast.querySelector('.verify-toast-hint');
+    function clearHint() {
+      hint.hidden = true;
+      input.removeAttribute('aria-invalid');
+    }
+    input.addEventListener('input', clearHint);
+
     // Send detail
     toast.querySelector('.verify-btn-send').addEventListener('click', function() {
-      var input = toast.querySelector('.verify-detail-input');
       var detail = input.value.trim();
-      if (!detail) { input.focus(); return; }
+      if (!detail) {
+        hint.hidden = false;
+        input.setAttribute('aria-invalid', 'true');
+        window.announce(hint.textContent);
+        input.focus();
+        return;
+      }
       sendVerification(groupName, url, category, 'issue', detail);
       showToastThanks(toast);
     });
 
     // Also submit on Enter in the detail input
-    toast.querySelector('.verify-detail-input').addEventListener('keydown', function(e) {
+    input.addEventListener('keydown', function(e) {
       if (e.key === 'Enter') {
+        e.preventDefault();
         toast.querySelector('.verify-btn-send').click();
       }
     });
-
-    // Escape key to dismiss
-    function onEscape(e) {
-      if (e.key === 'Escape') { dismissToast(toast); document.removeEventListener('keydown', onEscape); }
-    }
-    document.addEventListener('keydown', onEscape);
-
-    // Auto-dismiss after 15 seconds if no interaction
-    var autoDismiss = setTimeout(function() { dismissToast(toast); }, 15000);
-    toast.querySelector('.verify-toast-inner').addEventListener('click', function() { clearTimeout(autoDismiss); });
   }
 
   function showToastThanks(toast) {
     var category = window.location.pathname.replace(/^\/|\/$/g, '') || 'homepage';
     var inner = toast.querySelector('.verify-toast-inner');
+    var thanks = 'Thanks, that helps keep this list accurate.';
     inner.innerHTML =
-      '<p class="verify-toast-thanks">Thanks, that helps keep this list accurate.</p>' +
-      '<div class="verify-toast-funnel">' +
+      '<p class="verify-toast-thanks" tabindex="-1">' + thanks + '</p>' +
+      '<div class="verify-toast-funnel verify-toast-actions">' +
         '<a href="#" class="verify-funnel-link" onclick="sharePage(\'' + category + '-verify\', this); return false;">Tell a friend about this list</a>' +
+        '<button type="button" class="verify-btn verify-btn-dismiss" aria-label="Dismiss">&times;</button>' +
       '</div>';
+    inner.querySelector('.verify-btn-dismiss').addEventListener('click', function() { dismissToast(toast); });
 
-    var autoDismiss = setTimeout(function() { dismissToast(toast); }, 5000);
-    inner.addEventListener('click', function() { clearTimeout(autoDismiss); });
+    // Focus the message (the button that was clicked is gone). The reader is
+    // now inside the toast, so it stays until they dismiss it.
+    clearTimeout(toast._timer);
+    inner.querySelector('.verify-toast-thanks').focus();
+    window.announce(thanks);
   }
 
   function dismissToast(toast) {
+    if (toast._dismissed) return;
+    toast._dismissed = true;
+    clearTimeout(toast._timer);
+    // Don't strand focus on a toast that is about to go away.
+    if (toast.contains(document.activeElement)) {
+      var back = toast._returnTo;
+      if (back && back.isConnected && back.focus) back.focus();
+      else document.activeElement.blur();
+    }
     toast.classList.remove('visible');
     setTimeout(function() { toast.remove(); }, 300);
   }
@@ -877,12 +865,16 @@ document.addEventListener('DOMContentLoaded', function() {
     m.classList.remove("visible");
     document.body.classList.remove("modal-open");
     window.a11yDialog.close(m);
+    m.id = ""; // fading out: no longer "the" open modal
     setTimeout(function () { if (m.parentNode) m.remove(); }, 180);
-    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
+    if (lastFocus && lastFocus.isConnected && lastFocus.focus) lastFocus.focus();
+    lastFocus = null;
   }
 
-  window.openGroupModal = function (g) {
-    lastFocus = document.activeElement;
+  // trigger: the link that opened the modal. Safari doesn't focus links on
+  // click, so document.activeElement can't be trusted to return focus to.
+  window.openGroupModal = function (g, trigger) {
+    lastFocus = trigger || document.activeElement;
     var existing = document.getElementById("group-modal");
     if (existing) existing.remove();
 
@@ -894,18 +886,19 @@ document.addEventListener('DOMContentLoaded', function() {
     m.className = "group-modal";
     m.setAttribute("role", "dialog");
     m.setAttribute("aria-modal", "true");
-    m.setAttribute("aria-label", g.name || "Group details");
+    m.setAttribute("aria-labelledby", "group-modal-name");
+    if (g.desc) m.setAttribute("aria-describedby", "group-modal-desc");
     m.setAttribute("tabindex", "-1");
 
     var html = '<div class="group-modal-inner">';
-    html += '<button class="group-modal-close" aria-label="Close">&times;</button>';
+    html += '<button type="button" class="group-modal-close" aria-label="Close">&times;</button>';
     if (g.cat) {
       html += '<a class="group-modal-cat" href="/' + esc(g.slug) + '/">' + esc(g.cat) + '</a>';
     }
-    html += '<h2 class="group-modal-name">' + esc(g.name) + '</h2>';
+    html += '<h2 class="group-modal-name" id="group-modal-name">' + esc(g.name || "Group details") + '</h2>';
     if (g.badge) html += '<span class="group-modal-badge">' + esc(g.badge) + '</span>';
-    if (g.desc) html += '<p class="group-modal-desc">' + esc(g.desc) + '</p>';
-    if (g.where) html += '<p class="group-modal-where">\uD83D\uDCCD ' + esc(g.where) + '</p>';
+    if (g.desc) html += '<p class="group-modal-desc" id="group-modal-desc">' + esc(g.desc) + '</p>';
+    if (g.where) html += '<p class="group-modal-where">Where: ' + esc(g.where) + '</p>';
     if (g.when) html += '<p class="group-modal-where">When: ' + esc(g.when) + '</p>';
     if (g.cost) html += '<p class="group-modal-where">Cost: ' + esc(g.cost) + '</p>';
     html += '<div class="group-modal-actions">';
@@ -937,6 +930,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (e.target.closest('a[target="_blank"]')) return;
     var t = e.target.closest("[data-group]");
     if (!t) return;
+    // Ctrl/Cmd/Shift-click or a middle click: let the link open normally.
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
     e.preventDefault();
     e.stopImmediatePropagation();
     window.openGroupModal({
@@ -949,10 +944,13 @@ document.addEventListener('DOMContentLoaded', function() {
       when: t.getAttribute("data-g-when"),
       cost: t.getAttribute("data-g-cost"),
       badge: t.getAttribute("data-g-badge")
-    });
+    }, t);
   }, true);
 
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && document.getElementById("group-modal")) close();
+    if (e.key === "Escape" && document.getElementById("group-modal")) {
+      e.preventDefault(); // the toast's Escape listener leaves it alone
+      close();
+    }
   });
 })();
