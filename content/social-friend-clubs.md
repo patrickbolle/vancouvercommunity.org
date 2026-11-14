@@ -102,6 +102,21 @@ order: 2
 - **Size:** 15,000+ members
 - **Find it:** [meetup.com/vancouver-pub-nights](https://www.meetup.com/vancouver-pub-nights/)
 
+## Urban Minglers over 30
+- **What:** Downtown social group for people over 30, with regular "Mingle 45+" meetups for making new friends. Also happy hours, dance nights and outings
+- **Where:** Downtown Vancouver
+- **Find it:** [meetup.com/urbanminglersover30](https://www.meetup.com/urbanminglersover30/)
+
+## 411 Seniors Centre Society
+- **What:** "The go-to hub for older adults." A drop-in centre for older adults with activities, events and committees. Volunteers and staff welcome you in person on weekdays
+- **Where:** 3502 Fraser St
+- **Find it:** [411seniors.org](https://411seniors.org/)
+
+## Seniors' Socials at Community Centres
+- **What:** Low-cost socials for older adults: Seniors' Social and Games at Marpole (50+), the Fall Seniors Social at Killarney, free mah jong drop-ins at Hastings (55+) and karaoke drop-ins at Sunset (50+)
+- **Where:** Community centres across Vancouver
+- **Find it:** [Vancouver Recreation: seniors social](https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&activity_keyword=seniors%20social&viewMode=list)
+
 ## {{ mutuals.name }}
 - **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready

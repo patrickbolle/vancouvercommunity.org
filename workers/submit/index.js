@@ -62,7 +62,10 @@ const CATEGORY_FILES = {
   "community-gardens": "content/community-gardens.md",
   "birdwatching": "content/birdwatching.md",
   "karaoke": "content/karaoke.md",
-  "resources": "content/resources.md"
+  "resources": "content/resources.md",
+  "theatre-acting": "content/theatre-acting.md",
+  "dogs": "content/dogs.md",
+  "circus-flow": "content/circus-flow.md"
 };
 
 const corsHeaders = {

@@ -21,6 +21,18 @@ order: 1
 - **Size:** 1,900+ members
 - **Find it:** [meetup.com/kadampa-meditation-centre-vancouver](https://www.meetup.com/kadampa-meditation-centre-vancouver/)
 
+## Vancouver Laughter Yoga
+- **What:** Breathing, gentle movement and a lot of laughing, led by certified laughter leaders. No mat or flexibility needed. Outdoors in summer, indoors the rest of the year
+- **When:** Sundays
+- **Where:** iDance Mt Pleasant (Dude Chilling Park in summer)
+- **Find it:** [meetup.com/vancouver-laughter-meetup](https://www.meetup.com/vancouver-laughter-meetup/)
+
+## Stanley Park Yoga in the Park
+- **What:** By-donation outdoor yoga for all levels on the Acre Lawn, run by the Stanley Park Ecology Society. Suggested donation $5
+- **When:** Thursday evenings, May to August
+- **Where:** Stanley Park
+- **Find it:** [stanleypark.org](https://www.stanleypark.org/events/yoga-in-the-park)
+
 ---
 
 ## Venues & Spaces
