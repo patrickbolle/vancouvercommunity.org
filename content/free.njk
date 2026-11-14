@@ -71,10 +71,12 @@ eleventyExcludeFromCollections: true
 <main id="main-content">
   <div class="cat-hero">
     <div class="start-hero-wrap">
-      <div class="breadcrumbs">
-        <a href="/">Home</a> <span>&rsaquo;</span>
-        <span class="breadcrumb-current">Free things to do</span>
-      </div>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Directory</a></li>
+          <li><span class="breadcrumb-current" aria-current="page">Free things to do</span></li>
+        </ol>
+      </nav>
       <h1 class="cat-title">{{ freeCount }}+ free things to do in Vancouver</h1>
       <p class="cat-desc">Meeting people in this city doesn't have to cost anything. Every group below is explicitly free — no membership, no drop-in fee, no gear list. Just show up. (Plenty more groups are cheap or donation-based; these are the ones that cost exactly zero.)</p>
     </div>
@@ -114,9 +116,8 @@ eleventyExcludeFromCollections: true
     {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "free" %}{% set sponsorDemo = false %}{% set sponsorPitch = "People on this page want something to do this week. Put your class, event or space in front of them." %}
     {% include "partials/sponsor-card.njk" %}
   </div>
-
-  {% include "partials/footer.njk" %}
 </main>
+{% include "partials/footer.njk" %}
 {% include "partials/scripts.njk" %}
 </body>
 </html>

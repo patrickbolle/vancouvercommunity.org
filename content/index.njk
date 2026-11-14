@@ -79,7 +79,7 @@ permalink: /
         <form class="search" role="search" id="homepage-search-form" action="/" method="get">
           <label for="homepage-group-search" class="visually-hidden">Search the directory</label>
           <input type="search" id="homepage-group-search" class="search-input" name="q" placeholder="Search {{ totalGroups }}+ groups: hiking, chess, supper club…" autocomplete="off" data-umami-event="homepage-search">
-          <button type="submit" class="search-btn">Search</button>
+          <button type="submit" class="search-btn search-btn-primary">Search</button>
         </form>
         <p class="search-popular">Popular:
           <a href="/run-clubs/">run clubs</a> &middot;
@@ -92,13 +92,13 @@ permalink: /
 
         <div id="homepage-browse-content">
           <section class="panel" id="categories">
-            <h2 class="panel-title">Browse {{ totalGroups }}+ groups</h2>
+            <h2 class="panel-title">Browse by category</h2>
             <div class="panel-body">
-              {#- Categories with `added:` front matter in the last 21 days. Renders nothing when none qualify. #}
-              {%- set newCats = collections.categories | newCategories(21) %}
+              {#- Categories with `added:` front matter in the last 21 days, newest 6 only. Renders nothing when none qualify. #}
+              {%- set newCats = (collections.categories | newCategories(21)).slice(0, 6) %}
               {%- if newCats.length %}
               <div class="directory-new">
-                <h3 class="directory-new-title">Just added</h3>
+                <h3 class="directory-new-title">New lists</h3>
                 <ul class="directory-new-list">
                   {%- for cat in newCats %}
                   <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}" data-umami-event-source="new">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
@@ -107,21 +107,21 @@ permalink: /
               </div>
               {%- endif %}
               <div class="directory">
-                {#- Each section shows its 4 biggest categories; the rest sit behind a native <details>. #}
+                {#- Each section shows its 5 biggest categories; the rest sit behind a native <details>. #}
                 {%- for group in groups %}
                 {%- set sectionCats = collections.categories | sectionCategories(group.key) %}
                 <div class="directory-group" id="group-{{ group.key }}">
                   <h3 class="directory-heading"><img class="pixel-icon" src="/icons/{{ group.key }}.svg" width="16" height="16" alt="">{{ group.label | ampEscape | safe }}</h3>
                   <ul class="directory-list">
-                    {%- for cat in sectionCats.slice(0, 4) %}
+                    {%- for cat in sectionCats.slice(0, 5) %}
                     <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
                     {%- endfor %}
                   </ul>
-                  {%- if sectionCats.length > 4 %}
+                  {%- if sectionCats.length > 5 %}
                   <details class="directory-more">
-                    <summary><span class="directory-more-closed">+{{ sectionCats.length - 4 }} more</span><span class="directory-more-open">Show fewer</span><span class="visually-hidden"> in {{ group.label | ampEscape | safe }}</span></summary>
+                    <summary><span class="directory-more-closed">+{{ sectionCats.length - 5 }} more</span><span class="directory-more-open">Show fewer</span><span class="visually-hidden"> in {{ group.label | ampEscape | safe }}</span></summary>
                     <ul class="directory-list">
-                      {%- for cat in sectionCats.slice(4) %}
+                      {%- for cat in sectionCats.slice(5) %}
                       <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
                       {%- endfor %}
                     </ul>
@@ -139,7 +139,7 @@ permalink: /
               <img src="/patrick-face.jpg" alt="Patrick Bollenbach" class="note-photo" width="56" height="56" loading="lazy">
               <p>Vancouver can feel like a hard city to make friends. I built this directory to help.</p>
               <p>I add new groups every week. Know one I'm missing? <a href="/submit/" data-umami-event="click-submit-cta" data-umami-event-source="homepage-note">Tell me about it</a>.</p>
-              <p class="panel-links"><a href="/about/">Why I made this &rarr;</a></p>
+              <p class="panel-links"><a href="/about/">Why I made this <span aria-hidden="true">&rarr;</span></a></p>
             </div>
           </section>
 
@@ -157,7 +157,7 @@ permalink: /
 
         {%- if recentGroups.length > 0 %}
         <section class="panel">
-          <h2 class="panel-title">Recently added</h2>
+          <h2 class="panel-title">New groups</h2>
           <ul class="panel-body link-list">
             {%- for group in recentGroups %}
             <li>
@@ -186,7 +186,7 @@ permalink: /
               <li><a href="/blog/{{ g[0] }}/" data-umami-event="click-guide" data-umami-event-source="homepage">{{ g[1] }}</a></li>
               {%- endfor %}
             </ul>
-            <p class="panel-links"><a href="/blog/">All {{ collections.posts.length - 1 }} guides &rarr;</a></p>
+            <p class="panel-links"><a href="/blog/">All {{ collections.posts.length - 1 }} guides <span aria-hidden="true">&rarr;</span></a></p>
           </div>
         </section>
 
@@ -194,9 +194,8 @@ permalink: /
       </aside>
     </div>
   </div>
-
-  {% include "partials/footer.njk" %}
 </main>
+{% include "partials/footer.njk" %}
 <script>
 var _searchGroups = [
 {%- for cat in collections.categories -%}

@@ -64,7 +64,9 @@ order: 5
 
 ---
 
-## 📋 Directories
+## Venues & Resources
+
+Other trivia listings:
 
 - [vancouverpubquiz.blogspot.com](http://vancouverpubquiz.blogspot.com/p/the-master-list.html) — master list
 - [badslava.com](https://badslava.com/trivia-nights.php?city=Vancouver&state=BC)

@@ -6,8 +6,8 @@
       sponsorDemo   true on /advertise/ (an example: no tracking, no real link)
 -#}
 {%- if sponsorData and sponsorData.name %}
-<aside class="panel sponsor" aria-label="Community sponsor: {{ sponsorData.name }}">
-  <h2 class="panel-title sponsor-title">Community sponsor <span class="sponsor-tag">Ad</span></h2>
+<section class="panel sponsor" aria-label="Community sponsor: {{ sponsorData.name }}">
+  <h2 class="panel-title sponsor-title">Community sponsor<span class="visually-hidden">:</span> <span class="sponsor-tag">Ad</span></h2>
   <div class="panel-body">
     <p class="sponsor-name">{{ sponsorData.name }}</p>
     {%- if sponsorData.where %}<p class="sponsor-where">{{ sponsorData.where }}</p>{% endif %}
@@ -15,19 +15,19 @@
     {%- if sponsorDemo %}
     <span class="sponsor-btn" aria-hidden="true">{{ sponsorData.cta or "Visit" }} &rarr;</span>
     {%- else %}
-    <a class="sponsor-btn" href="{{ sponsorData.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ sponsorSlot }}">{{ sponsorData.cta or "Visit" }} &rarr;</a>
+    <a class="sponsor-btn" href="{{ sponsorData.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ sponsorSlot }}">{{ sponsorData.cta or "Visit" }} <span aria-hidden="true">&rarr;</span></a>
     {%- endif %}
   </div>
-</aside>
+</section>
 {%- else %}
-<aside class="panel sponsor sponsor-open" aria-label="Sponsor slot available">
-  <h2 class="panel-title sponsor-title">Community sponsor <span class="sponsor-tag">Open</span></h2>
+<section class="panel sponsor sponsor-open" aria-label="Sponsor slot available">
+  <h2 class="panel-title sponsor-title">Community sponsor<span class="visually-hidden"> slot:</span> <span class="sponsor-tag">Open</span></h2>
   <div class="panel-body">
     <div class="sponsor-open-box">
       <p class="sponsor-name">Your business here</p>
       <p class="sponsor-desc">{{ sponsorPitch or "Reach Vancouver people looking for their next group, class or hangout. Community listings stay free; sponsors keep it that way." }}</p>
-      <a class="sponsor-open-link" href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ sponsorSlot }}">See sponsorship options &rarr;</a>
+      <a class="sponsor-open-link" href="/advertise/" data-umami-event="click-advertise" data-umami-event-source="{{ sponsorSlot }}">See sponsorship options <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
-</aside>
+</section>
 {%- endif %}

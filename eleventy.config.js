@@ -246,7 +246,7 @@ module.exports = function (eleventyConfig) {
         var c = '<div class="group-card" id="' + id + '">';
         c += '<div class="group-card-header">';
         c += url
-          ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" data-umami-event="outbound-link">' + name + "</a></h3>"
+          ? '<h3><a href="' + url + '" class="group-card-link" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab-note" data-umami-event="outbound-link">' + name + "</a></h3>"
           : "<h3>" + name + "</h3>";
         c += '<a class="group-card-share" href="#' + id + '" onclick="return shareGroup(this)"' +
           ' data-umami-event="click-share" data-umami-event-source="card" data-umami-event-group="' + plainName + '">' +
@@ -378,6 +378,9 @@ module.exports = function (eleventyConfig) {
       /(<a\b[^>]*\btarget="_blank"[^>]*>)([\s\S]*?)(<\/a>)/g,
       function (m, open, inner, close) {
         if (inner.indexOf("opens in new tab") !== -1) return m;
+        // Group card names point at one shared hidden note (aria-describedby="new-tab-note")
+        // instead, so the h3 text stays just the name in the headings list.
+        if (/\baria-describedby="new-tab-note"/.test(open)) return m;
         return open + inner + '<span class="visually-hidden"> (opens in new tab)</span>' + close;
       }
     );

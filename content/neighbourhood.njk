@@ -64,11 +64,13 @@ eleventyExcludeFromCollections: true
 <main id="main-content">
   <div class="cat-hero">
     <div class="prose-hero-wrap">
-      <div class="breadcrumbs">
-        <a href="/">Home</a> <span>&rsaquo;</span>
-        <a href="/neighbourhoods/">Neighbourhoods</a> <span>&rsaquo;</span>
-        <span class="breadcrumb-current">{{ hood.name }}</span>
-      </div>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Directory</a></li>
+          <li><a href="/neighbourhoods/">Neighbourhoods</a></li>
+          <li><span class="breadcrumb-current" aria-current="page">{{ hood.name }}</span></li>
+        </ol>
+      </nav>
       <h1 class="cat-title">Things to do in {{ hood.name }}</h1>
       <p class="cat-desc">{{ hood.tagline }}</p>
     </div>
@@ -114,9 +116,8 @@ eleventyExcludeFromCollections: true
     {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "neighbourhood" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach people looking for things to do in this neighbourhood. Clearly labelled, one sponsor at a time." %}
     {% include "partials/sponsor-card.njk" %}
   </div>
-
-  {% include "partials/footer.njk" %}
 </main>
+{% include "partials/footer.njk" %}
 {% include "partials/scripts.njk" %}
 </body>
 </html>
