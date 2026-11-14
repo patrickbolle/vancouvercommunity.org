@@ -54,7 +54,8 @@ const CATEGORY_FILES = {
   "foraging-nature": "content/foraging-nature.md",
   "birdwatching": "content/birdwatching.md",
   "karaoke": "content/karaoke.md",
-  "resources": "content/resources.md"
+  "resources": "content/resources.md",
+  "theatre-acting": "content/theatre-acting.md"
 };
 
 const corsHeaders = {
