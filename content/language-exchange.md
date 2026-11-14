@@ -2,7 +2,7 @@
 layout: category
 tags: category
 title: "Language Exchange"
-description: "9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, and ESL conversation clubs."
+description: "9 language exchange groups — Chinese, Spanish, Japanese, Korean, French, Russian, and ESL conversation clubs."
 emoji: "🗣️"
 group: social
 order: 3
@@ -47,6 +47,20 @@ order: 3
 ## An Effective Chit-chat Meeting
 - **What:** Casual conversation practice, English/Japanese focus. Low-pressure, social, run by software engineer
 - **Find it:** [meetup.com/an-effective-language-practice-english-japanese](https://meetup.com/an-effective-language-practice-english-japanese)
+
+## Russian English Language Exchange
+- **What:** Russian and English speakers meet over coffee to practise both languages. All levels welcome. The organiser is a Russian beginner too, so nobody needs to feel shy
+- **Where:** Waves Coffee House, 492 W Hastings St
+- **Find it:** [meetup.com/vancouver_russian](https://www.meetup.com/vancouver_russian/)
+
+## Russian Speaking Conversation & Adventure
+- **What:** A long-running group for Russian speakers who want to make friends in their own language. Hikes, Grouse Grinds, films, concerts and ski trips, all in Russian. English-speaking guests are welcome if a friend translates
+- **Find it:** [meetup.com/russian-speaking-vancouverites](https://www.meetup.com/russian-speaking-vancouverites/)
+
+## Russian Vancouver Book Club
+- **What:** Book discussions held in Russian over coffee. Read the book in any language you like. Native speakers and learners both welcome
+- **Where:** Chez Nous French Bakery, 1262 Homer St
+- **Find it:** [meetup.com/russian-vancouver-book-club](https://www.meetup.com/russian-vancouver-book-club/)
 
 ---
 
