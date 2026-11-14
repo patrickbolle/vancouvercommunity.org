@@ -54,6 +54,7 @@ const CATEGORY_FILES = {
   "foraging-nature": "content/foraging-nature.md",
   "birdwatching": "content/birdwatching.md",
   "karaoke": "content/karaoke.md",
+  "choirs": "content/choirs.md",
   "resources": "content/resources.md"
 };
 
