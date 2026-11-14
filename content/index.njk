@@ -129,6 +129,7 @@ permalink: /
         {#- The sister-site ad sits first so it's visible without scrolling. #}
         {%- set promoVariant = "feature" %}{% set promoPlacement = "homepage" %}{% set promoHeading = "" %}{% set promoBody = "" %}
         {% include "partials/mutuals-promo.njk" %}
+        {% include "partials/banner-sidebar.njk" %}
 
         {%- if recentGroups.length > 0 %}
         <section class="panel">

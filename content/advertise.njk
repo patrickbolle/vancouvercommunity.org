@@ -34,13 +34,13 @@ eleventyExcludeFromCollections: true
   <div class="page-content prose-content">
 
     <div class="advertise-stats">
-      <div class="advertise-stat"><strong>~2,500</strong><span>visits a month, and climbing</span></div>
+      <div class="advertise-stat"><strong>~3,800</strong><span>visits a month, and climbing</span></div>
       <div class="advertise-stat"><strong>40+</strong><span>niche categories</span></div>
       <div class="advertise-stat"><strong>~100%</strong><span>from people actively searching</span></div>
     </div>
 
     <h2>This is what you get</h2>
-    <p>Not a banner. A featured card at the top of your category page — the same clean style as everything else on the site, so it reads as a recommendation, not an ad. Here's exactly how it looks:</p>
+    <p>Two ways to show up. A <strong>sponsor card</strong> sits at the top of your category page, in the same style as everything else on the site. Here's exactly how it looks:</p>
 
     <div class="advertise-mockup">
       {%- set sponsorData = { name: "Clayground Studio", where: "Mount Pleasant", description: "Drop-in wheel nights and 6-week beginner courses. First class is on us.", cta: "See class times" } %}
@@ -48,6 +48,13 @@ eleventyExcludeFromCollections: true
       {% include "partials/sponsor-card.njk" %}
       <p class="advertise-mockup-cap">An example — your name, a short description you approve, and one link. Always marked "Community sponsor" and "Ad."</p>
     </div>
+
+    <p>A <strong>banner</strong> is your own image. Put one between the listings on a category page, or in the sidebar on every page.</p>
+    <div class="advertise-mockup advertise-banners" aria-hidden="true">
+      <div class="advertise-banner-demo advertise-banner-wide">Category banner<br><span>1200&times;300 image</span></div>
+      <div class="advertise-banner-demo advertise-banner-box">Sidebar banner<br><span>600&times;500 image</span></div>
+    </div>
+    <p class="advertise-mockup-cap">Banners are always marked "Ad". Send a PNG or JPG, or ask and I'll make a simple one in the site's style.</p>
 
     <h2>Where it shows</h2>
     <div class="advertise-tiers">
@@ -60,7 +67,27 @@ eleventyExcludeFromCollections: true
           <li>One sponsor per category, ever. No bidding wars, no rotation</li>
           <li>A welcome mention in the weekly newsletter when you start</li>
         </ul>
-        <a class="advertise-cta" href="mailto:vancouver@bolle.co?subject=Category%20sponsorship" data-umami-event="click-advertise-email" data-umami-event-tier="category">Claim a category &rarr;</a>
+        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category">Claim a category &rarr;</a>
+      </div>
+      <div class="advertise-tier">
+        <h3>Category banner</h3>
+        <p class="advertise-tier-price">$25/month <span>or $250/year</span></p>
+        <ul>
+          <li>Your image between the listings on one category page</li>
+          <li>Seen by everyone who scrolls the list</li>
+          <li>One banner per category</li>
+        </ul>
+        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="category-banner">Book a banner &rarr;</a>
+      </div>
+      <div class="advertise-tier">
+        <h3>Sidebar banner</h3>
+        <p class="advertise-tier-price">$79/month</p>
+        <ul>
+          <li>Your image in the sidebar of every category page, guide, the homepage and Start here</li>
+          <li>The widest reach on the site, about 11,000 page views a month</li>
+          <li>One advertiser at a time</li>
+        </ul>
+        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="sidebar-banner">Book the sidebar &rarr;</a>
       </div>
       <div class="advertise-tier">
         <h3>Newsletter feature</h3>
@@ -71,10 +98,10 @@ eleventyExcludeFromCollections: true
           <li>Goes to engaged subscribers who opted in for exactly this</li>
           <li>One per issue, first come first served</li>
         </ul>
-        <a class="advertise-cta" href="mailto:vancouver@bolle.co?subject=Newsletter%20classified" data-umami-event="click-advertise-email" data-umami-event-tier="newsletter">Book an issue &rarr;</a>
+        <a class="advertise-cta" href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="newsletter">Book an issue &rarr;</a>
       </div>
     </div>
-    <p class="advertise-note">Also available: the <strong>homepage partner</strong> slot, and a <strong>guide pages</strong> sponsor shown on Start here, Free things to do, Neighbourhoods, the blog and About. <a href="mailto:vancouver@bolle.co?subject=Sponsorship%20placements" data-umami-event="click-advertise-email" data-umami-event-tier="other">Ask for pricing</a>.</p>
+    <p class="advertise-note">Also available: the <strong>homepage partner</strong> slot, and a <strong>guide pages</strong> sponsor shown on Start here, Free things to do, Neighbourhoods, the blog and About. <a href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="other">Ask for pricing</a>.</p>
     <p class="advertise-note">Run a business tied to a whole neighbourhood — a Kitsilano studio, an East Van space? Ask about sponsoring a <a href="/neighbourhoods/">neighbourhood page</a> too.</p>
 
     <h2>Who's actually visiting</h2>
@@ -90,7 +117,7 @@ eleventyExcludeFromCollections: true
     </ul>
 
     <h2>How to start</h2>
-    <p>Email <a href="mailto:vancouver@bolle.co?subject=Sponsoring%20the%20directory" data-umami-event="click-advertise-email" data-umami-event-tier="general">vancouver@bolle.co</a> with what you run and which category fits. I'll reply within a couple of days with the current traffic numbers for that exact page and get you set up — a simple monthly invoice, cancel anytime.</p>
+    <p><a href="https://tally.so/r/dbaRVr" target="_blank" rel="noopener" data-umami-event="click-advertise-form" data-umami-event-tier="general">Fill in the short form</a> with what you run and which spot fits, or email <a href="mailto:vancouver@bolle.co?subject=Sponsoring%20the%20directory" data-umami-event="click-advertise-email" data-umami-event-tier="general">vancouver@bolle.co</a>. I'll reply within a couple of days with the current traffic numbers for that exact page and get you set up — a simple monthly invoice, cancel anytime.</p>
     <p>Not a business, just a group? <a href="/submit/">Submit it here</a> — free, always.</p>
 
   </div>

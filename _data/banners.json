@@ -1,0 +1,12 @@
+{
+  "_docs": "Image banner ads, sold via /advertise/ (Tally form). 'sidebar' = one site-wide banner in the right column of the homepage, category pages, Start here, About, the blog and guides (600x500 image, shown at 300x250). 'category' = one banner per category, placed between the listings (1200x300 image, shown up to 600 wide). Fields: name (advertiser, used for alt text fallback and analytics), image (path under static/, e.g. /banners/clayground-600x500.png), alt (what the banner says), url, category (category slugs only). Empty slots render nothing. Every banner is labelled 'Ad' and links with rel=sponsored.",
+  "_example": {
+    "category": "pottery-ceramics",
+    "name": "Clayground Studio",
+    "image": "/banners/clayground-1200x300.png",
+    "alt": "Clayground Studio: drop-in wheel nights in Mount Pleasant",
+    "url": "https://example.com"
+  },
+  "sidebar": null,
+  "category": []
+}

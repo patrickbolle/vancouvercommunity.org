@@ -141,6 +141,16 @@ module.exports = function (eleventyConfig) {
     return content.replace(/^<h1[^>]*>.*?<\/h1>\s*/i, "");
   });
 
+  // --- Filter: put a banner between the cardified listings ---
+  // After the 4th group card, and only on lists of 6 or more, so short lists stay clean.
+  eleventyConfig.addFilter("midBanner", function (content, bannerHtml) {
+    if (!content || !bannerHtml || !bannerHtml.trim()) return content;
+    const marker = '<div class="group-card"';
+    const parts = content.split(marker);
+    if (parts.length - 1 < 6) return content;
+    return parts.slice(0, 5).join(marker) + bannerHtml.trim() + marker + parts.slice(5).join(marker);
+  });
+
   // --- Helper: link a listing's location to its neighbourhood page ---
   // Uses the same aliases as the neighbourhood pages, so "(Kits)" on Run Clubs
   // links to /neighbourhoods/kitsilano/. First match only; plain text otherwise.

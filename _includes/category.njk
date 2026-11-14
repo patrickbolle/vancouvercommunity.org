@@ -149,7 +149,11 @@
         <section class="panel">
           <h2 class="panel-title">{{ listingCount }} {% if listNoun %}{{ listNoun }}{% else %}{{ title | lower }}{% if not titleHasGroupWord %} group{% if listingCount != 1 %}s{% endif %}{% endif %}{% endif %}</h2>
           <div class="panel-body category-entries">
-            {{ content | stripH1 | cardify | safe }}
+            {%- set categoryBanner = null %}
+            {%- for b in banners.category %}{% if b.category == page.fileSlug %}{% set categoryBanner = b %}{% endif %}{% endfor %}
+            {%- set bannerData = categoryBanner %}{% set bannerSlot = page.fileSlug %}{% set bannerSize = "wide" %}
+            {%- set bannerHtml %}{% include "partials/banner.njk" %}{% endset %}
+            {{ content | stripH1 | cardify | midBanner(bannerHtml) | safe }}
             <p class="panel-links">Know someone who'd like this list? <button type="button" class="link-button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button></p>
           </div>
         </section>
@@ -172,13 +176,15 @@
           </div>
         </section>
 
+        {% include "partials/banner-sidebar.njk" %}
+
         {#- Category pages are where most visitors land; the signup lived in the
             category hero until July 2026, and signups stopped when it moved out. #}
         {% include "partials/newsletter.njk" %}
 
         {%- if not sponsor %}
         {%- set sponsorData = null %}{% set sponsorSlot = page.fileSlug %}{% set sponsorDemo = false %}
-        {%- set sponsorPitch = "One sponsor per category, from $39/month." %}
+        {%- set sponsorPitch = "Sponsor cards and banners for this list, from $25/month." %}
         {% include "partials/sponsor-card.njk" %}
         {%- endif %}
 
