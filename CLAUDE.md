@@ -171,6 +171,16 @@ Cloudflare Pages builds the site on push (`npm run build`) and deploys from `sit
 
 `scripts/check-links.mjs` verifies every group's `**Find it:**` URL. Run locally with `node scripts/check-links.mjs` (writes `link-report.md`, gitignored). It classifies each link: **broken** (clean 404/410 — safe to fix/remove), **unreachable** (network error/timeout — verify by hand; may be a slow or bot-hostile but live site), or **skipped** (host blocks bots — Instagram/Meetup/etc., not a signal). The `.github/workflows/link-check.yml` Action runs it weekly (Mondays) and opens/updates a single "Broken links report" issue when clean-404 links appear, closing it when they're all resolved.
 
+## Submissions
+
+The submit form opens a PR on a `submission/*` branch. `.github/workflows/review-submissions.yml` reviews all open submission PRs with Claude every Monday (18:00 UTC), and you can run it by hand from the Actions tab. For each PR it:
+
+- closes duplicates and clear fails (online-only, one-off events, transactional businesses, outside Metro Vancouver, spam) with a short, kind comment;
+- rebuilds clear passes on top of main as one clean entry (plus `recentGroups.js`), runs the build, and merges;
+- asks @patrickbolle one question on anything uncertain, then skips that PR until he replies. Its comments carry the `<!-- weekly-submission-review -->` marker.
+
+The run's job summary lists what happened to each PR.
+
 ## External Services
 
 - Analytics: Umami at `data.kwconcerts.ca`

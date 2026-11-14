@@ -1,0 +1,174 @@
+name: Weekly submission review
+
+# Reviews open community-submission PRs (branches `submission/*`) once a week.
+# Claude merges clear passes, closes clear fails and duplicates, and asks
+# Patrick about anything uncertain.
+
+on:
+  schedule:
+    - cron: "0 18 * * 1" # Mondays 18:00 UTC (~10am Vancouver), two hours after link-check.yml
+  workflow_dispatch: {}
+
+concurrency:
+  group: review-submissions
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SUMMARY_FILE: ${{ github.workspace }}/submission-review-summary.md
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Count open submission PRs
+        id: list
+        run: |
+          count=$(gh pr list --state open --limit 100 --json headRefName \
+            --jq '[.[] | select(.headRefName | startswith("submission/"))] | length')
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "Open submission PRs: $count"
+
+      - name: Review submissions with Claude
+        if: steps.list.outputs.count != '0'
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          claude_args: |
+            --max-turns 150
+            --allowedTools "Bash(git:*),Bash(gh:*),Bash(curl:*),Bash(npm:*),Read,Edit,Write,Glob,Grep"
+          prompt: |
+            You are the weekly reviewer for community submissions to vancouvercommunity.org.
+            Read CLAUDE.md first. Follow "What belongs in this directory", "Adding a group"
+            and "Verifying a link" exactly. Repo: ${{ github.repository }}.
+
+            Submission PRs come from the site's submit form. Each has a head branch that
+            starts with `submission/`, a title "Add {Name} to {Category}", and a body with
+            name, category, description, link, cost and who can join. The raw diff is often
+            messy: an extra blank line, a pasted multi-paragraph description, first-person
+            or marketing copy, and no _data/recentGroups.js update.
+
+            List them with:
+            gh pr list --state open --limit 100 --json number,title,headRefName,body,createdAt,files
+            Keep only PRs whose headRefName starts with `submission/`. Work oldest first.
+
+            ## Step 0: skip PRs that wait for Patrick
+            Every comment you post must start with the marker `<!-- weekly-submission-review -->`.
+            Read the comments with: gh pr view N --json comments
+            If the newest comment with the marker is newer than the newest comment by
+            @patrickbolle, skip the PR. You already asked and Patrick has not replied yet.
+            If Patrick replied after your question, follow his reply.
+
+            ## Step 1: duplicates
+            Search content/*.md for the same group (same name, close name variants, or the
+            same URL or domain). Also compare against the other open submission PRs.
+            - Already listed: close the PR. Comment which category and heading lists it.
+            - Same group as another open PR: keep the older PR, close the newer one, and
+              comment with the number of the PR you kept.
+            Close with: gh pr close N --comment "..." --delete-branch
+
+            ## Step 2: does it belong?
+            Apply the "What belongs in this directory" test. Close the PR (same command as
+            above) only for a clear fail:
+            - online-only, with no in-person meetups in Metro Vancouver
+            - a one-off event, not a recurring group
+            - a transactional business with no community (pure retail, services, paid
+              coaching with no group)
+            - based outside Metro Vancouver
+            - spam or nonsense
+            The comment must be short and kind: thank them, give the one reason, and say
+            they are welcome to submit again if things change. No lectures.
+
+            ## Step 3: link check
+            Check the link per CLAUDE.md: curl -sL -o /dev/null -w "%{http_code}" "URL"
+            Run it twice if the first try times out. Instagram, Facebook, Meetup and other
+            hosts that block bots (403, 429, 999 or a login wall) are NOT failures. Treat
+            them as working.
+
+            ## Step 4: clear pass, so clean up and merge
+            Only when the group clearly belongs, is not a duplicate and the link works.
+            1. git fetch origin main <branch>
+               git checkout -B <branch> origin/main
+               (This drops the raw submission commit. You rebuild the entry from scratch.)
+            2. Use the category file the PR changed (see `files`). Add ONE entry in the
+               "Adding a group" format:
+               - Place it directly above the `---` line that comes before the
+                 `## Venues ...` heading (the heading name varies: "Venues & Resources",
+                 "Venues & Spaces"). If there is no divider, add it at the end of the file.
+               - If it is a gym, studio space, venue or other business space, add it at the
+                 end of the Venues section instead.
+               - Exactly one blank line between entries. No extra blank lines.
+               - **What:** one short line in the directory's voice: third person, no "we"
+                 or "our", no marketing words, no exclamation marks. Match the length and
+                 tone of nearby entries. Example: "Weekly social runs from Kits Beach. All
+                 paces welcome".
+               - **Where:** only if the submission gave a location.
+               - **Find it:** [domain/path](full-url), as in nearby entries.
+               - Leave out **Vibe** and **Notes** unless the submission clearly gives them.
+               - Add no facts that the submission or the group's own site does not support.
+            3. Unless it went under Venues, edit _data/recentGroups.js. Add
+               { name: "<exact ## heading text>", categorySlug: "<file name without .md>" }
+               to the top of `recent`, remove the last entry, and keep exactly 6 entries.
+            4. Run npm run build. It must pass. If it fails, do not push. Treat the PR as
+               uncertain (Step 5) and include the error.
+            5. git add only the category file and _data/recentGroups.js (never the summary
+               file), then:
+               git commit -m "Add {Name} to {category-slug}"
+               git push --force origin <branch>
+            6. gh pr merge N --merge --delete-branch
+            7. git checkout main before the next PR. Step 4.1 fetches the new main, so each
+               entry builds on the last one.
+
+            ## Step 5: anything uncertain
+            Examples: borderline fit, unclear location, link unreachable on both tries,
+            unsure category, unsure if it is a venue or a group, a possible duplicate.
+            Leave the PR open and do not change the branch. Post one comment
+            (gh pr comment N --body "...") that starts with the marker, mentions
+            @patrickbolle, and asks one specific question. Include your proposed What line
+            so Patrick can just say yes.
+
+            ## Rules
+            - Never push to main directly. Only change `submission/*` branches.
+            - Never edit other PRs. Never touch files other than the category file and
+              _data/recentGroups.js.
+            - Be kind in public comments. Submitters are neighbours trying to help.
+
+            ## Summary
+            When done, use the Write tool to write a markdown summary to
+            ${{ env.SUMMARY_FILE }} (do not commit it). Use a table with the columns
+            PR, Group, Action (merged / closed: duplicate / closed: does not fit /
+            asked Patrick / waiting for Patrick) and Note. Link each PR.
+
+      - name: Write job summary
+        if: always()
+        run: |
+          if [ "${{ steps.list.outputs.count }}" = "0" ]; then
+            echo "No open submission PRs this week." >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f "$SUMMARY_FILE" ]; then
+            cat "$SUMMARY_FILE" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Claude did not write a summary. Check the run log." >> "$GITHUB_STEP_SUMMARY"
+          fi
