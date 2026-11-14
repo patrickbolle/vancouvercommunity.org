@@ -102,7 +102,7 @@ order: 2
 - **Find it:** [meetup.com/urbanminglersover30](https://www.meetup.com/urbanminglersover30/)
 
 ## 411 Seniors Centre Society
-- **What:** "The go-to hub for older adults." A drop-in centre run by and for seniors, with activities, events and social Saturdays. Volunteers and staff welcome you in person on weekdays
+- **What:** "The go-to hub for older adults." A drop-in centre for older adults with activities, events and committees. Volunteers and staff welcome you in person on weekdays
 - **Where:** 3502 Fraser St
 - **Find it:** [411seniors.org](https://411seniors.org/)
 
