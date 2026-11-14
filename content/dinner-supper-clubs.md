@@ -35,3 +35,12 @@ order: 1
 ## Vegan Meetup Vancouver
 - **What:** Vancouver's oldest veg social group on Meetup, running since 2002. Shared vegan dinners at local restaurants, sometimes with special menus made just for the group. Veg-curious people welcome
 - **Find it:** [meetup.com/vegvan](https://www.meetup.com/vegvan/)
+
+## Vancouver Dinner Club
+- **What:** Small dinners with 4 to 6 new people at a restaurant downtown, in Yaletown or on the east side. For people in their 20s to 40s who want real friends, not a big crowd. Book a ticket through Groupvibe, and the restaurant is shared the night before
+- **When:** Saturdays 7pm
+- **Find it:** [meetup.com/vancouver-dinner-club](https://www.meetup.com/vancouver-dinner-club/)
+
+## Dim Sum Queen
+- **What:** Group dim sum outings run by a host who grew up going to dim sum with her grandma. Brunches and early dinners at Chinese restaurants in Vancouver, Richmond and Burnaby, about once a month. First-timers welcome. Bring cash, as some places don't split bills
+- **Find it:** [meetup.com/dim-sum-queen](https://www.meetup.com/dim-sum-queen/)
