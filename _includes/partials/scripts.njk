@@ -31,6 +31,7 @@ function goRandom(trigger) {
     return;
   }
   var g = groups[Math.floor(Math.random() * groups.length)];
+  var swapping = !!current;
   if (current) { current.remove(); if (window.a11yDialog) a11yDialog.release(); }
   if (window._surpriseKey) document.removeEventListener('keydown', window._surpriseKey);
   var modal = document.createElement('div');
@@ -52,9 +53,11 @@ function goRandom(trigger) {
         '<button type="button" class="surprise-again">Try another</button>' +
       '</div>' +
     '</div>';
+  // "Try another" keeps the dimmed board up and only pins a new card.
+  if (swapping) modal.classList.add('no-fade', 'visible');
   document.body.appendChild(modal);
   document.body.classList.add('modal-open');
-  requestAnimationFrame(function() { modal.classList.add('visible'); });
+  if (!swapping) requestAnimationFrame(function() { modal.classList.add('visible'); });
   function close(restoreFocus) {
     document.removeEventListener('keydown', onKey);
     if (!modal.isConnected) return;
@@ -86,8 +89,9 @@ function flashLabel(el, text) {
   if (el.dataset.label == null) el.dataset.label = el.textContent;
   clearTimeout(el._flashTimer);
   el.textContent = text;
+  el.classList.remove('is-flashed'); void el.offsetWidth; el.classList.add('is-flashed');
   if (window.announce) window.announce(text);
-  el._flashTimer = setTimeout(function() { el.textContent = el.dataset.label; }, 2000);
+  el._flashTimer = setTimeout(function() { el.textContent = el.dataset.label; el.classList.remove('is-flashed'); }, 2000);
 }
 function sharePage(source, el) {
   var url = window.location.href;
@@ -144,8 +148,19 @@ if (!window._statsLoaded) {
         var digits = String(totalViews).padStart(7, "0").split("");
         totalCounter.innerHTML = '<span class="visually-hidden">' + totalViews.toLocaleString() + ' visits so far</span>' +
           '<span aria-hidden="true">You are visitor </span><span class="odometer" aria-hidden="true">' +
-          digits.map(function(d) { return "<span>" + d + "</span>"; }).join("") + "</span>";
+          digits.map(function(d, n) {
+            // Each place is a strip of 0-9 that rolls up to its digit.
+            return '<span class="odo-digit" style="--d:' + d + ';--n:' + n + '"><span class="odo-strip"><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i></span></span>';
+          }).join("") + "</span>";
         totalCounter.hidden = false;
+        var odo = totalCounter.querySelector('.odometer');
+        function roll() { requestAnimationFrame(function() { odo.classList.add('is-rolled'); }); }
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) { io.disconnect(); roll(); }
+          });
+          io.observe(odo);
+        } else { roll(); }
       }
     })
     .catch(function() {});

@@ -159,7 +159,12 @@ window.vcSearch = (function () {
       return;
     }
     var shown = showAll ? list : list.slice(0, CAP);
-    var html = '<div class="search-results-grid">' + shown.map(function (g) { return card(g, source); }).join('');
+    // Results settle in only when the list first opens (or "Show all" adds more), not on every keystroke.
+    var fresh = showAll || !el.querySelector('.search-results-grid');
+    var html = '<div class="search-results-grid' + (fresh ? ' is-fresh' : '') + '">' + shown.map(function (g, i) {
+      var delay = showAll ? i - CAP : i;
+      return card(g, source).replace('class="search-result-card"', 'class="search-result-card" style="--i:' + Math.max(0, Math.min(delay, 11)) + '"');
+    }).join('');
     if (shown.length < list.length) {
       html += '<button type="button" class="search-more">Show all ' + list.length + ' groups</button>';
     }
@@ -472,6 +477,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hash) { try { scrollTarget = document.getElementById(decodeURIComponent(hash.slice(1))); } catch (err) {} }
     var focusTarget = scrollTarget || document.querySelector('main h1');
     if (scrollTarget) {
+      // pushState doesn't update :target, so mark the shared card ourselves.
+      if (scrollTarget.classList.contains('group-card')) scrollTarget.classList.add('is-target');
       scrollTarget.scrollIntoView();
     } else {
       window.scrollTo(0, 0);
