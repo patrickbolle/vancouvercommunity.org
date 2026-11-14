@@ -96,10 +96,6 @@ order: 3
 - **What:** Find climbing partners and groups
 - **Find it:** [climbfind.com](https://climbfind.com)
 
-## Urban Rec Vancouver
-- **What:** Sport & social club leagues (dodgeball, volleyball, etc.)
-- **Find it:** [vancouver.urbanrec.ca](https://vancouver.urbanrec.ca)
-
 ---
 
 ## Facebook Groups
