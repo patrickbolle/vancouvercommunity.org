@@ -176,6 +176,19 @@ order: 1
 - **What:** Community for product, program, and project managers, plus anyone PM-curious. Monthly coffee chats, PM Buzz conferences, workshops, runs, and socials. Non-profit and peer-to-peer
 - **Find it:** [pmhive.ca](https://www.pmhive.ca/)
 
+## Vancouver Rust
+- **What:** Monthly Rust meetup "for programmers already working with Rust or interested in using it." A talk, Rust news, then help getting unstuck on your pet project
+- **Where:** 116 W 6th Ave, Mount Pleasant (also streamed online)
+- **Find it:** [meetup.com/vancouver-rust](https://www.meetup.com/vancouver-rust/)
+
+## VanRuby
+- **What:** Vancouver's Ruby and Rails meetup. Evening talks hosted at local tech companies, plus socials
+- **Find it:** [vanruby.ca](https://vanruby.ca/) | [meetup.com/vancouver-ruby](https://www.meetup.com/vancouver-ruby/)
+
+## PyLadies Vancouver
+- **What:** Python group for women. "We welcome people who have never programmed before, experienced programmers, and everyone in between." Free evening talks and lightning talks
+- **Find it:** [meetup.com/pyladies-vancouver](https://www.meetup.com/pyladies-vancouver/)
+
 ---
 
 ## Venues & Resources
