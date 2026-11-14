@@ -70,44 +70,50 @@ permalink: /submit/
       </div>
     </div>
     <button class="form-submit" type="submit">Submit group</button>
-    <p class="form-status" id="form-status" role="status"></p>
+    <p class="form-status" id="form-status"></p>
   </form>
 
   <script>
   document.getElementById('submit-form').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const form = e.target;
     const status = document.getElementById('form-status');
-    const btn = e.target.querySelector('button');
+    const btn = form.querySelector('button');
+    // Busy guard instead of disabling the button, so focus stays on it.
+    if (form._busy) return;
+    form._busy = true;
     const btnLabel = btn.textContent;
-    if (btn.disabled) return;
-    btn.disabled = true;
-    status.className = 'form-status';
-    status.textContent = '';
+    const say = (kind, text) => {
+      status.className = 'form-status' + (kind ? ' ' + kind : '');
+      status.textContent = text;
+      if (text && window.announce) window.announce(text);
+    };
+    say('', '');
+    btn.setAttribute('aria-disabled', 'true');
     btn.textContent = 'Submitting...';
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    const data = Object.fromEntries(new FormData(form));
     try {
       const res = await fetch('https://vancouver-community-submit.recipekit.workers.dev/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       });
-      const result = await res.json();
-      if (result.success) {
-        status.className = 'form-status success';
-        status.textContent = '✓ ' + result.message;
+      // A reply that isn't JSON (an error page) counts as a server error.
+      let result = null;
+      try { result = await res.json(); } catch (parseErr) {}
+      if (res.ok && result && result.success) {
+        say('success', '✓ ' + (result.message || "Thanks! I'll review it and add it soon."));
         if (typeof umami !== 'undefined') umami.track('submit-group', { category: data.category, name: data.name });
-        e.target.reset();
+        form.reset();
       } else {
-        throw new Error(result.error || 'Submission failed');
+        const serverMsg = result && typeof result.error === 'string' && result.error.trim();
+        say('error', (serverMsg || 'Something went wrong on our side.') + ' Your answers are still here. Try again, or email vancouver@bolle.co.');
       }
     } catch (err) {
-      status.className = 'form-status error';
-      status.textContent = err instanceof TypeError
-        ? 'Could not reach the server. Check your connection and try again, or email vancouver@bolle.co.'
-        : err.message + ' Your answers are still here. Try again?';
+      say('error', 'Could not reach the server. Check your connection and try again, or email vancouver@bolle.co.');
     }
-    btn.disabled = false;
+    form._busy = false;
+    btn.removeAttribute('aria-disabled');
     btn.textContent = btnLabel;
   });
   </script>
