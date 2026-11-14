@@ -172,6 +172,10 @@ order: 1
 - **What:** AI engineering meetup slash speaker series - focused around developers working with LLMs.
 - **Find it:** [infervan.com](https://infervan.com/)
 
+## PM Hive
+- **What:** Community for product, program, and project managers, plus anyone PM-curious. Monthly coffee chats, PM Buzz conferences, workshops, runs, and socials. Non-profit and peer-to-peer
+- **Find it:** [pmhive.ca](https://www.pmhive.ca/)
+
 ---
 
 ## Venues & Resources
