@@ -64,7 +64,8 @@ const CATEGORY_FILES = {
   "karaoke": "content/karaoke.md",
   "resources": "content/resources.md",
   "theatre-acting": "content/theatre-acting.md",
-  "dogs": "content/dogs.md"
+  "dogs": "content/dogs.md",
+  "circus-flow": "content/circus-flow.md"
 };
 
 const corsHeaders = {
