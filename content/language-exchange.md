@@ -37,6 +37,7 @@ order: 3
 
 ## Vancouver French Language Meetup
 - **What:** Practice French in a social setting. Free since 2024, no subscription needed
+- **Cost:** Free
 - **Find it:** [meetup.com/vancouver-french-meetup](https://meetup.com/vancouver-french-meetup)
 
 ## YATTA! Canada Japanese Exchange

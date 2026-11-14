@@ -36,7 +36,8 @@ order: 1
 - **Find it:** [meetup.com/vancouver-startup-founder-101](https://meetup.com/vancouver-startup-founder-101)
 
 ## Startup Grind Vancouver
-- **What:** Monthly startup events to teach, inspire, connect
+- **What:** Startup events to teach, inspire, connect
+- **When:** Monthly
 - **Find it:** [startupgrind.com/vancouver](https://www.startupgrind.com/vancouver/)
 
 ## YVR Startups
@@ -68,7 +69,8 @@ order: 1
 - **Find it:** [lu.ma/vancouvertech](https://lu.ma/vancouvertech)
 
 ## Vancouver Developers
-- **What:** Weekly developer meetups for coding and networking. Collaborative, skill-building, connect with talented people
+- **What:** Developer meetups for coding and networking. Collaborative, skill-building, connect with talented people
+- **When:** Weekly
 - **Find it:** [lu.ma/vancouver-developers](https://lu.ma/vancouver-developers)
 
 ## Google Developer Community Vancouver
@@ -88,7 +90,8 @@ order: 1
 - **Find it:** [lu.ma/ISACA](https://lu.ma/ISACA)
 
 ## VanJS
-- **What:** Monthly JavaScript meetups with talks and networking. Technical talks, friendly community, front-end focused
+- **What:** JavaScript meetups with talks and networking. Technical talks, friendly community, front-end focused
+- **When:** Monthly
 - **Find it:** [lu.ma/vanjs](https://lu.ma/vanjs)
 
 ## Vancouver Linux Users Group (VanLUG)
@@ -112,7 +115,8 @@ order: 1
 - **Find it:** [lu.ma/csdojo](https://lu.ma/csdojo)
 
 ## White-Hat Security Community
-- **What:** Monthly coffee chats for cybersecurity professionals. New security community, casual networking
+- **What:** Coffee chats for cybersecurity professionals. New security community, casual networking
+- **When:** Monthly
 - **Find it:** [lu.ma/WhiteHatSecurityCommunityVancouver](https://lu.ma/WhiteHatSecurityCommunityVancouver)
 
 ## Web Summit 2026 Vancouver Side Events
@@ -132,7 +136,8 @@ order: 1
 - **Find it:** [lu.ma/btcvancity](https://lu.ma/btcvancity)
 
 ## DC604 (DEFCON Group Vancouver)
-- **What:** Monthly security/hacker meetups. InfoSec community, DEF CON vibes, sells out fast
+- **What:** Security/hacker meetups. InfoSec community, DEF CON vibes, sells out fast
+- **When:** Monthly
 - **Find it:** [lu.ma/dc604](https://lu.ma/dc604)
 
 ## DWeb Vancouver
@@ -177,7 +182,8 @@ order: 1
 - **Find it:** [pmhive.ca](https://www.pmhive.ca/)
 
 ## Vancouver Rust
-- **What:** Monthly Rust meetup "for programmers already working with Rust or interested in using it." A talk, Rust news, then help getting unstuck on your pet project
+- **What:** Rust meetup "for programmers already working with Rust or interested in using it." A talk, Rust news, then help getting unstuck on your pet project
+- **When:** Monthly
 - **Where:** 116 W 6th Ave, Mount Pleasant (also streamed online)
 - **Find it:** [meetup.com/vancouver-rust](https://www.meetup.com/vancouver-rust/)
 
@@ -187,6 +193,7 @@ order: 1
 
 ## PyLadies Vancouver
 - **What:** Python group for women. "We welcome people who have never programmed before, experienced programmers, and everyone in between." Free evening talks and lightning talks
+- **Cost:** Free
 - **Find it:** [meetup.com/pyladies-vancouver](https://www.meetup.com/pyladies-vancouver/)
 
 ---

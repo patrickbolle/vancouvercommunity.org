@@ -15,7 +15,8 @@ order: 5
 - **Find it:** [vancouverpoetryhouse.com](https://www.vancouverpoetryhouse.com/)
 
 ## ROLL (Read Out Loud Love)
-- **What:** Monthly open mic poetry night. "Rooted in tenderness, community, and shared language"
+- **What:** Open mic poetry night. "Rooted in tenderness, community, and shared language"
+- **When:** Monthly
 - **Find it:** [Culture Days](https://culturedays.ca/en/events/405de6f5-fa63-4537-8da2-de6d7a10581c)
 
 ## Vancouver Poetry Slam

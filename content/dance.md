@@ -16,14 +16,16 @@ order: 5
 
 ## Sunday Afternoon Salsa at Robson Square
 - **What:** FREE outdoor salsa/bachata
-- **When:** Summer (July-August), Sundays
+- **Cost:** Free
+- **When:** Sundays, July–August
 - **Where:** Robson Square
 - **Note:** The first 30 minutes are a free beginner lesson. No partner needed
 - **Find it:** [bazadance.org/salsa-bachata-robson-square](https://www.bazadance.org/salsa-bachata-robson-square)
 
 ## Rueda de la Vida - Friday Free Community Salsa/Bachata
 - **What:** Free outdoor Latin dance
-- **When:** Every Friday, 7-9pm (lesson at 7pm)
+- **Cost:** Free
+- **When:** Fridays 7–9pm (lesson at 7pm)
 - **Where:** Sun Hop Park
 - **Find it:** [ruedadance.org](https://ruedadance.org/)
 
@@ -33,6 +35,7 @@ order: 5
 
 ## Line Dancing at Community Centres
 - **What:** Weekly line dance classes at city community centres, from beginner to intermediate. Groups at Mount Pleasant, Hillcrest, Kensington, Hastings, Thunderbird and Renfrew Park, some for 45+ or 55+. No partner needed
+- **When:** Weekly
 - **Where:** Community centres across Vancouver
 - **Find it:** [Vancouver Recreation: line dance](https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&activity_keyword=line%20dance&viewMode=list)
 
@@ -70,6 +73,7 @@ order: 5
 
 ## Bachata ME Thursdays
 - **What:** Bachata lessons and party all-in-one. Weekly social dance night
+- **When:** Thursdays
 - **Find it:** [danceus.org](https://www.danceus.org/events/salsa/vancouver-bc-canada-salsa-calendar/)
 
 ## Mangos Kitchen Bar Dance Nights

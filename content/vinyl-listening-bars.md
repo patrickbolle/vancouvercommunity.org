@@ -45,6 +45,7 @@ order: 2
 
 ## Doze Hifi
 - **What:** Travelling vinyl pop-up with rotating vintage speakers. Saturdays disco/house, Sundays jazz/soul/funk
+- **When:** Saturdays & Sundays
 - **Find it:** [@dozehifi](https://www.instagram.com/dozehifi/)
 
 ## Red Cat Records

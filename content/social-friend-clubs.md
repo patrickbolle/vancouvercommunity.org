@@ -94,10 +94,12 @@ order: 2
 
 ## Choose Well Club
 - **What:** Monthly women's wellness brunches. Each month, we focus on a different aspect of women's health by inviting industry experts to come and deliver a workshop so women can be connected to the information they can trust. Brunch is always included, and is a chance to connect with other women from the Vancouver area.
+- **When:** Monthly
 - **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
 
 ## Vancouver Pub Nights
 - **What:** Free, casual pub nights to meet new people at a different pub each time. Stay an hour or all night. Also runs a board game night every second Monday
+- **Cost:** Free
 - **When:** Every second Thursday, 7pm
 - **Size:** 15,000+ members
 - **Find it:** [meetup.com/vancouver-pub-nights](https://www.meetup.com/vancouver-pub-nights/)

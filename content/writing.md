@@ -17,7 +17,7 @@ order: 4
 ## Shut Up & Write! Vancouver
 - **What:** Quiet writing time followed by chat. "Accepting, supportive, judgment-free"
 - **Where:** VPL Central, 8th Floor
-- **When:** 10am-1pm sessions
+- **When:** 10am–1pm
 - **Find it:** [meetup.com/shutupandwritevancouver](https://meetup.com/shutupandwritevancouver)
 
 ## Vancouver Genre Writers
@@ -41,7 +41,8 @@ order: 4
 - **Find it:** [kogawahouse.com](https://kogawahouse.com/)
 
 ## Power of the Pen Friday Writing Group
-- **What:** Online writing sessions 12:30-3:30pm — 45-minute writing blocks with chat breaks
+- **What:** Online writing sessions: 45-minute writing blocks with chat breaks
+- **When:** Fridays 12:30–3:30pm
 - **Find it:** [VPL Writing Resources](https://www.vpl.ca/guide/resources-writers/writing-community)
 
 ---
@@ -54,6 +55,7 @@ order: 4
 
 ## VPL Writing Resources
 - **What:** Library resources for writers including group listings. Free, accessible, comprehensive
+- **Cost:** Free
 - **Find it:** [vpl.ca/guide/resources-writers](https://www.vpl.ca/guide/resources-writers/writing-community)
 
 ## Vancouver Pen Club

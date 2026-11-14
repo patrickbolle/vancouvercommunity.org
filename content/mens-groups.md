@@ -12,6 +12,7 @@ order: 1
 
 ## ARKA Brotherhood
 - **What:** Leadership training and community for men. Weekly action-focused circles, mature masculinity
+- **When:** Weekly
 - **Find it:** [arkabrotherhood.com](https://arkabrotherhood.com/)
 
 ## The DUDES Club

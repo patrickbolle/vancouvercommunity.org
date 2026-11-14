@@ -16,6 +16,7 @@ order: 5
 
 ## Laughs in Queer - Comedy Social and Open Mic
 - **What:** LGBTQ+ comedy community and open mic nights. Supportive, inclusive comedy scene, monthly at Slice of Life Gallery
+- **When:** Monthly
 - **Find it:** [Eventbrite: Laughs in Queer](https://www.eventbrite.com/e/laughs-in-queer-a-comedy-social-open-mic-august-tickets-1542550442899)
 
 ---

@@ -46,7 +46,7 @@ order: 3
 
 ## Film Club at The Cinematheque
 - **What:** Family-friendly movie matinees
-- **When:** Third Sunday of each month
+- **When:** Third Sunday of the month
 - **Find it:** [thecinematheque.ca/series/film-club](https://thecinematheque.ca/series/film-club)
 
 ## VIFF Live

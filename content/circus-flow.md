@@ -17,15 +17,17 @@ added: 2026-11-14
 
 ## Open Acro Jam at STRETCH
 - **What:** Weekly acro yoga jam with "no teacher, no set plan: mats, open space, and a room full of people who love to fly." All levels, and you can fly, base or spot
+- **When:** Wednesdays 5:30–8pm
+- **Cost:** By donation
 - **Where:** STRETCH, 180 E Pender St, Chinatown
 - **Find it:** [stretchvancouver.com](https://www.stretchvancouver.com/open-acro-jam-wednesdays/)
-- **Notes:** Wednesdays 5:30–8pm, by donation
 
 ## Acro Umbrella
 - **What:** Vancouver acro community with acro yoga classes, hand balancing and beginner-friendly jams. "Low-pressure spaces to move, meet people, and enjoy acro together"
+- **When:** Jams every other Sunday
+- **Cost:** Jams by donation
 - **Where:** Aché, 341 E Broadway, and other studios
 - **Find it:** [acroumbrella.com](https://acroumbrella.com/)
-- **Notes:** Jams every other Sunday, by donation
 
 ## Rising Sun AcroYoga
 - **What:** Beginner-friendly acro yoga classes. No partner and no experience needed, and your first class is free

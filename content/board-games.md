@@ -41,7 +41,8 @@ order: 4
 ## Venues & Spaces
 
 ## Hideout Cafe
-- **What:** Biweekly board game meetups
+- **What:** Board game meetups
+- **When:** Every other week
 - **Where:** 716 Carnarvon Street, New Westminster
 - **Cost:** Spend $10 on food/drink
 - **Find it:** [thehideoutcafe.com](https://thehideoutcafe.com/)

@@ -37,6 +37,7 @@ order: 5
 
 ## North Shore Winter Club Pickleball
 - **What:** Socials Monday and Wednesday evenings
+- **When:** Monday & Wednesday evenings
 - **Find it:** [nswc.ca/programs/pickleball](https://nswc.ca/programs/pickleball/)
 
 ## Ambleside Park Courts (West Van)

@@ -130,6 +130,7 @@ order: 3
 
 ## Take a Hike! Vancouver
 - **What:** Active hiking group with weekly hikes, all skill levels
+- **When:** Weekly
 - **Find it:** [facebook.com/groups/97461647231](https://facebook.com/groups/97461647231)
 
 ## Slow Hikers Vancouver
@@ -166,7 +167,8 @@ order: 3
 - **Find it:** [instagram.com/weshouldbefriendsvancouver](https://instagram.com/weshouldbefriendsvancouver)
 
 ## @letsadventurevan
-- **What:** Weekly outdoor stranger meetups — hikes, cold plunges, sports. Welcoming, low-key, builds real friendships
+- **What:** Outdoor stranger meetups — hikes, cold plunges, sports. Welcoming, low-key, builds real friendships
+- **When:** Weekly
 - **Find it:** [instagram.com/letsadventurevan](https://instagram.com/letsadventurevan)
 
 ## @van.thrive.club

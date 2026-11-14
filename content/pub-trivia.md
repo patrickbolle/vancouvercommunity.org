@@ -26,11 +26,13 @@ order: 5
 
 ## East Side Craft House Saturday Trivia
 - **What:** Saturday night trivia (only Saturday option!)
-- **When:** 7:30pm
+- **When:** Saturdays 7:30pm
 - **Find it:** [eastsidecrafthouse.com](https://eastsidecrafthouse.com/saturday-night-trivia-vancouver)
 
 ## Amazing Brentwood Tuesday Trivia
 - **What:** Free trivia covering geeky topics. Film, TV, video games, science, teams up to 6
+- **When:** Tuesdays
+- **Cost:** Free
 - **Find it:** [theamazingbrentwood.com](https://theamazingbrentwood.com/) | Food court
 
 ## Question Authority Trivia (Plot Twist Productions)
@@ -40,17 +42,18 @@ order: 5
 
 ## Hero's Welcome Tuesday Trivia
 - **What:** IQ 2000 trivia every Tuesday at this Mount Pleasant pub. No cover, prizes for the top teams
-- **When:** Tuesdays, 7–9pm
+- **Cost:** No cover
+- **When:** Tuesdays 7–9pm
 - **Find it:** [heros-welcome.com](https://www.heros-welcome.com/upcoming-events)
 
 ## Strange Fellows Trivia Tuesdays
 - **What:** Strange Trivia hosted by Liz the Wiz in the brewery taproom near Commercial Drive. Clothing donations welcome
-- **When:** Tuesdays, 7–10pm
+- **When:** Tuesdays 7–10pm
 - **Find it:** [strangefellowsbrewing.com](https://strangefellowsbrewing.com/portfolios/brewery-happenings-2/)
 
 ## East Van Brewing Trivia Tuesdays
 - **What:** Weekly trivia hosted by DJ Storm in the brewery tasting room. Three-month seasons that end in a final
-- **When:** Tuesdays, 7–9pm
+- **When:** Tuesdays 7–9pm
 - **Find it:** [eastvanbrewing.com](https://www.eastvanbrewing.com/trivia-tuesdays)
 
 ## Woo Hoo! Classic Simpsons Trivia
