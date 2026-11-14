@@ -23,10 +23,6 @@ order: 2
 - **What:** Books about big ideas (philosophy, sociology, science). Audiobooks available via VPL, welcoming to all
 - **Find it:** [meetup.com/mind-matters-a-book-club-for-big-ideas](https://meetup.com/mind-matters-a-book-club-for-big-ideas)
 
-## Vancouver Discussions Meetup
-- **What:** General intellectual discussions on varied topics. Open-minded, curious participants
-- **Find it:** [meetup.com/vancouver-discussions-meetup-group](https://www.meetup.com/vancouver-discussions-meetup-group/)
-
 ## Socrates Café Vancouver
 - **What:** Open philosophical inquiry for everyone. Socratic method, no expertise required
 - **Find it:** [meetup.com/topics/socratescafe](https://www.meetup.com/topics/socratescafe/) (check for Vancouver events)

@@ -45,8 +45,6 @@ A book gives everyone the same starting point. That helps a lot if you're shy. Y
 
 **[Vancouver Curiosity Club](/philosophy-intellectual/#vancouver-curiosity-club)** calls itself "a social calendar with a brain." It runs philosophy and essay nights (Plato, Shelley, Emerson, Bacon, framed around modern problems), plus meditation and journaling circles, silent reading parties, gallery visits, film discussions and restaurant outings. The listing describes it as intelligent but not academic, social but not chaotic. I think that's a lovely balance.
 
-The directory also lists **[Vancouver Discussions Meetup](/philosophy-intellectual/#vancouver-discussions-meetup)** for general discussions on varied topics. When I checked in November 2026, its Meetup page showed the Curiosity Club, so the two now seem to be the same group.
-
 ## How to enjoy your first discussion
 
 A few small tips for your first night:
