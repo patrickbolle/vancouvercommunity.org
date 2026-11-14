@@ -10,6 +10,7 @@ seoDescription: "{n} community gardens, garden clubs, seed swaps and farm volunt
 listNoun: "gardens and garden clubs"
 seoHeading: "Community Gardens & Garden Clubs in Vancouver"
 order: 9
+added: 2026-11-14
 ---
 
 # 🌱 Community Gardens

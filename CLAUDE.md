@@ -46,7 +46,8 @@ The dev server watches all files (markdown, CSS, templates, JS) and auto-rebuild
    order: 1
    ---
    ```
-4. **Group definitions** live in `_data/groups.json` (labels and ordering)
+   Optional: `added: YYYY-MM-DD` (the day the category went live). For 21 days after that date, the homepage lists it in the "Just added" row at the top of the directory, newest first. Set it on every new category.
+4. **Group definitions** live in `_data/groups.json` (labels and ordering). The homepage directory shows each section's 4 biggest categories (by listing count). The rest sit behind a native `<details>` "+N more" toggle.
 
 ## Markdown Content Format
 

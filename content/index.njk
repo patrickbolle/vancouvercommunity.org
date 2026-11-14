@@ -93,19 +93,43 @@ permalink: /
         <div id="homepage-browse-content">
           <section class="panel" id="categories">
             <h2 class="panel-title">Browse {{ totalGroups }}+ groups</h2>
-            <div class="panel-body directory">
-              {%- for group in groups %}
-              <div class="directory-group" id="group-{{ group.key }}">
-                <h3 class="directory-heading"><img class="pixel-icon" src="/icons/{{ group.key }}.svg" width="16" height="16" alt="">{{ group.label | ampEscape | safe }}</h3>
-                <ul class="directory-list">
-                  {%- for cat in collections.categories %}
-                  {%- if cat.data.group == group.key %}
-                  <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
-                  {%- endif %}
+            <div class="panel-body">
+              {#- Categories with `added:` front matter in the last 21 days. Renders nothing when none qualify. #}
+              {%- set newCats = collections.categories | newCategories(21) %}
+              {%- if newCats.length %}
+              <div class="directory-new">
+                <h3 class="directory-new-title">Just added</h3>
+                <ul class="directory-new-list">
+                  {%- for cat in newCats %}
+                  <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}" data-umami-event-source="new">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
                   {%- endfor %}
                 </ul>
               </div>
-              {%- endfor %}
+              {%- endif %}
+              <div class="directory">
+                {#- Each section shows its 4 biggest categories; the rest sit behind a native <details>. #}
+                {%- for group in groups %}
+                {%- set sectionCats = collections.categories | sectionCategories(group.key) %}
+                <div class="directory-group" id="group-{{ group.key }}">
+                  <h3 class="directory-heading"><img class="pixel-icon" src="/icons/{{ group.key }}.svg" width="16" height="16" alt="">{{ group.label | ampEscape | safe }}</h3>
+                  <ul class="directory-list">
+                    {%- for cat in sectionCats.slice(0, 4) %}
+                    <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
+                    {%- endfor %}
+                  </ul>
+                  {%- if sectionCats.length > 4 %}
+                  <details class="directory-more">
+                    <summary><span class="directory-more-closed">+{{ sectionCats.length - 4 }} more</span><span class="directory-more-open">Show fewer</span><span class="visually-hidden"> in {{ group.label | ampEscape | safe }}</span></summary>
+                    <ul class="directory-list">
+                      {%- for cat in sectionCats.slice(4) %}
+                      <li><a href="/{{ cat.fileSlug }}/" data-umami-event="click-category" data-umami-event-category="{{ cat.fileSlug }}">{{ cat.data.title }}</a>{% if cat.data.listingCount > 0 %}&nbsp;<span class="count">({{ cat.data.listingCount }})</span>{% endif %}</li>
+                      {%- endfor %}
+                    </ul>
+                  </details>
+                  {%- endif %}
+                </div>
+                {%- endfor %}
+              </div>
             </div>
           </section>
 
