@@ -56,6 +56,7 @@ const CATEGORY_FILES = {
   "zine-risograph": "content/zine-risograph.md",
   "astronomy-stargazing": "content/astronomy-stargazing.md",
   "foraging-nature": "content/foraging-nature.md",
+  "community-gardens": "content/community-gardens.md",
   "birdwatching": "content/birdwatching.md",
   "karaoke": "content/karaoke.md",
   "resources": "content/resources.md"
