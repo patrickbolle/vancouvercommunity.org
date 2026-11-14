@@ -186,6 +186,13 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   border-bottom-color: var(--masthead);
 }
 
+/* ---------- Key/value tables (.details) ---------- */
+.details { border-collapse: collapse; margin: 8px 0 4px; }
+.details th, .details td { padding: 4px 0; text-align: left; vertical-align: baseline; }
+.details th { padding-right: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.details td { color: var(--ink-2); }
+.details tr + tr th, .details tr + tr td { border-top: 1px solid var(--line-soft); }
+
 /* ---------- Page layout ---------- */
 .page { padding-top: 20px; padding-bottom: 32px; }
 .columns {
