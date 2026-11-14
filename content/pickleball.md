@@ -33,7 +33,7 @@ order: 5
 
 ## YWCA Pickleball
 - **What:** Alternate play in group sessions
-- **Find it:** [ywcavan.org](https://ywcavan.org/fitness/class-and-training/pickleball)
+- **Find it:** [ywcabc.org/fitness/pickleball](https://ywcabc.org/fitness/pickleball)
 
 ## North Shore Winter Club Pickleball
 - **What:** Socials Monday and Wednesday evenings
