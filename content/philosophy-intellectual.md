@@ -31,3 +31,7 @@ order: 2
 - **What:** Community for curious adults who want to do real things together and talk about them meaningfully. Philosophy and essay nights (Plato, Shelley, Emerson, Bacon — framed around modern problems), meditation and journaling circles, silent reading parties, restaurant outings, gallery visits, film discussions, and social nights. Intelligent but not academic, social but not chaotic
 - **Find it:** [meetup.com/vancouver-meetup-group](https://www.meetup.com/vancouver-meetup-group/)
 
+## Nerd Nite Vancouver
+- **What:** Nerdy science talks, drink in hand. Three short, fun talks from researchers and experts on a night out with curious people. Proceeds go to a good cause each time
+- **Where:** The Fox Cabaret, Mount Pleasant
+- **Find it:** [vancouver.nerdnite.com](https://vancouver.nerdnite.com/)

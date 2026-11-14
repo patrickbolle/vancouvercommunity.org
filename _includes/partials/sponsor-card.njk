@@ -4,19 +4,32 @@
       sponsorSlot   analytics label, e.g. "homepage" or "run-clubs"
       sponsorPitch  open slot only: one sentence on why this spot is worth it
       sponsorDemo   true on /advertise/ (an example: no tracking, no real link)
+      sponsorCaption  demo only: caption text under the example
 -#}
-{%- if sponsorData and sponsorData.name %}
+{%- if sponsorDemo and sponsorData and sponsorData.name %}
+{#- A picture of a card, not a real one: a figure, and a plain title so the page outline stays clean. #}
+<figure class="advertise-figure">
+  <div class="panel sponsor">
+    <p class="panel-title sponsor-title">Community sponsor <span class="sponsor-tag">Ad</span></p>
+    <div class="panel-body">
+      <p class="sponsor-name">{{ sponsorData.name }}</p>
+      {%- if sponsorData.where %}<p class="sponsor-where">{{ sponsorData.where }}</p>{% endif %}
+      <p class="sponsor-desc">{{ sponsorData.description }}</p>
+      <span class="sponsor-btn">{{ sponsorData.cta or "Visit" }} &rarr;</span>
+    </div>
+  </div>
+  {%- if sponsorCaption %}
+  <figcaption class="panel-note">{{ sponsorCaption }}</figcaption>
+  {%- endif %}
+</figure>
+{%- elif sponsorData and sponsorData.name %}
 <section class="panel sponsor" aria-label="Community sponsor: {{ sponsorData.name }}">
   <h2 class="panel-title sponsor-title">Community sponsor<span class="visually-hidden">:</span> <span class="sponsor-tag">Ad</span></h2>
   <div class="panel-body">
     <p class="sponsor-name">{{ sponsorData.name }}</p>
     {%- if sponsorData.where %}<p class="sponsor-where">{{ sponsorData.where }}</p>{% endif %}
     <p class="sponsor-desc">{{ sponsorData.description }}</p>
-    {%- if sponsorDemo %}
-    <span class="sponsor-btn" aria-hidden="true">{{ sponsorData.cta or "Visit" }} &rarr;</span>
-    {%- else %}
     <a class="sponsor-btn" href="{{ sponsorData.url }}" target="_blank" rel="sponsored noopener noreferrer" data-umami-event="sponsor-click" data-umami-event-category="{{ sponsorSlot }}">{{ sponsorData.cta or "Visit" }} <span aria-hidden="true">&rarr;</span></a>
-    {%- endif %}
   </div>
 </section>
 {%- else %}

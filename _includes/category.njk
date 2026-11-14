@@ -160,7 +160,7 @@
             {#- List footer: share, report a change, and the page's view count (the stats script fills #page-views). #}
             <div class="panel-body">
               <p class="panel-links">Know someone who'd like this list? <button type="button" class="link-button" onclick="sharePage('{{ page.fileSlug }}', this)" data-umami-event="click-share" data-umami-event-source="{{ page.fileSlug }}">Tell a friend</button></p>
-              <p class="panel-links">Something out of date or missing? <button type="button" class="link-button" onclick="openEditModal('{{ page.fileSlug }}')" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button></p>
+              <p class="panel-links">Something out of date or missing? <button type="button" class="link-button" onclick="openEditModal('{{ page.fileSlug }}', this)" aria-haspopup="dialog" data-umami-event="click-suggest-edit" data-umami-event-category="{{ page.fileSlug }}">Suggest an edit</button></p>
               <p class="panel-note">Traffic: <span id="page-views"><span class="visually-hidden">Loading</span></span></p>
             </div>
           </div>
@@ -219,7 +219,7 @@
 <!-- Suggest Edit Modal -->
 <div id="edit-modal" class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
   <div class="edit-modal-inner">
-    <button class="edit-modal-close" onclick="closeEditModal()" aria-label="Close">&times;</button>
+    <button type="button" class="edit-modal-close" onclick="closeEditModal()" aria-label="Close">&times;</button>
     <h2 id="edit-modal-title" class="edit-modal-title">Suggest an edit</h2>
     <p class="edit-modal-desc">What needs to change? A closed group, wrong link, new info — anything helps.</p>
     <form id="edit-form" class="form">
@@ -230,68 +230,105 @@
       </div>
       <div class="form-field">
         <label class="form-label" for="edit-name">Your name (optional)</label>
-        <input class="form-input" type="text" id="edit-name" name="name" placeholder="Patrick">
+        <input class="form-input" type="text" id="edit-name" name="name" autocomplete="name" placeholder="Patrick">
       </div>
       <input type="hidden" name="category" id="edit-category">
       <button class="form-submit" type="submit">Send suggestion</button>
-      <span class="form-status" id="edit-status" role="status"></span>
+      <span class="form-status" id="edit-status"></span>
     </form>
+    <div class="form edit-success" id="edit-success" hidden>
+      <p class="edit-success-message" tabindex="-1">Got it, thanks for helping keep this accurate.</p>
+      <p class="edit-success-actions"><a href="#" class="verify-funnel-link" onclick="sharePage('{{ page.fileSlug }}-edit', this); return false;">Tell a friend about this list</a></p>
+    </div>
   </div>
 </div>
 
 <script>
-var _editOpener = null;
-var _editOpenedAt = 0;
-function openEditModal(category) {
+// Runs again after every page swap (main.js), with a fresh modal in the page.
+(function () {
   var modal = document.getElementById('edit-modal');
-  _editOpener = document.activeElement;
-  _editOpenedAt = Date.now();
-  document.getElementById('edit-category').value = category;
-  modal.style.display = 'block';
-  document.body.classList.add('modal-open');
-  if (window.a11yDialog) a11yDialog.open(modal);
-  var closeBtn = modal.querySelector('.edit-modal-close');
-  if (closeBtn) closeBtn.focus();
-}
-function closeEditModal() {
-  document.getElementById('edit-modal').style.display = 'none';
-  document.body.classList.remove('modal-open');
-  if (window.a11yDialog) a11yDialog.close(document.getElementById('edit-modal'));
-  if (_editOpener) { _editOpener.focus(); _editOpener = null; }
-}
-document.getElementById('edit-modal').addEventListener('click', (e) => { if (e.target.id === 'edit-modal' && Date.now() - _editOpenedAt > 300) closeEditModal(); });
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('edit-modal').style.display === 'block') closeEditModal();
-});
-document.getElementById('edit-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  const status = document.getElementById('edit-status');
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-  const formData = new FormData(e.target);
-  try {
-    const res = await fetch('https://vancouver-community-submit.recipekit.workers.dev/edit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(Object.fromEntries(formData))
-    });
-    const result = await res.json();
-    if (result.success) {
-      if (typeof umami !== 'undefined') umami.track('submit-edit', { category: document.getElementById('edit-category').value });
-      var formEl = document.getElementById('edit-form');
-      formEl.innerHTML =
-        '<p class="edit-success-message">Got it, thanks for helping keep this accurate.</p>' +
-        '<p class="edit-success-actions"><a href="#" class="verify-funnel-link" onclick="sharePage(\'{{ page.fileSlug }}-edit\', this); return false;">Tell a friend about this list</a></p>';
-      setTimeout(closeEditModal, 5000);
-    } else throw new Error(result.error || 'Something went wrong');
-  } catch (err) {
-    status.className = 'form-status error';
-    status.textContent = 'Could not send. Try again, or email vancouver@bolle.co.';
-    btn.disabled = false;
-    btn.textContent = 'Send suggestion';
+  var form = document.getElementById('edit-form');
+  if (!modal || !form) return;
+  var success = document.getElementById('edit-success');
+  var status = document.getElementById('edit-status');
+  var btn = form.querySelector('button[type="submit"]');
+  var btnLabel = btn.textContent;
+  var opener = null;
+  var openedAt = 0;
+
+  function setStatus(kind, text) {
+    status.className = 'form-status' + (kind ? ' ' + kind : '');
+    status.textContent = text;
+    if (text && window.announce) window.announce(text);
   }
-});
+
+  // opener: the button that was clicked (Safari doesn't focus buttons on click).
+  window.openEditModal = function (category, trigger) {
+    opener = trigger || document.activeElement;
+    openedAt = Date.now();
+    // A fresh form each time, even after a sent suggestion.
+    form.reset();
+    form.hidden = false;
+    success.hidden = true;
+    setStatus('', '');
+    document.getElementById('edit-category').value = category;
+    modal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    if (window.a11yDialog) a11yDialog.open(modal);
+    document.getElementById('edit-summary').focus();
+  };
+  window.closeEditModal = function () {
+    modal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    if (window.a11yDialog) a11yDialog.close(modal);
+    if (opener && opener.isConnected && opener.focus) opener.focus();
+    opener = null;
+  };
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal && Date.now() - openedAt > 300) window.closeEditModal();
+  });
+  // One Escape listener for the whole visit; it looks the modal up each time.
+  if (!window._editEscapeBound) {
+    window._editEscapeBound = true;
+    document.addEventListener('keydown', function (e) {
+      var m = document.getElementById('edit-modal');
+      if (e.key !== 'Escape' || !m || m.style.display !== 'block' || !window.closeEditModal) return;
+      e.preventDefault();
+      window.closeEditModal();
+    });
+  }
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    // Busy guard instead of disabling the button, so focus stays on it.
+    if (form._busy) return;
+    form._busy = true;
+    setStatus('', '');
+    btn.setAttribute('aria-disabled', 'true');
+    btn.textContent = 'Sending...';
+    var category = document.getElementById('edit-category').value;
+    try {
+      var res = await fetch('https://vancouver-community-submit.recipekit.workers.dev/edit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      });
+      var result = null;
+      try { result = await res.json(); } catch (parseErr) {}
+      if (!res.ok || !result || !result.success) throw new Error('not sent');
+      if (typeof umami !== 'undefined') umami.track('submit-edit', { category: category });
+      form.hidden = true;
+      success.hidden = false;
+      var msg = success.querySelector('.edit-success-message');
+      msg.focus();
+      if (window.announce) window.announce(msg.textContent);
+    } catch (err) {
+      setStatus('error', 'Could not send. Try again, or email vancouver@bolle.co.');
+    }
+    form._busy = false;
+    btn.removeAttribute('aria-disabled');
+    btn.textContent = btnLabel;
+  });
+})();
 </script>
 
 {% include "partials/scripts.njk" %}

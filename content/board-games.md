@@ -36,6 +36,12 @@ order: 4
 - **Where:** Rain City Games, downtown
 - **Find it:** [meetup.com/vancouver-playtest](https://www.meetup.com/vancouver-playtest/)
 
+## Shindigs & Board Games with Friendly Folks
+- **What:** Big, friendly drop-in game nights. Experienced players happily teach the rules, so total beginners fit right in. Bring a game to share if you like. Thursday nights at Craving for a Game in Surrey too, plus a monthly book club and hikes
+- **When:** Fridays from 5pm
+- **Where:** Waterfront Centre food court, 200 Burrard St
+- **Find it:** [meetup.com/shindigs](https://www.meetup.com/shindigs/)
+
 ---
 
 ## Venues & Spaces
@@ -61,3 +67,7 @@ order: 4
 - **Where:** Abbotsford, ~1 hour from Vancouver
 - **Find it:** [abbyboardwalk.com](https://abbyboardwalk.com/)
 
+## Quest Central Gaming Lounge
+- **What:** Board game lounge with 200+ games, coffee and snacks. Drop in at a lounge table or book a private room. Game experts help you learn, and weekly events change each month
+- **Where:** 2755 Lougheed Hwy, Port Coquitlam
+- **Find it:** [questcentral.ca](https://questcentral.ca/)
