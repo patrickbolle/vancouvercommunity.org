@@ -38,9 +38,9 @@ order: 4
 - **What:** Search nonprofits and opportunities
 - **Find it:** [volunteermatch.org](https://www.volunteermatch.org/)
 
-## GoVolunteer
+## Volunteer Connector
 - **What:** Connects volunteers with nonprofits across Western Canada. Easy search, featured listings
-- **Find it:** [govolunteer.ca](https://govolunteer.ca/)
+- **Find it:** [volunteerconnector.org](https://www.volunteerconnector.org/)
 
 ## Vancouver Food Bank
 - **What:** Sort food, help with distributions. Direct community impact
