@@ -67,8 +67,9 @@ body.modal-open { overflow: hidden; }
 body.is-navigating { cursor: progress; }
 [aria-busy="true"] { cursor: progress; }
 ::placeholder { color: var(--ink-muted); opacity: 1; }
-/* Page swaps move focus to the new h1 (tabindex="-1"); it isn't a control, so no ring. */
-h1[tabindex="-1"]:focus { outline: none; }
+/* Script moves focus to these after a page swap or a sent form (tabindex="-1").
+   They aren't controls, so no ring. */
+h1[tabindex="-1"]:focus, .edit-success-message:focus, .verify-toast-thanks:focus { outline: none; }
 
 /* Full-page navigations crossfade (the meta tag in head.njk is the older opt-in). */
 @media (prefers-reduced-motion: no-preference) {
@@ -699,7 +700,7 @@ textarea.form-input { resize: vertical; }
   .wordmark { font-size: var(--fs-lg); }
   /* Every tab fits: shorter labels, and Blog and About move under "More".
      The row may wrap on the narrowest phones rather than run off the edge. */
-  .tabs-inner { flex-wrap: wrap; column-gap: 18px; overflow: visible; }
+  .tabs-inner { flex-wrap: wrap; gap: 0 18px; overflow: visible; }
   .tab-wide-only, .tab-long { display: none; }
   .tab-short { display: inline; }
   .tab { padding: 8px 0 6px; }
