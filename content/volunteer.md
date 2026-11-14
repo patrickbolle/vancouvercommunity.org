@@ -32,7 +32,7 @@ order: 4
 
 ## YWCA Volunteer
 - **What:** Teaching yoga, mentoring youth, fundraising
-- **Find it:** [ywcavan.org/help/volunteer](https://ywcavan.org/help/volunteer)
+- **Find it:** [ywcabc.org/help/volunteer](https://ywcabc.org/help/volunteer)
 
 ## VolunteerMatch
 - **What:** Search nonprofits and opportunities
