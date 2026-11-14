@@ -7,6 +7,17 @@
       <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
       <button type="button" class="masthead-surprise" onclick="goRandom()" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
     </div>
+    {#- Search on every page but the homepage (CSS hides it there: the header
+        stays put when main.js swaps pages, so it can't be left out of the markup).
+        Without JS, Enter opens the homepage search with ?q=. #}
+    <div class="masthead-search" id="masthead-search">
+      <form class="masthead-search-form" role="search" action="/" method="get">
+        <label for="masthead-search-input" class="visually-hidden">Search the directory</label>
+        <input type="search" id="masthead-search-input" class="search-input masthead-search-input" name="q" placeholder="Search {{ mastheadGroups }} groups" autocomplete="off" aria-controls="masthead-search-panel">
+        <button type="submit" class="search-btn masthead-search-btn">Search</button>
+      </form>
+      <div class="masthead-search-panel" id="masthead-search-panel" role="region" aria-label="Search results" hidden></div>
+    </div>
   </div>
 </header>
 <nav class="tabs" aria-label="Sections">
@@ -16,5 +27,13 @@
     <a href="/submit/" class="tab">Add a group</a>
     <a href="/blog/" class="tab tab-wide-only">Blog</a>
     <a href="/about/" class="tab tab-wide-only">About</a>
+    {#- Phones only: Blog and About don't fit in the row, so they sit under "More". #}
+    <div class="tabs-more" id="tabs-more">
+      <button type="button" class="tab tabs-more-btn" aria-expanded="false" aria-controls="tabs-more-menu">More<span aria-hidden="true"> &#9662;</span></button>
+      <ul class="tabs-more-menu" id="tabs-more-menu" hidden>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </div>
   </div>
 </nav>

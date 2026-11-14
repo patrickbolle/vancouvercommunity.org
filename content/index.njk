@@ -76,9 +76,9 @@ permalink: /
         <h1 class="page-title">Find your people in Vancouver.</h1>
         <p class="page-lede">{{ totalGroups }}+ groups across {{ collections.categories.length }} categories. Run clubs, supper clubs, philosophy circles, maker spaces and more. Browse, click through, show up.</p>
 
-        <form class="search" role="search" id="homepage-search-form">
+        <form class="search" role="search" id="homepage-search-form" action="/" method="get">
           <label for="homepage-group-search" class="visually-hidden">Search the directory</label>
-          <input type="search" id="homepage-group-search" class="search-input" placeholder="Search {{ totalGroups }}+ groups: hiking, chess, supper club…" autocomplete="off" data-umami-event="homepage-search">
+          <input type="search" id="homepage-group-search" class="search-input" name="q" placeholder="Search {{ totalGroups }}+ groups: hiking, chess, supper club…" autocomplete="off" data-umami-event="homepage-search">
           <button type="submit" class="search-btn">Search</button>
         </form>
         <p class="search-popular">Popular:
@@ -88,7 +88,7 @@ permalink: /
           <a href="/hiking-outdoors/">hiking</a> &middot;
           <a href="/free/">free things</a>
         </p>
-        <div id="search-results" class="search-results" style="display:none"></div>
+        <div id="search-results" class="search-results" hidden></div>
 
         <div id="homepage-browse-content">
           <section class="panel" id="categories">

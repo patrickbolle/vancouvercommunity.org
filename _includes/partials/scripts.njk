@@ -4,10 +4,10 @@ function esc(t) { var d = document.createElement('div'); d.textContent = t == nu
 function goRandom() {
   var groups = window._searchGroups;
   if (!groups || !groups.length) {
-    // Only the homepage inlines the group list; other pages load it once, on first use.
-    fetch('/search-data.json')
-      .then(function(r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-      .then(function(data) { window._searchGroups = data; goRandom(); })
+    // Only the homepage inlines the group list; other pages load it once, on first use
+    // (shared with the masthead search).
+    (window.vcSearch ? window.vcSearch.load() : Promise.reject())
+      .then(function() { goRandom(); })
       .catch(function() {
         var cat = categories[Math.floor(Math.random() * categories.length)];
         window.location.href = "/" + cat + "/";
