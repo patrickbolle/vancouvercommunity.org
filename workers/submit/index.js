@@ -36,6 +36,7 @@ const CATEGORY_FILES = {
   "pottery-ceramics": "content/pottery-ceramics.md",
   "yoga-wellness": "content/yoga-wellness.md",
   "sauna-cold-plunge": "content/sauna-cold-plunge.md",
+  "ski-snowboard": "content/ski-snowboard.md",
   "mindfulness-meditation": "content/mindfulness-meditation.md",
   "mens-groups": "content/mens-groups.md",
   "maker-spaces": "content/maker-spaces.md",
