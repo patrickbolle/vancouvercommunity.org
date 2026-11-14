@@ -51,9 +51,5 @@ order: 3
 - **Find it:** [ecuad.ca/on-campus/shops-studios/digfab](https://www.ecuad.ca/on-campus/shops-studios/digfab)
 
 ## Vancouver Battlebots
-- **What:** We fight battlebots at the Vancouver Hack Space. NHRL rules.
-
-Visit VHS for more details
-
-
+- **What:** Builds and fights combat robots under NHRL rules. Meets at Vancouver Hack Space
 - **Find it:** [vanhack.ca/](https://vanhack.ca/)
