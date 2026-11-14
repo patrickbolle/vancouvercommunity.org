@@ -352,15 +352,70 @@ document.addEventListener('DOMContentLoaded', function() {
       if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
     }
 
-    // Homepage group search
+    // Homepage group search.
+    // Every word must match, except filler words like "group" or "vancouver". Spaces are ignored ("bird watching" finds Birdwatching),
+    // and words of 5+ letters allow one typo ("frencg" finds French).
+    function searchNormalize(str) {
+      return String(str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+    }
+    function withinOneEdit(a, b) {
+      if (Math.abs(a.length - b.length) > 1) return false;
+      var i = 0, j = 0, edits = 0;
+      while (i < a.length && j < b.length) {
+        if (a[i] === b[j]) { i++; j++; continue; }
+        if (++edits > 1) return false;
+        // Swapped neighbours ("excahnge") count as one typo
+        if (a.length === b.length && a[i] === b[j + 1] && a[i + 1] === b[j]) { i += 2; j += 2; continue; }
+        if (a.length > b.length) i++;
+        else if (b.length > a.length) j++;
+        else { i++; j++; }
+      }
+      return edits + (a.length - i) + (b.length - j) <= 1;
+    }
+    var SEARCH_FILLER = { a: 1, an: 1, the: 1, in: 1, for: 1, of: 1, and: 1, to: 1, near: 1, me: 1, vancouver: 1, group: 1, groups: 1, club: 1, clubs: 1, meetup: 1, meetups: 1, community: 1 };
+    function searchWords(q) {
+      var all = searchNormalize(q).split(' ').filter(Boolean);
+      var kept = all.filter(function(w) { return !SEARCH_FILLER[w]; });
+      return kept.length ? kept : all;
+    }
+    function searchMatches(g, words, joined) {
+      if (!g._hay) {
+        g._hay = searchNormalize(g.n + ' ' + g.d + ' ' + g.c);
+        g._flat = g._hay.replace(/ /g, '');
+        g._words = g._hay.split(' ');
+      }
+      if (joined.length > 3 && g._flat.indexOf(joined) !== -1) return true;
+      // Words match from their start ("run" finds "running", not "brunch")
+      return words.every(function(w) {
+        return g._words.some(function(hw) {
+          if (hw.indexOf(w) === 0) return true;
+          if (w.length < 5) return false;
+          return withinOneEdit(w, hw) || (hw.length > w.length && withinOneEdit(w, hw.slice(0, w.length)));
+        });
+      });
+    }
+    // Best first: the words in the group's name, then in its category, then anywhere
+    function searchScore(g, words) {
+      var name = ' ' + searchNormalize(g.n) + ' ', cat = ' ' + searchNormalize(g.c) + ' ';
+      var score = 0;
+      words.forEach(function(w) {
+        if (name.indexOf(' ' + w) !== -1) score += 2;
+        else if (cat.indexOf(' ' + w) !== -1) score += 1;
+      });
+      return score;
+    }
+
     var groupSearch = document.getElementById('homepage-group-search');
     if (groupSearch && !groupSearch._bound) {
       groupSearch._bound = true;
       var _searchDebounce = null;
       var _trackDebounce = null;
+      var _lastResultCount = 0;
 
       groupSearch.addEventListener('input', function() {
         var q = this.value.trim().toLowerCase();
+        var words = searchWords(q);
+        var joined = searchNormalize(q).replace(/ /g, '');
         var resultsEl = document.getElementById('search-results');
         clearTimeout(_searchDebounce);
         clearTimeout(_trackDebounce);
@@ -374,11 +429,11 @@ document.addEventListener('DOMContentLoaded', function() {
           var resultsEl = document.getElementById('search-results');
           if (!resultsEl) return;
           var groups = window._searchGroups || [];
-          var matches = groups.filter(function(g) {
-            return g.n.toLowerCase().indexOf(q) !== -1 ||
-                   g.d.toLowerCase().indexOf(q) !== -1 ||
-                   g.c.toLowerCase().indexOf(q) !== -1;
-          });
+          var matches = words.length ? groups.filter(function(g) { return searchMatches(g, words, joined); }) : [];
+          matches = matches.map(function(g, i) { return { g: g, s: searchScore(g, words), i: i }; })
+            .sort(function(a, b) { return b.s - a.s || a.i - b.i; })
+            .map(function(m) { return m.g; });
+          _lastResultCount = matches.length;
 
           resultsEl.style.display = '';
 
@@ -406,10 +461,12 @@ document.addEventListener('DOMContentLoaded', function() {
           window.announce(matches.length + (matches.length === 1 ? ' group' : ' groups') + ' found');
         }, 150);
 
-        if (q.length >= 2) {
+        // Track the settled query only (not every keystroke), with its result count,
+        // so zero-result searches show what the directory is missing.
+        if (q.length >= 3) {
           _trackDebounce = setTimeout(function() {
-            if (typeof umami !== 'undefined') umami.track('search', { query: q });
-          }, 800);
+            if (typeof umami !== 'undefined') umami.track('search', { query: q, results: _lastResultCount, empty: _lastResultCount === 0 });
+          }, 2000);
         }
       });
     }

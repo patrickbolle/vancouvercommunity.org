@@ -92,19 +92,23 @@ module.exports = function (eleventyConfig) {
       }).filter((g) => g.name && g.description);
 
       // All listings including venues below the divider (studios, gyms,
-      // spaces with addresses) — used by neighbourhood pages, which want the
-      // physical places too, not just community groups.
+      // spaces with addresses) — used by neighbourhood pages and the homepage
+      // search, which want the physical places too, not just community groups.
       const allSections = body.split(/^## /m).slice(1);
       cat.data.allGroupItems = allSections.map((section) => {
         const name = section.trim().split("\n")[0].trim();
         const whatMatch = section.match(/\*\*What:\*\*\s*(.+)/);
         const findMatch = section.match(/\*\*Find it:\*\*\s*\[.*?\]\((https?:\/\/[^)]+)\)/);
         const whereMatch = section.match(/\*\*Where:\*\*\s*(.+)/);
+        const costMatch = section.match(/\*\*Cost:\*\*\s*(.+)/);
         return {
           name,
           description: whatMatch ? whatMatch[1].trim() : "",
           url: findMatch ? findMatch[1] : "",
           location: whereMatch ? whereMatch[1].trim() : "",
+          free:
+            /\bfree\b/i.test(costMatch ? costMatch[1] : "") ||
+            /\bfree\b/i.test(whatMatch ? whatMatch[1] : ""),
         };
       }).filter(
         (g) =>
