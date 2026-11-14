@@ -77,3 +77,9 @@ added: 2026-11-14
 ## Beautifully Loose Anti-Choir
 - **What:** Martin Reisle's outdoor community choir, learning four-part harmony in 9-week seasons. Sliding scale so money is never a barrier
 - **Find it:** [martinreisle.com](https://www.martinreisle.com/music.html)
+
+## Indonesian Vancouver Nusantara Community Choir (Indo VNC)
+- **What:** A mixed choir that sings and celebrates Indonesian culture. Everyone is welcome; you don't need to be Indonesian or speak Bahasa, and no choir experience is needed. Rehearsals pick up before the Indonesian Independence Day show in August
+- **When:** At least once a month
+- **Where:** Consulate General of Indonesia, 1630 Alberni St
+- **Find it:** [meetup.com/indonesian-vancouver-nusantara-vnc-community-choir](https://www.meetup.com/indonesian-vancouver-nusantara-vnc-community-choir/)
