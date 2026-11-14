@@ -30,6 +30,7 @@ const CATEGORY_FILES = {
   "paddling-sailing": "content/paddling-sailing.md",
   "dance": "content/dance.md",
   "improv-comedy": "content/improv-comedy.md",
+  "public-speaking": "content/public-speaking.md",
   "music-open-mic": "content/music-open-mic.md",
   "choirs": "content/choirs.md",
   "climbing": "content/climbing.md",
