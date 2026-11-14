@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var el = document.getElementById('page-views');
       if (el) {
         var views = window._statsData.pages[href] || 0;
-        el.textContent = views.toLocaleString() + ' views';
+        el.textContent = views ? views.toLocaleString() + ' views' : 'New list';
       }
     }
   }
