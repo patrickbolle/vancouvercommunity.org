@@ -96,6 +96,12 @@ order: 2
 - **What:** Monthly women's wellness brunches. Each month, we focus on a different aspect of women's health by inviting industry experts to come and deliver a workshop so women can be connected to the information they can trust. Brunch is always included, and is a chance to connect with other women from the Vancouver area.
 - **Find it:** [instagram.com/choosewellclub](https://www.instagram.com/choosewellclub/)
 
+## Vancouver Pub Nights
+- **What:** Free, casual pub nights to meet new people at a different pub each time. Stay an hour or all night. Also runs a board game night every second Monday
+- **When:** Every second Thursday, 7pm
+- **Size:** 15,000+ members
+- **Find it:** [meetup.com/vancouver-pub-nights](https://www.meetup.com/vancouver-pub-nights/)
+
 ## {{ mutuals.name }}
 - **What:** A low-pressure way to meet people through books. Get matched into a neighbourhood book club of 4 to 8 people who love the same kinds of books. No cost to sign up; you pay $15 only when your group is ready
 - **Cost:** $15 when your group is ready
