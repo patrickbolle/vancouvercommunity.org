@@ -20,6 +20,7 @@ const CATEGORY_FILES = {
   "social-friend-clubs": "content/social-friend-clubs.md",
   "run-clubs": "content/run-clubs.md",
   "board-games": "content/board-games.md",
+  "tabletop-rpg": "content/tabletop-rpg.md",
   "creative-art": "content/creative-art.md",
   "photography": "content/photography.md",
   "film-cinema": "content/film-cinema.md",
