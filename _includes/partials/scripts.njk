@@ -101,7 +101,7 @@ if (!window._statsLoaded) {
       var pageViews = data.pages[path] || 0;
       var totalViews = data.total.pageviews || 0;
       var pageCounter = document.getElementById("page-views");
-      if (pageCounter) pageCounter.textContent = pageViews.toLocaleString() + " views";
+      if (pageCounter) pageCounter.textContent = pageViews ? pageViews.toLocaleString() + " views" : "New list";
       var totalCounter = document.getElementById("total-views");
       if (totalCounter && totalViews) {
         // An old-web hit counter: one boxed digit per place, padded to seven.

@@ -387,6 +387,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .prose h3 { font-size: var(--fs-base); margin-top: 20px; }
 .prose ul, .prose ol { padding-left: 22px; }
 .prose h2 .anchor { display: none; }
+.category-entries h2 .anchor { display: none; }
 .profile-photo { display: block; width: 120px; border: 1px solid var(--line); margin-bottom: 8px; }
 .panel-body > p + p { margin-top: 8px; }
 
