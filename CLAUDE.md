@@ -46,8 +46,8 @@ The dev server watches all files (markdown, CSS, templates, JS) and auto-rebuild
    order: 1
    ---
    ```
-   Optional: `added: YYYY-MM-DD` (the day the category went live). For 21 days after that date, the homepage lists it in the "Just added" row at the top of the directory, newest first. Set it on every new category.
-4. **Group definitions** live in `_data/groups.json` (labels and ordering). The homepage directory shows each section's 4 biggest categories (by listing count). The rest sit behind a native `<details>` "+N more" toggle.
+   Optional: `added: YYYY-MM-DD` (the day the category went live). For 21 days after that date, the homepage lists it in the "New lists" row at the top of the directory, newest first (6 at most). Set it on every new category.
+4. **Group definitions** live in `_data/groups.json` (labels and ordering). The homepage directory shows each section's 5 biggest categories (by listing count). The rest sit behind a native `<details>` "+N more" toggle.
 
 ## Markdown Content Format
 
@@ -154,7 +154,7 @@ Apply this test: *"If I'm interested in X, can I go here and find my people?"*
 - **Banners** live in `_data/banners.json` (see `_docs`), with images in `static/banners/`. They render through `_includes/partials/banner.njk`, labelled **Ad**, `rel="sponsored"`. Empty banner slots render nothing.
   - `category` — one image banner per category (1200×300), placed after the 4th listing on lists of 6 or more (`midBanner` filter).
   - `sidebar` — one site-wide image banner (600×500) in the right column of category pages, guides, the blog, the homepage, Start here and About.
-- **Category sidebar** shows at most one ad slot. The order is: More in <section>, About this list, newsletter, the ad slot, then the compact mutuals promo (only when the category has no feature mutuals promo). The ad slot is the sidebar banner if one is set. If not, it is the open "Your business here" card, and only when the category has no paid sponsor.
+- **Category sidebar** shows at most one ad slot. The order is: More in <section>, newsletter, the ad slot, then the compact mutuals promo (only when the category has no feature mutuals promo). The ad slot is the sidebar banner if one is set. If not, it is the open "Your business here" card, and only when the category has no paid sponsor.
 - **Pricing** is on `/advertise/` (`content/advertise.njk`): sponsor card $39/mo or $350/yr per category, category banner $25/mo or $250/yr, sidebar banner $79/mo, $25/issue newsletter classified. Homepage and guide-page slots: "ask for pricing". Enquiries come in through the Tally form (tally.so/r/dbaRVr) or by email (vancouver@bolle.co).
 - **Newsletter classifieds** live in `_data/classifieds.json` (see `_docs` in the file). The weekly newsletter script (`scripts/newsletter.mjs`) includes the first active listing per issue, clearly labeled as paid; entries expire via their `until` date. Preview with `node scripts/newsletter.mjs --dry-run`.
 - Community groups are never charged — sponsorships are for businesses (studios, gyms, shops, venues) only, and must pass the same "can I find my people here?" test. Sponsorship never buys, changes, or removes a regular listing.
@@ -214,10 +214,14 @@ Anti-references (explicitly avoid):
 
 ### Visual system (Oct 2026 redesign)
 An early-web bulletin board: forest-green masthead with a pixel-art logo and treeline, plain tabs, boxed panels with title bars, dense underlined link lists, Georgia headings, Verdana text. No web fonts.
-- **Every page uses the same parts**: `.frame.page`, `.page-title`/`.page-lede`, `.columns` (`.col-main` + `.col-side`), `.panel` with `.panel-title` and `.panel-body`, `.link-list`. Don't add one-off page components.
-- **Four type sizes only**: `--fs-sm`, `--fs-base`, `--fs-lg`, `--fs-xl` (rem). Panel padding uses `--panel-pad`, page edges `--gutter`.
-- **Pixel art in three places only**: the logo (`static/favicon.svg`), the masthead treeline, the section icons (`static/icons/`). Hard 1px edges and 2px offset shadows elsewhere; no pixel fonts, no animation.
-- **Accessibility helpers in `src/main.js`**: `a11yDialog.open/close` (makes the page inert and loops Tab — use it for any new modal) and `announce()` (one polite live region for status updates). A build transform adds "(opens in new tab)" to every `target="_blank"` link. Keep visible focus (cream on the masthead), field borders at 3:1 or more, and links underlined.
+- **Every page uses the same parts**: `.frame.page`, `.page-title`/`.page-lede`, `.columns` (`.col-main` + `.col-side`), `.panel` with `.panel-title` and `.panel-body`, `.link-list`. Don't add one-off page components. The columns stack below 900px.
+- **Landmarks**: the footer sits outside `<main>` (main.js swaps only `<main>`, so the footer stays put). Inside `.col-side` (an `<aside>`), use `<section aria-label>` for promos and ads, not another `<aside>`. Breadcrumbs are `<nav aria-label="Breadcrumb"><ol>` with `aria-current="page"` on the last item.
+- **Four type sizes only**: `--fs-sm`, `--fs-base`, `--fs-lg`, `--fs-xl` (rem). Panel padding uses `--panel-pad`, page edges `--gutter`. One exception: on phones (≤760px) text fields use 1rem, so iOS Safari doesn't zoom the page when you tap into them.
+- **Colours are tokens** in `:root` (`--hover-bg`, `--field-border`, `--bevel-*`, `--target-bg`, `--success-line`, `--shadow-overlay` and the rest). Use them; don't type new hex values.
+- **Two button looks**: green bevel (`.form-submit` and friends) for the main action, cream bevel (`.search-btn`, `.sponsor-btn`, `.verify-btn`) for secondary ones. Both live in the "Buttons" block of `src/style.css`. Masthead "Surprise me" is a plain underlined link-button so it doesn't compete with Search.
+- **Allowed early-web touches**: the 2px dither line (`--dither`) under homepage section headings, the "New lists" row and the footer top, and the footer's odometer hit counter. Keep them; don't add more.
+- **Pixel art in three places only**: the logo (`static/favicon.svg`), the masthead treeline, the section icons (`static/icons/`). Hard 1px edges and 2px offset shadows elsewhere. No pixel fonts, and the pixel art stays still. Short fades on dialogs and toasts and quick (0.15–0.2s) hover/focus changes are fine; `prefers-reduced-motion` turns them all off. Don't add motion for its own sake.
+- **Accessibility helpers in `src/main.js`**: `a11yDialog.open/close` (makes the page inert and loops Tab — use it for any new modal) and `announce()` (one polite live region for status updates). A build transform adds "(opens in new tab)" to every `target="_blank"` link. Group card names are the exception: they use `aria-describedby="new-tab-note"` (one hidden note per category page), so the h3 text stays just the name. Keep visible focus (cream on the masthead), field borders at 3:1 or more, and links underlined.
 
 ### Design Principles
 1. **Feel made by a person, not a product team.** Personal voice, slight warmth in the details.

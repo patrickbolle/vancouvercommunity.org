@@ -22,10 +22,12 @@ eleventyExcludeFromCollections: true
 <main id="main-content">
   <div class="cat-hero">
     <div class="start-hero-wrap">
-      <div class="breadcrumbs">
-        <a href="/">Home</a> <span>&rsaquo;</span>
-        <span class="breadcrumb-current">Neighbourhoods</span>
-      </div>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Directory</a></li>
+          <li><span class="breadcrumb-current" aria-current="page">Neighbourhoods</span></li>
+        </ol>
+      </nav>
       <h1 class="cat-title">Community, by neighbourhood</h1>
       <p class="cat-desc">Vancouver is really a stack of neighbourhoods, each with its own social character. Here's where to find your people, block by block.</p>
     </div>
@@ -53,9 +55,8 @@ eleventyExcludeFromCollections: true
     {%- set sponsorData = sponsors.pages %}{% set sponsorSlot = "neighbourhoods" %}{% set sponsorDemo = false %}{% set sponsorPitch = "Reach Vancouver people looking for their next group, class or hangout. Clearly labelled, one sponsor at a time." %}
     {% include "partials/sponsor-card.njk" %}
   </div>
-
-  {% include "partials/footer.njk" %}
 </main>
+{% include "partials/footer.njk" %}
 {% include "partials/scripts.njk" %}
 </body>
 </html>

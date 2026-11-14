@@ -21,6 +21,17 @@
   --error: #b23a48;
   --overlay: rgba(43, 41, 37, 0.45);
 
+  --hover-bg: #faf7ef;      /* hovered rows and cards, open ad boxes */
+  --target-bg: #fbf3d5;     /* the card a #link points at */
+  --field-border: #8a8370;  /* inputs, cream button edges, dropdown edges (3:1 on white) */
+  --success-line: #b9cdb8;  /* Free badge border */
+  /* Bevel edges: green buttons use light/dark, cream buttons use cream/field-border. */
+  --bevel-light: #5f7d6c;
+  --bevel-dark: #142219;
+  --bevel-cream: #fffdf6;
+  /* Dialogs, toasts and dropdowns: the same hard 2px offset as panels, a little darker. */
+  --shadow-overlay: 2px 2px 0 rgba(43, 41, 37, 0.35);
+
   --serif: Georgia, 'Times New Roman', serif;
   --sans: Verdana, Geneva, sans-serif;
   --frame: 980px;
@@ -53,6 +64,17 @@ body {
   overflow-wrap: break-word;
 }
 body.modal-open { overflow: hidden; }
+body.is-navigating { cursor: progress; }
+[aria-busy="true"] { cursor: progress; }
+::placeholder { color: var(--ink-muted); opacity: 1; }
+/* Script moves focus to these after a page swap or a sent form (tabindex="-1").
+   They aren't controls, so no ring. */
+h1[tabindex="-1"]:focus, .edit-success-message:focus, .verify-toast-thanks:focus { outline: none; }
+
+/* Full-page navigations crossfade (the meta tag in head.njk is the older opt-in). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
 
 a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
 a:visited { color: var(--link-visited); }
@@ -62,7 +84,7 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 700; line-height: 1.25;
 
 :focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 /* The default blue ring vanishes on the green masthead (1.3:1); cream is 8.8:1 there. */
-.masthead :focus-visible { outline-color: #f6f4ee; }
+.masthead :focus-visible { outline-color: var(--bg); }
 
 button { font-family: inherit; font-size: inherit; cursor: pointer; }
 
@@ -90,43 +112,46 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   background: url("/treeline.svg") repeat-x left bottom / 384px 24px;
   image-rendering: pixelated;
 }
+/* Order in the bar: wordmark, then (inner pages) search, then Surprise me.
+   The homepage hides the search and shows the tagline instead. */
 .masthead-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 16px;
   min-height: 64px;
 }
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  margin-right: auto;
   font-family: var(--serif);
-  font-size: 1.625rem;
+  font-size: var(--fs-xl);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: #fff;
   text-decoration: none;
 }
 .wordmark:visited, .wordmark:hover { color: #fff; }
-.wordmark { display: inline-flex; align-items: center; }
 .wordmark-mark { width: 32px; height: 32px; flex: none; margin-right: 10px; image-rendering: pixelated; }
 .wordmark-soft { color: #b9cbbf; margin-left: 0.25em; }
 .wordmark-small .wordmark-soft { color: #5a7566; }
 /* Right side of the masthead: what this is, how big it is, and Surprise me. */
 .masthead-side { display: flex; align-items: center; gap: 20px; }
 .masthead-tag { color: #b9cbbf; font-size: var(--fs-sm); white-space: nowrap; }
+/* Surprise me is a quiet underlined link-button, so it doesn't compete with Search. */
 .masthead-surprise {
   flex: none;
-  padding: 6px 12px;
+  padding: 6px 0;
   font-size: var(--fs-base);
-  font-weight: 700;
-  color: var(--masthead);
-  background: #f6f4ee;
-  border: 1px solid;
-  border-color: #fff #8fa597 #8fa597 #fff;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #142219;
+  color: var(--bg);
+  background: none;
+  border: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
-.masthead-surprise:hover { background: #fff; }
-/* Below 900px the tagline would wrap into a block; keep just the wordmark and button. */
+.masthead-surprise:hover { color: #fff; text-decoration-thickness: 2px; }
+.masthead-surprise:active { transform: translate(1px, 1px); }
+/* Below 900px the tagline would wrap into a block; keep just the wordmark and Surprise me. */
 @media (max-width: 899px) { .masthead-tag { display: none; } }
 .tab-short { display: none; }
 
@@ -139,7 +164,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 }
 .tab {
   display: block;
-  padding: 10px 0 9px;
+  padding: 10px 0 8px;
   border: none;
   border-bottom: 2px solid transparent;
   background: none;
@@ -150,7 +175,11 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   text-underline-offset: 2px;
 }
 .tab:visited { color: var(--link); }
-.tab[aria-current="page"] {
+.tab:hover { color: var(--link-hover); }
+/* .tabs-inner scrolls sideways, which clips an outside ring: draw it inside. */
+.tab:focus-visible { outline-offset: -2px; }
+/* aria-current is "page" on the tab's own page and "true" anywhere inside its section. */
+.tab[aria-current], .tabs-more-btn.is-current {
   color: var(--ink);
   font-weight: 700;
   text-decoration: none;
@@ -167,15 +196,27 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 }
 .col-side { display: flex; flex-direction: column; gap: 16px; }
 .col-main .panel + .panel { margin-top: 16px; }
+/* Below 900px a 280px sidebar squeezes the listings; stack the columns instead. */
+@media (max-width: 899px) {
+  .columns { grid-template-columns: minmax(0, 1fr); }
+}
 
 .breadcrumbs { font-size: var(--fs-sm); color: var(--ink-muted); margin-bottom: 12px; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; list-style: none; }
+/* The separator is decoration: the empty alt text after the slash keeps screen readers quiet. */
+.breadcrumbs li + li::before {
+  content: "\203A";
+  content: "\203A" / "";
+  padding: 0 6px;
+}
 .breadcrumb-current { color: var(--ink-2); }
 
+/* Title, lede and guide link sit 8px apart; 16px separates them from the panels. */
 .page-title { font-size: var(--fs-xl); margin-bottom: 8px; }
-.page-lede { font-size: var(--fs-base); color: var(--ink-2); margin-bottom: 14px; }
-.page-guide { margin: -6px 0 14px; }
+.page-lede { font-size: var(--fs-base); color: var(--ink-2); margin-bottom: 16px; }
+.page-lede:has(+ .page-guide) { margin-bottom: 8px; }
+.page-guide { margin-bottom: 16px; }
 .page-guide a { font-weight: 700; }
-.page-actions { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-bottom: 16px; }
 
 .link-button {
   background: none;
@@ -185,8 +226,81 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.link-button:hover { color: var(--link-hover); }
+.link-button:hover:not(:disabled) { color: var(--link-hover); }
 .link-button[aria-pressed="true"] { font-weight: 700; }
+
+/* ---------- Buttons ---------- */
+/* Cream bevel: secondary buttons (search, sponsor, sister site, verify). */
+.search-btn,
+.verify-btn,
+.sponsor a.sponsor-btn, .sponsor a.sponsor-btn:visited, .sponsor span.sponsor-btn,
+.mutuals-promo a.mutuals-promo-btn, .mutuals-promo a.mutuals-promo-btn:visited {
+  display: inline-block;
+  padding: 6px 12px;
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--panel-head);
+  border: 1px solid;
+  border-color: var(--bevel-cream) var(--field-border) var(--field-border) var(--bevel-cream);
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 var(--ink-muted);
+  text-decoration: none;
+  cursor: pointer;
+}
+.search-btn:hover:not(:disabled),
+.verify-btn:hover:not(:disabled),
+.sponsor a.sponsor-btn:hover,
+.mutuals-promo a.mutuals-promo-btn:hover { color: var(--ink); background: var(--hover-bg); }
+
+/* Green bevel: the main action on a page or form. */
+.form-submit, .newsletter-btn, .verify-btn.verify-btn-send, .surprise-go,
+.search-btn.search-btn-primary,
+.group-modal a.group-modal-visit, .group-modal a.group-modal-visit:visited {
+  display: inline-block;
+  padding: 6px 12px;
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: #fff;
+  background: var(--masthead);
+  border: 1px solid;
+  border-color: var(--bevel-light) var(--bevel-dark) var(--bevel-dark) var(--bevel-light);
+  border-radius: 2px;
+  box-shadow: 1px 1px 0 var(--bevel-dark);
+  text-decoration: none;
+  cursor: pointer;
+}
+.form-submit:hover:not(:disabled), .newsletter-btn:hover:not(:disabled),
+.verify-btn.verify-btn-send:hover:not(:disabled), .surprise-go:hover,
+.search-btn.search-btn-primary:hover:not(:disabled),
+.group-modal a.group-modal-visit:hover { color: #fff; background: var(--masthead-deep); }
+.surprise-go:visited { color: #fff; }
+
+/* Pressed: every bevelled button sinks 1px into its shadow. */
+.search-btn:active:not(:disabled), .verify-btn:active:not(:disabled),
+.sponsor a.sponsor-btn:active, .mutuals-promo a.mutuals-promo-btn:active,
+.form-submit:active:not(:disabled), .newsletter-btn:active:not(:disabled), .surprise-go:active,
+.group-modal a.group-modal-visit:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+/* Disabled, or busy sending (aria-disabled keeps the button focusable): faded, no hover. */
+.search-btn:disabled, .verify-btn:disabled,
+.form-submit:disabled, .newsletter-btn:disabled { opacity: 0.5; cursor: default; }
+.form-submit[aria-disabled="true"], .newsletter-btn[aria-disabled="true"],
+.form-submit[aria-disabled="true"]:hover, .newsletter-btn[aria-disabled="true"]:hover {
+  opacity: 0.5;
+  background: var(--masthead);
+  cursor: progress;
+}
+.form-submit[aria-disabled="true"]:active, .newsletter-btn[aria-disabled="true"]:active {
+  transform: none;
+  box-shadow: 1px 1px 0 var(--bevel-dark);
+}
+.search-btn[aria-busy="true"], .verify-btn[aria-busy="true"],
+.form-submit[aria-busy="true"], .newsletter-btn[aria-busy="true"] { cursor: progress; }
 
 /* ---------- Panels ---------- */
 .panel { background: var(--surface); border: 1px solid var(--line); box-shadow: 2px 2px 0 var(--line); }
@@ -197,7 +311,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   color: var(--masthead);
   background: var(--panel-head);
   border-bottom: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 #f7f3ea;
+  box-shadow: inset 0 1px 0 var(--bevel-cream);
   padding: 6px var(--panel-pad);
 }
 .panel-body { padding: 10px var(--panel-pad); }
@@ -205,36 +319,31 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .panel-note { font-size: var(--fs-sm); color: var(--ink-muted); }
 .panel-links { font-size: var(--fs-base); margin-top: 10px; }
 
-.details { width: 100%; border-collapse: collapse; font-size: var(--fs-base); }
-.details th, .details td { text-align: left; padding: 4px 0; vertical-align: top; border-bottom: 1px solid var(--line-soft); }
-.details tr:last-child th, .details tr:last-child td { border-bottom: none; }
-.details th { width: 40%; color: var(--ink-muted); font-weight: 400; }
-
 .link-list { list-style: none; }
 .link-list li { padding: 6px 0; border-bottom: 1px solid var(--line-soft); }
 .link-list li:first-child { padding-top: 0; }
 .link-list li:last-child { border-bottom: none; padding-bottom: 0; }
 .link-list-note { display: block; font-size: var(--fs-sm); color: var(--ink-muted); }
-.link-list-tight li { padding: 3px 0; border-bottom: none; }
+.link-list-tight li { padding: 4px 0; border-bottom: none; }
 
 .count { color: var(--ink-muted); font-size: var(--fs-sm); }
 
 /* ---------- Homepage directory ---------- */
 .search { display: flex; gap: 6px; max-width: 520px; margin-bottom: 6px; }
 .search .search-input { flex: 1; min-width: 0; max-width: none; }
-.search-btn {
-  padding: 6px 14px;
-  font-weight: 700;
-  color: var(--ink);
-  background: #ebe6d9;
-  border: 1px solid;
-  border-color: #fffdf6 #8a8370 #8a8370 #fffdf6;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #6b665d;
-}
-.search-btn:active { transform: translate(1px, 1px); box-shadow: none; }
+.search-btn { flex: none; }
 .search-popular { font-size: var(--fs-sm); color: var(--ink-muted); margin-bottom: 16px; }
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
 .note-photo { float: left; width: 56px; height: 56px; object-fit: cover; margin: 2px 10px 4px 0; border: 1px solid var(--line); image-rendering: auto; }
 .note::after { content: ""; display: block; clear: both; }
 .search-input {
@@ -245,7 +354,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   font-size: var(--fs-base);
   color: var(--ink);
   background: #fff;
-  border: 1px solid #8a8370;
+  border: 1px solid var(--field-border);
   border-radius: 2px;
 }
 
@@ -253,19 +362,22 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
    grows its own row instead of reflowing every section. */
 .directory {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   column-gap: 24px;
   align-items: start;
 }
 .directory-group { padding-bottom: 14px; min-width: 0; }
+/* The 2px dither under section headings (and under "New lists"). */
+.directory-heading, .directory-new {
+  background: var(--dither) left bottom / 4px 2px repeat-x;
+}
 .directory-heading {
   display: flex;
   align-items: center;
   gap: 6px;
   font-size: var(--fs-base);
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   margin-bottom: 4px;
-  background: var(--dither) left bottom / 4px 2px repeat-x;
 }
 .pixel-icon { width: 16px; height: 16px; flex: none; image-rendering: pixelated; }
 .directory-list { list-style: none; }
@@ -296,7 +408,6 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   gap: 4px 12px;
   padding-bottom: 12px;
   margin-bottom: 12px;
-  border-bottom: 1px solid var(--line-soft);
 }
 .directory-new-title { font-size: var(--fs-base); }
 .directory-new-list { display: flex; flex-wrap: wrap; gap: 4px 14px; list-style: none; }
@@ -310,33 +421,40 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   text-decoration: none;
 }
 .search-result-card:last-child { border-bottom: none; }
-.search-result-card:hover { background: #faf7ef; }
+.search-result-card:hover { background: var(--hover-bg); }
+.search-result-card:hover .search-result-name { color: var(--link-hover); }
 .search-result-name { display: block; text-decoration: underline; text-underline-offset: 2px; }
 .search-result-desc { display: block; font-size: var(--fs-base); color: var(--ink-2); }
 .search-result-cat { display: block; font-size: var(--fs-sm); color: var(--ink-muted); }
 .search-empty { padding: 10px var(--panel-pad); background: var(--surface); border: 1px solid var(--line); }
+/* Clickable cards sink to the title-bar colour while pressed. */
+.search-result-card:active, .start-group-card:active,
+.group-card:has(.group-card-link):active { background: var(--panel-head); }
 
 /* ---------- Category entries ---------- */
 .category-entries { padding: 0; }
-.category-entries > p, .category-entries > ul, .category-entries > h2, .category-entries > h3 { padding: 0 var(--panel-pad); }
+.category-entries > p, .category-entries > ul, .category-entries > h3 { padding: 0 var(--panel-pad); }
 .category-entries > p { margin: 10px 0; }
 .category-entries hr { border: none; border-top: 1px solid var(--line); margin: 0; }
 .category-entries > ul { margin: 0 0 10px 20px; }
+/* List footer: share, suggest an edit, view count. */
+.category-entries > .panel-body > :first-child { margin-top: 0; }
 
+/* A note from me inside a list (e.g. runclubs.ca on Run Clubs): the same dashed box as an open ad slot. */
 .category-banner {
   margin: 12px var(--panel-pad);
   padding: 10px 12px;
-  background: #f4f0e3;
-  border: 1px dashed #c9bf9f;
+  background: var(--hover-bg);
+  border: 1px dashed #b9b19c;
   font-size: var(--fs-base);
 }
 
 .group-card {
   position: relative;
-  padding: 14px var(--panel-pad) 15px;
+  padding: 14px var(--panel-pad);
   border-bottom: 1px solid var(--line-soft);
 }
-.group-card:hover { background: #faf7ef; }
+.group-card:hover { background: var(--hover-bg); }
 .group-card-header { display: flex; align-items: baseline; gap: 8px; }
 .group-card h3 { flex: 1; min-width: 0; font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; color: var(--ink); }
 .group-card h3 a { text-decoration-thickness: 1px; text-underline-offset: 3px; }
@@ -348,13 +466,14 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .group-card-badge {
   font-size: var(--fs-sm);
   color: var(--success);
-  border: 1px solid #b9cdb8;
+  border: 1px solid var(--success-line);
   padding: 0 4px;
   line-height: 1.5;
 }
-.group-card-desc { color: var(--ink-2); margin-top: 4px; }
+.group-card-desc { color: var(--ink-2); line-height: 1.6; margin-top: 4px; }
 .group-card-note { margin-top: 4px; font-size: var(--fs-sm); color: var(--ink-muted); }
-.group-card:target { background: #fbf3d5; }
+/* The card a #link points at: a yellow wash plus a 2px rule, so it doesn't rely on colour alone. */
+.group-card:target { background: var(--target-bg); box-shadow: inset 4px 0 0 var(--masthead); }
 
 /* Group card: When and Cost tags, and the Share link.
    Tags are plain boxes like the Free badge, in ink colours.
@@ -373,16 +492,17 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   white-space: nowrap;
   color: var(--ink-muted);
 }
-.group-card-share:hover { color: var(--link-hover); }
+.group-card-share:hover, .group-card-share:visited:hover { color: var(--link-hover); }
 
-/* Section headings inside a category file (e.g. "Venues & Resources") */
+/* Section headings inside a category file (e.g. "Venues & Resources").
+   Same side padding as the cards, so the heading lines up with the names under it. */
 .category-entries > h2 {
   font-family: var(--sans);
   font-size: var(--fs-base);
   background: var(--panel-head);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 6px 10px;
+  padding: 6px var(--panel-pad);
   margin-top: -1px;
 }
 
@@ -395,7 +515,6 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .prose h2 .anchor { display: none; }
 .category-entries h2 .anchor { display: none; }
 .profile-photo { display: block; width: 120px; border: 1px solid var(--line); margin-bottom: 8px; }
-.panel-body > p + p { margin-top: 8px; }
 
 /* ---------- Forms ---------- */
 .form { max-width: 620px; }
@@ -403,7 +522,7 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
 .form-field { margin-bottom: 12px; }
 .form-note { font-size: var(--fs-sm); color: var(--ink-muted); margin-bottom: 10px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.form-label { display: block; font-size: var(--fs-base); font-weight: 700; margin-bottom: 3px; }
+.form-label { display: block; font-size: var(--fs-base); font-weight: 700; margin-bottom: 4px; }
 .form-input, .newsletter-input, .verify-detail-input {
   width: 100%;
   padding: 6px 8px;
@@ -411,32 +530,10 @@ button { font-family: inherit; font-size: inherit; cursor: pointer; }
   font-size: var(--fs-base);
   color: var(--ink);
   background: #fff;
-  border: 1px solid #8a8370;
+  border: 1px solid var(--field-border);
   border-radius: 2px;
 }
 textarea.form-input { resize: vertical; }
-.form-submit, .newsletter-btn, .verify-btn-send, .surprise-go {
-  display: inline-block;
-  padding: 6px 12px;
-  font-family: var(--sans);
-  font-size: var(--fs-base);
-  font-weight: 700;
-  color: #fff;
-  background: var(--masthead);
-  border: 1px solid;
-  border-color: #5f7d6c #142219 #142219 #5f7d6c;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #142219;
-  text-decoration: none;
-  cursor: pointer;
-}
-.form-submit:active, .newsletter-btn:active, .verify-btn-send:active, .surprise-go:active, .masthead-surprise:active {
-  transform: translate(1px, 1px);
-  box-shadow: none;
-}
-.form-submit:hover, .newsletter-btn:hover, .verify-btn-send:hover, .surprise-go:hover { background: var(--masthead-deep); color: #fff; }
-.surprise-go:visited { color: #fff; }
-.form-submit:disabled, .newsletter-btn:disabled { opacity: 0.5; cursor: default; }
 .form-status { display: inline-block; margin-left: 8px; font-size: var(--fs-base); color: var(--ink-muted); }
 .form-status.success { color: var(--success); }
 .form-status.error { color: var(--error); }
@@ -460,6 +557,7 @@ textarea.form-input { resize: vertical; }
 .site-footer-line { margin: 4px 0 10px; }
 .site-footer-links { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 10px; }
 
+/* The hit counter: an old-web odometer, one boxed digit per place. */
 .hit-counter { margin-top: 8px; font-size: var(--fs-sm); }
 .odometer { display: inline-flex; gap: 1px; margin-left: 4px; vertical-align: middle; }
 .odometer span {
@@ -477,6 +575,26 @@ textarea.form-input { resize: vertical; }
   border-color: #000 #4d6b5b #4d6b5b #000;
 }
 
+/* ---------- Dialog close buttons (edit, surprise, group detail) ---------- */
+.edit-modal-close, .surprise-close, .group-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  font-size: var(--fs-lg);
+  line-height: 1;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+}
+.edit-modal-close:hover, .surprise-close:hover, .group-modal-close:hover { color: var(--ink); background: var(--hover-bg); }
+.edit-modal-close:focus-visible, .surprise-close:focus-visible, .group-modal-close:focus-visible { outline-offset: -2px; }
+
 /* ---------- Edit modal ---------- */
 .edit-modal { display: none; position: fixed; inset: 0; background: var(--overlay); z-index: 1000; overflow: auto; }
 .edit-modal-inner {
@@ -485,7 +603,7 @@ textarea.form-input { resize: vertical; }
   margin: 64px auto;
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-overlay);
 }
 .edit-modal-title {
   font-family: var(--sans);
@@ -493,21 +611,12 @@ textarea.form-input { resize: vertical; }
   color: var(--masthead);
   background: var(--panel-head);
   border-bottom: 1px solid var(--line);
-  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  min-height: 36px; /* the close button's height, so the x sits centred in the bar */
+  padding: 6px 40px 6px var(--panel-pad);
 }
 .edit-modal-desc { padding: 10px var(--panel-pad) 0; color: var(--ink-2); }
-.edit-modal-close, .surprise-close {
-  position: absolute;
-  top: 2px;
-  right: 6px;
-  background: none;
-  border: none;
-  font-size: var(--fs-lg);
-  line-height: 1;
-  padding: 4px;
-  color: var(--ink-muted);
-}
-.edit-modal-close:hover, .surprise-close:hover { color: var(--ink); }
 .edit-success-message { color: var(--success); font-weight: 700; margin-bottom: 8px; }
 
 /* ---------- Surprise modal ---------- */
@@ -530,15 +639,16 @@ textarea.form-input { resize: vertical; }
   width: 100%;
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-overlay);
   padding: 16px;
 }
-.surprise-label { font-size: var(--fs-sm); color: var(--ink-muted); }
+.surprise-label { font-size: var(--fs-sm); color: var(--ink-muted); padding-right: 24px; }
 .surprise-name { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; margin: 2px 0 6px; }
 .surprise-desc { color: var(--ink-2); }
 .surprise-cat { font-size: var(--fs-sm); color: var(--ink-muted); margin-top: 6px; }
 .surprise-actions { display: flex; gap: 12px; align-items: center; margin-top: 12px; }
-.surprise-again { background: none; border: none; color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.surprise-again { padding: 6px 0; background: none; border: none; color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+.surprise-again:hover { color: var(--link-hover); }
 
 /* ---------- Verify toast ---------- */
 .verify-toast {
@@ -556,52 +666,71 @@ textarea.form-input { resize: vertical; }
   max-width: 340px;
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-overlay);
   padding: 12px;
 }
 .verify-toast-question { margin-bottom: 10px; }
 .verify-toast-subtitle { font-size: var(--fs-sm); color: var(--ink-muted); margin-bottom: 10px; }
 .verify-toast-actions, .verify-toast-detail { display: flex; gap: 6px; align-items: center; }
-.verify-btn {
-  padding: 4px 10px;
-  font-size: var(--fs-base);
-  color: var(--ink);
-  background: #f3f0e8;
-  border: 1px solid #8a8370;
-  border-radius: 3px;
+/* .verify-btn takes the cream bevel (see Buttons); Send takes the green one. */
+.verify-btn.verify-btn-dismiss {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 0;
+  font-size: var(--fs-lg);
+  font-weight: 400;
+  color: var(--ink-muted);
+  background: none;
+  border: none;
+  box-shadow: none;
 }
-.verify-btn:hover { background: #ebe6d9; }
-.verify-btn-yes { font-weight: 700; }
-.verify-btn-dismiss { margin-left: auto; border: none; background: none; font-size: var(--fs-lg); min-width: 32px; min-height: 32px; }
+.verify-btn.verify-btn-dismiss:hover { color: var(--ink); background: var(--hover-bg); }
+.verify-btn.verify-btn-dismiss:active { transform: none; }
 .verify-toast-thanks { color: var(--success); font-weight: 700; }
 .verify-toast-funnel { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line-soft); font-size: var(--fs-base); }
 
 /* ---------- Small screens ---------- */
 @media (max-width: 760px) {
-  :root { --panel-pad: var(--gutter); }
-  .columns { grid-template-columns: minmax(0, 1fr); }
-  .masthead-inner { min-height: 52px; }
-  .masthead-inner { gap: 10px; }
-  .wordmark { font-size: 1.125rem; }
-  /* Every tab fits without scrolling: shorter labels, Blog lives in the footer,
-     and Surprise me moves up into the masthead. */
-  .tabs-inner { gap: 18px; overflow: visible; }
+  :root { --panel-pad: var(--gutter); --fs-xl: 1.5rem; }
+  .masthead-inner { min-height: 52px; gap: 10px; }
+  .wordmark { font-size: var(--fs-lg); }
+  /* Every tab fits: shorter labels, and Blog and About move under "More".
+     The row may wrap on the narrowest phones rather than run off the edge. */
+  .tabs-inner { flex-wrap: wrap; gap: 0 18px; overflow: visible; }
   .tab-wide-only, .tab-long { display: none; }
   .tab-short { display: inline; }
-  .masthead-tag { display: none; }
+  .tab { padding: 8px 0 6px; }
 
-  .tab { padding: 8px 0 7px; }
-  /* Panels in the main column run edge to edge to give text the full width. */
   /* Roomier tap targets for list links (about 32px rows instead of 22px). */
   .directory-list li, .link-list-tight li { padding: 0; }
   .directory-more > summary { padding: 6px 0; }
   .directory-list a, .directory-new-list a, .link-list-tight a, .link-list a, .site-footer-links a,
-  .page-actions a, .page-actions .link-button, .search-popular a { display: inline-block; padding: 6px 0; }
-  .col-main .panel, .col-main > .mutuals-promo { margin-left: calc(-1 * var(--gutter)); margin-right: calc(-1 * var(--gutter)); border-left: none; border-right: none; }
+  .search-popular a, .post-toc a, .sponsor-open-link { display: inline-block; padding: 6px 0; }
+  /* Links inside running text: vertical padding on an inline box grows the tap area
+     without moving the lines around it. */
+  .breadcrumbs a, .panel-links a, .page-guide a, .group-card-where a { padding-top: 6px; padding-bottom: 6px; }
+  /* Buttons are inline blocks, so a negative margin takes the padding back out of the layout. */
+  .link-button { padding: 6px 0; margin: -6px 0; }
+  .mutuals-promo-compact .mutuals-promo-link { padding: 6px 0; }
+  .group-card-share { padding: 6px 0; }
+
+  /* Panels run edge to edge in both columns to give text the full width. */
+  .col-main .panel, .col-main > .mutuals-promo,
+  .col-side .panel, .col-side > .mutuals-promo {
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+    border-left: none;
+    border-right: none;
+  }
   .search-input { max-width: none; }
-  :root { --fs-xl: 1.5rem; }
+  /* 16px text in fields stops iOS Safari zooming the page on focus
+     (the one place type leaves the four-size scale). */
+  .search-input, .form-input, .newsletter-input, .verify-detail-input { font-size: 1rem; }
   .form-row { grid-template-columns: 1fr; }
-  .group-card-share { padding: 6px 0; } /* bigger tap target */
 }
 
 @media (max-width: 389px) {
@@ -612,7 +741,8 @@ textarea.form-input { resize: vertical; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }
 
 /* =====================================================================
@@ -636,7 +766,7 @@ textarea.form-input { resize: vertical; }
   color: var(--masthead);
   background: var(--panel-head);
   border-bottom: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 #f7f3ea;
+  box-shadow: inset 0 1px 0 var(--bevel-cream);
   padding: 6px var(--panel-pad);
   margin: 0;
 }
@@ -653,20 +783,7 @@ textarea.form-input { resize: vertical; }
 .mutuals-promo-steps li { padding: 2px 0; }
 .mutuals-promo-steps li::marker { font-weight: 700; color: var(--masthead); }
 .mutuals-promo-action { padding: 8px var(--panel-pad) 12px; }
-.mutuals-promo a.mutuals-promo-btn, .mutuals-promo a.mutuals-promo-btn:visited {
-  display: inline-block;
-  padding: 6px 12px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--masthead);
-  border: 1px solid;
-  border-color: #5f7d6c #142219 #142219 #5f7d6c;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #142219;
-  text-decoration: none;
-}
-.mutuals-promo a.mutuals-promo-btn:hover { background: var(--masthead-deep); }
-.mutuals-promo a.mutuals-promo-btn:active { transform: translate(1px, 1px); box-shadow: none; }
+/* The button takes the cream bevel (see Buttons): the sister site is a secondary action. */
 .mutuals-promo-price { font-size: var(--fs-sm); color: var(--ink-muted); margin-top: 6px; }
 /* compact variant: the label (inside the paragraph) becomes the title bar */
 .mutuals-promo-compact { padding-bottom: 12px; }
@@ -679,6 +796,7 @@ textarea.form-input { resize: vertical; }
 .banner { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
 .banner-label { line-height: 1; }
 .banner-link { display: block; border: 1px solid var(--line); box-shadow: 2px 2px 0 var(--line); line-height: 0; }
+.banner-link:hover { border-color: var(--field-border); }
 .banner-link:focus-visible { outline-offset: 2px; }
 .banner img { display: block; width: 100%; height: auto; }
 .banner-wide { margin: 12px 0; }
@@ -694,30 +812,16 @@ textarea.form-input { resize: vertical; }
   color: var(--ink-muted);
   background: var(--surface);
   border: 1px solid var(--line);
-  padding: 0 5px;
+  padding: 0 4px;
   line-height: 1.5;
 }
 .sponsor-name { font-family: var(--serif); font-size: var(--fs-lg); font-weight: 700; line-height: 1.3; }
 .sponsor-where { font-size: var(--fs-sm); color: var(--ink-muted); }
 .sponsor-desc { color: var(--ink-2); margin-top: 4px; }
-/* Cream bevelled button: clearly a button, but quieter than the site's own green ones */
-.sponsor a.sponsor-btn, .sponsor a.sponsor-btn:visited, .sponsor span.sponsor-btn {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 6px 12px;
-  font-weight: 700;
-  color: var(--ink);
-  background: #ebe6d9;
-  border: 1px solid;
-  border-color: #fffdf6 #8a8370 #8a8370 #fffdf6;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #6b665d;
-  text-decoration: none;
-}
-.sponsor a.sponsor-btn:hover { background: #f3efe4; }
-.sponsor a.sponsor-btn:active { transform: translate(1px, 1px); box-shadow: none; }
+/* The button takes the cream bevel (see Buttons): clearly a button, but quieter than green. */
+.sponsor .sponsor-btn { margin-top: 10px; }
 /* Open slot: a dashed "your ad here" box, like a classified waiting to be filled */
-.sponsor-open-box { border: 1px dashed #b9b19c; background: #faf7ef; padding: 10px 12px; }
+.sponsor-open-box { border: 1px dashed #b9b19c; background: var(--hover-bg); padding: 10px 12px; }
 .sponsor-open .sponsor-name { color: var(--ink-2); }
 .sponsor-open-link { display: inline-block; margin-top: 6px; }
 .col-main > .sponsor, .col-main .sponsor + .panel, .page-content > .sponsor, .start-here-content > .sponsor { margin-bottom: 16px; }
@@ -745,28 +849,19 @@ textarea.form-input { resize: vertical; }
   max-width: 440px;
   background: var(--surface);
   border: 1px solid var(--line);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-overlay);
   padding: 14px var(--panel-pad) 16px;
 }
-.group-modal-close {
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  padding: 4px;
-  font-size: 18px;
-  line-height: 1;
-  color: var(--ink-muted);
-  background: none;
-  border: none;
-}
-.group-modal-close:hover { color: var(--ink); }
+/* The dialog itself takes focus on open (tabindex="-1"); its controls keep their rings. */
+.group-modal:focus { outline: none; }
+/* .group-modal-close: see "Dialog close buttons". */
 .group-modal-cat { font-size: var(--fs-sm); }
-.group-modal-name { font-size: var(--fs-lg); margin: 4px 0 6px; padding-right: 24px; }
+.group-modal-name { font-size: var(--fs-lg); margin: 4px 0 6px; padding-right: 32px; }
 .group-modal-badge {
   display: inline-block;
   font-size: var(--fs-sm);
   color: var(--success);
-  border: 1px solid #b9cdb8;
+  border: 1px solid var(--success-line);
   padding: 0 4px;
   margin-bottom: 6px;
 }
@@ -774,19 +869,7 @@ textarea.form-input { resize: vertical; }
 .group-modal-desc { color: var(--ink-2); }
 .group-modal-where { font-size: var(--fs-sm); color: var(--ink-muted); margin-top: 6px; }
 .group-modal-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-top: 12px; }
-.group-modal a.group-modal-visit, .group-modal a.group-modal-visit:visited {
-  display: inline-block;
-  padding: 6px 12px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--masthead);
-  border: 1px solid;
-  border-color: #5f7d6c #142219 #142219 #5f7d6c;
-  border-radius: 2px;
-  box-shadow: 1px 1px 0 #142219;
-  text-decoration: none;
-}
-.group-modal a.group-modal-visit:active { transform: translate(1px, 1px); box-shadow: none; }
+/* .group-modal-visit takes the green bevel (see Buttons). */
 [data-group] { cursor: pointer; }
 
 /* ---------- blog: "On this page" ---------- */
@@ -819,12 +902,13 @@ textarea.form-input { resize: vertical; }
   color: var(--masthead);
   background: var(--panel-head);
   border-bottom: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 #f7f3ea;
+  box-shadow: inset 0 1px 0 var(--bevel-cream);
   padding: 6px var(--panel-pad);
 }
 .start-groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); padding: 4px 0; }
 .start-group-card { display: block; padding: 8px var(--panel-pad); text-decoration: none; }
-.start-group-card:hover { background: #faf7ef; }
+.start-group-card:hover { background: var(--hover-bg); }
+.start-group-card:hover .start-group-name { color: var(--link-hover); }
 .start-group-name { display: block; text-decoration: underline; text-underline-offset: 2px; }
 .start-group-desc { display: block; font-size: var(--fs-sm); color: var(--ink-muted); }
 .start-browse-more { margin: 4px 0 0; }
@@ -885,9 +969,8 @@ a.advertise-cta:active { transform: translate(1px, 1px); box-shadow: none; }
    ===================================================================== */
 
 /* ---------- masthead search: every page but the homepage ---------- */
-/* Order in the bar: wordmark, Surprise me, search. On inner pages the search
-   takes the tagline's place; its placeholder carries the group count. */
-.masthead-side { margin-left: auto; }
+/* On inner pages the search takes the tagline's place, before Surprise me;
+   its placeholder carries the group count. */
 .masthead-search { position: relative; flex: 0 1 300px; min-width: 0; }
 .homepage .masthead-search { display: none; }
 body:not(.homepage) .masthead-tag { display: none; }
@@ -907,8 +990,8 @@ body:not(.homepage) .masthead-tag { display: none; }
   color: var(--ink);
   text-align: left;
   background: var(--surface);
-  border: 1px solid #8a8370;
-  box-shadow: 2px 2px 0 rgba(43, 41, 37, 0.35);
+  border: 1px solid var(--field-border);
+  box-shadow: var(--shadow-overlay);
 }
 .masthead-search-panel[hidden] { display: none; }
 .masthead-search-panel .search-results-grid,
@@ -936,12 +1019,9 @@ body:not(.homepage) .masthead-tag { display: none; }
 /* ---------- "More" tab: Blog and About on phones ---------- */
 .tabs-more { display: none; position: relative; }
 .tabs-more-btn { line-height: inherit; }
-.tabs-more-btn.is-current {
-  color: var(--ink);
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom-color: var(--masthead);
-}
+/* Open: plain ink with a grey rule, so it reads as pressed but not as the current section. */
+.tabs-more-btn[aria-expanded="true"] { color: var(--ink); text-decoration: none; border-bottom-color: var(--field-border); }
+.tabs-more-btn.is-current[aria-expanded="true"] { border-bottom-color: var(--masthead); }
 .tabs-more-menu {
   position: absolute;
   top: 100%;
@@ -951,22 +1031,23 @@ body:not(.homepage) .masthead-tag { display: none; }
   list-style: none;
   padding: 4px 0;
   background: var(--surface);
-  border: 1px solid #8a8370;
-  box-shadow: 2px 2px 0 var(--line);
+  border: 1px solid var(--field-border);
+  box-shadow: var(--shadow-overlay);
 }
 .tabs-more-menu[hidden] { display: none; }
 .tabs-more-menu a { display: block; padding: 8px var(--panel-pad); }
-.tabs-more-menu a[aria-current="page"] { color: var(--ink); font-weight: 700; text-decoration: none; }
+.tabs-more-menu a[aria-current] { color: var(--ink); font-weight: 700; text-decoration: none; }
 
 @media (max-width: 760px) {
   /* The search gets its own row under the wordmark and Surprise me. */
   .masthead-inner { flex-wrap: wrap; row-gap: 8px; }
   body:not(.homepage) .masthead-inner { padding-top: 8px; padding-bottom: 10px; }
-  .masthead-search { flex: 1 1 100%; }
+  /* order moves it under the first row; in the DOM (and Tab order) it still comes before Surprise me. */
+  .masthead-search { flex: 1 1 100%; order: 1; }
   .masthead-search-panel { left: 0; right: 0; width: auto; max-height: 60vh; }
 
   .tabs-more { display: block; }
 }
 @media (max-width: 389px) {
-  .tabs-inner { gap: 14px; }
+  .tabs-inner { column-gap: 14px; }
 }

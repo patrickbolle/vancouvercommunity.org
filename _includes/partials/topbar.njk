@@ -9,13 +9,10 @@
 <header class="masthead">
   <div class="frame masthead-inner">
     <a href="/" class="wordmark" aria-label="Vancouver Community home"><img class="wordmark-mark" src="/favicon.svg" width="32" height="32" alt="">vancouver<span class="wordmark-soft">community</span></a>
-    <div class="masthead-side">
-      <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
-      <button type="button" class="masthead-surprise" onclick="goRandom(this)" aria-haspopup="dialog" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
-    </div>
     {#- Search on every page but the homepage (CSS hides it there: the header
         stays put when main.js swaps pages, so it can't be left out of the markup).
-        Without JS, Enter opens the homepage search with ?q=. #}
+        Without JS, Enter opens the homepage search with ?q=.
+        It comes before Surprise me: search is the main tool, Surprise me the quiet extra. #}
     <div class="masthead-search" id="masthead-search">
       <form class="masthead-search-form" role="search" action="/" method="get">
         <label for="masthead-search-input" class="visually-hidden">Search the directory</label>
@@ -23,6 +20,10 @@
         <button type="submit" class="search-btn masthead-search-btn">Search</button>
       </form>
       <div class="masthead-search-panel" id="masthead-search-panel" role="region" aria-label="Search results" hidden></div>
+    </div>
+    <div class="masthead-side">
+      <p class="masthead-tag">{{ mastheadGroups }} groups &middot; {{ collections.categories.length }} categories &middot; updated {% buildDateHuman %}</p>
+      <button type="button" class="masthead-surprise" onclick="goRandom(this)" aria-haspopup="dialog" data-umami-event="click-surprise" data-umami-event-source="masthead">Surprise me</button>
     </div>
   </div>
 </header>

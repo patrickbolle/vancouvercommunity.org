@@ -62,7 +62,13 @@
 {% include "partials/topbar.njk" %}
 <main id="main-content">
   <div class="frame page">
-    <p class="breadcrumbs"><a href="/blog/">Blog</a> &rsaquo; <span class="breadcrumb-current">{{ date | readableDate }}</span></p>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Directory</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><span class="breadcrumb-current" aria-current="page">{{ title }}</span></li>
+      </ol>
+    </nav>
     <h1 class="page-title">{{ title }}</h1>
     {% if description %}<p class="page-lede">{{ description }}</p>{% endif %}
     <div class="columns">
@@ -105,9 +111,8 @@
     toc.hidden = false;
   })();
   </script>
-
-  {% include "partials/footer.njk" %}
 </main>
+{% include "partials/footer.njk" %}
 {% include "partials/scripts.njk" %}
 </body>
 </html>
