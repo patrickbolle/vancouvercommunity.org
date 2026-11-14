@@ -31,6 +31,17 @@ order: 5
 - **What:** West Coast Swing lessons, socials, conventions. Active community, regional events
 - **Find it:** [bcswingdance.ca](https://bcswingdance.ca/)
 
+## Line Dancing at Community Centres
+- **What:** Weekly line dance classes at city community centres, from beginner to intermediate. Groups at Mount Pleasant, Hillcrest, Kensington, Hastings, Thunderbird and Renfrew Park, some for 45+ or 55+. No partner needed
+- **Where:** Community centres across Vancouver
+- **Find it:** [Vancouver Recreation: line dance](https://anc.ca.apm.activecommunities.com/vancouver/activity/search?onlineSiteId=0&activity_keyword=line%20dance&viewMode=list)
+
+## Vancouver English Country Dance
+- **What:** Regency-era social dancing with live musicians. "No experience needed. All dances taught on the spot." Come alone or with friends
+- **When:** Sundays 4:30–7:30pm, about twice a month (intro at 4:15pm)
+- **Where:** Cambrian Hall, 215 E 17th Ave
+- **Find it:** [vancouverecd.ca](https://www.vancouverecd.ca/)
+
 ---
 
 ## Venues & Spaces
