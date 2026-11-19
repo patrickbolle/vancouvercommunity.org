@@ -1,0 +1,7 @@
+{#- Remi promo strip. Copy and links come from _data/remi.js.
+    Set before including: promoPlacement (utm_campaign / analytics label). -#}
+{%- set remiHref = remi.link(promoPlacement) %}
+<section class="mutuals-promo mutuals-promo-compact remi-promo" aria-label="{{ remi.name }}, things to do by text">
+  <p class="mutuals-promo-text"><span class="mutuals-promo-label">{{ remi.label }}</span> {{ remi.text }}</p>
+  <a href="{{ remiHref }}" class="mutuals-promo-link" target="_blank" rel="noopener" data-umami-event="click-remi" data-umami-event-source="{{ promoPlacement }}">{{ remi.cta }} <span aria-hidden="true">&rarr;</span></a>
+</section>
