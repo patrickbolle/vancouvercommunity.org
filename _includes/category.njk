@@ -166,10 +166,6 @@
           </div>
         </section>
 
-        {#- Right after the listings: Remi, for people who want help actually going. #}
-        {%- set promoPlacement = "category-" + page.fileSlug %}
-        {% include "partials/remi-promo.njk" %}
-
         {#- Listings come first; the contextual mutuals card follows them. #}
         {%- if mutualsCat %}
         {%- set promoVariant = "feature" %}{% set promoPlacement = "category-" + page.fileSlug %}{% set promoHeading = mutualsCat.heading %}{% set promoBody = mutualsCat.lead %}
