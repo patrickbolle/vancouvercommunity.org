@@ -9,3 +9,8 @@ node_modules/
 !static/**
 link-report.md
 link-issue.md
+
+.xdg-config/
+.xdg-data/
+.xdg-cache/
+.wrangler-home/
