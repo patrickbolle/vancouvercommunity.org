@@ -18,6 +18,11 @@ order: 4
 - **What:** Beach cleanups in Vancouver and surrounding areas. Usually 1 per month, more in the summer
 - **Find it:** [www.instagram.com/shorelinerescueclub/](https://www.instagram.com/shorelinerescueclub/)
 
+## Big Brothers of Greater Vancouver
+- **What:** Mentor youth through regular weekly sessions either through playing sports as a group, supporting a child in math, or simply hanging out and enjoying shared activities, there is a program for everyone! Looking for mentors of all genders, 18+ to get involved.
+- **Cost:** Free
+- **Find it:** [bigbrothersvancouver.com/inquire](https://www.bigbrothersvancouver.com/inquire/)
+
 ---
 
 ## Venues & Resources
