@@ -33,6 +33,13 @@ added: 2026-11-14
 - **Where:** Brighouse Branch, 7700 Minoru Gate, Richmond
 - **Find it:** [yourlibrary.bibliocommons.com](https://yourlibrary.bibliocommons.com/v2/events?q=dungeons)
 
+## Vancouver D&D Collective
+- **What:** Weekly D&D Adventurers League games across Kitsilano, New Westminster, Surrey and more, plus online tables. Open to all
+- **When:** Tuesdays, Wednesdays and Saturdays
+- **Cost:** Free
+- **Where:** Kitsilano, New Westminster, Surrey and more
+- **Find it:** [discord.gg/xm5P25XEWg](https://discord.gg/xm5P25XEWg)
+
 ---
 
 ## Venues & Spaces
