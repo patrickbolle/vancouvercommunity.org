@@ -51,7 +51,7 @@ order: 1
 
 ## Urban Sketchers Vancouver
 - **What:** Outdoor sketching meetups around the city. "We show the world, one drawing at a time"
-- **Find it:** [meetup.com/Vancouver-Urban-Sketchers](https://meetup.com/Vancouver-Urban-Sketchers)
+- **Find it:** [facebook.com/groups/urbansketchersvancouver](https://www.facebook.com/groups/urbansketchersvancouver/)
 
 ## Cozy Art Meetup
 - **What:** Relaxed sketching/drawing in cafes downtown. No pressure, chitchat, make friends
